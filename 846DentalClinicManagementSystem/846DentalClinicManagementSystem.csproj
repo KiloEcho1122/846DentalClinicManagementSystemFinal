@@ -131,6 +131,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>846DentalClinicDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\scheduler1.png" />
     <None Include="Resources\icons8-menu-64.png" />
     <None Include="Resources\icons8-menu-24.png" />
     <None Include="Resources\btnreminders.png" />

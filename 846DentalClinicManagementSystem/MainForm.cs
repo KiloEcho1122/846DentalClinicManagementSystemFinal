@@ -33,7 +33,7 @@ namespace _846DentalClinicManagementSystem
         {
             string workingDirectory = Environment.CurrentDirectory;
             string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
-            string videopath = projectDirectory + @"\Resources\Grand-Blue-Episode-6.mp4";
+            string videopath = projectDirectory + @"\Resources\846.mp4";
             this.axWindowsMediaPlayer1.uiMode = "none";
             this.axWindowsMediaPlayer1.settings.setMode("loop", true);
             this.axWindowsMediaPlayer1.Ctlenabled = false;
