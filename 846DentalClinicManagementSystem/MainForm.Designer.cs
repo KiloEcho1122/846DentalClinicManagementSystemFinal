@@ -28,39 +28,132 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.MenuPanel = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
+            this.btn_Reminder = new System.Windows.Forms.Button();
+            this.btn_Home = new System.Windows.Forms.Button();
+            this.btn_Patients = new System.Windows.Forms.Button();
+            this.btn_Accounting = new System.Windows.Forms.Button();
+            this.btn_Scheduler = new System.Windows.Forms.Button();
             this.TopPanel = new System.Windows.Forms.Panel();
             this.BottomPanel = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.CenterPanel = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
+            this.ReminderPanel = new System.Windows.Forms.Panel();
+            this.PatientsPanel = new System.Windows.Forms.Panel();
+            this.AccountingPanel = new System.Windows.Forms.Panel();
             this.SchedulerPanel = new System.Windows.Forms.Panel();
             this.HomePanel = new System.Windows.Forms.Panel();
-            this.AccountingPanel = new System.Windows.Forms.Panel();
-            this.PatientsPanel = new System.Windows.Forms.Panel();
-            this.ReminderPanel = new System.Windows.Forms.Panel();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.MenuPanel.SuspendLayout();
             this.CenterPanel.SuspendLayout();
+            this.HomePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
             // MenuPanel
             // 
             this.MenuPanel.BackColor = System.Drawing.Color.Yellow;
             this.MenuPanel.Controls.Add(this.button6);
-            this.MenuPanel.Controls.Add(this.button5);
-            this.MenuPanel.Controls.Add(this.button2);
-            this.MenuPanel.Controls.Add(this.button3);
-            this.MenuPanel.Controls.Add(this.button4);
-            this.MenuPanel.Controls.Add(this.button1);
+            this.MenuPanel.Controls.Add(this.btn_Reminder);
+            this.MenuPanel.Controls.Add(this.btn_Home);
+            this.MenuPanel.Controls.Add(this.btn_Patients);
+            this.MenuPanel.Controls.Add(this.btn_Accounting);
+            this.MenuPanel.Controls.Add(this.btn_Scheduler);
             this.MenuPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.MenuPanel.Location = new System.Drawing.Point(0, 0);
             this.MenuPanel.Name = "MenuPanel";
             this.MenuPanel.Size = new System.Drawing.Size(311, 733);
             this.MenuPanel.TabIndex = 1;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.OliveDrab;
+            this.button6.Enabled = false;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Lucida Bright", 18F, System.Drawing.FontStyle.Bold);
+            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.Location = new System.Drawing.Point(0, 538);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(311, 121);
+            this.button6.TabIndex = 3;
+            this.button6.UseVisualStyleBackColor = false;
+            // 
+            // btn_Reminder
+            // 
+            this.btn_Reminder.BackColor = System.Drawing.Color.OliveDrab;
+            this.btn_Reminder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Reminder.Font = new System.Drawing.Font("Lucida Bright", 18F, System.Drawing.FontStyle.Bold);
+            this.btn_Reminder.Image = global::_846DentalClinicManagementSystem.Properties.Resources.btnreminders;
+            this.btn_Reminder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Reminder.Location = new System.Drawing.Point(0, 437);
+            this.btn_Reminder.Name = "btn_Reminder";
+            this.btn_Reminder.Size = new System.Drawing.Size(311, 101);
+            this.btn_Reminder.TabIndex = 0;
+            this.btn_Reminder.Text = "REMINDERS";
+            this.btn_Reminder.UseVisualStyleBackColor = false;
+            this.btn_Reminder.Click += new System.EventHandler(this.btn_Reminder_Click);
+            // 
+            // btn_Home
+            // 
+            this.btn_Home.BackColor = System.Drawing.Color.OliveDrab;
+            this.btn_Home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Home.Font = new System.Drawing.Font("Lucida Bright", 18F, System.Drawing.FontStyle.Bold);
+            this.btn_Home.Image = global::_846DentalClinicManagementSystem.Properties.Resources.btnhome;
+            this.btn_Home.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Home.Location = new System.Drawing.Point(0, 47);
+            this.btn_Home.Name = "btn_Home";
+            this.btn_Home.Size = new System.Drawing.Size(311, 93);
+            this.btn_Home.TabIndex = 2;
+            this.btn_Home.Text = "HOME";
+            this.btn_Home.UseVisualStyleBackColor = false;
+            this.btn_Home.Click += new System.EventHandler(this.btn_Home_Click);
+            // 
+            // btn_Patients
+            // 
+            this.btn_Patients.BackColor = System.Drawing.Color.OliveDrab;
+            this.btn_Patients.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Patients.Font = new System.Drawing.Font("Lucida Bright", 18F, System.Drawing.FontStyle.Bold);
+            this.btn_Patients.Image = global::_846DentalClinicManagementSystem.Properties.Resources.btnpatients;
+            this.btn_Patients.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Patients.Location = new System.Drawing.Point(0, 341);
+            this.btn_Patients.Name = "btn_Patients";
+            this.btn_Patients.Size = new System.Drawing.Size(311, 96);
+            this.btn_Patients.TabIndex = 0;
+            this.btn_Patients.Text = "PATIENTS";
+            this.btn_Patients.UseVisualStyleBackColor = false;
+            this.btn_Patients.Click += new System.EventHandler(this.btn_Patients_Click);
+            // 
+            // btn_Accounting
+            // 
+            this.btn_Accounting.BackColor = System.Drawing.Color.OliveDrab;
+            this.btn_Accounting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Accounting.Font = new System.Drawing.Font("Lucida Bright", 18F, System.Drawing.FontStyle.Bold);
+            this.btn_Accounting.Image = global::_846DentalClinicManagementSystem.Properties.Resources.btninventory;
+            this.btn_Accounting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Accounting.Location = new System.Drawing.Point(-2, 241);
+            this.btn_Accounting.Name = "btn_Accounting";
+            this.btn_Accounting.Size = new System.Drawing.Size(313, 100);
+            this.btn_Accounting.TabIndex = 1;
+            this.btn_Accounting.Text = "ACCOUNTING";
+            this.btn_Accounting.UseVisualStyleBackColor = false;
+            this.btn_Accounting.Click += new System.EventHandler(this.btn_Accounting_Click);
+            // 
+            // btn_Scheduler
+            // 
+            this.btn_Scheduler.BackColor = System.Drawing.Color.OliveDrab;
+            this.btn_Scheduler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Scheduler.Font = new System.Drawing.Font("Lucida Bright", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Scheduler.Image = global::_846DentalClinicManagementSystem.Properties.Resources.btnscheduler__2_;
+            this.btn_Scheduler.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Scheduler.Location = new System.Drawing.Point(0, 140);
+            this.btn_Scheduler.Name = "btn_Scheduler";
+            this.btn_Scheduler.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btn_Scheduler.Size = new System.Drawing.Size(311, 101);
+            this.btn_Scheduler.TabIndex = 0;
+            this.btn_Scheduler.Text = "SCHEDULER";
+            this.btn_Scheduler.UseVisualStyleBackColor = false;
+            this.btn_Scheduler.Click += new System.EventHandler(this.btn_Scheduler_Click);
             // 
             // TopPanel
             // 
@@ -80,103 +173,46 @@
             this.BottomPanel.Size = new System.Drawing.Size(1043, 46);
             this.BottomPanel.TabIndex = 3;
             // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.OliveDrab;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Lucida Bright", 18F, System.Drawing.FontStyle.Bold);
-            this.button5.Image = global::_846DentalClinicManagementSystem.Properties.Resources.btnreminders;
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(0, 437);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(311, 101);
-            this.button5.TabIndex = 0;
-            this.button5.Text = "REMINDERS";
-            this.button5.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.OliveDrab;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Lucida Bright", 18F, System.Drawing.FontStyle.Bold);
-            this.button2.Image = global::_846DentalClinicManagementSystem.Properties.Resources.btnhome;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(0, 47);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(311, 93);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "HOME";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.OliveDrab;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Lucida Bright", 18F, System.Drawing.FontStyle.Bold);
-            this.button3.Image = global::_846DentalClinicManagementSystem.Properties.Resources.btnpatients;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(0, 341);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(311, 96);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "PATIENTS";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.OliveDrab;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Lucida Bright", 18F, System.Drawing.FontStyle.Bold);
-            this.button4.Image = global::_846DentalClinicManagementSystem.Properties.Resources.btninventory;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(-2, 241);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(313, 100);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "ACCOUNTING";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.OliveDrab;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Lucida Bright", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = global::_846DentalClinicManagementSystem.Properties.Resources.btnscheduler__2_;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 140);
-            this.button1.Name = "button1";
-            this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button1.Size = new System.Drawing.Size(311, 101);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "SCHEDULER";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // CenterPanel
             // 
             this.CenterPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.CenterPanel.Controls.Add(this.HomePanel);
             this.CenterPanel.Controls.Add(this.ReminderPanel);
             this.CenterPanel.Controls.Add(this.PatientsPanel);
             this.CenterPanel.Controls.Add(this.AccountingPanel);
             this.CenterPanel.Controls.Add(this.SchedulerPanel);
-            this.CenterPanel.Controls.Add(this.HomePanel);
             this.CenterPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CenterPanel.Location = new System.Drawing.Point(311, 46);
             this.CenterPanel.Name = "CenterPanel";
             this.CenterPanel.Size = new System.Drawing.Size(1043, 641);
             this.CenterPanel.TabIndex = 4;
             // 
-            // button6
+            // ReminderPanel
             // 
-            this.button6.BackColor = System.Drawing.Color.OliveDrab;
-            this.button6.Enabled = false;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Lucida Bright", 18F, System.Drawing.FontStyle.Bold);
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(0, 538);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(311, 121);
-            this.button6.TabIndex = 3;
-            this.button6.UseVisualStyleBackColor = false;
+            this.ReminderPanel.BackColor = System.Drawing.Color.Aqua;
+            this.ReminderPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ReminderPanel.Location = new System.Drawing.Point(0, 0);
+            this.ReminderPanel.Name = "ReminderPanel";
+            this.ReminderPanel.Size = new System.Drawing.Size(1043, 641);
+            this.ReminderPanel.TabIndex = 3;
+            // 
+            // PatientsPanel
+            // 
+            this.PatientsPanel.BackColor = System.Drawing.Color.Aquamarine;
+            this.PatientsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PatientsPanel.Location = new System.Drawing.Point(0, 0);
+            this.PatientsPanel.Name = "PatientsPanel";
+            this.PatientsPanel.Size = new System.Drawing.Size(1043, 641);
+            this.PatientsPanel.TabIndex = 2;
+            // 
+            // AccountingPanel
+            // 
+            this.AccountingPanel.BackColor = System.Drawing.Color.Aquamarine;
+            this.AccountingPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AccountingPanel.Location = new System.Drawing.Point(0, 0);
+            this.AccountingPanel.Name = "AccountingPanel";
+            this.AccountingPanel.Size = new System.Drawing.Size(1043, 641);
+            this.AccountingPanel.TabIndex = 1;
             // 
             // SchedulerPanel
             // 
@@ -190,37 +226,20 @@
             // HomePanel
             // 
             this.HomePanel.BackColor = System.Drawing.Color.SpringGreen;
+            this.HomePanel.Controls.Add(this.axWindowsMediaPlayer1);
             this.HomePanel.Location = new System.Drawing.Point(0, 0);
             this.HomePanel.Name = "HomePanel";
             this.HomePanel.Size = new System.Drawing.Size(1058, 641);
             this.HomePanel.TabIndex = 1;
             // 
-            // AccountingPanel
+            // axWindowsMediaPlayer1
             // 
-            this.AccountingPanel.BackColor = System.Drawing.Color.Aquamarine;
-            this.AccountingPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AccountingPanel.Location = new System.Drawing.Point(0, 0);
-            this.AccountingPanel.Name = "AccountingPanel";
-            this.AccountingPanel.Size = new System.Drawing.Size(1043, 641);
-            this.AccountingPanel.TabIndex = 1;
-            // 
-            // PatientsPanel
-            // 
-            this.PatientsPanel.BackColor = System.Drawing.Color.Aquamarine;
-            this.PatientsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PatientsPanel.Location = new System.Drawing.Point(0, 0);
-            this.PatientsPanel.Name = "PatientsPanel";
-            this.PatientsPanel.Size = new System.Drawing.Size(1043, 641);
-            this.PatientsPanel.TabIndex = 2;
-            // 
-            // ReminderPanel
-            // 
-            this.ReminderPanel.BackColor = System.Drawing.Color.Aqua;
-            this.ReminderPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ReminderPanel.Location = new System.Drawing.Point(0, 0);
-            this.ReminderPanel.Name = "ReminderPanel";
-            this.ReminderPanel.Size = new System.Drawing.Size(1043, 641);
-            this.ReminderPanel.TabIndex = 3;
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(38, 40);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(983, 554);
+            this.axWindowsMediaPlayer1.TabIndex = 1;
             // 
             // MainForm
             // 
@@ -235,8 +254,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "846 Dental Clinic";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.MenuPanel.ResumeLayout(false);
             this.CenterPanel.ResumeLayout(false);
+            this.HomePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -244,11 +266,11 @@
         #endregion
 
         private System.Windows.Forms.Panel MenuPanel;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_Reminder;
+        private System.Windows.Forms.Button btn_Home;
+        private System.Windows.Forms.Button btn_Patients;
+        private System.Windows.Forms.Button btn_Accounting;
+        private System.Windows.Forms.Button btn_Scheduler;
         private System.Windows.Forms.Panel TopPanel;
         private System.Windows.Forms.Panel BottomPanel;
         private System.Windows.Forms.Panel CenterPanel;
@@ -258,5 +280,6 @@
         private System.Windows.Forms.Panel PatientsPanel;
         private System.Windows.Forms.Panel AccountingPanel;
         private System.Windows.Forms.Panel HomePanel;
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
     }
 }
