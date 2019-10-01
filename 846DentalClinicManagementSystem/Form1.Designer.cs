@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
@@ -37,6 +38,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.picuser = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.bunifuFormFadeTransition1 = new Bunifu.Framework.UI.BunifuFormFadeTransition(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picuser)).BeginInit();
@@ -150,6 +152,10 @@
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
             // 
+            // bunifuFormFadeTransition1
+            // 
+            this.bunifuFormFadeTransition1.Delay = 1;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -181,6 +187,7 @@
         private System.Windows.Forms.Button btn_Login;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtUsername;
+        private Bunifu.Framework.UI.BunifuFormFadeTransition bunifuFormFadeTransition1;
     }
 }
 

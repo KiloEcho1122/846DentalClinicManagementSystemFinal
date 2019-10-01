@@ -65,6 +65,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAppointment.Designer.cs">
+      <DependentUpon>AddAppointment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +131,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>846DentalClinicDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\icons8-menu-64.png" />
+    <None Include="Resources\icons8-menu-24.png" />
     <None Include="Resources\btnreminders.png" />
     <None Include="Resources\btnpatients.png" />
     <None Include="Resources\btninventory.png" />

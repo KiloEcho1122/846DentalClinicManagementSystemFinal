@@ -29,36 +29,6 @@ namespace _846DentalClinicManagementSystem
             SchedulerPanel.Visible = false;
         }
 
-        private void btn_Home_Click(object sender, EventArgs e)
-        {
-            HidePanels();
-            HomePanel.Visible = true;
-        }
-
-        private void btn_Scheduler_Click(object sender, EventArgs e)
-        {
-            HidePanels();
-            SchedulerPanel.Visible = true;
-        }
-
-        private void btn_Accounting_Click(object sender, EventArgs e)
-        {
-            HidePanels();
-            AccountingPanel.Visible = true;
-        }
-
-        private void btn_Patients_Click(object sender, EventArgs e)
-        {
-            HidePanels();
-            PatientsPanel.Visible = true;
-        }
-
-        private void btn_Reminder_Click(object sender, EventArgs e)
-        {
-            HidePanels();
-            ReminderPanel.Visible = true;
-        }
-
         private void playVideo()
         {
             string workingDirectory = Environment.CurrentDirectory;
@@ -76,6 +46,42 @@ namespace _846DentalClinicManagementSystem
         private void MainForm_Load(object sender, EventArgs e)
         {
             playVideo();
+        }
+
+
+        private void bunifuCustomLabel1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btn_Home_Click(object sender, EventArgs e)
+        {
+            HidePanels();
+            HomePanel.Visible = true;
+        }
+
+        private void btn_Scheduler_Click(object sender, EventArgs e)
+        {
+            HidePanels();
+            SchedulerPanel.Visible = true;
+        }
+
+        private void btn_Patients_Click(object sender, EventArgs e)
+        {
+            HidePanels();
+            PatientsPanel.Visible = true;
+        }
+
+        private void btn_Accounting_Click(object sender, EventArgs e)
+        {
+            HidePanels();
+            AccountingPanel.Visible = true;
+        }
+
+        private void btn_Reminder_Click(object sender, EventArgs e)
+        {
+            HidePanels();
+            ReminderPanel.Visible = true;
         }
     }
 }
