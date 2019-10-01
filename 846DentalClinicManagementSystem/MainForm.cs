@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace _846DentalClinicManagementSystem
 {
-    public partial class Login : Form
+    public partial class MainForm : Form
     {
-        public Login()
+        public MainForm()
         {
             InitializeComponent();
         }
