@@ -20,14 +20,17 @@ namespace _846DentalClinicManagementSystem
         }
 
         String connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Mike\Documents\846DentalClinicManagementSystem\846DentalClinicManagementSystem\846DentalClinicDB.mdf;Integrated Security=True";
-        int SelectedTreatmentID, SelectedDentistID;
-        String LName, MName, FName, StartTime, EndTime, refTime, AppDate, Note;
+        int SelectedTreatmentID = 0, SelectedDentistID = 0, AppNo = 0;
+        String LName, MName, FName, StartTime, EndTime, refTime, AppDate, Note ="";
 
+        private void AddAppointment_Load(object sender, EventArgs e)
+        {
+            LoadDropDownList();
+        }
 
         private void btn_close_Click(object sender, EventArgs e)
         {
             this.Hide();
-
         }
 
         private void btn_add_Click(object sender, EventArgs e)
@@ -42,49 +45,63 @@ namespace _846DentalClinicManagementSystem
             bool isFNameValid = Regex.IsMatch(FName, @"^[a-zA-Z\-]*?$");
             bool isMNameValid = Regex.IsMatch(MName, @"^[a-zA-Z\-]*?$");
 
-
-            //input validation
-            if (((isLNameValid == true) && (string.IsNullOrEmpty(LName) == false)) && 
-                ((isFNameValid == true) && (string.IsNullOrEmpty(FName) == false)) &&
-                ((isMNameValid == true) && (string.IsNullOrEmpty(MName) == false)) &&
-                ((TreatmentDD.selectedIndex >= 0) || (DentistDD.selectedIndex >= 0)) &&
-               // (string.IsNullOrEmpty(StartTime))  == false ) // && 
-               (string.IsNullOrEmpty(AppDate) == false))
-
+            if ((isLNameValid == true) && (string.IsNullOrEmpty(LName) == false))
             {
-                //SqlConnection sqlcon = new SqlConnection(connString);
-                //SqlCommand cmd = new SqlCommand(
-                //    "Insert Into [Appointment] (AppointmentLName,AppointmentFName,AppointmentMName,AppointmentDate,StartTime,EndTime,RefTime,TreatmentID_fk,DentistID_fk,AppointmentNote) " +
-                //    "Values(@LName,@FName,@MName,@Date,@StartTime,@EndTime,@RefTime,@TreatmentID_fk,@DentistID_fk,@Note) ", sqlcon);
-                //cmd.Parameters.Clear();
-                //cmd.Parameters.AddWithValue("@LName", LName);
-                //cmd.Parameters.AddWithValue("@FName", FName);
-                //cmd.Parameters.AddWithValue("@MName", MName);
-                //cmd.Parameters.AddWithValue("@Date", AppDate);
-                //cmd.Parameters.AddWithValue("@StartTime", StartTime);
-                //cmd.Parameters.AddWithValue("@EndTime", EndTime);
-                //cmd.Parameters.AddWithValue("@RefTime", refTime);
-                //cmd.Parameters.AddWithValue("@TreatmentID_fk", SelectedTreatmentID);
-                //cmd.Parameters.AddWithValue("@DentistID_fk", SelectedDentistID);
-                //cmd.Parameters.AddWithValue("@Note",Note);
+               if ((isFNameValid == true) && (string.IsNullOrEmpty(FName) == false))
+                {
+                    if ((isMNameValid == true) && (string.IsNullOrEmpty(MName) == false))
+                    {
+                        if (SelectedTreatmentID > 0)
+                        {
+                            if (SelectedDentistID> 0)
+                            {
+                                if (string.IsNullOrEmpty(StartTime) == false)
+                                {
+                                    if (string.IsNullOrEmpty(AppDate) == false)
+                                    {
+                                        SqlConnection sqlcon = new SqlConnection(connString);
+                                        SqlCommand cmd = new SqlCommand(
+                                            "Insert Into [Appointment] (Appointment_LName,Appointment_FName,Appointment_MName,AppointmentDate,StartTime,EndTime,RefTime,TreatmentID_fk,DentistID_fk,AppointmentNote) " +
+                                            "Values(@LName,@FName,@MName,@Date,@StartTime,@EndTime,@RefTime,@TreatmentID_fk,@DentistID_fk,@Note) ", sqlcon);
+                                        cmd.Parameters.Clear();
+                                        cmd.Parameters.AddWithValue("@LName", LName);
+                                        cmd.Parameters.AddWithValue("@FName", FName);
+                                        cmd.Parameters.AddWithValue("@MName", MName);
+                                        cmd.Parameters.AddWithValue("@Date", AppDate);
+                                        cmd.Parameters.AddWithValue("@StartTime", StartTime);
+                                        cmd.Parameters.AddWithValue("@EndTime", EndTime);
+                                        cmd.Parameters.AddWithValue("@RefTime", refTime);
+                                        cmd.Parameters.AddWithValue("@TreatmentID_fk", SelectedTreatmentID);
+                                        cmd.Parameters.AddWithValue("@DentistID_fk", SelectedDentistID);
+                                        cmd.Parameters.AddWithValue("@Note", Note);
 
-                //sqlcon.Open();
-                //try
-                //{
-                //    cmd.ExecuteNonQuery();
-                //    MessageBox.Show("Insert Successful");
-                //}
-                //catch (Exception ex)
-                //{
-                //    Console.WriteLine(ex.Message);
-                //}
+                                        sqlcon.Open();
+                                        try
+                                        {
+                                            cmd.ExecuteNonQuery();
+                                            MessageBox.Show("Appointment added successfully");
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            Console.WriteLine(ex.Message);
+                                        }
 
-                //sqlcon.Close();
+                                        sqlcon.Close();
 
-                MessageBox.Show("Insert Successful");
-            }
+                                    } else { MessageBox.Show("Invalid Date"); }
 
-            MessageBox.Show("Fail");
+                                } else { MessageBox.Show("Time Overlapse with other appointment"); }
+
+                            } else { MessageBox.Show("Invalid Dentist"); }
+
+                        } else { MessageBox.Show("Invalid Treatment"); }
+                        
+                    }else { MessageBox.Show("Invalid Middle Name"); }
+            
+                } else { MessageBox.Show("Invalid First Name"); }
+
+            }else { MessageBox.Show("Invalid Last Name"); }
+
         }
 
         private void DP_date_onValueChanged(object sender, EventArgs e)
@@ -105,18 +122,6 @@ namespace _846DentalClinicManagementSystem
         
         }
 
-
-        //    public bool IsTimeValidforInsertion { get => isTimeValidforInsertion; set => isTimeValidforInsertion = value; }
-
-        private void AddAppointment_Load(object sender, EventArgs e)
-        {
-
-            LoadDropDownList();
-
-        }
-
-       
-
         private void LoadDropDownList()
         {
             
@@ -130,9 +135,12 @@ namespace _846DentalClinicManagementSystem
                    "SELECT TreatmentType FROM Treatment ORDER BY TreatmentID ASC", sqlcon);
             SqlCommand cmd2 = new SqlCommand(
                   "SELECT CONCAT(DentistFName,' ',DentistMName, ' ', DentistLName) FROM Dentist ORDER BY DentistID ASC", sqlcon);
+            SqlCommand cmd3 = new SqlCommand(
+                  "SELECT AppointmentID FROM Appointment ORDER BY AppointmentID DESC",sqlcon);
 
             adapter1.SelectCommand = cmd;
             adapter2.SelectCommand = cmd2;
+            sqlcon.Open();
             try
             {
                 adapter1.Fill(dt1);
@@ -146,39 +154,37 @@ namespace _846DentalClinicManagementSystem
                 {
                     this.DentistDD.AddItem(dt2.Rows[i][0].ToString());
                 }
+
+               AppNo =  Convert.ToInt32(cmd3.ExecuteScalar()) + 1;
+               txt_AppNo.Text = AppNo.ToString();
+            
             }
 
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
+            sqlcon.Close();
         }
 
         private void TreatmentDD_onItemSelected(object sender, EventArgs e)
         {
-            SelectedTreatmentID = TreatmentDD.selectedIndex + 1;
-            
+            SelectedTreatmentID = TreatmentDD.selectedIndex + 1;  
         }
 
         private void DentistDD_onItemSelected(object sender, EventArgs e)
         {
-           
-                SelectedDentistID = DentistDD.selectedIndex + 1;
-
-          
+            SelectedDentistID = DentistDD.selectedIndex + 1;
         }
 
         private void TimeDD_onItemSelected(object sender, EventArgs e)
         {
-
-            String a = TimeDD.selectedValue;
-
+            String SelectedTime = TimeDD.selectedValue;
             try
             {
-                DateTime timeStartA = DateTime.ParseExact(a, "hh:mm tt", System.Globalization.CultureInfo.CurrentCulture);
+                DateTime timeStartA = DateTime.ParseExact(SelectedTime, "hh:mm tt", System.Globalization.CultureInfo.CurrentCulture);
                 DateTime timeEndA = timeStartA.AddHours(1);
-
-                String b = (timeEndA.ToString("hh:mm tt"));
+                String Addedtime = (timeEndA.ToString("hh:mm tt"));
             
                 if (isValidTime(timeStartA, timeEndA) == false)
                 {
@@ -186,39 +192,24 @@ namespace _846DentalClinicManagementSystem
                     if (CheckOverlapseTimeinDB(timeStartA, timeEndA) == false)
                     {
                         // Not time overlapse
-                        StartTime = a;
-                        EndTime = b;
+                        StartTime = SelectedTime;
+                        EndTime = Addedtime;
                         refTime = (timeStartA.ToString("HH:mm"));
-                    }
-                    else
-                    {
-                        MessageBox.Show("Time Overlapse");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Invalid Time");
-                }
-            }catch(Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+
+                    } else { MessageBox.Show("Time Overlapse with other appointment"); }
+
+                } else { MessageBox.Show("Invalid Time"); }
+            
+            }catch(Exception ex) { Console.WriteLine(ex.Message); }
          
         }
 
 
         private static bool isValidTime(DateTime dtStartA, DateTime dtEndA)
         {
-            //Console.WriteLine(a);
-            //String invalidA = "Mon 16 Jun 8:00 AM 2008";
-            //String invalidB = "Mon 16 Jun 6:0- AM 2008";
-
-            //  DateTime dtStartA = DateTime.ParseExact(a, "hh:mm tt", System.Globalization.CultureInfo.CurrentCulture);
-            // DateTime dtEndA = DateTime.ParseExact(b, "hh:mm tt", System.Globalization.CultureInfo.CurrentCulture);
 
             DateTime timeStart = DateTime.ParseExact("08:00 AM", "hh:mm tt", System.Globalization.CultureInfo.CurrentCulture);
             DateTime timeEnd = DateTime.ParseExact("06:00 PM", "hh:mm tt", System.Globalization.CultureInfo.CurrentCulture);
-
 
             if ((dtEndA.Subtract(dtStartA).TotalMinutes) >= 600 || (dtStartA.Subtract(dtEndA).TotalMinutes) >= 600)
             {
@@ -232,46 +223,44 @@ namespace _846DentalClinicManagementSystem
         private bool CheckOverlapseTimeinDB(DateTime timeStartA, DateTime timeEndA)
         {
 
-
-            //DateTime timeStartA = DateTime.ParseExact(a, "hh:mm tt", System.Globalization.CultureInfo.CurrentCulture);
-            // DateTime timeEndA = DateTime.ParseExact(b, "hh:mm tt", System.Globalization.CultureInfo.CurrentCulture);
-
-
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable dt = new DataTable();
             SqlConnection sqlcon = new SqlConnection(connString);
             SqlCommand cmd = new SqlCommand(
-                   "SELECT StartTime,EndTime FROM Time", sqlcon);
+                   "SELECT StartTime,EndTime FROM Appointment", sqlcon);
 
             cmd.Parameters.Clear();
             adapter.SelectCommand = cmd;
-            adapter.Fill(dt);
 
-            String StartTime, EndTime;
-
-            for (int i = 0; i < dt.Rows.Count; i++)
+            try
             {
+                adapter.Fill(dt);
+                String StartTime, EndTime;
 
-                StartTime = dt.Rows[i][0].ToString();
-                EndTime = dt.Rows[i][1].ToString();
-
-                // Console.WriteLine(StartTime);
-
-                DateTime timeStartB = DateTime.ParseExact(StartTime, "hh:mm tt", System.Globalization.CultureInfo.CurrentCulture);
-                DateTime timeEndB = DateTime.ParseExact(EndTime, "hh:mm tt", System.Globalization.CultureInfo.CurrentCulture);
-
-                if (isOverlapDates(timeStartA, timeEndA, timeStartB, timeEndB) == true)
+                for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    return true;
+
+                    StartTime = dt.Rows[i][0].ToString();
+                    EndTime = dt.Rows[i][1].ToString();
+
+
+                    DateTime timeStartB = DateTime.ParseExact(StartTime, "hh:mm tt", System.Globalization.CultureInfo.CurrentCulture);
+                    DateTime timeEndB = DateTime.ParseExact(EndTime, "hh:mm tt", System.Globalization.CultureInfo.CurrentCulture);
+
+                    if (isOverlapDates(timeStartA, timeEndA, timeStartB, timeEndB) == true)
+                    {
+                        return true;
+                    }
                 }
             }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+ 
             return false;
         }
 
 
         private static bool isOverlapDates(DateTime dtStartA, DateTime dtEndA, DateTime dtStartB, DateTime dtEndB)
         {
-
             return dtStartA < dtEndB && dtStartB < dtEndA;
         }
 

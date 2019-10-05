@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddAppointment));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.TopPanel2 = new System.Windows.Forms.Panel();
@@ -59,7 +59,7 @@
             this.txt_LName = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.txt_FName = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.txt_MName = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
-            this.bunifuCustomTextbox5 = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
+            this.txt_AppNo = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.bunifuCustomLabel11 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.TopPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -154,19 +154,19 @@
             // 
             // bunifuCustomDataGrid1
             // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.bunifuCustomDataGrid1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.bunifuCustomDataGrid1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.bunifuCustomDataGrid1.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.bunifuCustomDataGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.bunifuCustomDataGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bunifuCustomDataGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.bunifuCustomDataGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.bunifuCustomDataGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.bunifuCustomDataGrid1.DoubleBuffered = true;
             this.bunifuCustomDataGrid1.EnableHeadersVisualStyles = false;
@@ -320,7 +320,6 @@
             this.txt_Note.Name = "txt_Note";
             this.txt_Note.Size = new System.Drawing.Size(720, 59);
             this.txt_Note.TabIndex = 18;
-            this.txt_Note.Text = "Note";
             // 
             // btn_add
             // 
@@ -438,7 +437,7 @@
             this.txt_LName.BorderColor = System.Drawing.Color.SeaGreen;
             this.txt_LName.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_LName.ForeColor = System.Drawing.SystemColors.Menu;
-            this.txt_LName.Location = new System.Drawing.Point(233, 211);
+            this.txt_LName.Location = new System.Drawing.Point(233, 208);
             this.txt_LName.Multiline = true;
             this.txt_LName.Name = "txt_LName";
             this.txt_LName.Size = new System.Drawing.Size(164, 35);
@@ -468,18 +467,19 @@
             this.txt_MName.Size = new System.Drawing.Size(182, 35);
             this.txt_MName.TabIndex = 26;
             // 
-            // bunifuCustomTextbox5
+            // txt_AppNo
             // 
-            this.bunifuCustomTextbox5.BackColor = System.Drawing.Color.SeaGreen;
-            this.bunifuCustomTextbox5.BorderColor = System.Drawing.Color.SeaGreen;
-            this.bunifuCustomTextbox5.Enabled = false;
-            this.bunifuCustomTextbox5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomTextbox5.ForeColor = System.Drawing.SystemColors.Menu;
-            this.bunifuCustomTextbox5.Location = new System.Drawing.Point(43, 211);
-            this.bunifuCustomTextbox5.Multiline = true;
-            this.bunifuCustomTextbox5.Name = "bunifuCustomTextbox5";
-            this.bunifuCustomTextbox5.Size = new System.Drawing.Size(164, 35);
-            this.bunifuCustomTextbox5.TabIndex = 28;
+            this.txt_AppNo.BackColor = System.Drawing.Color.SeaGreen;
+            this.txt_AppNo.BorderColor = System.Drawing.Color.SeaGreen;
+            this.txt_AppNo.Enabled = false;
+            this.txt_AppNo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_AppNo.ForeColor = System.Drawing.Color.White;
+            this.txt_AppNo.Location = new System.Drawing.Point(43, 211);
+            this.txt_AppNo.Multiline = true;
+            this.txt_AppNo.Name = "txt_AppNo";
+            this.txt_AppNo.Size = new System.Drawing.Size(164, 35);
+            this.txt_AppNo.TabIndex = 28;
+            this.txt_AppNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // bunifuCustomLabel11
             // 
@@ -497,7 +497,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(790, 515);
-            this.Controls.Add(this.bunifuCustomTextbox5);
+            this.Controls.Add(this.txt_AppNo);
             this.Controls.Add(this.bunifuCustomLabel11);
             this.Controls.Add(this.txt_MName);
             this.Controls.Add(this.txt_FName);
@@ -560,7 +560,7 @@
         private Bunifu.Framework.UI.BunifuFlatButton btn_close;
         private Bunifu.Framework.UI.BunifuFlatButton btn_add;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
-        private WindowsFormsControlLibrary1.BunifuCustomTextbox bunifuCustomTextbox5;
+        private WindowsFormsControlLibrary1.BunifuCustomTextbox txt_AppNo;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel11;
         private WindowsFormsControlLibrary1.BunifuCustomTextbox txt_MName;
         private WindowsFormsControlLibrary1.BunifuCustomTextbox txt_FName;
