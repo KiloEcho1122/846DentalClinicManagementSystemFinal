@@ -102,12 +102,66 @@ namespace _846DentalClinicManagementSystem
             DataTable dt = new DataTable();
             SqlConnection sqlcon = new SqlConnection(connString);
             SqlCommand cmd = new SqlCommand(
-                   "SELECT * FROM [Appointment]  ORDER BY RefTime", sqlcon);
+                   "SELECT	Appointment.AppointmentID AS No, "+
+        "CONCAT(Appointment_FName, ' ', Appointment_MName, ' ', Appointment_LName) AS Patient_Name, " +
+        "CONCAT(DentistFName, ' ', DentistMName, ' ', DentistLName) AS Dentist, "+
+        "TreatmentType AS Treatment, " +
+        "CONCAT(StartTime, ' - ', EndTime) AS Time, AppointmentDate AS Date," +
+        "Appointment.Status, Appointment.AppointmentNote AS Note " +
+        "FROM Appointment INNER JOIN[Dentist] ON DentistID_fk = DentistID "+
+        "INNER JOIN[Treatment] ON TreatmentID_fk = TreatmentID " +
+        "ORDER BY RefTime ASC", sqlcon);
 
             cmd.Parameters.Clear();
             adapter.SelectCommand = cmd;
-            adapter.Fill(dt);
-            Appointment_DataGrid.DataSource = dt;
+            try
+            {
+                adapter.Fill(dt);
+                Appointment_DataGrid.DataSource = dt;
+
+                int totalwidth = 0;
+
+                //  MessageBox.Show(Appointment_DataGrid.ColumnCount.ToString());
+
+
+                for (int i = 0; i < Appointment_DataGrid.ColumnCount - 2; i++)
+                {
+                    Appointment_DataGrid.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
+                }
+
+                if (Appointment_DataGrid.Columns[7].Width > 100)
+                {
+                    Appointment_DataGrid.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                }
+
+                //foreach (DataGridViewColumn column in Appointment_DataGrid.Columns)
+                //{
+                //    totalwidth += column.Width;
+                //   // MessageBox.Show("sasasas"   +column.Width.ToString());
+                //}
+                //MessageBox.Show(totalwidth.ToString());
+                //if (totalwidth < Appointment_DataGrid.Width)
+                //{
+
+
+                //int diff = Appointment_DataGrid.Width - totalwidth;
+               // Appointment_DataGrid.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                 //   MessageBox.Show(totalwidth.ToString());
+
+                //}
+                //else
+                //{
+                //    foreach (DataGridViewColumn column in Appointment_DataGrid.Columns)
+                //    {
+                //        column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                //    }
+
+                //}
+
+            }
+            catch(Exception ex) { Console.WriteLine(ex.Message); }
+           
         }
     }
 }
