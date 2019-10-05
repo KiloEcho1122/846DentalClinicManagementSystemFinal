@@ -78,5 +78,25 @@ namespace _846DentalClinicManagementSystem
 
             }
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (this.Opacity > 0.0)
+            {
+                this.Opacity -= 0.04;
+
+            }
+            else
+            {
+                timer1.Stop();
+                Application.Exit();
+            }
+
+        }
+
+        private void bunifuCustomLabel1_Click(object sender, EventArgs e)
+        {
+            this.timer1.Start();
+        }
     }
 }

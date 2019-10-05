@@ -45,6 +45,8 @@ namespace _846DentalClinicManagementSystem
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            HidePanels();
+            HomePanel.Visible = true;
             playVideo();
         }
 
@@ -82,6 +84,14 @@ namespace _846DentalClinicManagementSystem
         {
             HidePanels();
             ReminderPanel.Visible = true;
+        }
+        
+        private void btn_AddApp_Click(object sender, EventArgs e)
+        {
+   
+            AddAppointment addAppointment = new AddAppointment();
+            addAppointment.Show();
+
         }
     }
 }
