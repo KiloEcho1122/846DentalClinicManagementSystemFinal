@@ -80,6 +80,7 @@ namespace _846DentalClinicManagementSystem
                                         {
                                             cmd.ExecuteNonQuery();
                                             MessageBox.Show("Appointment added successfully");
+                                            this.Hide();
                                         }
                                         catch (Exception ex)
                                         {

@@ -18,6 +18,7 @@ namespace _846DentalClinicManagementSystem
         {
             InitializeComponent();
         }
+        String connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Mike\Documents\846DentalClinicManagementSystem\846DentalClinicManagementSystem\846DentalClinicDB.mdf;Integrated Security=True";
 
 
         private void HidePanels()
@@ -48,6 +49,7 @@ namespace _846DentalClinicManagementSystem
             HidePanels();
             HomePanel.Visible = true;
             playVideo();
+            ShowAppointment();
         }
 
 
@@ -92,6 +94,20 @@ namespace _846DentalClinicManagementSystem
             AddAppointment addAppointment = new AddAppointment();
             addAppointment.Show();
 
+        }
+
+        private void ShowAppointment()
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            SqlConnection sqlcon = new SqlConnection(connString);
+            SqlCommand cmd = new SqlCommand(
+                   "SELECT * FROM [Appointment]  ORDER BY RefTime", sqlcon);
+
+            cmd.Parameters.Clear();
+            adapter.SelectCommand = cmd;
+            adapter.Fill(dt);
+            Appointment_DataGrid.DataSource = dt;
         }
     }
 }
