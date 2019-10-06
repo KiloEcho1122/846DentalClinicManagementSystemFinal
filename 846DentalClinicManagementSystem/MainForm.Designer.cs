@@ -45,10 +45,11 @@
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.CenterPanel = new System.Windows.Forms.Panel();
             this.SchedulerPanel = new System.Windows.Forms.Panel();
+            this.bunifuCustomLabel20 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel19 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel18 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel17 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuDatepicker1 = new Bunifu.Framework.UI.BunifuDatepicker();
+            this.SearchAppByDate_DP = new Bunifu.Framework.UI.BunifuDatepicker();
             this.bunifuCustomLabel12 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel13 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel14 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -86,7 +87,6 @@
             this.AccountingPanel = new System.Windows.Forms.Panel();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.bunifuCustomLabel20 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.MenuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.TopPanel.SuspendLayout();
@@ -357,7 +357,7 @@
             this.SchedulerPanel.Controls.Add(this.bunifuCustomLabel19);
             this.SchedulerPanel.Controls.Add(this.bunifuCustomLabel18);
             this.SchedulerPanel.Controls.Add(this.bunifuCustomLabel17);
-            this.SchedulerPanel.Controls.Add(this.bunifuDatepicker1);
+            this.SchedulerPanel.Controls.Add(this.SearchAppByDate_DP);
             this.SchedulerPanel.Controls.Add(this.bunifuCustomLabel12);
             this.SchedulerPanel.Controls.Add(this.bunifuCustomLabel13);
             this.SchedulerPanel.Controls.Add(this.bunifuCustomLabel14);
@@ -379,6 +379,16 @@
             this.SchedulerPanel.Name = "SchedulerPanel";
             this.SchedulerPanel.Size = new System.Drawing.Size(1354, 670);
             this.SchedulerPanel.TabIndex = 0;
+            // 
+            // bunifuCustomLabel20
+            // 
+            this.bunifuCustomLabel20.AutoSize = true;
+            this.bunifuCustomLabel20.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel20.Location = new System.Drawing.Point(307, 54);
+            this.bunifuCustomLabel20.Name = "bunifuCustomLabel20";
+            this.bunifuCustomLabel20.Size = new System.Drawing.Size(157, 33);
+            this.bunifuCustomLabel20.TabIndex = 20;
+            this.bunifuCustomLabel20.Text = "CALENDAR";
             // 
             // bunifuCustomLabel19
             // 
@@ -410,18 +420,19 @@
             this.bunifuCustomLabel17.TabIndex = 17;
             this.bunifuCustomLabel17.Text = "SEARCH DATE";
             // 
-            // bunifuDatepicker1
+            // SearchAppByDate_DP
             // 
-            this.bunifuDatepicker1.BackColor = System.Drawing.Color.SeaGreen;
-            this.bunifuDatepicker1.BorderRadius = 0;
-            this.bunifuDatepicker1.ForeColor = System.Drawing.Color.White;
-            this.bunifuDatepicker1.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.bunifuDatepicker1.FormatCustom = null;
-            this.bunifuDatepicker1.Location = new System.Drawing.Point(706, 288);
-            this.bunifuDatepicker1.Name = "bunifuDatepicker1";
-            this.bunifuDatepicker1.Size = new System.Drawing.Size(266, 31);
-            this.bunifuDatepicker1.TabIndex = 16;
-            this.bunifuDatepicker1.Value = new System.DateTime(2019, 10, 4, 15, 15, 22, 547);
+            this.SearchAppByDate_DP.BackColor = System.Drawing.Color.SeaGreen;
+            this.SearchAppByDate_DP.BorderRadius = 0;
+            this.SearchAppByDate_DP.ForeColor = System.Drawing.Color.White;
+            this.SearchAppByDate_DP.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.SearchAppByDate_DP.FormatCustom = null;
+            this.SearchAppByDate_DP.Location = new System.Drawing.Point(706, 288);
+            this.SearchAppByDate_DP.Name = "SearchAppByDate_DP";
+            this.SearchAppByDate_DP.Size = new System.Drawing.Size(266, 31);
+            this.SearchAppByDate_DP.TabIndex = 16;
+            this.SearchAppByDate_DP.Value = new System.DateTime(2019, 10, 6, 16, 12, 38, 774);
+            this.SearchAppByDate_DP.onValueChanged += new System.EventHandler(this.SearchAppByDate_DP_onValueChanged);
             // 
             // bunifuCustomLabel12
             // 
@@ -658,6 +669,7 @@
             this.monthCalendar1.Location = new System.Drawing.Point(275, 96);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 1;
+            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
             // 
             // panel7
             // 
@@ -877,16 +889,6 @@
             this.bunifuDragControl1.TargetControl = this.TopPanel;
             this.bunifuDragControl1.Vertical = true;
             // 
-            // bunifuCustomLabel20
-            // 
-            this.bunifuCustomLabel20.AutoSize = true;
-            this.bunifuCustomLabel20.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel20.Location = new System.Drawing.Point(307, 54);
-            this.bunifuCustomLabel20.Name = "bunifuCustomLabel20";
-            this.bunifuCustomLabel20.Size = new System.Drawing.Size(157, 33);
-            this.bunifuCustomLabel20.TabIndex = 20;
-            this.bunifuCustomLabel20.Text = "CALENDAR";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -962,7 +964,7 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel17;
-        private Bunifu.Framework.UI.BunifuDatepicker bunifuDatepicker1;
+        private Bunifu.Framework.UI.BunifuDatepicker SearchAppByDate_DP;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel12;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel13;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel14;

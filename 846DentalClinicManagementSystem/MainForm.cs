@@ -17,8 +17,13 @@ namespace _846DentalClinicManagementSystem
         public MainForm()
         {
             InitializeComponent();
+
         }
+
         String connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Mike\Documents\846DentalClinicManagementSystem\846DentalClinicManagementSystem\846DentalClinicDB.mdf;Integrated Security=True";
+        public static MainForm c1;
+       
+
 
 
         private void HidePanels()
@@ -49,7 +54,8 @@ namespace _846DentalClinicManagementSystem
             HidePanels();
             HomePanel.Visible = true;
             playVideo();
-            ShowAppointment();
+            c1 = this;
+
         }
 
 
@@ -62,12 +68,17 @@ namespace _846DentalClinicManagementSystem
         {
             HidePanels();
             HomePanel.Visible = true;
+            
         }
 
         private void btn_Scheduler_Click(object sender, EventArgs e)
         {
+            DateTime asa = DateTime.Today;
+            string date = asa.ToString("M/d/yyyy");
+            ShowAppointment(date);
             HidePanels();
             SchedulerPanel.Visible = true;
+            
         }
 
         private void btn_Patients_Click(object sender, EventArgs e)
@@ -87,53 +98,58 @@ namespace _846DentalClinicManagementSystem
             HidePanels();
             ReminderPanel.Visible = true;
         }
-        
+
         private void btn_AddApp_Click(object sender, EventArgs e)
         {
-   
+
             AddAppointment addAppointment = new AddAppointment();
             addAppointment.Show();
 
         }
 
-        private void ShowAppointment()
+        public void ShowAppointment(string date)
         {
+            
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable dt = new DataTable();
             SqlConnection sqlcon = new SqlConnection(connString);
             SqlCommand cmd = new SqlCommand(
                    "SELECT	Appointment.AppointmentID AS No, "+
-        "CONCAT(Appointment_FName, ' ', Appointment_MName, ' ', Appointment_LName) AS Patient_Name, " +
-        "CONCAT(DentistFName, ' ', DentistMName, ' ', DentistLName) AS Dentist, "+
-        "TreatmentType AS Treatment, " +
-        "CONCAT(StartTime, ' - ', EndTime) AS Time, AppointmentDate AS Date," +
-        "Appointment.Status, Appointment.AppointmentNote AS Note " +
-        "FROM Appointment INNER JOIN[Dentist] ON DentistID_fk = DentistID "+
-        "INNER JOIN[Treatment] ON TreatmentID_fk = TreatmentID " +
-        "ORDER BY RefTime ASC", sqlcon);
-
+                   "CONCAT(Appointment_FName, ' ', Appointment_MName, ' ', Appointment_LName) AS Patient_Name, " +
+                   "CONCAT(DentistFName, ' ', DentistMName, ' ', DentistLName) AS Dentist, "+
+                   "TreatmentType AS Treatment, " +
+                   "CONCAT(StartTime, ' - ', EndTime) AS Time, AppointmentDate AS Date," +
+                   "Appointment.Status, Appointment.AppointmentNote AS Note " +
+                   "FROM Appointment INNER JOIN[Dentist] ON DentistID_fk = DentistID "+
+                   "INNER JOIN[Treatment] ON TreatmentID_fk = TreatmentID " +
+                   "WHERE AppointmentDate = @date ORDER BY RefTime ASC", sqlcon);
             cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@date", date);
+           
             adapter.SelectCommand = cmd;
             try
             {
                 adapter.Fill(dt);
+            
                 Appointment_DataGrid.DataSource = dt;
 
-                int totalwidth = 0;
-
-                //  MessageBox.Show(Appointment_DataGrid.ColumnCount.ToString());
 
 
-                for (int i = 0; i < Appointment_DataGrid.ColumnCount - 2; i++)
-                {
-                    Appointment_DataGrid.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                //int totalwidth = 0;
 
-                }
+                ////  MessageBox.Show(Appointment_DataGrid.ColumnCount.ToString());
 
-                if (Appointment_DataGrid.Columns[7].Width > 100)
-                {
-                    Appointment_DataGrid.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                }
+
+                //for (int i = 0; i < Appointment_DataGrid.ColumnCount - 2; i++)
+                //{
+                //    Appointment_DataGrid.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
+                //}
+
+                //if (Appointment_DataGrid.Columns[7].Width > 100)
+                //{
+                //    Appointment_DataGrid.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                //}
 
                 //foreach (DataGridViewColumn column in Appointment_DataGrid.Columns)
                 //{
@@ -146,22 +162,35 @@ namespace _846DentalClinicManagementSystem
 
 
                 //int diff = Appointment_DataGrid.Width - totalwidth;
-               // Appointment_DataGrid.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                 //   MessageBox.Show(totalwidth.ToString());
+                // Appointment_DataGrid.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                //   MessageBox.Show(totalwidth.ToString());
 
                 //}
                 //else
                 //{
-                //    foreach (DataGridViewColumn column in Appointment_DataGrid.Columns)
-                //    {
-                //        column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                //    }
+                foreach (DataGridViewColumn column in Appointment_DataGrid.Columns)
+                {
+                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                }
 
                 //}
 
             }
             catch(Exception ex) { Console.WriteLine(ex.Message); }
+        
            
+        }
+
+        private void SearchAppByDate_DP_onValueChanged(object sender, EventArgs e)
+        {
+            string date = SearchAppByDate_DP.Value.ToString("M/d/yyyy");
+            ShowAppointment(date);
+        }
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            string date = monthCalendar1.SelectionRange.Start.ToString("M/d/yyyy");
+            ShowAppointment(date);
         }
     }
 }

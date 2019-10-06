@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
+using System.Globalization;
 
 namespace _846DentalClinicManagementSystem
 {
@@ -21,7 +22,10 @@ namespace _846DentalClinicManagementSystem
 
         String connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Mike\Documents\846DentalClinicManagementSystem\846DentalClinicManagementSystem\846DentalClinicDB.mdf;Integrated Security=True";
         int SelectedTreatmentID = 0, SelectedDentistID = 0, AppNo = 0;
-        String LName, MName, FName, StartTime, EndTime, refTime, AppDate, Note ="";
+        String LName, MName, FName, StartTime, EndTime, refTime, AppDate, Note = "";
+        Boolean isDateChanged = false;
+
+
 
         private void AddAppointment_Load(object sender, EventArgs e)
         {
@@ -36,9 +40,11 @@ namespace _846DentalClinicManagementSystem
         private void btn_add_Click(object sender, EventArgs e)
         {
 
-            LName = txt_LName.Text.Trim();
-            FName = txt_FName.Text.Trim();
-            MName = txt_MName.Text.Trim();
+            TextInfo myTI = new CultureInfo("en-US", false).TextInfo;
+
+            LName = myTI.ToTitleCase(txt_LName.Text.Trim());
+            FName = myTI.ToTitleCase(txt_FName.Text.Trim());
+            MName = myTI.ToTitleCase(txt_MName.Text.Trim());
             Note = txt_Note.Text.Trim();
 
             bool isLNameValid = Regex.IsMatch(LName, @"^[a-zA-Z\-]*?$");
@@ -47,18 +53,28 @@ namespace _846DentalClinicManagementSystem
 
             if ((isLNameValid == true) && (string.IsNullOrEmpty(LName) == false))
             {
-               if ((isFNameValid == true) && (string.IsNullOrEmpty(FName) == false))
+                if ((isFNameValid == true) && (string.IsNullOrEmpty(FName) == false))
                 {
                     if ((isMNameValid == true) && (string.IsNullOrEmpty(MName) == false))
                     {
                         if (SelectedTreatmentID > 0)
                         {
-                            if (SelectedDentistID> 0)
+                            if (SelectedDentistID > 0)
                             {
                                 if (string.IsNullOrEmpty(StartTime) == false)
                                 {
+                                    //check if the DP_date is changed
+                                    // if false: set the AppDate to default value
+                                    // if true : ignore 
+                                    if (isDateChanged == false)
+                                    {
+                                        AppDate = DP_date.Value.ToString("MM/dd/yyyy");
+                                        AppointmentDatePick(AppDate);
+                                    }
+
                                     if (string.IsNullOrEmpty(AppDate) == false)
                                     {
+
                                         SqlConnection sqlcon = new SqlConnection(connString);
                                         SqlCommand cmd = new SqlCommand(
                                             "Insert Into [Appointment] (Appointment_LName,Appointment_FName,Appointment_MName,AppointmentDate,StartTime,EndTime,RefTime,TreatmentID_fk,DentistID_fk,AppointmentNote) " +
@@ -80,6 +96,9 @@ namespace _846DentalClinicManagementSystem
                                         {
                                             cmd.ExecuteNonQuery();
                                             MessageBox.Show("Appointment added successfully");
+                                            DateTime Todaydate = DateTime.Today;
+                                            string date = Todaydate.ToString("M/d/yyyy");
+                                            MainForm.c1.ShowAppointment(date);
                                             this.Hide();
                                         }
                                         catch (Exception ex)
@@ -96,36 +115,57 @@ namespace _846DentalClinicManagementSystem
                             } else { MessageBox.Show("Invalid Dentist"); }
 
                         } else { MessageBox.Show("Invalid Treatment"); }
-                        
-                    }else { MessageBox.Show("Invalid Middle Name"); }
-            
+
+                    } else { MessageBox.Show("Invalid Middle Name"); }
+
                 } else { MessageBox.Show("Invalid First Name"); }
 
-            }else { MessageBox.Show("Invalid Last Name"); }
+            } else { MessageBox.Show("Invalid Last Name"); }
 
         }
 
         private void DP_date_onValueChanged(object sender, EventArgs e)
         {
-            AppDate = DP_date.Value.ToString("MM/dd/yyyy hh:mm:ss tt");
-            DateTime DateApp = DateTime.ParseExact(AppDate, "MM/dd/yyyy hh:mm:ss tt", System.Globalization.CultureInfo.CurrentCulture);
-            DateTime CurrentDate = DateTime.Now;
 
-            // check if Date is not less than current date
-            if (DateApp > CurrentDate)
+            string date = "";
+            date = DP_date.Value.ToString("MM/dd/yyyy");
+            AppointmentDatePick(date);
+            isDateChanged = true;
+        }
+
+        private void AppointmentDatePick(string date)
+        {
+
+
+            if (string.IsNullOrEmpty(StartTime) == true)
             {
-                AppDate = DP_date.Value.ToString("MM/dd/yyyy");
+                Checktime();
             }
             else
             {
-                AppDate = null;
+                AppDate = date + " " + StartTime;
+                MessageBox.Show(AppDate);
+                DateTime DateApp = DateTime.ParseExact(AppDate, "MM/dd/yyyy hh:mm tt", System.Globalization.CultureInfo.CurrentCulture);
+                DateTime CurrentDate = DateTime.Now;
+
+                // check if Date is not less than current date
+                if (DateApp > CurrentDate)
+                {
+                    AppDate = DP_date.Value.ToString("MM/dd/yyyy");
+                }
+                else
+                {
+                    AppDate = "";
+                }
             }
-        
+           
+
+
         }
+
 
         private void LoadDropDownList()
         {
-            
             SqlDataAdapter adapter1 = new SqlDataAdapter();
             SqlDataAdapter adapter2 = new SqlDataAdapter();
             DataTable dt1 = new DataTable();
@@ -137,7 +177,7 @@ namespace _846DentalClinicManagementSystem
             SqlCommand cmd2 = new SqlCommand(
                   "SELECT CONCAT(DentistFName,' ',DentistMName, ' ', DentistLName) FROM Dentist ORDER BY DentistID ASC", sqlcon);
             SqlCommand cmd3 = new SqlCommand(
-                  "SELECT AppointmentID FROM Appointment ORDER BY AppointmentID DESC",sqlcon);
+                  "SELECT AppointmentID FROM Appointment ORDER BY AppointmentID DESC", sqlcon);
 
             adapter1.SelectCommand = cmd;
             adapter2.SelectCommand = cmd2;
@@ -156,9 +196,9 @@ namespace _846DentalClinicManagementSystem
                     this.DentistDD.AddItem(dt2.Rows[i][0].ToString());
                 }
 
-               AppNo =  Convert.ToInt32(cmd3.ExecuteScalar()) + 1;
-               txt_AppNo.Text = AppNo.ToString();
-            
+                AppNo = Convert.ToInt32(cmd3.ExecuteScalar()) + 1;
+                txt_AppNo.Text = AppNo.ToString();
+
             }
 
             catch (Exception ex)
@@ -170,7 +210,7 @@ namespace _846DentalClinicManagementSystem
 
         private void TreatmentDD_onItemSelected(object sender, EventArgs e)
         {
-            SelectedTreatmentID = TreatmentDD.selectedIndex + 1;  
+            SelectedTreatmentID = TreatmentDD.selectedIndex + 1;
         }
 
         private void DentistDD_onItemSelected(object sender, EventArgs e)
@@ -180,13 +220,20 @@ namespace _846DentalClinicManagementSystem
 
         private void TimeDD_onItemSelected(object sender, EventArgs e)
         {
-            String SelectedTime = TimeDD.selectedValue;
+           
+            Checktime();
+
+        }
+
+        private void Checktime()
+        {
             try
             {
+                String SelectedTime = TimeDD.selectedValue;
                 DateTime timeStartA = DateTime.ParseExact(SelectedTime, "hh:mm tt", System.Globalization.CultureInfo.CurrentCulture);
                 DateTime timeEndA = timeStartA.AddHours(1);
                 String Addedtime = (timeEndA.ToString("hh:mm tt"));
-            
+
                 if (isValidTime(timeStartA, timeEndA) == false)
                 {
 
@@ -197,14 +244,15 @@ namespace _846DentalClinicManagementSystem
                         EndTime = Addedtime;
                         refTime = (timeStartA.ToString("HH:mm"));
 
-                    } else { MessageBox.Show("Time Overlapse with other appointment"); }
+                    }
+                    else { MessageBox.Show("Time Overlapse with other appointment"); }
 
-                } else { MessageBox.Show("Invalid Time"); }
-            
-            }catch(Exception ex) { Console.WriteLine(ex.Message); }
-         
+                }
+                else { MessageBox.Show("Invalid Time"); }
+
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
         }
-
 
         private static bool isValidTime(DateTime dtStartA, DateTime dtEndA)
         {
@@ -223,14 +271,17 @@ namespace _846DentalClinicManagementSystem
 
         private bool CheckOverlapseTimeinDB(DateTime timeStartA, DateTime timeEndA)
         {
-
+            String date = DP_date.Value.ToString("MM/dd/yyyy");
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable dt = new DataTable();
             SqlConnection sqlcon = new SqlConnection(connString);
             SqlCommand cmd = new SqlCommand(
-                   "SELECT StartTime,EndTime FROM Appointment", sqlcon);
+                   "SELECT StartTime,EndTime FROM Appointment WHERE DentistID_fk = @DentistID_fk AND AppointmentDate =@date", sqlcon);
 
+            
             cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@DentistID_fk", SelectedDentistID);
+            cmd.Parameters.AddWithValue("@date", date);
             adapter.SelectCommand = cmd;
 
             try
