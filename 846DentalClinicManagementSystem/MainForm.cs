@@ -22,9 +22,13 @@ namespace _846DentalClinicManagementSystem
 
         String connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Mike\Documents\846DentalClinicManagementSystem\846DentalClinicManagementSystem\846DentalClinicDB.mdf;Integrated Security=True";
         public static MainForm c1;
-       
+      //  public static Boolean isEdit = false;
+     //   public static Boolean isAdd = false;
+        public int AppointmentID =0;
+        
 
-
+        public Boolean isEdit { get; set; }
+        public Boolean isAdd { get; set; }
 
         private void HidePanels()
         {
@@ -54,6 +58,9 @@ namespace _846DentalClinicManagementSystem
             HidePanels();
             HomePanel.Visible = true;
             playVideo();
+            DateTime asa = DateTime.Today;
+            string date = asa.ToString("M/d/yyyy");
+            ShowAppointment(date);
             c1 = this;
 
         }
@@ -73,9 +80,7 @@ namespace _846DentalClinicManagementSystem
 
         private void btn_Scheduler_Click(object sender, EventArgs e)
         {
-            DateTime asa = DateTime.Today;
-            string date = asa.ToString("M/d/yyyy");
-            ShowAppointment(date);
+            
             HidePanels();
             SchedulerPanel.Visible = true;
             
@@ -101,10 +106,10 @@ namespace _846DentalClinicManagementSystem
 
         private void btn_AddApp_Click(object sender, EventArgs e)
         {
-
             AddAppointment addAppointment = new AddAppointment();
+            isAdd = true;
             addAppointment.Show();
-
+           
         }
 
         public void ShowAppointment(string date)
@@ -134,51 +139,19 @@ namespace _846DentalClinicManagementSystem
                 Appointment_DataGrid.DataSource = dt;
 
 
+                Appointment_DataGrid.Columns[0].Width = 25;
+                Appointment_DataGrid.Columns[1].Width = 165;
+                Appointment_DataGrid.Columns[2].Width = 150;
+                Appointment_DataGrid.Columns[3].Width = 150;
+                Appointment_DataGrid.Columns[4].Width = 140;
+                Appointment_DataGrid.Columns[5].Width = 70;
+                Appointment_DataGrid.Columns[6].Width = 70;
 
-                //int totalwidth = 0;
-
-                ////  MessageBox.Show(Appointment_DataGrid.ColumnCount.ToString());
-
-
-                //for (int i = 0; i < Appointment_DataGrid.ColumnCount - 2; i++)
-                //{
-                //    Appointment_DataGrid.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-
-                //}
-
-                //if (Appointment_DataGrid.Columns[7].Width > 100)
-                //{
-                //    Appointment_DataGrid.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                //}
-
-                //foreach (DataGridViewColumn column in Appointment_DataGrid.Columns)
-                //{
-                //    totalwidth += column.Width;
-                //   // MessageBox.Show("sasasas"   +column.Width.ToString());
-                //}
-                //MessageBox.Show(totalwidth.ToString());
-                //if (totalwidth < Appointment_DataGrid.Width)
-                //{
-
-
-                //int diff = Appointment_DataGrid.Width - totalwidth;
-                // Appointment_DataGrid.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                //   MessageBox.Show(totalwidth.ToString());
-
-                //}
-                //else
-                //{
-                foreach (DataGridViewColumn column in Appointment_DataGrid.Columns)
-                {
-                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                }
-
-                //}
+            
 
             }
             catch(Exception ex) { Console.WriteLine(ex.Message); }
-        
-           
+
         }
 
         private void SearchAppByDate_DP_onValueChanged(object sender, EventArgs e)
@@ -192,5 +165,48 @@ namespace _846DentalClinicManagementSystem
             string date = monthCalendar1.SelectionRange.Start.ToString("M/d/yyyy");
             ShowAppointment(date);
         }
+
+        private void Appointment_DataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (Appointment_DataGrid.SelectedRows.Count > 0) // make sure user select at least 1 row 
+            {
+                string Patient = Appointment_DataGrid.SelectedRows[0].Cells[1].Value + string.Empty;
+                string Dentist = Appointment_DataGrid.SelectedRows[0].Cells[2].Value + string.Empty;
+                string Treatment = Appointment_DataGrid.SelectedRows[0].Cells[3].Value + string.Empty;
+                string Time = Appointment_DataGrid.SelectedRows[0].Cells[4].Value + string.Empty;
+                string Date = Appointment_DataGrid.SelectedRows[0].Cells[5].Value + string.Empty;
+                string Status = Appointment_DataGrid.SelectedRows[0].Cells[6].Value + string.Empty;
+                string Note = Appointment_DataGrid.SelectedRows[0].Cells[7].Value + string.Empty;
+
+
+                DateTime dateTime = DateTime.ParseExact(Date, "M/d/yyyy hh:mm:ss tt", System.Globalization.CultureInfo.CurrentCulture);
+                Date = dateTime.ToString("dddd, dd MMMM yyyy");
+
+                lbl_Patient.Text = Patient;
+                lbl_Dentist.Text = Dentist;
+                lbl_treatment.Text = Treatment;
+                lbl_Time.Text = Time;
+                lbl_Status.Text = Status;
+                lbl_Note.Text = Note;
+                lbl_Date.Text = Date;
+
+                AppointmentID = Convert.ToInt32(Appointment_DataGrid.SelectedRows[0].Cells[0].Value);
+
+            }
+        }
+
+        private void btn_EditApp_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(AppointmentID.ToString());
+            if (AppointmentID > 0)
+            {
+                AddAppointment addAppointment = new AddAppointment();
+                isEdit = true;
+                addAppointment.Show();
+               
+            }
+        }
+
+    
     }
 }

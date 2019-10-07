@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddAppointment));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.TopPanel2 = new System.Windows.Forms.Panel();
-            this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.txt_formHeader = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.bunifuTextbox1 = new Bunifu.Framework.UI.BunifuTextbox();
-            this.bunifuThinButton21 = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.txt_PatientSearch = new Bunifu.Framework.UI.BunifuTextbox();
+            this.btn_PatientSearch = new Bunifu.Framework.UI.BunifuThinButton2();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomDataGrid1 = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.TreatmentDD = new Bunifu.Framework.UI.BunifuDropdown();
@@ -74,7 +74,7 @@
             // TopPanel2
             // 
             this.TopPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
-            this.TopPanel2.Controls.Add(this.bunifuCustomLabel5);
+            this.TopPanel2.Controls.Add(this.txt_formHeader);
             this.TopPanel2.Controls.Add(this.pictureBox5);
             this.TopPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopPanel2.Location = new System.Drawing.Point(0, 0);
@@ -82,16 +82,16 @@
             this.TopPanel2.Size = new System.Drawing.Size(790, 45);
             this.TopPanel2.TabIndex = 0;
             // 
-            // bunifuCustomLabel5
+            // txt_formHeader
             // 
-            this.bunifuCustomLabel5.AutoSize = true;
-            this.bunifuCustomLabel5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel5.ForeColor = System.Drawing.Color.Silver;
-            this.bunifuCustomLabel5.Location = new System.Drawing.Point(53, 10);
-            this.bunifuCustomLabel5.Name = "bunifuCustomLabel5";
-            this.bunifuCustomLabel5.Size = new System.Drawing.Size(233, 22);
-            this.bunifuCustomLabel5.TabIndex = 3;
-            this.bunifuCustomLabel5.Text = "Add New Appointments";
+            this.txt_formHeader.AutoSize = true;
+            this.txt_formHeader.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_formHeader.ForeColor = System.Drawing.Color.Silver;
+            this.txt_formHeader.Location = new System.Drawing.Point(53, 10);
+            this.txt_formHeader.Name = "txt_formHeader";
+            this.txt_formHeader.Size = new System.Drawing.Size(233, 22);
+            this.txt_formHeader.TabIndex = 3;
+            this.txt_formHeader.Text = "Add New Appointments";
             // 
             // pictureBox5
             // 
@@ -103,43 +103,43 @@
             this.pictureBox5.TabIndex = 2;
             this.pictureBox5.TabStop = false;
             // 
-            // bunifuTextbox1
+            // txt_PatientSearch
             // 
-            this.bunifuTextbox1.BackColor = System.Drawing.Color.Silver;
-            this.bunifuTextbox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuTextbox1.BackgroundImage")));
-            this.bunifuTextbox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuTextbox1.ForeColor = System.Drawing.Color.SeaGreen;
-            this.bunifuTextbox1.Icon = ((System.Drawing.Image)(resources.GetObject("bunifuTextbox1.Icon")));
-            this.bunifuTextbox1.Location = new System.Drawing.Point(40, 68);
-            this.bunifuTextbox1.Name = "bunifuTextbox1";
-            this.bunifuTextbox1.Size = new System.Drawing.Size(267, 36);
-            this.bunifuTextbox1.TabIndex = 3;
-            this.bunifuTextbox1.text = "Patient Name";
+            this.txt_PatientSearch.BackColor = System.Drawing.Color.Silver;
+            this.txt_PatientSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txt_PatientSearch.BackgroundImage")));
+            this.txt_PatientSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.txt_PatientSearch.ForeColor = System.Drawing.Color.SeaGreen;
+            this.txt_PatientSearch.Icon = ((System.Drawing.Image)(resources.GetObject("txt_PatientSearch.Icon")));
+            this.txt_PatientSearch.Location = new System.Drawing.Point(40, 68);
+            this.txt_PatientSearch.Name = "txt_PatientSearch";
+            this.txt_PatientSearch.Size = new System.Drawing.Size(267, 36);
+            this.txt_PatientSearch.TabIndex = 0;
+            this.txt_PatientSearch.text = "Patient Name";
             // 
-            // bunifuThinButton21
+            // btn_PatientSearch
             // 
-            this.bunifuThinButton21.ActiveBorderThickness = 1;
-            this.bunifuThinButton21.ActiveCornerRadius = 20;
-            this.bunifuThinButton21.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.ActiveForecolor = System.Drawing.Color.White;
-            this.bunifuThinButton21.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.BackColor = System.Drawing.SystemColors.Control;
-            this.bunifuThinButton21.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton21.BackgroundImage")));
-            this.bunifuThinButton21.ButtonText = "Search";
-            this.bunifuThinButton21.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuThinButton21.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuThinButton21.ForeColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.IdleBorderThickness = 1;
-            this.bunifuThinButton21.IdleCornerRadius = 20;
-            this.bunifuThinButton21.IdleFillColor = System.Drawing.Color.White;
-            this.bunifuThinButton21.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.Location = new System.Drawing.Point(324, 63);
-            this.bunifuThinButton21.Margin = new System.Windows.Forms.Padding(5);
-            this.bunifuThinButton21.Name = "bunifuThinButton21";
-            this.bunifuThinButton21.Size = new System.Drawing.Size(94, 41);
-            this.bunifuThinButton21.TabIndex = 4;
-            this.bunifuThinButton21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_PatientSearch.ActiveBorderThickness = 1;
+            this.btn_PatientSearch.ActiveCornerRadius = 20;
+            this.btn_PatientSearch.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btn_PatientSearch.ActiveForecolor = System.Drawing.Color.White;
+            this.btn_PatientSearch.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btn_PatientSearch.BackColor = System.Drawing.SystemColors.Control;
+            this.btn_PatientSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_PatientSearch.BackgroundImage")));
+            this.btn_PatientSearch.ButtonText = "Search";
+            this.btn_PatientSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_PatientSearch.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_PatientSearch.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btn_PatientSearch.IdleBorderThickness = 1;
+            this.btn_PatientSearch.IdleCornerRadius = 20;
+            this.btn_PatientSearch.IdleFillColor = System.Drawing.Color.White;
+            this.btn_PatientSearch.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btn_PatientSearch.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btn_PatientSearch.Location = new System.Drawing.Point(324, 63);
+            this.btn_PatientSearch.Margin = new System.Windows.Forms.Padding(5);
+            this.btn_PatientSearch.Name = "btn_PatientSearch";
+            this.btn_PatientSearch.Size = new System.Drawing.Size(94, 41);
+            this.btn_PatientSearch.TabIndex = 1;
+            this.btn_PatientSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // bunifuCustomLabel1
             // 
@@ -154,19 +154,19 @@
             // 
             // bunifuCustomDataGrid1
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.bunifuCustomDataGrid1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.bunifuCustomDataGrid1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.bunifuCustomDataGrid1.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.bunifuCustomDataGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.bunifuCustomDataGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bunifuCustomDataGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.bunifuCustomDataGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.bunifuCustomDataGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.bunifuCustomDataGrid1.DoubleBuffered = true;
             this.bunifuCustomDataGrid1.EnableHeadersVisualStyles = false;
@@ -190,7 +190,7 @@
             this.TreatmentDD.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
             this.TreatmentDD.selectedIndex = -1;
             this.TreatmentDD.Size = new System.Drawing.Size(162, 53);
-            this.TreatmentDD.TabIndex = 7;
+            this.TreatmentDD.TabIndex = 5;
             this.TreatmentDD.onItemSelected += new System.EventHandler(this.TreatmentDD_onItemSelected);
             // 
             // DentistDD
@@ -205,7 +205,7 @@
             this.DentistDD.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
             this.DentistDD.selectedIndex = -1;
             this.DentistDD.Size = new System.Drawing.Size(162, 53);
-            this.DentistDD.TabIndex = 8;
+            this.DentistDD.TabIndex = 6;
             this.DentistDD.onItemSelected += new System.EventHandler(this.DentistDD_onItemSelected);
             // 
             // TimeDD
@@ -237,7 +237,7 @@
             this.TimeDD.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
             this.TimeDD.selectedIndex = -1;
             this.TimeDD.Size = new System.Drawing.Size(162, 53);
-            this.TimeDD.TabIndex = 9;
+            this.TimeDD.TabIndex = 7;
             this.TimeDD.onItemSelected += new System.EventHandler(this.TimeDD_onItemSelected);
             // 
             // DP_date
@@ -250,8 +250,8 @@
             this.DP_date.Location = new System.Drawing.Point(583, 289);
             this.DP_date.Name = "DP_date";
             this.DP_date.Size = new System.Drawing.Size(182, 53);
-            this.DP_date.TabIndex = 10;
-            this.DP_date.Value = new System.DateTime(2019, 10, 6, 0, 0, 0, 0);
+            this.DP_date.TabIndex = 8;
+            this.DP_date.Value = System.DateTime.Now;
             this.DP_date.onValueChanged += new System.EventHandler(this.DP_date_onValueChanged);
             // 
             // bunifuCustomLabel2
@@ -319,7 +319,7 @@
             this.txt_Note.Multiline = true;
             this.txt_Note.Name = "txt_Note";
             this.txt_Note.Size = new System.Drawing.Size(720, 59);
-            this.txt_Note.TabIndex = 18;
+            this.txt_Note.TabIndex = 9;
             // 
             // btn_add
             // 
@@ -349,7 +349,7 @@
             this.btn_add.OnHoverTextColor = System.Drawing.Color.White;
             this.btn_add.selected = false;
             this.btn_add.Size = new System.Drawing.Size(97, 38);
-            this.btn_add.TabIndex = 19;
+            this.btn_add.TabIndex = 11;
             this.btn_add.Text = "Add";
             this.btn_add.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_add.Textcolor = System.Drawing.Color.White;
@@ -384,7 +384,7 @@
             this.btn_close.OnHoverTextColor = System.Drawing.Color.White;
             this.btn_close.selected = false;
             this.btn_close.Size = new System.Drawing.Size(97, 38);
-            this.btn_close.TabIndex = 20;
+            this.btn_close.TabIndex = 10;
             this.btn_close.Text = "Close";
             this.btn_close.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_close.Textcolor = System.Drawing.Color.White;
@@ -441,7 +441,7 @@
             this.txt_LName.Multiline = true;
             this.txt_LName.Name = "txt_LName";
             this.txt_LName.Size = new System.Drawing.Size(164, 35);
-            this.txt_LName.TabIndex = 24;
+            this.txt_LName.TabIndex = 2;
             // 
             // txt_FName
             // 
@@ -453,7 +453,7 @@
             this.txt_FName.Multiline = true;
             this.txt_FName.Name = "txt_FName";
             this.txt_FName.Size = new System.Drawing.Size(159, 35);
-            this.txt_FName.TabIndex = 25;
+            this.txt_FName.TabIndex = 3;
             // 
             // txt_MName
             // 
@@ -465,15 +465,15 @@
             this.txt_MName.Multiline = true;
             this.txt_MName.Name = "txt_MName";
             this.txt_MName.Size = new System.Drawing.Size(182, 35);
-            this.txt_MName.TabIndex = 26;
+            this.txt_MName.TabIndex = 4;
             // 
             // txt_AppNo
             // 
-            this.txt_AppNo.BackColor = System.Drawing.Color.SeaGreen;
+            this.txt_AppNo.BackColor = System.Drawing.Color.Silver;
             this.txt_AppNo.BorderColor = System.Drawing.Color.SeaGreen;
             this.txt_AppNo.Enabled = false;
             this.txt_AppNo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_AppNo.ForeColor = System.Drawing.Color.White;
+            this.txt_AppNo.ForeColor = System.Drawing.Color.Black;
             this.txt_AppNo.Location = new System.Drawing.Point(43, 211);
             this.txt_AppNo.Multiline = true;
             this.txt_AppNo.Name = "txt_AppNo";
@@ -519,8 +519,8 @@
             this.Controls.Add(this.TreatmentDD);
             this.Controls.Add(this.bunifuCustomDataGrid1);
             this.Controls.Add(this.bunifuCustomLabel1);
-            this.Controls.Add(this.bunifuThinButton21);
-            this.Controls.Add(this.bunifuTextbox1);
+            this.Controls.Add(this.btn_PatientSearch);
+            this.Controls.Add(this.txt_PatientSearch);
             this.Controls.Add(this.TopPanel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddAppointment";
@@ -553,9 +553,9 @@
         private Bunifu.Framework.UI.BunifuDropdown TreatmentDD;
         private Bunifu.Framework.UI.BunifuCustomDataGrid bunifuCustomDataGrid1;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
-        private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton21;
-        private Bunifu.Framework.UI.BunifuTextbox bunifuTextbox1;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel5;
+        private Bunifu.Framework.UI.BunifuThinButton2 btn_PatientSearch;
+        private Bunifu.Framework.UI.BunifuTextbox txt_PatientSearch;
+        private Bunifu.Framework.UI.BunifuCustomLabel txt_formHeader;
         private System.Windows.Forms.PictureBox pictureBox5;
         private Bunifu.Framework.UI.BunifuFlatButton btn_close;
         private Bunifu.Framework.UI.BunifuFlatButton btn_add;

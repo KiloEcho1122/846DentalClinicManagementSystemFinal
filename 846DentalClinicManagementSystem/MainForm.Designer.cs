@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MenuPanel = new System.Windows.Forms.Panel();
             this.btn_Reminder = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_Accounting = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -46,21 +46,21 @@
             this.CenterPanel = new System.Windows.Forms.Panel();
             this.SchedulerPanel = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel20 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel19 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.lbl_Status = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel18 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel17 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.SearchAppByDate_DP = new Bunifu.Framework.UI.BunifuDatepicker();
-            this.bunifuCustomLabel12 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel13 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel14 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel15 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel16 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.lbl_treatment = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.lbl_Note = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.lbl_Time = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.lbl_Dentist = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.lbl_Patient = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel11 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel10 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel9 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel8 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.lbl_Date = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btn_EditApp = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_AddApp = new Bunifu.Framework.UI.BunifuFlatButton();
             this.Appointment_DataGrid = new Bunifu.Framework.UI.BunifuCustomDataGrid();
@@ -87,6 +87,7 @@
             this.AccountingPanel = new System.Windows.Forms.Panel();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.btn_ = new Bunifu.Framework.UI.BunifuFlatButton();
             this.MenuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.TopPanel.SuspendLayout();
@@ -353,22 +354,23 @@
             // SchedulerPanel
             // 
             this.SchedulerPanel.BackColor = System.Drawing.Color.Gainsboro;
+            this.SchedulerPanel.Controls.Add(this.btn_);
             this.SchedulerPanel.Controls.Add(this.bunifuCustomLabel20);
-            this.SchedulerPanel.Controls.Add(this.bunifuCustomLabel19);
+            this.SchedulerPanel.Controls.Add(this.lbl_Status);
             this.SchedulerPanel.Controls.Add(this.bunifuCustomLabel18);
             this.SchedulerPanel.Controls.Add(this.bunifuCustomLabel17);
             this.SchedulerPanel.Controls.Add(this.SearchAppByDate_DP);
-            this.SchedulerPanel.Controls.Add(this.bunifuCustomLabel12);
-            this.SchedulerPanel.Controls.Add(this.bunifuCustomLabel13);
-            this.SchedulerPanel.Controls.Add(this.bunifuCustomLabel14);
-            this.SchedulerPanel.Controls.Add(this.bunifuCustomLabel15);
-            this.SchedulerPanel.Controls.Add(this.bunifuCustomLabel16);
+            this.SchedulerPanel.Controls.Add(this.lbl_treatment);
+            this.SchedulerPanel.Controls.Add(this.lbl_Note);
+            this.SchedulerPanel.Controls.Add(this.lbl_Time);
+            this.SchedulerPanel.Controls.Add(this.lbl_Dentist);
+            this.SchedulerPanel.Controls.Add(this.lbl_Patient);
             this.SchedulerPanel.Controls.Add(this.bunifuCustomLabel11);
             this.SchedulerPanel.Controls.Add(this.bunifuCustomLabel10);
             this.SchedulerPanel.Controls.Add(this.bunifuCustomLabel9);
             this.SchedulerPanel.Controls.Add(this.bunifuCustomLabel8);
             this.SchedulerPanel.Controls.Add(this.bunifuCustomLabel7);
-            this.SchedulerPanel.Controls.Add(this.bunifuCustomLabel6);
+            this.SchedulerPanel.Controls.Add(this.lbl_Date);
             this.SchedulerPanel.Controls.Add(this.btn_EditApp);
             this.SchedulerPanel.Controls.Add(this.btn_AddApp);
             this.SchedulerPanel.Controls.Add(this.Appointment_DataGrid);
@@ -390,15 +392,15 @@
             this.bunifuCustomLabel20.TabIndex = 20;
             this.bunifuCustomLabel20.Text = "CALENDAR";
             // 
-            // bunifuCustomLabel19
+            // lbl_Status
             // 
-            this.bunifuCustomLabel19.AutoSize = true;
-            this.bunifuCustomLabel19.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel19.Location = new System.Drawing.Point(716, 204);
-            this.bunifuCustomLabel19.Name = "bunifuCustomLabel19";
-            this.bunifuCustomLabel19.Size = new System.Drawing.Size(115, 24);
-            this.bunifuCustomLabel19.TabIndex = 19;
-            this.bunifuCustomLabel19.Text = ": PENDING";
+            this.lbl_Status.AutoSize = true;
+            this.lbl_Status.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Status.Location = new System.Drawing.Point(716, 204);
+            this.lbl_Status.Name = "lbl_Status";
+            this.lbl_Status.Size = new System.Drawing.Size(115, 24);
+            this.lbl_Status.TabIndex = 19;
+            this.lbl_Status.Text = ": PENDING";
             // 
             // bunifuCustomLabel18
             // 
@@ -431,58 +433,58 @@
             this.SearchAppByDate_DP.Name = "SearchAppByDate_DP";
             this.SearchAppByDate_DP.Size = new System.Drawing.Size(266, 31);
             this.SearchAppByDate_DP.TabIndex = 16;
-            this.SearchAppByDate_DP.Value = new System.DateTime(2019, 10, 6, 16, 12, 38, 774);
+            this.SearchAppByDate_DP.Value = System.DateTime.Now;
             this.SearchAppByDate_DP.onValueChanged += new System.EventHandler(this.SearchAppByDate_DP_onValueChanged);
             // 
-            // bunifuCustomLabel12
+            // lbl_treatment
             // 
-            this.bunifuCustomLabel12.AutoSize = true;
-            this.bunifuCustomLabel12.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel12.Location = new System.Drawing.Point(716, 149);
-            this.bunifuCustomLabel12.Name = "bunifuCustomLabel12";
-            this.bunifuCustomLabel12.Size = new System.Drawing.Size(99, 24);
-            this.bunifuCustomLabel12.TabIndex = 15;
-            this.bunifuCustomLabel12.Text = ": BRACES";
+            this.lbl_treatment.AutoSize = true;
+            this.lbl_treatment.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_treatment.Location = new System.Drawing.Point(716, 149);
+            this.lbl_treatment.Name = "lbl_treatment";
+            this.lbl_treatment.Size = new System.Drawing.Size(99, 24);
+            this.lbl_treatment.TabIndex = 15;
+            this.lbl_treatment.Text = ": BRACES";
             // 
-            // bunifuCustomLabel13
+            // lbl_Note
             // 
-            this.bunifuCustomLabel13.AutoSize = true;
-            this.bunifuCustomLabel13.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel13.Location = new System.Drawing.Point(715, 228);
-            this.bunifuCustomLabel13.Name = "bunifuCustomLabel13";
-            this.bunifuCustomLabel13.Size = new System.Drawing.Size(82, 24);
-            this.bunifuCustomLabel13.TabIndex = 14;
-            this.bunifuCustomLabel13.Text = ": NONE";
+            this.lbl_Note.AutoSize = true;
+            this.lbl_Note.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Note.Location = new System.Drawing.Point(715, 228);
+            this.lbl_Note.Name = "lbl_Note";
+            this.lbl_Note.Size = new System.Drawing.Size(82, 24);
+            this.lbl_Note.TabIndex = 14;
+            this.lbl_Note.Text = ": NONE";
             // 
-            // bunifuCustomLabel14
+            // lbl_Time
             // 
-            this.bunifuCustomLabel14.AutoSize = true;
-            this.bunifuCustomLabel14.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel14.Location = new System.Drawing.Point(716, 174);
-            this.bunifuCustomLabel14.Name = "bunifuCustomLabel14";
-            this.bunifuCustomLabel14.Size = new System.Drawing.Size(226, 24);
-            this.bunifuCustomLabel14.TabIndex = 13;
-            this.bunifuCustomLabel14.Text = ": 10:00 AM - 11:00 AM";
+            this.lbl_Time.AutoSize = true;
+            this.lbl_Time.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Time.Location = new System.Drawing.Point(716, 174);
+            this.lbl_Time.Name = "lbl_Time";
+            this.lbl_Time.Size = new System.Drawing.Size(226, 24);
+            this.lbl_Time.TabIndex = 13;
+            this.lbl_Time.Text = ": 10:00 AM - 11:00 AM";
             // 
-            // bunifuCustomLabel15
+            // lbl_Dentist
             // 
-            this.bunifuCustomLabel15.AutoSize = true;
-            this.bunifuCustomLabel15.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel15.Location = new System.Drawing.Point(716, 123);
-            this.bunifuCustomLabel15.Name = "bunifuCustomLabel15";
-            this.bunifuCustomLabel15.Size = new System.Drawing.Size(184, 24);
-            this.bunifuCustomLabel15.TabIndex = 12;
-            this.bunifuCustomLabel15.Text = ": AIRA MARANAN";
+            this.lbl_Dentist.AutoSize = true;
+            this.lbl_Dentist.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Dentist.Location = new System.Drawing.Point(716, 123);
+            this.lbl_Dentist.Name = "lbl_Dentist";
+            this.lbl_Dentist.Size = new System.Drawing.Size(184, 24);
+            this.lbl_Dentist.TabIndex = 12;
+            this.lbl_Dentist.Text = ": AIRA MARANAN";
             // 
-            // bunifuCustomLabel16
+            // lbl_Patient
             // 
-            this.bunifuCustomLabel16.AutoSize = true;
-            this.bunifuCustomLabel16.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel16.Location = new System.Drawing.Point(716, 95);
-            this.bunifuCustomLabel16.Name = "bunifuCustomLabel16";
-            this.bunifuCustomLabel16.Size = new System.Drawing.Size(319, 24);
-            this.bunifuCustomLabel16.TabIndex = 11;
-            this.bunifuCustomLabel16.Text = ": MICHAEL BRIONES MENDIOLA";
+            this.lbl_Patient.AutoSize = true;
+            this.lbl_Patient.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Patient.Location = new System.Drawing.Point(716, 95);
+            this.lbl_Patient.Name = "lbl_Patient";
+            this.lbl_Patient.Size = new System.Drawing.Size(319, 24);
+            this.lbl_Patient.TabIndex = 11;
+            this.lbl_Patient.Text = ": MICHAEL BRIONES MENDIOLA";
             // 
             // bunifuCustomLabel11
             // 
@@ -534,15 +536,15 @@
             this.bunifuCustomLabel7.TabIndex = 6;
             this.bunifuCustomLabel7.Text = "Patient";
             // 
-            // bunifuCustomLabel6
+            // lbl_Date
             // 
-            this.bunifuCustomLabel6.AutoSize = true;
-            this.bunifuCustomLabel6.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel6.Location = new System.Drawing.Point(519, 54);
-            this.bunifuCustomLabel6.Name = "bunifuCustomLabel6";
-            this.bunifuCustomLabel6.Size = new System.Drawing.Size(168, 33);
-            this.bunifuCustomLabel6.TabIndex = 5;
-            this.bunifuCustomLabel6.Text = "Oct. 4, 2019";
+            this.lbl_Date.AutoSize = true;
+            this.lbl_Date.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Date.Location = new System.Drawing.Point(519, 54);
+            this.lbl_Date.Name = "lbl_Date";
+            this.lbl_Date.Size = new System.Drawing.Size(168, 33);
+            this.lbl_Date.TabIndex = 5;
+            this.lbl_Date.Text = "Oct. 4, 2019";
             // 
             // btn_EditApp
             // 
@@ -571,12 +573,13 @@
             this.btn_EditApp.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
             this.btn_EditApp.OnHoverTextColor = System.Drawing.Color.White;
             this.btn_EditApp.selected = false;
-            this.btn_EditApp.Size = new System.Drawing.Size(120, 48);
+            this.btn_EditApp.Size = new System.Drawing.Size(135, 48);
             this.btn_EditApp.TabIndex = 4;
             this.btn_EditApp.Text = "Edit";
             this.btn_EditApp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_EditApp.Textcolor = System.Drawing.Color.White;
             this.btn_EditApp.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_EditApp.Click += new System.EventHandler(this.btn_EditApp_Click);
             // 
             // btn_AddApp
             // 
@@ -605,7 +608,7 @@
             this.btn_AddApp.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
             this.btn_AddApp.OnHoverTextColor = System.Drawing.Color.White;
             this.btn_AddApp.selected = false;
-            this.btn_AddApp.Size = new System.Drawing.Size(120, 48);
+            this.btn_AddApp.Size = new System.Drawing.Size(135, 48);
             this.btn_AddApp.TabIndex = 3;
             this.btn_AddApp.Text = "Add ";
             this.btn_AddApp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -617,31 +620,31 @@
             // 
             this.Appointment_DataGrid.AllowUserToAddRows = false;
             this.Appointment_DataGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Appointment_DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Appointment_DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.Appointment_DataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Appointment_DataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.Appointment_DataGrid.BackgroundColor = System.Drawing.Color.Gray;
+            this.Appointment_DataGrid.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.Appointment_DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Appointment_DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Appointment_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Appointment_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.Appointment_DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Appointment_DataGrid.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Appointment_DataGrid.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Appointment_DataGrid.DefaultCellStyle = dataGridViewCellStyle7;
             this.Appointment_DataGrid.DoubleBuffered = true;
             this.Appointment_DataGrid.EnableHeadersVisualStyles = false;
             this.Appointment_DataGrid.HeaderBgColor = System.Drawing.Color.SeaGreen;
@@ -651,18 +654,19 @@
             this.Appointment_DataGrid.Name = "Appointment_DataGrid";
             this.Appointment_DataGrid.ReadOnly = true;
             this.Appointment_DataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Appointment_DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Appointment_DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.Appointment_DataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.Appointment_DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Appointment_DataGrid.Size = new System.Drawing.Size(968, 263);
             this.Appointment_DataGrid.TabIndex = 2;
+            this.Appointment_DataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Appointment_DataGrid_CellContentClick);
             // 
             // monthCalendar1
             // 
@@ -889,6 +893,40 @@
             this.bunifuDragControl1.TargetControl = this.TopPanel;
             this.bunifuDragControl1.Vertical = true;
             // 
+            // btn_
+            // 
+            this.btn_.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_.BorderRadius = 0;
+            this.btn_.ButtonText = "Complete ";
+            this.btn_.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_.Iconimage")));
+            this.btn_.Iconimage_right = null;
+            this.btn_.Iconimage_right_Selected = null;
+            this.btn_.Iconimage_Selected = null;
+            this.btn_.IconMarginLeft = 0;
+            this.btn_.IconMarginRight = 0;
+            this.btn_.IconRightVisible = true;
+            this.btn_.IconRightZoom = 0D;
+            this.btn_.IconVisible = true;
+            this.btn_.IconZoom = 90D;
+            this.btn_.IsTab = false;
+            this.btn_.Location = new System.Drawing.Point(1138, 183);
+            this.btn_.Name = "btn_";
+            this.btn_.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.btn_.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_.selected = false;
+            this.btn_.Size = new System.Drawing.Size(135, 45);
+            this.btn_.TabIndex = 21;
+            this.btn_.Text = "Complete ";
+            this.btn_.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_.Textcolor = System.Drawing.Color.White;
+            this.btn_.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -965,17 +1003,17 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel17;
         private Bunifu.Framework.UI.BunifuDatepicker SearchAppByDate_DP;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel12;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel13;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel14;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel15;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel16;
+        private Bunifu.Framework.UI.BunifuCustomLabel lbl_treatment;
+        private Bunifu.Framework.UI.BunifuCustomLabel lbl_Note;
+        private Bunifu.Framework.UI.BunifuCustomLabel lbl_Time;
+        private Bunifu.Framework.UI.BunifuCustomLabel lbl_Dentist;
+        private Bunifu.Framework.UI.BunifuCustomLabel lbl_Patient;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel11;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel10;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel9;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel8;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel7;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel6;
+        private Bunifu.Framework.UI.BunifuCustomLabel lbl_Date;
         private Bunifu.Framework.UI.BunifuFlatButton btn_EditApp;
         private Bunifu.Framework.UI.BunifuFlatButton btn_AddApp;
         private Bunifu.Framework.UI.BunifuCustomDataGrid Appointment_DataGrid;
@@ -984,7 +1022,8 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel5;
         private System.Windows.Forms.PictureBox pictureBox5;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel18;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel19;
+        private Bunifu.Framework.UI.BunifuCustomLabel lbl_Status;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel20;
+        private Bunifu.Framework.UI.BunifuFlatButton btn_;
     }
 }
