@@ -10,26 +10,32 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 using System.Globalization;
+using System.IO;
 
 namespace _846DentalClinicManagementSystem
 {
     public partial class AddAppointment : Form
     {
+        
+        static String workingDirectory = Environment.CurrentDirectory;
+        static String projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
+        static String LocalDbSource = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=";
+        static String LocalDBFile = projectDirectory + @"\846DentalClinicDB.mdf";
+        String connString = LocalDbSource + LocalDBFile + ";Integrated Security=True";
+
+        int SelectedTreatmentID = 0, SelectedDentistID = 0, AppNo = 0;
+        String LName, MName, FName, StartTime, EndTime, refTime, AppDate,Note = "";
+        Boolean isDateChanged = false;
+
+
         public AddAppointment()
         {
             InitializeComponent();
         }
 
-        String connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Mike\Documents\846DentalClinicManagementSystem\846DentalClinicManagementSystem\846DentalClinicDB.mdf;Integrated Security=True";
-        int SelectedTreatmentID = 0, SelectedDentistID = 0, AppNo = 0;
-        String LName, MName, FName, StartTime, EndTime, refTime, AppDate, Note = "";
-        Boolean isDateChanged = false;
-       
-
-
-
         private void AddAppointment_Load(object sender, EventArgs e)
         {
+            
             LoadDropDownList();
             // if add appointmen increment ID
             var main = Application.OpenForms.OfType<MainForm>().First();
@@ -49,6 +55,7 @@ namespace _846DentalClinicManagementSystem
                 fillFormforUpdate();
 
             }
+
 
         }
 
@@ -88,16 +95,12 @@ namespace _846DentalClinicManagementSystem
                             {
                                 if (string.IsNullOrEmpty(StartTime) == false)
                                 {
-                                    //check if the DP_date is changed
-                                    // if false: set the AppDate to default value
-                                    // if true : ignore 
+                                   
                                     if (isDateChanged == false)
                                     {
-                                        AppDate = DP_date.Value.ToString("MM/dd/yyyy");
-                                        AppointmentDatePick(AppDate);
-                                      
+                                        AppointmentDatePick();
                                     }
-                                    MessageBox.Show(AppDate);
+                                    //MessageBox.Show(AppDate);
 
                                     if (string.IsNullOrEmpty(AppDate) == false)
                                     {
@@ -150,35 +153,38 @@ namespace _846DentalClinicManagementSystem
                 Console.WriteLine(ex.Message);
             }
 
+            String itemTime = dt.Rows[0][5].ToString();
             txt_LName.Text = dt.Rows[0][1].ToString();
             txt_FName.Text = dt.Rows[0][2].ToString();
             txt_MName.Text = dt.Rows[0][3].ToString();
+            txt_Note.Text = dt.Rows[0][10].ToString();
             SelectedTreatmentID = Convert.ToInt32(dt.Rows[0][8]) - 1;
             SelectedDentistID= Convert.ToInt32(dt.Rows[0][9]) - 1;
 
-            if (SelectedDentistID == -1)
-            {
-                SelectedDentistID = 0;
-                
-            }
-            if (SelectedTreatmentID == -1)
-            {
-                SelectedTreatmentID = 0;
-            }
+            if (SelectedDentistID == -1) { SelectedDentistID = 0; }
+            if (SelectedTreatmentID == -1) { SelectedTreatmentID = 0; }
+         
             TreatmentDD.selectedIndex = SelectedTreatmentID;
             DentistDD.selectedIndex = SelectedDentistID;
 
-            DP_date.Value = DateTime.Parse(dt.Rows[0][4].ToString());
-            txt_Note.Text = dt.Rows[0][10].ToString();
-          //  var item = TimeDD.Items.
+            DP_date.Value = DateTime.ParseExact(dt.Rows[0][4].ToString(), "M/d/yyyy hh:mm:ss tt", System.Globalization.CultureInfo.CurrentCulture);
 
+            for (int i = 0; i < TimeDD.Items.Length; i++)
+            {
+                if (TimeDD.Items[i] == itemTime)
+                {
+                    TimeDD.selectedIndex = i;
+
+                }
+
+            }
+           
+          
         }
 
         private void updateAppointmentToDB()
         {
-
-            MessageBox.Show(TreatmentDD.selectedIndex.ToString());
-            MessageBox.Show(DentistDD.selectedIndex.ToString());
+         
             SqlConnection sqlcon = new SqlConnection(connString);
             SqlCommand cmd = new SqlCommand(
                 "UPDATE [Appointment] SET Appointment_LName = @LName, Appointment_FName = @FName, Appointment_MName = @MName, AppointmentDate = @Date," +
@@ -202,9 +208,9 @@ namespace _846DentalClinicManagementSystem
             {
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Appointment updated successfully");
-                DateTime Todaydate = DateTime.Today;
-                string date = Todaydate.ToString("M/d/yyyy");
-                MainForm.c1.ShowAppointment(date);
+                //DateTime Todaydate = DateTime.Today;
+                //string date = Todaydate.ToString("M/d/yyyy");
+                MainForm.c1.ShowAppointment(AppDate);
 
                 this.Hide();
 
@@ -240,9 +246,9 @@ namespace _846DentalClinicManagementSystem
             {
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Appointment added successfully");
-                DateTime Todaydate = DateTime.Today;
-                string date = Todaydate.ToString("M/d/yyyy");
-                MainForm.c1.ShowAppointment(date);
+                //DateTime Todaydate = DateTime.Today;
+                //string date = Todaydate.ToString("M/d/yyyy");
+                MainForm.c1.ShowAppointment(AppDate);
 
                 this.Hide();
 
@@ -258,35 +264,36 @@ namespace _846DentalClinicManagementSystem
         private void DP_date_onValueChanged(object sender, EventArgs e)
         {
 
-            string date = "";
-            date = DP_date.Value.ToString("MM/dd/yyyy");
-            AppointmentDatePick(date);
+            AppointmentDatePick();
             isDateChanged = true;
+
         }
 
-        private void AppointmentDatePick(string date)
+        private void AppointmentDatePick()
         {
+            Checktime();
+            try
+            {
+                String time = TimeDD.selectedValue;
+                AppDate = DP_date.Value.ToString("M/d/yyyy") + " " + time;
+                DateTime DateApp = DateTime.ParseExact(AppDate, "M/d/yyyy hh:mm tt", System.Globalization.CultureInfo.CurrentCulture);
+                DateTime CurrentDate = DateTime.Now;
 
-            String time = TimeDD.selectedValue;
-            AppDate = date + " " + time;
-            DateTime DateApp = DateTime.ParseExact(AppDate, "MM/dd/yyyy hh:mm tt", System.Globalization.CultureInfo.CurrentCulture);
-            DateTime CurrentDate = DateTime.Now;
-
-                // check if Date is not less than current date
-             if (DateApp > CurrentDate)
-             {
-                    AppDate = DP_date.Value.ToString("MM/dd/yyyy");
-             }
-             else
-             {
+                //check if Date is not less than current date
+                if (DateApp > CurrentDate)
+                {
+                    AppDate = DP_date.Value.ToString("M/d/yyyy");
+                }
+                else
+                {
                     AppDate = "";
-             }
-            
-           
+                }
+
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message + AppDate); }
 
 
         }
-
 
         private void LoadDropDownList()
         {
@@ -358,7 +365,7 @@ namespace _846DentalClinicManagementSystem
 
         private void TimeDD_onItemSelected(object sender, EventArgs e)
         {
-           
+
             Checktime();
 
         }
@@ -372,24 +379,28 @@ namespace _846DentalClinicManagementSystem
                 DateTime timeEndA = timeStartA.AddHours(1);
                 String Addedtime = (timeEndA.ToString("hh:mm tt"));
 
-                if (isValidTime(timeStartA, timeEndA) == false)
-                {
-
+                //exclusive for appointment update only
+                //DateTime prevTime = DateTime.ParseExact(itemTime, "hh:mm tt", System.Globalization.CultureInfo.CurrentCulture);
+                //prevTime = prevTime.AddMinutes(30);
+                //String prevTimeString = prevTime.ToString("hh:mm tt");
+            
+                //
+                    
                     if (CheckOverlapseTimeinDB(timeStartA, timeEndA) == false)
                     {
-                        // Not time overlapse
                         StartTime = SelectedTime;
                         EndTime = Addedtime;
                         refTime = (timeStartA.ToString("HH:mm"));
-
                     }
-                    else { MessageBox.Show("Time Overlapse with other appointment"); }
-
+                    else {
+                    MessageBox.Show("Time Overlapse with other appointment");
+                    StartTime = "";
                 }
-                else { MessageBox.Show("Invalid Time"); }
 
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
+
+     
         }
 
         private static bool isValidTime(DateTime dtStartA, DateTime dtEndA)
@@ -409,18 +420,21 @@ namespace _846DentalClinicManagementSystem
 
         private bool CheckOverlapseTimeinDB(DateTime timeStartA, DateTime timeEndA)
         {
-            String date = DP_date.Value.ToString("MM/dd/yyyy");
+            String date = DP_date.Value.ToString("M/d/yyyy");
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable dt = new DataTable();
             SqlConnection sqlcon = new SqlConnection(connString);
             SqlCommand cmd = new SqlCommand(
-                   "SELECT StartTime,EndTime FROM Appointment WHERE DentistID_fk = @DentistID_fk AND AppointmentDate =@date", sqlcon);
+                   "SELECT StartTime,EndTime FROM Appointment WHERE DentistID_fk = @DentistID_fk AND " + "" +
+                   "AppointmentDate =@date AND NOT AppointmentID = @AppID", sqlcon);
 
-            
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@DentistID_fk", SelectedDentistID);
             cmd.Parameters.AddWithValue("@date", date);
+            cmd.Parameters.AddWithValue("@AppID", AppNo);
             adapter.SelectCommand = cmd;
+
+            //Console.WriteLine(SelectedDentistID + "   " + date);
 
             try
             {
@@ -440,6 +454,7 @@ namespace _846DentalClinicManagementSystem
                     if (isOverlapDates(timeStartA, timeEndA, timeStartB, timeEndB) == true)
                     {
                         return true;
+                        
                     }
                 }
             }

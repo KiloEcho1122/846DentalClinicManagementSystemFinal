@@ -8,13 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 
 namespace _846DentalClinicManagementSystem
 {
     public partial class Login : Form
     {
-        string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Mike\Documents\846DentalClinicManagementSystem\846DentalClinicManagementSystem\846DentalClinicDB.mdf;Integrated Security=True";
+
+        static String workingDirectory = Environment.CurrentDirectory;
+        static String projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
+        static String LocalDbSource = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=";
+        static String LocalDBFile = projectDirectory + @"\846DentalClinicDB.mdf";
+        String connString = LocalDbSource + LocalDBFile + ";Integrated Security=True";
 
         public Login()
         {

@@ -19,14 +19,14 @@ namespace _846DentalClinicManagementSystem
             InitializeComponent();
 
         }
-
-        String connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Mike\Documents\846DentalClinicManagementSystem\846DentalClinicManagementSystem\846DentalClinicDB.mdf;Integrated Security=True";
+        static String workingDirectory = Environment.CurrentDirectory;
+        static String projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
+        static String LocalDbSource = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=";
+        static String LocalDBFile = projectDirectory + @"\846DentalClinicDB.mdf";
+        String connString = LocalDbSource + LocalDBFile + ";Integrated Security=True";
         public static MainForm c1;
-      //  public static Boolean isEdit = false;
-     //   public static Boolean isAdd = false;
         public int AppointmentID =0;
         
-
         public Boolean isEdit { get; set; }
         public Boolean isAdd { get; set; }
 
@@ -41,9 +41,8 @@ namespace _846DentalClinicManagementSystem
 
         private void playVideo()
         {
-            string workingDirectory = Environment.CurrentDirectory;
-            string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
-            string videopath = projectDirectory + @"\Resources\846.mp4";
+            
+            String videopath = projectDirectory + @"\Resources\846.mp4";
             this.axWindowsMediaPlayer1.uiMode = "none";
             this.axWindowsMediaPlayer1.settings.setMode("loop", true);
             this.axWindowsMediaPlayer1.Ctlenabled = false;
@@ -51,6 +50,10 @@ namespace _846DentalClinicManagementSystem
             this.axWindowsMediaPlayer1.stretchToFit = true;
             this.axWindowsMediaPlayer1.Ctlcontrols.play();
 
+           
+
+
+            Console.WriteLine();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -58,8 +61,7 @@ namespace _846DentalClinicManagementSystem
             HidePanels();
             HomePanel.Visible = true;
             playVideo();
-            DateTime asa = DateTime.Today;
-            string date = asa.ToString("M/d/yyyy");
+            string date = DateTime.Today.ToString("M/d/yyyy");
             ShowAppointment(date);
             c1 = this;
 
@@ -152,6 +154,12 @@ namespace _846DentalClinicManagementSystem
             }
             catch(Exception ex) { Console.WriteLine(ex.Message); }
 
+            if (Appointment_DataGrid.Rows.Count > 0)
+            {
+                Appointment_DataGrid.Rows[0].Selected = true;
+                ShowAppointmentDetail();
+            }
+            
         }
 
         private void SearchAppByDate_DP_onValueChanged(object sender, EventArgs e)
@@ -168,6 +176,15 @@ namespace _846DentalClinicManagementSystem
 
         private void Appointment_DataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+            ShowAppointmentDetail();
+            AppointmentID = Convert.ToInt32(Appointment_DataGrid.SelectedRows[0].Cells[0].Value);
+
+            
+        }
+
+        private void ShowAppointmentDetail()
+        {
             if (Appointment_DataGrid.SelectedRows.Count > 0) // make sure user select at least 1 row 
             {
                 string Patient = Appointment_DataGrid.SelectedRows[0].Cells[1].Value + string.Empty;
@@ -177,6 +194,7 @@ namespace _846DentalClinicManagementSystem
                 string Date = Appointment_DataGrid.SelectedRows[0].Cells[5].Value + string.Empty;
                 string Status = Appointment_DataGrid.SelectedRows[0].Cells[6].Value + string.Empty;
                 string Note = Appointment_DataGrid.SelectedRows[0].Cells[7].Value + string.Empty;
+
 
 
                 DateTime dateTime = DateTime.ParseExact(Date, "M/d/yyyy hh:mm:ss tt", System.Globalization.CultureInfo.CurrentCulture);
@@ -189,15 +207,12 @@ namespace _846DentalClinicManagementSystem
                 lbl_Status.Text = Status;
                 lbl_Note.Text = Note;
                 lbl_Date.Text = Date;
-
-                AppointmentID = Convert.ToInt32(Appointment_DataGrid.SelectedRows[0].Cells[0].Value);
-
             }
-        }
+         }
+        
 
         private void btn_EditApp_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(AppointmentID.ToString());
             if (AppointmentID > 0)
             {
                 AddAppointment addAppointment = new AddAppointment();
