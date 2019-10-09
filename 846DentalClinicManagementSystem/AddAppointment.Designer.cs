@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddAppointment));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.TopPanel2 = new System.Windows.Forms.Panel();
@@ -39,7 +39,7 @@
             this.txt_PatientSearch = new Bunifu.Framework.UI.BunifuTextbox();
             this.btn_PatientSearch = new Bunifu.Framework.UI.BunifuThinButton2();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomDataGrid1 = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.AppSearch_DataGrid = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.TreatmentDD = new Bunifu.Framework.UI.BunifuDropdown();
             this.DentistDD = new Bunifu.Framework.UI.BunifuDropdown();
             this.TimeDD = new Bunifu.Framework.UI.BunifuDropdown();
@@ -63,7 +63,7 @@
             this.bunifuCustomLabel11 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.TopPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AppSearch_DataGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -115,6 +115,7 @@
             this.txt_PatientSearch.Size = new System.Drawing.Size(267, 36);
             this.txt_PatientSearch.TabIndex = 0;
             this.txt_PatientSearch.text = "Patient Name";
+            this.txt_PatientSearch.OnTextChange += new System.EventHandler(this.txt_PatientSearch_OnTextChange);
             // 
             // btn_PatientSearch
             // 
@@ -140,6 +141,7 @@
             this.btn_PatientSearch.Size = new System.Drawing.Size(94, 41);
             this.btn_PatientSearch.TabIndex = 1;
             this.btn_PatientSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_PatientSearch.Click += new System.EventHandler(this.btn_PatientSearch_Click);
             // 
             // bunifuCustomLabel1
             // 
@@ -152,31 +154,41 @@
             this.bunifuCustomLabel1.TabIndex = 5;
             this.bunifuCustomLabel1.Text = "Search Patient";
             // 
-            // bunifuCustomDataGrid1
+            // AppSearch_DataGrid
             // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.bunifuCustomDataGrid1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.bunifuCustomDataGrid1.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.bunifuCustomDataGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.bunifuCustomDataGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bunifuCustomDataGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.bunifuCustomDataGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.bunifuCustomDataGrid1.DoubleBuffered = true;
-            this.bunifuCustomDataGrid1.EnableHeadersVisualStyles = false;
-            this.bunifuCustomDataGrid1.HeaderBgColor = System.Drawing.Color.SeaGreen;
-            this.bunifuCustomDataGrid1.HeaderForeColor = System.Drawing.Color.SeaGreen;
-            this.bunifuCustomDataGrid1.Location = new System.Drawing.Point(42, 112);
-            this.bunifuCustomDataGrid1.Name = "bunifuCustomDataGrid1";
-            this.bunifuCustomDataGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.bunifuCustomDataGrid1.Size = new System.Drawing.Size(723, 65);
-            this.bunifuCustomDataGrid1.TabIndex = 6;
+            this.AppSearch_DataGrid.AllowUserToAddRows = false;
+            this.AppSearch_DataGrid.AllowUserToDeleteRows = false;
+            this.AppSearch_DataGrid.AllowUserToResizeColumns = false;
+            this.AppSearch_DataGrid.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.AppSearch_DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.AppSearch_DataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.AppSearch_DataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.AppSearch_DataGrid.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.AppSearch_DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.AppSearch_DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AppSearch_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.AppSearch_DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AppSearch_DataGrid.DoubleBuffered = true;
+            this.AppSearch_DataGrid.EnableHeadersVisualStyles = false;
+            this.AppSearch_DataGrid.HeaderBgColor = System.Drawing.Color.SeaGreen;
+            this.AppSearch_DataGrid.HeaderForeColor = System.Drawing.Color.Black;
+            this.AppSearch_DataGrid.Location = new System.Drawing.Point(42, 112);
+            this.AppSearch_DataGrid.MultiSelect = false;
+            this.AppSearch_DataGrid.Name = "AppSearch_DataGrid";
+            this.AppSearch_DataGrid.ReadOnly = true;
+            this.AppSearch_DataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.AppSearch_DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.AppSearch_DataGrid.Size = new System.Drawing.Size(723, 65);
+            this.AppSearch_DataGrid.TabIndex = 6;
+            this.AppSearch_DataGrid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AppSearch_DataGrid_CellContentDoubleClick);
             // 
             // TreatmentDD
             // 
@@ -251,7 +263,7 @@
             this.DP_date.Name = "DP_date";
             this.DP_date.Size = new System.Drawing.Size(182, 53);
             this.DP_date.TabIndex = 8;
-            this.DP_date.Value = System.DateTime.Now;
+            this.DP_date.Value = new System.DateTime(2019, 10, 8, 0, 17, 0, 47);
             this.DP_date.onValueChanged += new System.EventHandler(this.DP_date_onValueChanged);
             // 
             // bunifuCustomLabel2
@@ -517,21 +529,20 @@
             this.Controls.Add(this.TimeDD);
             this.Controls.Add(this.DentistDD);
             this.Controls.Add(this.TreatmentDD);
-            this.Controls.Add(this.bunifuCustomDataGrid1);
+            this.Controls.Add(this.AppSearch_DataGrid);
             this.Controls.Add(this.bunifuCustomLabel1);
             this.Controls.Add(this.btn_PatientSearch);
             this.Controls.Add(this.txt_PatientSearch);
             this.Controls.Add(this.TopPanel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddAppointment";
-            this.Opacity = 0.97D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Appointment";
             this.Load += new System.EventHandler(this.AddAppointment_Load);
             this.TopPanel2.ResumeLayout(false);
             this.TopPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AppSearch_DataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -551,7 +562,7 @@
         private Bunifu.Framework.UI.BunifuDropdown TimeDD;
         private Bunifu.Framework.UI.BunifuDropdown DentistDD;
         private Bunifu.Framework.UI.BunifuDropdown TreatmentDD;
-        private Bunifu.Framework.UI.BunifuCustomDataGrid bunifuCustomDataGrid1;
+        private Bunifu.Framework.UI.BunifuCustomDataGrid AppSearch_DataGrid;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private Bunifu.Framework.UI.BunifuThinButton2 btn_PatientSearch;
         private Bunifu.Framework.UI.BunifuTextbox txt_PatientSearch;

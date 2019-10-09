@@ -23,12 +23,16 @@ namespace _846DentalClinicManagementSystem
         static String projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
         static String LocalDbSource = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=";
         static String LocalDBFile = projectDirectory + @"\846DentalClinicDB.mdf";
-        String connString = LocalDbSource + LocalDBFile + ";Integrated Security=True";
+        static String connString = LocalDbSource + LocalDBFile + ";Integrated Security=True";
+        SqlConnection sqlcon = new SqlConnection(connString);
+
         public static MainForm c1;
-        public int AppointmentID =0;
+        public int AppointmentID =0,PatientID = 0;
         
-        public Boolean isEdit { get; set; }
-        public Boolean isAdd { get; set; }
+        public Boolean isEditAppointment { get; set; }
+        public Boolean isAddAppointment { get; set; }
+        public Boolean isEditPatient { get; set; }
+        public Boolean isAddPatient { get; set; }
 
         private void HidePanels()
         {
@@ -50,19 +54,17 @@ namespace _846DentalClinicManagementSystem
             this.axWindowsMediaPlayer1.stretchToFit = true;
             this.axWindowsMediaPlayer1.Ctlcontrols.play();
 
-           
-
-
             Console.WriteLine();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            string date = DateTime.Today.ToString("M/d/yyyy");
             HidePanels();
             HomePanel.Visible = true;
             playVideo();
-            string date = DateTime.Today.ToString("M/d/yyyy");
             ShowAppointment(date);
+            PatientPanelSearch("");
             c1 = this;
 
         }
@@ -109,7 +111,7 @@ namespace _846DentalClinicManagementSystem
         private void btn_AddApp_Click(object sender, EventArgs e)
         {
             AddAppointment addAppointment = new AddAppointment();
-            isAdd = true;
+            isAddAppointment = true;
             addAppointment.Show();
            
         }
@@ -119,10 +121,9 @@ namespace _846DentalClinicManagementSystem
             
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable dt = new DataTable();
-            SqlConnection sqlcon = new SqlConnection(connString);
             SqlCommand cmd = new SqlCommand(
                    "SELECT	Appointment.AppointmentID AS No, "+
-                   "CONCAT(Appointment_FName, ' ', Appointment_MName, ' ', Appointment_LName) AS Patient_Name, " +
+                   "CONCAT(Appointment_LName, ', ',Appointment_FName , ' ', Appointment_MName) AS Patient_Name, " +
                    "CONCAT(DentistFName, ' ', DentistMName, ' ', DentistLName) AS Dentist, "+
                    "TreatmentType AS Treatment, " +
                    "CONCAT(StartTime, ' - ', EndTime) AS Time, AppointmentDate AS Date," +
@@ -137,7 +138,7 @@ namespace _846DentalClinicManagementSystem
             try
             {
                 adapter.Fill(dt);
-            
+
                 Appointment_DataGrid.DataSource = dt;
 
 
@@ -213,15 +214,93 @@ namespace _846DentalClinicManagementSystem
 
         private void btn_EditApp_Click(object sender, EventArgs e)
         {
+           
             if (AppointmentID > 0)
             {
                 AddAppointment addAppointment = new AddAppointment();
-                isEdit = true;
+                isEditAppointment = true;
                 addAppointment.Show();
                
             }
         }
 
-    
+        private void PatientsPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txt_SearchPatient_OnTextChange(object sender, EventArgs e)
+        {
+            String search = txt_SearchPatient.text.Trim();
+            PatientPanelSearch(search);
+        }
+
+        public void PatientPanelSearch(String search)
+        {
+            
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand(
+                "SELECT PatientID AS ID, CONCAT(PatientLName, ', ',PatientFName , ' ', PatientMName) AS Name , " +
+                "PatientGender AS Gender, PatientAge AS Age, PatientBirthday AS Birthday,PatientAddress AS Address " +
+                "FROM [Patient] WHERE PatientFullName LIKE @search ORDER BY PatientLName ASC", sqlcon);
+
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@search", "%" + search + "%");
+
+            adapter.SelectCommand = cmd;
+            try
+            {
+                adapter.Fill(dt);
+
+                Patient_DataGrid.DataSource = dt;
+                Patient_DataGrid.Columns[0].Width = 40;
+                Patient_DataGrid.Columns[1].Width = 200;
+                Patient_DataGrid.Columns[5].Width = 250;
+
+
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+        }
+
+        private void btn_PatientSearch_Click(object sender, EventArgs e)
+        {
+            String search = txt_SearchPatient.text.Trim();
+            PatientPanelSearch(search);
+        }
+
+        private void Patient_DataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+           PatientID = Convert.ToInt32 (Patient_DataGrid.SelectedRows[0].Cells[0].Value);
+        }
+
+        private void btn_AddPatient_Click(object sender, EventArgs e)
+        {
+            AddEditPatientRecord addEditPatient = new AddEditPatientRecord();
+            isAddPatient = true;
+            addEditPatient.Show();
+        }
+
+        private void Patient_DataGrid_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            PatientID = Convert.ToInt32(Patient_DataGrid.SelectedRows[0].Cells[0].Value);
+            if (PatientID > 0)
+            {
+                ShowPatientInfo showPatientInfo = new ShowPatientInfo();
+                showPatientInfo.Show();
+            }
+        }
+
+        private void btn_EditPatient_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine(PatientID);
+            if (PatientID > 0)
+            {
+                AddEditPatientRecord addEditPatient = new AddEditPatientRecord();
+                isEditPatient = true;
+                addEditPatient.Show();
+
+            }
+        }
     }
 }

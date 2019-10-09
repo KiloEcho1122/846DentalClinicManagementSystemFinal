@@ -21,7 +21,8 @@ namespace _846DentalClinicManagementSystem
         static String projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
         static String LocalDbSource = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=";
         static String LocalDBFile = projectDirectory + @"\846DentalClinicDB.mdf";
-        String connString = LocalDbSource + LocalDBFile + ";Integrated Security=True";
+        static String connString = LocalDbSource + LocalDBFile + ";Integrated Security=True";
+        SqlConnection sqlcon = new SqlConnection(connString);
 
         int SelectedTreatmentID = 0, SelectedDentistID = 0, AppNo = 0;
         String LName, MName, FName, StartTime, EndTime, refTime, AppDate,Note = "";
@@ -39,13 +40,13 @@ namespace _846DentalClinicManagementSystem
             LoadDropDownList();
             // if add appointmen increment ID
             var main = Application.OpenForms.OfType<MainForm>().First();
-            if (main.isAdd == true && main.isEdit == false)
+            if (main.isAddAppointment == true && main.isEditAppointment == false)
             {
                 fillAppID();
                 txt_AppNo.Text = AppNo.ToString();
 
             }
-            if (main.isEdit == true && main.isAdd ==false)
+            if (main.isEditAppointment == true && main.isAddAppointment ==false)
             {
                 AppNo = MainForm.c1.AppointmentID;
                 txt_AppNo.Text = AppNo.ToString();
@@ -63,8 +64,8 @@ namespace _846DentalClinicManagementSystem
         {
             this.Hide();
             var main = Application.OpenForms.OfType<MainForm>().First();
-            main.isEdit = false;
-            main.isAdd = false;
+            main.isEditAppointment = false;
+            main.isAddAppointment = false;
 
 
         }
@@ -79,9 +80,9 @@ namespace _846DentalClinicManagementSystem
             MName = myTI.ToTitleCase(txt_MName.Text.Trim());
             Note = txt_Note.Text.Trim();
 
-            bool isLNameValid = Regex.IsMatch(LName, @"^[a-zA-Z\-]*?$");
-            bool isFNameValid = Regex.IsMatch(FName, @"^[a-zA-Z\-]*?$");
-            bool isMNameValid = Regex.IsMatch(MName, @"^[a-zA-Z\-]*?$");
+            bool isLNameValid = Regex.IsMatch(LName, @"^[a-zA-Z\x20]*?$");
+            bool isFNameValid = Regex.IsMatch(FName, @"^[a-zA-Z\x20]*?$");
+            bool isMNameValid = Regex.IsMatch(MName, @"^[a-zA-Z\x20]*?$");
 
             if ((isLNameValid == true) && (string.IsNullOrEmpty(LName) == false))
             {
@@ -105,16 +106,16 @@ namespace _846DentalClinicManagementSystem
                                     if (string.IsNullOrEmpty(AppDate) == false)
                                     {
                                         var main = Application.OpenForms.OfType<MainForm>().First();
-                                        if (main.isAdd == true && main.isEdit == false)
+                                        if (main.isAddAppointment == true && main.isEditAppointment == false)
                                         {
                                             insertAppointmentToDB();
-                                            main.isAdd = false;
+                                            main.isAddAppointment = false;
 
                                         }
-                                        if (main.isEdit == true && main.isAdd == false)
+                                        if (main.isEditAppointment == true && main.isAddAppointment == false)
                                         {
                                             updateAppointmentToDB();
-                                            main.isEdit = false;
+                                            main.isEditAppointment = false;
 
                                         }
 
@@ -139,7 +140,6 @@ namespace _846DentalClinicManagementSystem
         {
             DataTable dt = new DataTable();
             SqlDataAdapter adapter = new SqlDataAdapter();
-            SqlConnection sqlcon = new SqlConnection(connString);
             SqlCommand cmd = new SqlCommand("SELECT * From Appointment WHERE AppointmentID = @AppointmentID",sqlcon);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@AppointmentID", AppNo);
@@ -185,7 +185,6 @@ namespace _846DentalClinicManagementSystem
         private void updateAppointmentToDB()
         {
          
-            SqlConnection sqlcon = new SqlConnection(connString);
             SqlCommand cmd = new SqlCommand(
                 "UPDATE [Appointment] SET Appointment_LName = @LName, Appointment_FName = @FName, Appointment_MName = @MName, AppointmentDate = @Date," +
                 "StartTime = @StartTime, EndTime = @EndTime ,RefTime = @RefTime,TreatmentID_fk = @TreatmentID_fk, DentistID_fk = @DentistID_fk ," +
@@ -225,7 +224,7 @@ namespace _846DentalClinicManagementSystem
 
         private void insertAppointmentToDB()
         {
-            SqlConnection sqlcon = new SqlConnection(connString);
+
             SqlCommand cmd = new SqlCommand(
                 "Insert Into [Appointment] (Appointment_LName,Appointment_FName,Appointment_MName,AppointmentDate,StartTime,EndTime,RefTime,TreatmentID_fk,DentistID_fk,AppointmentNote) " +
                 "Values(@LName,@FName,@MName,@Date,@StartTime,@EndTime,@RefTime,@TreatmentID_fk,@DentistID_fk,@Note) ", sqlcon);
@@ -295,14 +294,75 @@ namespace _846DentalClinicManagementSystem
 
         }
 
+        private void btn_PatientSearch_Click(object sender, EventArgs e)
+        {
+            PatientSearch();
+
+        }
+
+        private void PatientSearch()
+        {
+            String search = txt_PatientSearch.text.Trim();
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand(
+                "SELECT PatientID AS ID, CONCAT(PatientLName, ', ',PatientFName , ' ', PatientMName) AS Name , " +
+                "PatientGender AS Gender, PatientAge AS Age, PatientBirthday AS Birthday,PatientAddress AS Address " +
+                "FROM [Patient] WHERE PatientFullName LIKE @search ", sqlcon);
+
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@search", "%" + search + "%");
+
+            adapter.SelectCommand = cmd;
+            try
+            {
+                adapter.Fill(dt);
+
+                AppSearch_DataGrid.DataSource = dt;
+
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+        }
+
+        private void txt_PatientSearch_OnTextChange(object sender, EventArgs e)
+        {
+            PatientSearch();
+        }
+
+        private void AppSearch_DataGrid_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (AppSearch_DataGrid.SelectedRows.Count > 0) // make sure user select at least 1 row 
+            {
+                string ID = AppSearch_DataGrid.SelectedRows[0].Cells[0].Value + string.Empty;
+
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                DataTable dt = new DataTable();
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Patient WHERE PatientID = @ID", sqlcon);
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@ID",ID);
+                adapter.SelectCommand = cmd;
+
+                try
+                {
+                    adapter.Fill(dt);
+                    txt_LName.Text = dt.Rows[0][1].ToString();
+                    txt_FName.Text = dt.Rows[0][2].ToString();
+                    txt_MName.Text = dt.Rows[0][3].ToString();
+
+                }
+                catch(Exception ex) { Console.WriteLine(ex.Message); }
+               
+
+            }
+        }
+
         private void LoadDropDownList()
         {
             SqlDataAdapter adapter1 = new SqlDataAdapter();
             SqlDataAdapter adapter2 = new SqlDataAdapter();
             DataTable dt1 = new DataTable();
             DataTable dt2 = new DataTable();
-            //  SqlDataReader dataReader;
-            SqlConnection sqlcon = new SqlConnection(connString);
+
             SqlCommand cmd = new SqlCommand(
                    "SELECT TreatmentType FROM Treatment ORDER BY TreatmentID ASC", sqlcon);
             SqlCommand cmd2 = new SqlCommand(
@@ -339,7 +399,6 @@ namespace _846DentalClinicManagementSystem
 
         private void fillAppID()
         {
-            SqlConnection sqlcon = new SqlConnection(connString);
             SqlCommand cmd = new SqlCommand(
                  "SELECT AppointmentID FROM Appointment ORDER BY AppointmentID DESC", sqlcon);
             sqlcon.Open();
@@ -423,7 +482,6 @@ namespace _846DentalClinicManagementSystem
             String date = DP_date.Value.ToString("M/d/yyyy");
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable dt = new DataTable();
-            SqlConnection sqlcon = new SqlConnection(connString);
             SqlCommand cmd = new SqlCommand(
                    "SELECT StartTime,EndTime FROM Appointment WHERE DentistID_fk = @DentistID_fk AND " + "" +
                    "AppointmentDate =@date AND NOT AppointmentID = @AppID", sqlcon);

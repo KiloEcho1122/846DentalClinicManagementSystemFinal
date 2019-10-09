@@ -20,7 +20,8 @@ namespace _846DentalClinicManagementSystem
         static String projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
         static String LocalDbSource = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=";
         static String LocalDBFile = projectDirectory + @"\846DentalClinicDB.mdf";
-        String connString = LocalDbSource + LocalDBFile + ";Integrated Security=True";
+        static String connString = LocalDbSource + LocalDBFile + ";Integrated Security=True";
+        SqlConnection sqlcon = new SqlConnection(connString);
 
         public Login()
         {
@@ -29,15 +30,13 @@ namespace _846DentalClinicManagementSystem
 
         private void LoginCick()
         {
-            SqlConnection sqlcon = new SqlConnection(connString);
+            
             SqlCommand cmd = new SqlCommand(
                 "Select Username,Password from Login Where Username = @username COLLATE SQL_Latin1_General_CP1_CS_AS" +
                 " and Password = @pass COLLATE SQL_Latin1_General_CP1_CS_AS", sqlcon);
             cmd.Parameters.Clear();
-            SqlParameter userParam = new SqlParameter("@username", txtUsername.Text.Trim());
-            SqlParameter passParam = new SqlParameter("@pass", txtPassword.Text.Trim());
-            cmd.Parameters.Add(userParam);
-            cmd.Parameters.Add(passParam);
+            cmd.Parameters.AddWithValue("@username", txtUsername.Text.Trim());
+            cmd.Parameters.AddWithValue("@pass", txtPassword.Text.Trim());
             sqlcon.Open();
 
             try
