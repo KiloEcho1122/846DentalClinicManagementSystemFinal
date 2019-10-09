@@ -28,7 +28,9 @@ namespace _846DentalClinicManagementSystem
 
         public static MainForm c1;
         public int AppointmentID =0,PatientID = 0;
-        
+        public String PatientName;
+
+
         public Boolean isEditAppointment { get; set; }
         public Boolean isAddAppointment { get; set; }
         public Boolean isEditPatient { get; set; }
@@ -284,6 +286,7 @@ namespace _846DentalClinicManagementSystem
         private void Patient_DataGrid_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             PatientID = Convert.ToInt32(Patient_DataGrid.SelectedRows[0].Cells[0].Value);
+           PatientName = Patient_DataGrid.SelectedRows[0].Cells[1].Value.ToString();
             if (PatientID > 0)
             {
                 ShowPatientInfo showPatientInfo = new ShowPatientInfo();

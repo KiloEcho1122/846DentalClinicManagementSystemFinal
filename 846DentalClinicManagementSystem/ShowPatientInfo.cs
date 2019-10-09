@@ -83,7 +83,7 @@ namespace _846DentalClinicManagementSystem
 
         private void ShowPatientInfo_Load(object sender, EventArgs e)
         {
-            
+            lbl_PatientName.Text = MainForm.c1.PatientName;
         }
 
         private void FillArrayValues()
