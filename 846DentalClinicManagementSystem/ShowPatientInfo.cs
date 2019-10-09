@@ -8,8 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Collections;
-using System.IO;
+using System.Collections;using System.IO;
 
 namespace _846DentalClinicManagementSystem
 {
@@ -26,8 +25,8 @@ namespace _846DentalClinicManagementSystem
         static String LocalDBFile = projectDirectory + @"\846DentalClinicDB.mdf";
         static String connString = LocalDbSource + LocalDBFile + ";Integrated Security=True";
         SqlConnection sqlcon = new SqlConnection(connString);
-
-
+        Boolean NoteIsEdit { get; set; }
+       
         // Inside each polygon - it determines the clickable part of the shape to change its fill color 
         Rectangle TopRectangle = new Rectangle(10, 0, 10, 10);
         Rectangle BottomRectangle = new Rectangle(10, 20, 10, 10);
@@ -637,12 +636,23 @@ namespace _846DentalClinicManagementSystem
             this.Hide();
         }
 
-        private void tab_Charting_Click(object sender, EventArgs e)
+        private void PatientInfoTAB_Click(object sender, EventArgs e)
         {
-            FillArrayValues();
-            RetrievePatientTeethStatus();
-        }
+            if (PatientInfoTAB.SelectedIndex == 0)
+            {
 
+            }
+            else if (PatientInfoTAB.SelectedIndex == 1)
+            {
+                FillArrayValues();
+                RetrievePatientTeethStatus();
+            }
+            else if (PatientInfoTAB.SelectedIndex == 2)
+            {
+                LoadNotes();
+
+            }
+        }
 
 
         private void EnableTeethPanel()
@@ -753,6 +763,99 @@ namespace _846DentalClinicManagementSystem
             EnableTeethPanel();
             RetrievePatientTeethStatus();
             TeethArray.Clear();
+        }
+
+        private void btn_SaveNotes_Click(object sender, EventArgs e)
+        {
+            String PatientNote = txt_PatientNote.Text.Trim();
+            String DateToday = DateTime.Today.ToString("M/d/yyyy");
+
+            if (NoteIsEdit == true)
+            {
+                UpdateNote(PatientNote,DateToday);
+            }
+            else
+            {
+                InsertNote(PatientNote,DateToday);
+            }
+            txt_PatientNote.Clear();
+            LoadNotes();
+            NoteIsEdit = false;
+        }
+
+        private void UpdateNote(String PatientNote, String DateToday)
+        {
+            int NoteID = (int)(NoteDD.SelectedRows[0].Cells[0].Value);
+            
+            if (string.IsNullOrWhiteSpace(PatientNote) == false && NoteID > 0 )
+            {
+                SqlCommand cmd = new SqlCommand(
+                    "UPDATE [Notes] SET Note = @Note, NoteDate = @Date, PatientID_fk = @PatientID " +
+                    "WHERE NotesID = @NoteID", sqlcon);
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Note", PatientNote);
+                cmd.Parameters.AddWithValue("@Date", DateToday);
+                cmd.Parameters.AddWithValue("@PatientID", PatientID);
+                cmd.Parameters.AddWithValue("@NoteID", NoteID);
+
+                sqlcon.Open();
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Note Updated Successfully");
+                }catch(Exception ex) { Console.WriteLine(ex.Message); }
+                sqlcon.Close();
+            }
+        }
+        
+        private void InsertNote(String PatientNote,String DateToday)
+        {
+            if (string.IsNullOrWhiteSpace(PatientNote) == false)
+            {
+                SqlCommand cmd = new SqlCommand(
+                    "INSERT INTO [Notes] (Note,NoteDate,PatientID_fk) VALUES (@Note,@Date,@PatientID)", sqlcon);
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Note", PatientNote);
+                cmd.Parameters.AddWithValue("@Date", DateToday);
+                cmd.Parameters.AddWithValue("@PatientID", PatientID);
+
+                sqlcon.Open();
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Note Added Successfully");
+
+                }catch(Exception ex) { Console.WriteLine(ex.Message); }
+                sqlcon.Close();
+            }
+        }
+
+
+        private void LoadNotes()
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand(
+                "SELECT NotesID AS ID,NoteDate AS Date,Note FROM Notes WHERE PatientID_fk = @PatientID", sqlcon);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@PatientID", PatientID);
+            adapter.SelectCommand = cmd;
+
+            try
+            {
+                adapter.Fill(dt);
+                NoteDD.DataSource = dt;
+
+                NoteDD.Columns[0].Width = 50;
+                NoteDD.Columns[1].Width = 80;
+                
+            }catch(Exception ex) { Console.WriteLine(ex.Message); }
+        }
+
+        private void NoteDD_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            NoteIsEdit = true;
+            txt_PatientNote.Text = NoteDD.SelectedRows[0].Cells[2].Value.ToString();
         }
     }
 }

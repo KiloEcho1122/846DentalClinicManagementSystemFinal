@@ -35,6 +35,7 @@ namespace _846DentalClinicManagementSystem
         public Boolean isAddAppointment { get; set; }
         public Boolean isEditPatient { get; set; }
         public Boolean isAddPatient { get; set; }
+        public Boolean isAppointmentPatientExist { get; set; }
 
         private void HidePanels()
         {
@@ -71,6 +72,7 @@ namespace _846DentalClinicManagementSystem
 
         }
 
+        //Main Panel Start
 
         private void bunifuCustomLabel1_Click(object sender, EventArgs e)
         {
@@ -109,6 +111,10 @@ namespace _846DentalClinicManagementSystem
             HidePanels();
             ReminderPanel.Visible = true;
         }
+
+        // Main Panel End -----------------------------------------------------------------------------------------------------------
+
+        //Scheduler Panel Start  ----------------------------------------------------------------------------------------------------
 
         private void btn_AddApp_Click(object sender, EventArgs e)
         {
@@ -226,10 +232,62 @@ namespace _846DentalClinicManagementSystem
             }
         }
 
-        private void PatientsPanel_Paint(object sender, PaintEventArgs e)
+        private void btn_CompleteAppointment_Click(object sender, EventArgs e)
         {
+            //check if the name already exist in the patient database
+            // if exist { proceed to payment }
+            //          { change pending status to complete}
 
+            // if not   { complete patient info }
+            //          { proceed to payment }
+            //          { change pending status to complete}
+
+
+            if (AppointmentID > 0)
+            {
+                if (CheckIfPatientAlreadyinPatientDB() != 0)  // there is already an existing record in PatientDB
+                {
+                    //proceed to payment
+                }                                           // theres no record in PatientDB
+                else
+                {
+                    MessageBox.Show("This Patient doesnt have record yet, Please complete Patient Information !");
+                    AddEditPatientRecord addEditPatientRecord = new AddEditPatientRecord();
+                    isAddPatient = true;
+                    isAppointmentPatientExist = true;
+                    addEditPatientRecord.Show();
+                 
+                }
+            }
         }
+
+        private int CheckIfPatientAlreadyinPatientDB()
+        {
+            int PatientExist = 0;
+
+            SqlCommand cmd = new SqlCommand(
+                "SELECT* FROM Appointment " +
+            "WHERE Appointment.Appointment_FName in (SELECT Patient.PatientFName FROM Patient) " +
+            "AND Appointment.Appointment_MName in (SELECT Patient.PatientMName FROM Patient) " +
+            "AND Appointment.Appointment_LName in (SELECT Patient.PatientLName FROM Patient) AND AppointmentID = @AppID", sqlcon);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@AppId", AppointmentID);
+            sqlcon.Open();
+            try
+            {
+                PatientExist = (int)(cmd.ExecuteScalar());
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+            sqlcon.Close();
+
+            return PatientExist;
+        }
+
+
+
+        // Scheduler Panel End ---------------------------------------------------------------------------------------------------------
+
+        //Patient Panel Start ----------------------------------------------------------------------------------------------------------
 
         private void txt_SearchPatient_OnTextChange(object sender, EventArgs e)
         {
@@ -271,6 +329,8 @@ namespace _846DentalClinicManagementSystem
             PatientPanelSearch(search);
         }
 
+       
+
         private void Patient_DataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
            PatientID = Convert.ToInt32 (Patient_DataGrid.SelectedRows[0].Cells[0].Value);
@@ -286,13 +346,15 @@ namespace _846DentalClinicManagementSystem
         private void Patient_DataGrid_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             PatientID = Convert.ToInt32(Patient_DataGrid.SelectedRows[0].Cells[0].Value);
-           PatientName = Patient_DataGrid.SelectedRows[0].Cells[1].Value.ToString();
+            PatientName = Patient_DataGrid.SelectedRows[0].Cells[1].Value.ToString();
             if (PatientID > 0)
             {
                 ShowPatientInfo showPatientInfo = new ShowPatientInfo();
                 showPatientInfo.Show();
             }
         }
+
+      
 
         private void btn_EditPatient_Click(object sender, EventArgs e)
         {
@@ -305,5 +367,9 @@ namespace _846DentalClinicManagementSystem
 
             }
         }
+
+        // Patient Panel End --------------------------------------------------------------------------------------------------------
+
+        
     }
 }

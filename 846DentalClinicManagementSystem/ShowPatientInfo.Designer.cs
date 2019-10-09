@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowPatientInfo));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.TopPanel2 = new System.Windows.Forms.Panel();
@@ -40,13 +40,15 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.bunifuCustomLabel11 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lbl_PatientName = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.tab_Charting = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.PatientInfoTAB = new System.Windows.Forms.TabControl();
+            this.General_tab = new System.Windows.Forms.TabPage();
             this.bunifuCustomDataGrid2 = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.panel4 = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btn_SaveChart = new System.Windows.Forms.Button();
+            this.btn_RefreshChart = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -84,22 +86,18 @@
             this.TeethPanel13 = new System.Windows.Forms.Panel();
             this.TeethPanel29 = new System.Windows.Forms.Panel();
             this.TeethPanel21 = new System.Windows.Forms.Panel();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.Notes_tab = new System.Windows.Forms.TabPage();
+            this.btn_SaveNotes = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.bunifuCustomDataGrid1 = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btn_add = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.txt_FName = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
+            this.NoteDD = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.txt_PatientNote = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.btn_closePatientInfo = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btn_RefreshChart = new System.Windows.Forms.Button();
-            this.btn_SaveChart = new System.Windows.Forms.Button();
             this.TopPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            this.tab_Charting.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.PatientInfoTAB.SuspendLayout();
+            this.General_tab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid2)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -107,10 +105,10 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
-            this.tabPage3.SuspendLayout();
+            this.Notes_tab.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NoteDD)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -171,47 +169,47 @@
             this.lbl_PatientName.Size = new System.Drawing.Size(0, 17);
             this.lbl_PatientName.TabIndex = 50;
             // 
-            // tab_Charting
+            // PatientInfoTAB
             // 
-            this.tab_Charting.Controls.Add(this.tabPage1);
-            this.tab_Charting.Controls.Add(this.tabPage2);
-            this.tab_Charting.Controls.Add(this.tabPage3);
-            this.tab_Charting.Location = new System.Drawing.Point(34, 109);
-            this.tab_Charting.Name = "tab_Charting";
-            this.tab_Charting.SelectedIndex = 0;
-            this.tab_Charting.Size = new System.Drawing.Size(965, 430);
-            this.tab_Charting.TabIndex = 51;
-            this.tab_Charting.Click += new System.EventHandler(this.tab_Charting_Click);
+            this.PatientInfoTAB.Controls.Add(this.General_tab);
+            this.PatientInfoTAB.Controls.Add(this.tabPage2);
+            this.PatientInfoTAB.Controls.Add(this.Notes_tab);
+            this.PatientInfoTAB.Location = new System.Drawing.Point(34, 109);
+            this.PatientInfoTAB.Name = "PatientInfoTAB";
+            this.PatientInfoTAB.SelectedIndex = 0;
+            this.PatientInfoTAB.Size = new System.Drawing.Size(965, 430);
+            this.PatientInfoTAB.TabIndex = 51;
+            this.PatientInfoTAB.Click += new System.EventHandler(this.PatientInfoTAB_Click);
             // 
-            // tabPage1
+            // General_tab
             // 
-            this.tabPage1.Controls.Add(this.bunifuCustomDataGrid2);
-            this.tabPage1.Controls.Add(this.panel4);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(957, 404);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "GENERAL";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.General_tab.Controls.Add(this.bunifuCustomDataGrid2);
+            this.General_tab.Controls.Add(this.panel4);
+            this.General_tab.Location = new System.Drawing.Point(4, 22);
+            this.General_tab.Name = "General_tab";
+            this.General_tab.Padding = new System.Windows.Forms.Padding(3);
+            this.General_tab.Size = new System.Drawing.Size(957, 404);
+            this.General_tab.TabIndex = 0;
+            this.General_tab.Text = "GENERAL";
+            this.General_tab.UseVisualStyleBackColor = true;
             // 
             // bunifuCustomDataGrid2
             // 
             this.bunifuCustomDataGrid2.AllowUserToAddRows = false;
             this.bunifuCustomDataGrid2.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.bunifuCustomDataGrid2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.bunifuCustomDataGrid2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.bunifuCustomDataGrid2.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.bunifuCustomDataGrid2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.bunifuCustomDataGrid2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bunifuCustomDataGrid2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.bunifuCustomDataGrid2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.bunifuCustomDataGrid2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.bunifuCustomDataGrid2.DoubleBuffered = true;
             this.bunifuCustomDataGrid2.EnableHeadersVisualStyles = false;
@@ -270,6 +268,36 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "CHARTING";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btn_SaveChart
+            // 
+            this.btn_SaveChart.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn_SaveChart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_SaveChart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_SaveChart.ForeColor = System.Drawing.Color.White;
+            this.btn_SaveChart.Location = new System.Drawing.Point(820, 315);
+            this.btn_SaveChart.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_SaveChart.Name = "btn_SaveChart";
+            this.btn_SaveChart.Size = new System.Drawing.Size(106, 54);
+            this.btn_SaveChart.TabIndex = 55;
+            this.btn_SaveChart.Text = "Save";
+            this.btn_SaveChart.UseVisualStyleBackColor = false;
+            this.btn_SaveChart.Click += new System.EventHandler(this.btn_SaveChart_Click);
+            // 
+            // btn_RefreshChart
+            // 
+            this.btn_RefreshChart.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn_RefreshChart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_RefreshChart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_RefreshChart.ForeColor = System.Drawing.Color.White;
+            this.btn_RefreshChart.Location = new System.Drawing.Point(820, 252);
+            this.btn_RefreshChart.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_RefreshChart.Name = "btn_RefreshChart";
+            this.btn_RefreshChart.Size = new System.Drawing.Size(106, 54);
+            this.btn_RefreshChart.TabIndex = 54;
+            this.btn_RefreshChart.Text = "Refresh";
+            this.btn_RefreshChart.UseVisualStyleBackColor = false;
+            this.btn_RefreshChart.Click += new System.EventHandler(this.btn_RefreshChart_Click);
             // 
             // panel3
             // 
@@ -674,21 +702,34 @@
             this.TeethPanel21.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel21_Paint);
             this.TeethPanel21.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel21_MouseClick);
             // 
-            // tabPage3
+            // Notes_tab
             // 
-            this.tabPage3.Controls.Add(this.panel2);
-            this.tabPage3.Controls.Add(this.bunifuCustomDataGrid1);
-            this.tabPage3.Controls.Add(this.bunifuFlatButton2);
-            this.tabPage3.Controls.Add(this.bunifuFlatButton1);
-            this.tabPage3.Controls.Add(this.btn_add);
-            this.tabPage3.Controls.Add(this.txt_FName);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(957, 404);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "NOTES";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.Notes_tab.Controls.Add(this.btn_SaveNotes);
+            this.Notes_tab.Controls.Add(this.panel2);
+            this.Notes_tab.Controls.Add(this.NoteDD);
+            this.Notes_tab.Controls.Add(this.txt_PatientNote);
+            this.Notes_tab.Location = new System.Drawing.Point(4, 22);
+            this.Notes_tab.Name = "Notes_tab";
+            this.Notes_tab.Padding = new System.Windows.Forms.Padding(3);
+            this.Notes_tab.Size = new System.Drawing.Size(957, 404);
+            this.Notes_tab.TabIndex = 2;
+            this.Notes_tab.Text = "NOTES";
+            this.Notes_tab.UseVisualStyleBackColor = true;
+            // 
+            // btn_SaveNotes
+            // 
+            this.btn_SaveNotes.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn_SaveNotes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_SaveNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_SaveNotes.ForeColor = System.Drawing.Color.White;
+            this.btn_SaveNotes.Location = new System.Drawing.Point(794, 336);
+            this.btn_SaveNotes.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_SaveNotes.Name = "btn_SaveNotes";
+            this.btn_SaveNotes.Size = new System.Drawing.Size(106, 54);
+            this.btn_SaveNotes.TabIndex = 57;
+            this.btn_SaveNotes.Text = "Save";
+            this.btn_SaveNotes.UseVisualStyleBackColor = false;
+            this.btn_SaveNotes.Click += new System.EventHandler(this.btn_SaveNotes_Click);
             // 
             // panel2
             // 
@@ -722,148 +763,52 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // bunifuCustomDataGrid1
+            // NoteDD
             // 
-            this.bunifuCustomDataGrid1.AllowUserToAddRows = false;
-            this.bunifuCustomDataGrid1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.bunifuCustomDataGrid1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.bunifuCustomDataGrid1.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.bunifuCustomDataGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.bunifuCustomDataGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bunifuCustomDataGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.bunifuCustomDataGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.bunifuCustomDataGrid1.DoubleBuffered = true;
-            this.bunifuCustomDataGrid1.EnableHeadersVisualStyles = false;
-            this.bunifuCustomDataGrid1.HeaderBgColor = System.Drawing.Color.SeaGreen;
-            this.bunifuCustomDataGrid1.HeaderForeColor = System.Drawing.Color.SeaGreen;
-            this.bunifuCustomDataGrid1.Location = new System.Drawing.Point(39, 46);
-            this.bunifuCustomDataGrid1.Name = "bunifuCustomDataGrid1";
-            this.bunifuCustomDataGrid1.ReadOnly = true;
-            this.bunifuCustomDataGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.bunifuCustomDataGrid1.Size = new System.Drawing.Size(896, 190);
-            this.bunifuCustomDataGrid1.TabIndex = 43;
+            this.NoteDD.AllowUserToAddRows = false;
+            this.NoteDD.AllowUserToDeleteRows = false;
+            this.NoteDD.AllowUserToResizeColumns = false;
+            this.NoteDD.AllowUserToResizeRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.NoteDD.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.NoteDD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.NoteDD.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.NoteDD.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.NoteDD.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.NoteDD.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.NoteDD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.NoteDD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.NoteDD.DoubleBuffered = true;
+            this.NoteDD.EnableHeadersVisualStyles = false;
+            this.NoteDD.HeaderBgColor = System.Drawing.Color.SeaGreen;
+            this.NoteDD.HeaderForeColor = System.Drawing.Color.Black;
+            this.NoteDD.Location = new System.Drawing.Point(39, 46);
+            this.NoteDD.Name = "NoteDD";
+            this.NoteDD.ReadOnly = true;
+            this.NoteDD.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.NoteDD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.NoteDD.Size = new System.Drawing.Size(896, 190);
+            this.NoteDD.TabIndex = 43;
+            this.NoteDD.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.NoteDD_CellContentDoubleClick);
             // 
-            // bunifuFlatButton2
+            // txt_PatientNote
             // 
-            this.bunifuFlatButton2.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.bunifuFlatButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.bunifuFlatButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButton2.BorderRadius = 0;
-            this.bunifuFlatButton2.ButtonText = "Add";
-            this.bunifuFlatButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuFlatButton2.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton2.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton2.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton2.Iconimage")));
-            this.bunifuFlatButton2.Iconimage_right = null;
-            this.bunifuFlatButton2.Iconimage_right_Selected = null;
-            this.bunifuFlatButton2.Iconimage_Selected = null;
-            this.bunifuFlatButton2.IconMarginLeft = 0;
-            this.bunifuFlatButton2.IconMarginRight = 0;
-            this.bunifuFlatButton2.IconRightVisible = false;
-            this.bunifuFlatButton2.IconRightZoom = 0D;
-            this.bunifuFlatButton2.IconVisible = false;
-            this.bunifuFlatButton2.IconZoom = 90D;
-            this.bunifuFlatButton2.IsTab = false;
-            this.bunifuFlatButton2.Location = new System.Drawing.Point(818, 338);
-            this.bunifuFlatButton2.Name = "bunifuFlatButton2";
-            this.bunifuFlatButton2.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.bunifuFlatButton2.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.bunifuFlatButton2.OnHoverTextColor = System.Drawing.Color.White;
-            this.bunifuFlatButton2.selected = false;
-            this.bunifuFlatButton2.Size = new System.Drawing.Size(117, 48);
-            this.bunifuFlatButton2.TabIndex = 42;
-            this.bunifuFlatButton2.Text = "Add";
-            this.bunifuFlatButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuFlatButton2.Textcolor = System.Drawing.Color.White;
-            this.bunifuFlatButton2.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // bunifuFlatButton1
-            // 
-            this.bunifuFlatButton1.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.bunifuFlatButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.bunifuFlatButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButton1.BorderRadius = 0;
-            this.bunifuFlatButton1.ButtonText = "Add";
-            this.bunifuFlatButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuFlatButton1.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton1.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton1.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton1.Iconimage")));
-            this.bunifuFlatButton1.Iconimage_right = null;
-            this.bunifuFlatButton1.Iconimage_right_Selected = null;
-            this.bunifuFlatButton1.Iconimage_Selected = null;
-            this.bunifuFlatButton1.IconMarginLeft = 0;
-            this.bunifuFlatButton1.IconMarginRight = 0;
-            this.bunifuFlatButton1.IconRightVisible = false;
-            this.bunifuFlatButton1.IconRightZoom = 0D;
-            this.bunifuFlatButton1.IconVisible = false;
-            this.bunifuFlatButton1.IconZoom = 90D;
-            this.bunifuFlatButton1.IsTab = false;
-            this.bunifuFlatButton1.Location = new System.Drawing.Point(695, 338);
-            this.bunifuFlatButton1.Name = "bunifuFlatButton1";
-            this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.bunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.White;
-            this.bunifuFlatButton1.selected = false;
-            this.bunifuFlatButton1.Size = new System.Drawing.Size(117, 48);
-            this.bunifuFlatButton1.TabIndex = 41;
-            this.bunifuFlatButton1.Text = "Add";
-            this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuFlatButton1.Textcolor = System.Drawing.Color.White;
-            this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // btn_add
-            // 
-            this.btn_add.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_add.BorderRadius = 0;
-            this.btn_add.ButtonText = "Add";
-            this.btn_add.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_add.DisabledColor = System.Drawing.Color.Gray;
-            this.btn_add.Iconcolor = System.Drawing.Color.Transparent;
-            this.btn_add.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_add.Iconimage")));
-            this.btn_add.Iconimage_right = null;
-            this.btn_add.Iconimage_right_Selected = null;
-            this.btn_add.Iconimage_Selected = null;
-            this.btn_add.IconMarginLeft = 0;
-            this.btn_add.IconMarginRight = 0;
-            this.btn_add.IconRightVisible = false;
-            this.btn_add.IconRightZoom = 0D;
-            this.btn_add.IconVisible = false;
-            this.btn_add.IconZoom = 90D;
-            this.btn_add.IsTab = false;
-            this.btn_add.Location = new System.Drawing.Point(572, 338);
-            this.btn_add.Name = "btn_add";
-            this.btn_add.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_add.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.btn_add.OnHoverTextColor = System.Drawing.Color.White;
-            this.btn_add.selected = false;
-            this.btn_add.Size = new System.Drawing.Size(117, 48);
-            this.btn_add.TabIndex = 40;
-            this.btn_add.Text = "Add";
-            this.btn_add.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_add.Textcolor = System.Drawing.Color.White;
-            this.btn_add.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // txt_FName
-            // 
-            this.txt_FName.BackColor = System.Drawing.Color.SeaGreen;
-            this.txt_FName.BorderColor = System.Drawing.Color.SeaGreen;
-            this.txt_FName.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_FName.ForeColor = System.Drawing.SystemColors.Menu;
-            this.txt_FName.Location = new System.Drawing.Point(39, 242);
-            this.txt_FName.Multiline = true;
-            this.txt_FName.Name = "txt_FName";
-            this.txt_FName.Size = new System.Drawing.Size(896, 80);
-            this.txt_FName.TabIndex = 26;
+            this.txt_PatientNote.BackColor = System.Drawing.Color.SeaGreen;
+            this.txt_PatientNote.BorderColor = System.Drawing.Color.SeaGreen;
+            this.txt_PatientNote.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_PatientNote.ForeColor = System.Drawing.SystemColors.Menu;
+            this.txt_PatientNote.Location = new System.Drawing.Point(39, 242);
+            this.txt_PatientNote.Multiline = true;
+            this.txt_PatientNote.Name = "txt_PatientNote";
+            this.txt_PatientNote.Size = new System.Drawing.Size(896, 80);
+            this.txt_PatientNote.TabIndex = 26;
             // 
             // btn_closePatientInfo
             // 
@@ -900,43 +845,13 @@
             this.btn_closePatientInfo.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_closePatientInfo.Click += new System.EventHandler(this.btn_closePatientInfo_Click);
             // 
-            // btn_RefreshChart
-            // 
-            this.btn_RefreshChart.BackColor = System.Drawing.Color.SeaGreen;
-            this.btn_RefreshChart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_RefreshChart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_RefreshChart.ForeColor = System.Drawing.Color.White;
-            this.btn_RefreshChart.Location = new System.Drawing.Point(820, 252);
-            this.btn_RefreshChart.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_RefreshChart.Name = "btn_RefreshChart";
-            this.btn_RefreshChart.Size = new System.Drawing.Size(106, 54);
-            this.btn_RefreshChart.TabIndex = 54;
-            this.btn_RefreshChart.Text = "Refresh";
-            this.btn_RefreshChart.UseVisualStyleBackColor = false;
-            this.btn_RefreshChart.Click += new System.EventHandler(this.btn_RefreshChart_Click);
-            // 
-            // btn_SaveChart
-            // 
-            this.btn_SaveChart.BackColor = System.Drawing.Color.SeaGreen;
-            this.btn_SaveChart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_SaveChart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_SaveChart.ForeColor = System.Drawing.Color.White;
-            this.btn_SaveChart.Location = new System.Drawing.Point(820, 315);
-            this.btn_SaveChart.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_SaveChart.Name = "btn_SaveChart";
-            this.btn_SaveChart.Size = new System.Drawing.Size(106, 54);
-            this.btn_SaveChart.TabIndex = 55;
-            this.btn_SaveChart.Text = "Save";
-            this.btn_SaveChart.UseVisualStyleBackColor = false;
-            this.btn_SaveChart.Click += new System.EventHandler(this.btn_SaveChart_Click);
-            // 
             // ShowPatientInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1028, 618);
             this.Controls.Add(this.btn_closePatientInfo);
-            this.Controls.Add(this.tab_Charting);
+            this.Controls.Add(this.PatientInfoTAB);
             this.Controls.Add(this.lbl_PatientName);
             this.Controls.Add(this.bunifuCustomLabel11);
             this.Controls.Add(this.TopPanel2);
@@ -948,8 +863,8 @@
             this.TopPanel2.ResumeLayout(false);
             this.TopPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            this.tab_Charting.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.PatientInfoTAB.ResumeLayout(false);
+            this.General_tab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid2)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -960,12 +875,12 @@
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
+            this.Notes_tab.ResumeLayout(false);
+            this.Notes_tab.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NoteDD)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -978,8 +893,8 @@
         private Bunifu.Framework.UI.BunifuCustomLabel txt_formHeader;
         private System.Windows.Forms.PictureBox pictureBox5;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel11;
-        private System.Windows.Forms.TabControl tab_Charting;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabControl PatientInfoTAB;
+        private System.Windows.Forms.TabPage General_tab;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
@@ -1015,13 +930,10 @@
         private System.Windows.Forms.Panel TeethPanel13;
         private System.Windows.Forms.Panel TeethPanel29;
         private System.Windows.Forms.Panel TeethPanel21;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage Notes_tab;
         private Bunifu.Framework.UI.BunifuCustomLabel lbl_PatientName;
-        private WindowsFormsControlLibrary1.BunifuCustomTextbox txt_FName;
-        private Bunifu.Framework.UI.BunifuCustomDataGrid bunifuCustomDataGrid1;
-        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton2;
-        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
-        private Bunifu.Framework.UI.BunifuFlatButton btn_add;
+        private WindowsFormsControlLibrary1.BunifuCustomTextbox txt_PatientNote;
+        private Bunifu.Framework.UI.BunifuCustomDataGrid NoteDD;
         private System.Windows.Forms.Panel panel4;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel4;
         private System.Windows.Forms.PictureBox pictureBox3;
@@ -1035,5 +947,6 @@
         private Bunifu.Framework.UI.BunifuFlatButton btn_closePatientInfo;
         private System.Windows.Forms.Button btn_SaveChart;
         private System.Windows.Forms.Button btn_RefreshChart;
+        private System.Windows.Forms.Button btn_SaveNotes;
     }
 }

@@ -16,8 +16,8 @@ namespace _846DentalClinicManagementSystem
 {
     public partial class AddEditPatientRecord : Form
     {
-       
 
+        public static AddEditPatientRecord AddEditPatient;
         static String workingDirectory = Environment.CurrentDirectory;
         static String projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
         static String LocalDbSource = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=";
@@ -32,7 +32,8 @@ namespace _846DentalClinicManagementSystem
         {
             this.Hide();
             MainForm.c1.isAddPatient = false;
-            MainForm.c1.isEditPatient = false; 
+            MainForm.c1.isEditPatient = false;
+            MainForm.c1.isAppointmentPatientExist = false;  
         }
 
         private void gender_DD_onItemSelected(object sender, EventArgs e)
@@ -64,6 +65,12 @@ namespace _846DentalClinicManagementSystem
             if (MainForm.c1.isAddPatient == true && MainForm.c1.isEditPatient == false)
             {
                 LoadID();
+                // Para to sa mga patient sa appointment na wala pang record sa PatientDB, magfill up ng form tas iload ung name sa form
+                if (MainForm.c1.isAppointmentPatientExist == true)
+                {
+                    LoadAppointmentNameToForm();
+                }
+                
             }
             if (MainForm.c1.isEditPatient == true && MainForm.c1.isAddPatient == false)
             {
@@ -74,6 +81,24 @@ namespace _846DentalClinicManagementSystem
                 LoadPatientRecord();
             }
             
+        }
+
+        private void LoadAppointmentNameToForm()
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Appointment WHERE AppointmentID = @AppID", sqlcon);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@AppID",MainForm.c1.AppointmentID);
+            adapter.SelectCommand = cmd;
+            try
+            {
+                adapter.Fill(dt);
+                txt_LName.Text = dt.Rows[0][1].ToString();
+                txt_FName.Text = dt.Rows[0][2].ToString();
+                txt_MName.Text = dt.Rows[0][3].ToString();
+            }
+            catch(Exception ex) { Console.WriteLine(ex.Message); }
         }
 
         private void LoadPatientRecord()
@@ -154,6 +179,7 @@ namespace _846DentalClinicManagementSystem
                                         InsertPatientRecordToDB();
                                         MainForm.c1.PatientPanelSearch("");
                                         MainForm.c1.isAddPatient = false;
+                                        MainForm.c1.isAppointmentPatientExist = false;
                                         this.Hide();
                                     }
                                     if (MainForm.c1.isEditPatient == true && MainForm.c1.isAddPatient == false)
