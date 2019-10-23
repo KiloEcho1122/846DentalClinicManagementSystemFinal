@@ -290,6 +290,7 @@
             this.txt_Amount.Name = "txt_Amount";
             this.txt_Amount.Size = new System.Drawing.Size(101, 31);
             this.txt_Amount.TabIndex = 82;
+            this.txt_Amount.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_Amount_KeyDown);
             // 
             // bunifuCustomLabel6
             // 

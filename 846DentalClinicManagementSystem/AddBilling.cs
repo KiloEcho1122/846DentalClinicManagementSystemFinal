@@ -239,6 +239,7 @@ namespace _846DentalClinicManagementSystem
                             CreateBillingStatement();
                         }
                         UpdatePatientTreatmentDB();
+                        GlobalVariable.isBillingStatementExist = false;
                         this.Hide();
 
                     }
@@ -399,6 +400,7 @@ namespace _846DentalClinicManagementSystem
 
         private void btn_Close_Click(object sender, EventArgs e)
         {
+            GlobalVariable.isBillingStatementExist = false;
             this.Hide();
         }
 

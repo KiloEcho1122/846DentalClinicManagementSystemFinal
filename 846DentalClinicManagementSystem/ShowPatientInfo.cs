@@ -886,9 +886,19 @@ namespace _846DentalClinicManagementSystem
                 {
                     //replace comma "," with line break
                     dt.Rows[0][2] = dt.Rows[0][2].ToString().Replace(",", Environment.NewLine);
+                   
+                    //if (string.IsNullOrEmpty(dt.Rows[0][5].ToString()))
+                    //{
+                    //    GetStartingBalance(dt.Rows[0][3].ToString()); //get the original balance which is equal to amount charge
+                    //    adapter.Dispose();
+                    //    dt.Dispose();
+                    //    cmd.Dispose();
+                    //    ShowBilling();
+                    //    Billing_DataGrid.Refresh();
+                    // }
                 }
                 Billing_DataGrid.DataSource = dt;
-
+    
                 //dateformat
                 Billing_DataGrid.Columns[1].DefaultCellStyle.Format = "M/d/yyyy hh:mm tt";
                 Billing_DataGrid.Columns[6].DefaultCellStyle.Format = "M/d/yyyy hh:mm tt";
@@ -896,6 +906,7 @@ namespace _846DentalClinicManagementSystem
             }
             catch(Exception ex) { Console.WriteLine(ex.Message); }
 
+            
 
             if (Billing_DataGrid.Rows.Count > 0)
             {
@@ -904,7 +915,6 @@ namespace _846DentalClinicManagementSystem
             }
 
         }
-
 
         private void btn_AddPayment_Click(object sender, EventArgs e)
         {
@@ -917,7 +927,7 @@ namespace _846DentalClinicManagementSystem
             }
         }
 
-        private void btn_add_Click(object sender, EventArgs e)
+        private void add()
         {
             bool isPaymentValid = Regex.IsMatch(txt_Amount.Text, @"^(\(?\+?[0-9]*\)?)?[0-9\(\)]*$");
 
@@ -925,14 +935,15 @@ namespace _846DentalClinicManagementSystem
             {
                 if (row.Cells[0].Value.ToString().Contains(txt_BllingID.Text))
                 {
-                    
 
-                    if (isPaymentValid == true) {
-                        float _TotalPay = 0, _Balance = 0;
-                        float _Payment = float.Parse(txt_Amount.Text);
-                        float _AmountCharge = float.Parse(row.Cells[3].Value.ToString());
-                        float.TryParse(row.Cells[4].Value.ToString(),out _TotalPay);
-                        float.TryParse(row.Cells[5].Value.ToString(),out _Balance);
+
+                    if (isPaymentValid == true)
+                    {
+                        float _TotalPay = 0, _Balance = 0, _Payment = 0, _AmountCharge = 0;
+                        float.TryParse(txt_Amount.Text, out _Payment);
+                        float.TryParse(row.Cells[3].Value.ToString(),out _AmountCharge);
+                        float.TryParse(row.Cells[4].Value.ToString(), out _TotalPay);
+                        float.TryParse(row.Cells[5].Value.ToString(), out _Balance);
 
                         if (_Balance > 0)
                         {
@@ -961,27 +972,28 @@ namespace _846DentalClinicManagementSystem
                     else { MessageBox.Show("Invalid Payment"); }
 
                 }
-                
-               
+
+
             }
-          
+
         }
 
-        private float GetBalance()
-        {
-            float getBalance = 0;
-            SqlCommand cmd = new SqlCommand("SELECT BillingBalance FROM Billing " +
-                                            "WHERE BillingID = @BillingID",sqlcon);
-            cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@BillingID", GlobalVariable.BillingID);
-            sqlcon.Open();
-            try
-            {
-               getBalance = (float)(cmd.ExecuteNonQuery());
-            }catch(Exception ex) { Console.WriteLine(ex.Message); }
-            sqlcon.Close();
-            return getBalance;
-        }
+
+        //private float GetBalance()
+        //{
+        //    float getBalance = 0;
+        //    SqlCommand cmd = new SqlCommand("SELECT BillingBalance FROM Billing " +
+        //                                    "WHERE BillingID = @BillingID",sqlcon);
+        //    cmd.Parameters.Clear();
+        //    cmd.Parameters.AddWithValue("@BillingID", GlobalVariable.BillingID);
+        //    sqlcon.Open();
+        //    try
+        //    {
+        //       getBalance = (float)(cmd.ExecuteNonQuery());
+        //    }catch(Exception ex) { Console.WriteLine(ex.Message); }
+        //    sqlcon.Close();
+        //    return getBalance;
+        //}
 
         //private string GetUserFullName()
         //{
@@ -1003,17 +1015,16 @@ namespace _846DentalClinicManagementSystem
 
         private void InsertPayment()
         {
-            float Amount = float.Parse(txt_Amount.Text);
-            float Balance = GetBalance() - Amount;
-            string UpdatedBy = "mike";
+           float.TryParse(txt_Amount.Text,out float Amount);
+        
             SqlCommand cmd = new SqlCommand(
-                "INSERT INTO [Payment] (PaymentAmount,PaymentBalance,UpdatedBy,BillingID_fk) " +
-                "VALUES (@Amount,(SELECT BillingBalance FROM Billing WHERE BillingID = @BillingID) - @Amount,@UpdatedBy,@BillingID)",sqlcon);
+                "INSERT INTO [Payment] (PaymentAmount,PaymentBalance,LoginID_fk,BillingID_fk) " +
+                "VALUES (@Amount,(SELECT BillingBalance FROM Billing WHERE BillingID = @BillingID) - @Amount " +
+                ",@LoginID,@BillingID)",sqlcon);
 
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@Amount", Amount);
-            cmd.Parameters.AddWithValue("@Balance", Balance);
-            cmd.Parameters.AddWithValue("@UpdatedBy",UpdatedBy);
+            cmd.Parameters.AddWithValue("@LoginID", GlobalVariable.LoginID);
             cmd.Parameters.AddWithValue("@BillingID", GlobalVariable.BillingID);
             sqlcon.Open();
             try
@@ -1027,14 +1038,12 @@ namespace _846DentalClinicManagementSystem
 
         }
 
-       
-
         public void UpdateBillingAfterPayment()
         {
 
             SqlCommand cmd = new SqlCommand(
             "UPDATE Billing SET AmountPay = (SELECT SUM(PaymentAmount) FROM Payment WHERE BillingID_fk = @BillingID AND Status = 'Completed') , " +
-            "BillingBalance = (SELECT TOP 1 PaymentBalance FROM Payment WHERE BillingID_fk = @BillingID AND Status = 'Completed' ORDER BY PaymentID DESC), " +
+            "BillingBalance = (SELECT AmountCharged FROM Billing WHERE BillingID = @BillingID) - (SELECT SUM(PaymentAmount) FROM Payment WHERE BillingID_fk =  @BillingID AND Status = 'Completed'), " +
             "DateModified = CURRENT_TIMESTAMP WHERE BillingID = @BillingID", sqlcon);
 
             cmd.Parameters.Clear();
@@ -1066,6 +1075,21 @@ namespace _846DentalClinicManagementSystem
         {
             PaymentHistory paymentHistory = new PaymentHistory();
             paymentHistory.Show();
+        }
+
+        private void btn_add_Click(object sender, EventArgs e)
+        {
+            add();
+        }
+
+        private void txt_Amount_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                add();
+            }
+            
         }
     }
 

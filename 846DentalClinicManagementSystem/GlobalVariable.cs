@@ -41,10 +41,14 @@ namespace _846DentalClinicManagementSystem
 
         public static Boolean isBillingStatementExist { get; set; }
 
-       
+        public static int LoginID { get => s; set => s = value; }
 
-        
+        private static int s = 1;
 
-        
+
+
+
+
+
     }
 }

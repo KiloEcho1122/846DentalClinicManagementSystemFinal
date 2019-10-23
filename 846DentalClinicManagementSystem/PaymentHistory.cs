@@ -34,8 +34,8 @@ namespace _846DentalClinicManagementSystem
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable dt = new DataTable();
             SqlCommand cmd = new SqlCommand(
-                "SELECT PaymentID,PaymentDate,PaymentAmount,PaymentBalance,UpdatedBy,Status " +
-                "FROM Payment WHERE BillingID_fk = @BillingID", sqlcon);
+                "SELECT PaymentID,PaymentDate,PaymentAmount,PaymentBalance,CONCAT(l.FName, ' ', l.LName) AS UpdatedBy,Status " +
+                "FROM Payment p INNER JOIN Login l ON p.LoginID_fk = l.LoginID WHERE BillingID_fk = @BillingID", sqlcon);
 
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@BillingID", GlobalVariable.BillingID);
@@ -72,9 +72,10 @@ namespace _846DentalClinicManagementSystem
             {
                
                 SqlCommand cmd = new SqlCommand(
-                "UPDATE Payment SET Status = 'Canceled' WHERE PaymentID = @PaymentID", sqlcon);
+                "UPDATE Payment SET Status = 'Canceled', LoginID_fk = @LoginID WHERE PaymentID = @PaymentID", sqlcon);
 
                 cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@LoginID", GlobalVariable.LoginID);
                 cmd.Parameters.AddWithValue("@PaymentID", (int)(PaymentHistory_DataGrid.SelectedRows[0].Cells[0].Value));
 
                 sqlcon.Open();
@@ -84,9 +85,9 @@ namespace _846DentalClinicManagementSystem
                     UpdateBalanceAfterPayment();
                     ShowPaymentHistory();
                     var ShowPatientInfo = Application.OpenForms.OfType<ShowPatientInfo>().First();
-                    ShowPatientInfo.UpdateBillingAfterPayment();
+                    if (paymentID.Count > 0) { ShowPatientInfo.UpdateBillingAfterPayment(); }
                     ShowPatientInfo.ShowBilling();
-
+                    paymentID.Clear();
 
                 }
                 catch (Exception ex) { Console.WriteLine(ex.Message); }
@@ -99,7 +100,7 @@ namespace _846DentalClinicManagementSystem
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable dt = new DataTable();
             SqlCommand cmd = new SqlCommand(
-                "SELECT PaymentID FROM Payment WHERE BillingID_fk = @BillingID AND Status = 'Completed'", sqlcon);
+                "SELECT PaymentID FROM Payment WHERE BillingID_fk = @BillingID AND Status = 'Completed' ORDER BY PaymentID", sqlcon);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@BillingID", GlobalVariable.BillingID);
             adapter.SelectCommand = cmd;
@@ -158,10 +159,28 @@ namespace _846DentalClinicManagementSystem
                     sqlcon.Close();
                 }
             }
+            if (paymentID.Count == 0)
+            {
+                SqlCommand cmd = new SqlCommand(
+              "UPDATE Billing SET BillingBalance = AmountCharged, AmountPay = 0 WHERE BillingID = @BillingID", sqlcon);
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@BillingID", GlobalVariable.BillingID);
+
+                if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex) { Console.WriteLine(ex.Message); }
+                sqlcon.Close();
+            }
+
+            
         }
 
-     
-
+       
     }
+
     
 }
