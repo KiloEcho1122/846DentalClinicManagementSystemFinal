@@ -51,7 +51,11 @@
     <Reference Include="Bunifu_UI_v1.52">
       <HintPath>..\..\..\Downloads\Bunifu_UI_v1.52\Bunifu_UI_v1.52.dll</HintPath>
     </Reference>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.30\lib\net461\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
@@ -65,16 +69,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="846DentalDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>846DentalDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="AddAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddAppointment.Designer.cs">
       <DependentUpon>AddAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddBilling.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddBilling.Designer.cs">
+      <DependentUpon>AddBilling.cs</DependentUpon>
     </Compile>
     <Compile Include="AddEditPatientRecord.cs">
       <SubType>Form</SubType>
@@ -88,6 +93,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GlobalVariable.cs" />
     <Compile Include="LoginProgressbar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,12 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PaymentHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaymentHistory.Designer.cs">
+      <DependentUpon>PaymentHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShowPatientInfo.cs">
@@ -110,6 +122,9 @@
     </Compile>
     <EmbeddedResource Include="AddAppointment.resx">
       <DependentUpon>AddAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddBilling.resx">
+      <DependentUpon>AddBilling.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddEditPatientRecord.resx">
       <DependentUpon>AddEditPatientRecord.cs</DependentUpon>
@@ -122,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaymentHistory.resx">
+      <DependentUpon>PaymentHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -136,17 +154,7 @@
     <EmbeddedResource Include="ShowPatientInfo.resx">
       <DependentUpon>ShowPatientInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="846DentalDataSet.xsc">
-      <DependentUpon>846DentalDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="846DentalDataSet.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>846DentalDataSet.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="846DentalDataSet.xss">
-      <DependentUpon>846DentalDataSet.xsd</DependentUpon>
-    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -161,13 +169,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="846DentalClinicDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="846DentalClinicDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>846DentalClinicDB.mdf</DependentUpon>
-    </Content>
     <None Include="Resources\Chart.png" />
     <None Include="Resources\scheduler1.png" />
     <None Include="Resources\icons8-menu-64.png" />

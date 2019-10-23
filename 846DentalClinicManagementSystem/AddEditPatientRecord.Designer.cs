@@ -39,6 +39,7 @@
             this.bunifuCustomLabel8 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.TopPanel2 = new System.Windows.Forms.Panel();
             this.txt_formHeader = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.txt_PatientNo = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.bunifuCustomLabel11 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -51,7 +52,6 @@
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btn_close = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_add = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.TopPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
@@ -151,6 +151,16 @@
             this.txt_formHeader.Size = new System.Drawing.Size(168, 22);
             this.txt_formHeader.TabIndex = 3;
             this.txt_formHeader.Text = "Add New Patient";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackgroundImage = global::_846DentalClinicManagementSystem.Properties.Resources.btnpatients;
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox5.Location = new System.Drawing.Point(9, 7);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(32, 28);
+            this.pictureBox5.TabIndex = 2;
+            this.pictureBox5.TabStop = false;
             // 
             // txt_PatientNo
             // 
@@ -347,16 +357,6 @@
             this.btn_add.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackgroundImage = global::_846DentalClinicManagementSystem.Properties.Resources.btnpatients;
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Location = new System.Drawing.Point(9, 7);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(32, 28);
-            this.pictureBox5.TabIndex = 2;
-            this.pictureBox5.TabStop = false;
-            // 
             // AddEditPatientRecord
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -384,7 +384,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddEditPatientRecord";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddEditPatientRecord";
+            this.Text = "Patient Record";
             this.Load += new System.EventHandler(this.AddEditPatientRecord_Load);
             this.TopPanel2.ResumeLayout(false);
             this.TopPanel2.PerformLayout();

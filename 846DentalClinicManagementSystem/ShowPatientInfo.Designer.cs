@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowPatientInfo));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.TopPanel2 = new System.Windows.Forms.Panel();
@@ -42,7 +43,17 @@
             this.lbl_PatientName = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.PatientInfoTAB = new System.Windows.Forms.TabControl();
             this.General_tab = new System.Windows.Forms.TabPage();
-            this.bunifuCustomDataGrid2 = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.btn_ShowPayhistory = new System.Windows.Forms.Button();
+            this.btn_AddPayment = new System.Windows.Forms.Button();
+            this.Payment_Panel = new System.Windows.Forms.Panel();
+            this.btn_closePayment = new System.Windows.Forms.Button();
+            this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.txt_Amount = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
+            this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.txt_BllingID = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
+            this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.btn_add = new System.Windows.Forms.Button();
+            this.Billing_DataGrid = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.panel4 = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -98,7 +109,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.PatientInfoTAB.SuspendLayout();
             this.General_tab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid2)).BeginInit();
+            this.Payment_Panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Billing_DataGrid)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.tabPage2.SuspendLayout();
@@ -183,7 +195,10 @@
             // 
             // General_tab
             // 
-            this.General_tab.Controls.Add(this.bunifuCustomDataGrid2);
+            this.General_tab.Controls.Add(this.btn_ShowPayhistory);
+            this.General_tab.Controls.Add(this.btn_AddPayment);
+            this.General_tab.Controls.Add(this.Payment_Panel);
+            this.General_tab.Controls.Add(this.Billing_DataGrid);
             this.General_tab.Controls.Add(this.panel4);
             this.General_tab.Location = new System.Drawing.Point(4, 22);
             this.General_tab.Name = "General_tab";
@@ -193,34 +208,180 @@
             this.General_tab.Text = "GENERAL";
             this.General_tab.UseVisualStyleBackColor = true;
             // 
-            // bunifuCustomDataGrid2
+            // btn_ShowPayhistory
             // 
-            this.bunifuCustomDataGrid2.AllowUserToAddRows = false;
-            this.bunifuCustomDataGrid2.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.bunifuCustomDataGrid2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.bunifuCustomDataGrid2.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.bunifuCustomDataGrid2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.bunifuCustomDataGrid2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bunifuCustomDataGrid2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.bunifuCustomDataGrid2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.bunifuCustomDataGrid2.DoubleBuffered = true;
-            this.bunifuCustomDataGrid2.EnableHeadersVisualStyles = false;
-            this.bunifuCustomDataGrid2.HeaderBgColor = System.Drawing.Color.SeaGreen;
-            this.bunifuCustomDataGrid2.HeaderForeColor = System.Drawing.Color.SeaGreen;
-            this.bunifuCustomDataGrid2.Location = new System.Drawing.Point(19, 58);
-            this.bunifuCustomDataGrid2.Name = "bunifuCustomDataGrid2";
-            this.bunifuCustomDataGrid2.ReadOnly = true;
-            this.bunifuCustomDataGrid2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.bunifuCustomDataGrid2.Size = new System.Drawing.Size(916, 318);
-            this.bunifuCustomDataGrid2.TabIndex = 54;
+            this.btn_ShowPayhistory.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn_ShowPayhistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ShowPayhistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ShowPayhistory.ForeColor = System.Drawing.Color.White;
+            this.btn_ShowPayhistory.Location = new System.Drawing.Point(541, 352);
+            this.btn_ShowPayhistory.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_ShowPayhistory.Name = "btn_ShowPayhistory";
+            this.btn_ShowPayhistory.Size = new System.Drawing.Size(193, 39);
+            this.btn_ShowPayhistory.TabIndex = 57;
+            this.btn_ShowPayhistory.Text = "Show Payment History";
+            this.btn_ShowPayhistory.UseVisualStyleBackColor = false;
+            this.btn_ShowPayhistory.Click += new System.EventHandler(this.btn_ShowPayhistory_Click);
+            // 
+            // btn_AddPayment
+            // 
+            this.btn_AddPayment.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn_AddPayment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_AddPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_AddPayment.ForeColor = System.Drawing.Color.White;
+            this.btn_AddPayment.Location = new System.Drawing.Point(748, 352);
+            this.btn_AddPayment.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_AddPayment.Name = "btn_AddPayment";
+            this.btn_AddPayment.Size = new System.Drawing.Size(193, 39);
+            this.btn_AddPayment.TabIndex = 56;
+            this.btn_AddPayment.Text = "Add Payment";
+            this.btn_AddPayment.UseVisualStyleBackColor = false;
+            this.btn_AddPayment.Click += new System.EventHandler(this.btn_AddPayment_Click);
+            // 
+            // Payment_Panel
+            // 
+            this.Payment_Panel.BackColor = System.Drawing.Color.PeachPuff;
+            this.Payment_Panel.Controls.Add(this.btn_closePayment);
+            this.Payment_Panel.Controls.Add(this.bunifuCustomLabel7);
+            this.Payment_Panel.Controls.Add(this.txt_Amount);
+            this.Payment_Panel.Controls.Add(this.bunifuCustomLabel6);
+            this.Payment_Panel.Controls.Add(this.txt_BllingID);
+            this.Payment_Panel.Controls.Add(this.bunifuCustomLabel1);
+            this.Payment_Panel.Controls.Add(this.btn_add);
+            this.Payment_Panel.Location = new System.Drawing.Point(748, 59);
+            this.Payment_Panel.Name = "Payment_Panel";
+            this.Payment_Panel.Size = new System.Drawing.Size(193, 287);
+            this.Payment_Panel.TabIndex = 55;
+            // 
+            // btn_closePayment
+            // 
+            this.btn_closePayment.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn_closePayment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_closePayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_closePayment.ForeColor = System.Drawing.Color.White;
+            this.btn_closePayment.Location = new System.Drawing.Point(36, 214);
+            this.btn_closePayment.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_closePayment.Name = "btn_closePayment";
+            this.btn_closePayment.Size = new System.Drawing.Size(119, 47);
+            this.btn_closePayment.TabIndex = 84;
+            this.btn_closePayment.Text = "Close";
+            this.btn_closePayment.UseVisualStyleBackColor = false;
+            this.btn_closePayment.Click += new System.EventHandler(this.btn_closePayment_Click);
+            // 
+            // bunifuCustomLabel7
+            // 
+            this.bunifuCustomLabel7.AutoSize = true;
+            this.bunifuCustomLabel7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel7.ForeColor = System.Drawing.Color.Teal;
+            this.bunifuCustomLabel7.Location = new System.Drawing.Point(44, 11);
+            this.bunifuCustomLabel7.Name = "bunifuCustomLabel7";
+            this.bunifuCustomLabel7.Size = new System.Drawing.Size(96, 16);
+            this.bunifuCustomLabel7.TabIndex = 83;
+            this.bunifuCustomLabel7.Text = "New Payment";
+            // 
+            // txt_Amount
+            // 
+            this.txt_Amount.BackColor = System.Drawing.Color.SeaGreen;
+            this.txt_Amount.BorderColor = System.Drawing.Color.SeaGreen;
+            this.txt_Amount.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Amount.ForeColor = System.Drawing.SystemColors.Menu;
+            this.txt_Amount.Location = new System.Drawing.Point(78, 97);
+            this.txt_Amount.Multiline = true;
+            this.txt_Amount.Name = "txt_Amount";
+            this.txt_Amount.Size = new System.Drawing.Size(101, 31);
+            this.txt_Amount.TabIndex = 82;
+            // 
+            // bunifuCustomLabel6
+            // 
+            this.bunifuCustomLabel6.AutoSize = true;
+            this.bunifuCustomLabel6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel6.ForeColor = System.Drawing.Color.Teal;
+            this.bunifuCustomLabel6.Location = new System.Drawing.Point(3, 103);
+            this.bunifuCustomLabel6.Name = "bunifuCustomLabel6";
+            this.bunifuCustomLabel6.Size = new System.Drawing.Size(68, 17);
+            this.bunifuCustomLabel6.TabIndex = 81;
+            this.bunifuCustomLabel6.Text = "Amount :";
+            // 
+            // txt_BllingID
+            // 
+            this.txt_BllingID.BackColor = System.Drawing.Color.SeaGreen;
+            this.txt_BllingID.BorderColor = System.Drawing.Color.SeaGreen;
+            this.txt_BllingID.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_BllingID.ForeColor = System.Drawing.SystemColors.Menu;
+            this.txt_BllingID.Location = new System.Drawing.Point(78, 47);
+            this.txt_BllingID.Multiline = true;
+            this.txt_BllingID.Name = "txt_BllingID";
+            this.txt_BllingID.Size = new System.Drawing.Size(101, 31);
+            this.txt_BllingID.TabIndex = 78;
+            // 
+            // bunifuCustomLabel1
+            // 
+            this.bunifuCustomLabel1.AutoSize = true;
+            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.Teal;
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(3, 53);
+            this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(73, 17);
+            this.bunifuCustomLabel1.TabIndex = 57;
+            this.bunifuCustomLabel1.Text = "Billing ID  :";
+            // 
+            // btn_add
+            // 
+            this.btn_add.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_add.ForeColor = System.Drawing.Color.White;
+            this.btn_add.Location = new System.Drawing.Point(36, 164);
+            this.btn_add.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_add.Name = "btn_add";
+            this.btn_add.Size = new System.Drawing.Size(119, 47);
+            this.btn_add.TabIndex = 57;
+            this.btn_add.Text = "Add";
+            this.btn_add.UseVisualStyleBackColor = false;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
+            // 
+            // Billing_DataGrid
+            // 
+            this.Billing_DataGrid.AllowUserToAddRows = false;
+            this.Billing_DataGrid.AllowUserToDeleteRows = false;
+            this.Billing_DataGrid.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Billing_DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.Billing_DataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Billing_DataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.Billing_DataGrid.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.Billing_DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Billing_DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Billing_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.Billing_DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Billing_DataGrid.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Billing_DataGrid.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Billing_DataGrid.DoubleBuffered = true;
+            this.Billing_DataGrid.EnableHeadersVisualStyles = false;
+            this.Billing_DataGrid.HeaderBgColor = System.Drawing.Color.SeaGreen;
+            this.Billing_DataGrid.HeaderForeColor = System.Drawing.Color.White;
+            this.Billing_DataGrid.Location = new System.Drawing.Point(19, 57);
+            this.Billing_DataGrid.Name = "Billing_DataGrid";
+            this.Billing_DataGrid.ReadOnly = true;
+            this.Billing_DataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.Billing_DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Billing_DataGrid.Size = new System.Drawing.Size(715, 289);
+            this.Billing_DataGrid.TabIndex = 54;
+            this.Billing_DataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Billing_DataGrid_CellContentClick);
             // 
             // panel4
             // 
@@ -240,9 +401,9 @@
             this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.Silver;
             this.bunifuCustomLabel4.Location = new System.Drawing.Point(27, 3);
             this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
-            this.bunifuCustomLabel4.Size = new System.Drawing.Size(147, 21);
+            this.bunifuCustomLabel4.Size = new System.Drawing.Size(73, 21);
             this.bunifuCustomLabel4.TabIndex = 3;
-            this.bunifuCustomLabel4.Text = "Treatment History";
+            this.bunifuCustomLabel4.Text = "General";
             // 
             // pictureBox3
             // 
@@ -769,22 +930,23 @@
             this.NoteDD.AllowUserToDeleteRows = false;
             this.NoteDD.AllowUserToResizeColumns = false;
             this.NoteDD.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.NoteDD.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.NoteDD.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.NoteDD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.NoteDD.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.NoteDD.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.NoteDD.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.NoteDD.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.NoteDD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.NoteDD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.NoteDD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.NoteDD.Cursor = System.Windows.Forms.Cursors.Hand;
             this.NoteDD.DoubleBuffered = true;
             this.NoteDD.EnableHeadersVisualStyles = false;
             this.NoteDD.HeaderBgColor = System.Drawing.Color.SeaGreen;
@@ -865,7 +1027,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.PatientInfoTAB.ResumeLayout(false);
             this.General_tab.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid2)).EndInit();
+            this.Payment_Panel.ResumeLayout(false);
+            this.Payment_Panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Billing_DataGrid)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -943,10 +1107,20 @@
         private System.Windows.Forms.Panel panel2;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private Bunifu.Framework.UI.BunifuCustomDataGrid bunifuCustomDataGrid2;
+        private Bunifu.Framework.UI.BunifuCustomDataGrid Billing_DataGrid;
         private Bunifu.Framework.UI.BunifuFlatButton btn_closePatientInfo;
         private System.Windows.Forms.Button btn_SaveChart;
         private System.Windows.Forms.Button btn_RefreshChart;
         private System.Windows.Forms.Button btn_SaveNotes;
+        private System.Windows.Forms.Button btn_AddPayment;
+        private System.Windows.Forms.Panel Payment_Panel;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
+        private System.Windows.Forms.Button btn_add;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel7;
+        private WindowsFormsControlLibrary1.BunifuCustomTextbox txt_Amount;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel6;
+        private WindowsFormsControlLibrary1.BunifuCustomTextbox txt_BllingID;
+        private System.Windows.Forms.Button btn_closePayment;
+        private System.Windows.Forms.Button btn_ShowPayhistory;
     }
 }

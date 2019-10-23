@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Collections;using System.IO;
+using System.Text.RegularExpressions;
 
 namespace _846DentalClinicManagementSystem
 {
@@ -18,14 +19,9 @@ namespace _846DentalClinicManagementSystem
         {
             InitializeComponent();
         }
-
-        static String workingDirectory = Environment.CurrentDirectory;
-        static String projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
-        static String LocalDbSource = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=";
-        static String LocalDBFile = projectDirectory + @"\846DentalClinicDB.mdf";
-        static String connString = LocalDbSource + LocalDBFile + ";Integrated Security=True";
-        SqlConnection sqlcon = new SqlConnection(connString);
-        Boolean NoteIsEdit { get; set; }
+       
+        SqlConnection sqlcon = new SqlConnection(GlobalVariable.connString);
+        Boolean NoteIsEdit;
        
         // Inside each polygon - it determines the clickable part of the shape to change its fill color 
         Rectangle TopRectangle = new Rectangle(10, 0, 10, 10);
@@ -68,7 +64,7 @@ namespace _846DentalClinicManagementSystem
         Point[] ekis2 = { new Point(27, 0), new Point(30, 3), new Point(3, 30), new Point(0, 27) };
 
 
-        int PatientID = MainForm.c1.PatientID;
+        int PatientID = GlobalVariable.PatientID;
 
         ArrayList TeethArray = new ArrayList();
 
@@ -82,7 +78,11 @@ namespace _846DentalClinicManagementSystem
 
         private void ShowPatientInfo_Load(object sender, EventArgs e)
         {
-            lbl_PatientName.Text = MainForm.c1.PatientName;
+            lbl_PatientName.Text = GlobalVariable.PatientName;
+            Payment_Panel.Visible = false;
+            ShowBilling();
+            Billing_DataGrid.Width = 922;
+           
         }
 
         private void FillArrayValues()
@@ -489,7 +489,7 @@ namespace _846DentalClinicManagementSystem
 
         private void UpdatePatientTeeth(int TeethID, int TeethNum)
         {
-            SqlConnection sqlcon = new SqlConnection(connString);
+           
             SqlCommand cmd = new SqlCommand(
                 "UPDATE [Teeth] SET TeethTop = @Top, TeethBottom = @Bottom, TeethRight = @Right, " +
                 "TeethLeft = @Left, TeethCenter = Center, TeethCheck = @Check, TeethCross = @Cross " +
@@ -741,7 +741,7 @@ namespace _846DentalClinicManagementSystem
                     //so imbis na insert update lang to prevent data replication
 
                     UpdatePatientTeeth(teethID, teeth);
-                    MessageBox.Show("Save Successfully");
+                    
                     //Console.WriteLine(Convert.ToInt32(cmd.ExecuteScalar()));
                 }
                 else
@@ -749,10 +749,11 @@ namespace _846DentalClinicManagementSystem
                     // means wala pang existing  status sa teethnumber ng patient
                     // so mag iinsert ng bago
                     insertTeethStatus(teeth);
-                    MessageBox.Show("Save Successfully");
+                   
                     //Console.WriteLine(Convert.ToInt32(cmd.ExecuteScalar()));
                 }
             }
+            MessageBox.Show("Save Successfully");
 
             TeethArray.Clear(); // empty arraylist
         }
@@ -848,8 +849,12 @@ namespace _846DentalClinicManagementSystem
 
                 NoteDD.Columns[0].Width = 50;
                 NoteDD.Columns[1].Width = 80;
-                
-            }catch(Exception ex) { Console.WriteLine(ex.Message); }
+
+                NoteDD.Columns[1].DefaultCellStyle.Format = "M/d/yyyy";
+
+
+            }
+            catch(Exception ex) { Console.WriteLine(ex.Message); }
         }
 
         private void NoteDD_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -857,5 +862,212 @@ namespace _846DentalClinicManagementSystem
             NoteIsEdit = true;
             txt_PatientNote.Text = NoteDD.SelectedRows[0].Cells[2].Value.ToString();
         }
+
+        public void ShowBilling()
+        { 
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand (
+                "SELECT b.BillingID,b.BillingDate, t.Treatment_Price, b.AmountCharged,b.AmountPay,b.BillingBalance ,b.DateModified " +
+                "FROM Billing b INNER JOIN PatientTreatment t ON b.AppointmentID_fk = t.AppointmentID_fk " +
+                "INNER JOIN Patient p ON b.PatientID_fk = p.PatientID " +
+                "WHERE b.PatientID_fk = @PatientID",sqlcon);
+
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@PatientID",PatientID);
+
+            adapter.SelectCommand = cmd;
+            try
+            {
+                adapter.Fill(dt);
+
+                //check if data table contains row
+                if (dt.Rows.Count > 0)
+                {
+                    //replace comma "," with line break
+                    dt.Rows[0][2] = dt.Rows[0][2].ToString().Replace(",", Environment.NewLine);
+                }
+                Billing_DataGrid.DataSource = dt;
+
+                //dateformat
+                Billing_DataGrid.Columns[1].DefaultCellStyle.Format = "M/d/yyyy hh:mm tt";
+                Billing_DataGrid.Columns[6].DefaultCellStyle.Format = "M/d/yyyy hh:mm tt";
+
+            }
+            catch(Exception ex) { Console.WriteLine(ex.Message); }
+
+
+            if (Billing_DataGrid.Rows.Count > 0)
+            {
+                Billing_DataGrid.Rows[0].Selected = true;
+                GlobalVariable.BillingID = (int)(Billing_DataGrid.SelectedRows[0].Cells[0].Value);
+            }
+
+        }
+
+
+        private void btn_AddPayment_Click(object sender, EventArgs e)
+        {
+            Billing_DataGrid.Width = 715;
+            Payment_Panel.Visible = true;
+            if (Billing_DataGrid.SelectedRows.Count > 0) // make sure user select at least 1 row 
+            {
+
+                txt_BllingID.Text = GlobalVariable.BillingID.ToString();
+            }
+        }
+
+        private void btn_add_Click(object sender, EventArgs e)
+        {
+            bool isPaymentValid = Regex.IsMatch(txt_Amount.Text, @"^(\(?\+?[0-9]*\)?)?[0-9\(\)]*$");
+
+            foreach (DataGridViewRow row in Billing_DataGrid.Rows)
+            {
+                if (row.Cells[0].Value.ToString().Contains(txt_BllingID.Text))
+                {
+                    
+
+                    if (isPaymentValid == true) {
+                        float _TotalPay = 0, _Balance = 0;
+                        float _Payment = float.Parse(txt_Amount.Text);
+                        float _AmountCharge = float.Parse(row.Cells[3].Value.ToString());
+                        float.TryParse(row.Cells[4].Value.ToString(),out _TotalPay);
+                        float.TryParse(row.Cells[5].Value.ToString(),out _Balance);
+
+                        if (_Balance > 0)
+                        {
+                            if (_TotalPay <= _AmountCharge)
+                            {
+                                GlobalVariable.BillingID = Convert.ToInt32(txt_BllingID.Text);
+                                DialogResult result = MessageBox.Show("Are you sure you want to add ₱ " + _Payment + " payment \r \n To Mr/Ms." + GlobalVariable.PatientName + " ?"
+                                   , "Billing ID : " + GlobalVariable.BillingID, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+
+                                if (result == DialogResult.Yes)
+                                {
+                                    InsertPayment();
+                                    UpdateBillingAfterPayment();
+                                    MessageBox.Show("Payment added succesfully");
+                                    ShowBilling();
+                                    txt_Amount.Clear();
+                                    return;
+                                }
+
+                            }
+                            else { MessageBox.Show("Payment exceeds the amount charged"); }
+
+                        }
+                        else { MessageBox.Show("Bill already Paid"); }
+                    }
+                    else { MessageBox.Show("Invalid Payment"); }
+
+                }
+                
+               
+            }
+          
+        }
+
+        private float GetBalance()
+        {
+            float getBalance = 0;
+            SqlCommand cmd = new SqlCommand("SELECT BillingBalance FROM Billing " +
+                                            "WHERE BillingID = @BillingID",sqlcon);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@BillingID", GlobalVariable.BillingID);
+            sqlcon.Open();
+            try
+            {
+               getBalance = (float)(cmd.ExecuteNonQuery());
+            }catch(Exception ex) { Console.WriteLine(ex.Message); }
+            sqlcon.Close();
+            return getBalance;
+        }
+
+        //private string GetUserFullName()
+        //{
+        //    string name = "";
+        //    GlobalVariable.Username = "mike";
+        //    SqlCommand cmd = new SqlCommand(
+        //        "SELECT CONCAT(LName, ' ', FName) FROM Login " +
+        //        "WHERE Username = @username COLLATE SQL_Latin1_General_CP1_CS_AS ", sqlcon);
+        //    cmd.Parameters.Clear();
+        //    cmd.Parameters.AddWithValue("@username", GlobalVariable.Username);
+        //    sqlcon.Open();
+        //    try
+        //    {
+        //        name = cmd.ExecuteNonQuery().ToString();   
+        //    }catch(Exception ex) { Console.WriteLine(ex.Message); }
+        //    sqlcon.Close();
+        //    return name;
+        //}
+
+        private void InsertPayment()
+        {
+            float Amount = float.Parse(txt_Amount.Text);
+            float Balance = GetBalance() - Amount;
+            string UpdatedBy = "mike";
+            SqlCommand cmd = new SqlCommand(
+                "INSERT INTO [Payment] (PaymentAmount,PaymentBalance,UpdatedBy,BillingID_fk) " +
+                "VALUES (@Amount,(SELECT BillingBalance FROM Billing WHERE BillingID = @BillingID) - @Amount,@UpdatedBy,@BillingID)",sqlcon);
+
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@Amount", Amount);
+            cmd.Parameters.AddWithValue("@Balance", Balance);
+            cmd.Parameters.AddWithValue("@UpdatedBy",UpdatedBy);
+            cmd.Parameters.AddWithValue("@BillingID", GlobalVariable.BillingID);
+            sqlcon.Open();
+            try
+            {
+                cmd.ExecuteNonQuery();
+               
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+            sqlcon.Close();
+            
+
+        }
+
+       
+
+        public void UpdateBillingAfterPayment()
+        {
+
+            SqlCommand cmd = new SqlCommand(
+            "UPDATE Billing SET AmountPay = (SELECT SUM(PaymentAmount) FROM Payment WHERE BillingID_fk = @BillingID AND Status = 'Completed') , " +
+            "BillingBalance = (SELECT TOP 1 PaymentBalance FROM Payment WHERE BillingID_fk = @BillingID AND Status = 'Completed' ORDER BY PaymentID DESC), " +
+            "DateModified = CURRENT_TIMESTAMP WHERE BillingID = @BillingID", sqlcon);
+
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@BillingID", GlobalVariable.BillingID);
+            sqlcon.Open();
+            try
+            {
+                cmd.ExecuteNonQuery();
+               
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+            sqlcon.Close();
+        }
+
+        private void btn_closePayment_Click(object sender, EventArgs e)
+        {
+            txt_Amount.Clear();
+            Payment_Panel.Visible = false;
+            Billing_DataGrid.Width = 922;
+        }
+
+        private void Billing_DataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txt_BllingID.Text = Billing_DataGrid.SelectedRows[0].Cells[0].Value.ToString();
+            GlobalVariable.BillingID = (int)(Billing_DataGrid.SelectedRows[0].Cells[0].Value);
+        }
+
+        private void btn_ShowPayhistory_Click(object sender, EventArgs e)
+        {
+            PaymentHistory paymentHistory = new PaymentHistory();
+            paymentHistory.Show();
+        }
     }
+
+   
 }

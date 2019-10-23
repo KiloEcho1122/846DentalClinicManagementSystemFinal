@@ -18,22 +18,24 @@ namespace _846DentalClinicManagementSystem
     {
 
         public static AddEditPatientRecord AddEditPatient;
-        static String workingDirectory = Environment.CurrentDirectory;
-        static String projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
-        static String LocalDbSource = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=";
-        static String LocalDBFile = projectDirectory + @"\846DentalClinicDB.mdf";
-        static String connString = LocalDbSource + LocalDBFile + ";Integrated Security=True";
-        SqlConnection sqlcon = new SqlConnection(connString);
+        //static String workingDirectory = Environment.CurrentDirectory;
+        //static String projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
+        //static String LocalDbSource = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=";
+        //static String LocalDBFile = projectDirectory + @"\846DentalClinicDB.mdf";
+        //static String connString = LocalDbSource + LocalDBFile + ";Integrated Security=True";
+        SqlConnection sqlcon = new SqlConnection(GlobalVariable.connString);
         String LName, FName, MName, Gender, Address, Birthday;
-        long age;
+        long age ;
         int PatientID;
-
+     
         private void btn_close_Click(object sender, EventArgs e)
         {
+
             this.Hide();
-            MainForm.c1.isAddPatient = false;
-            MainForm.c1.isEditPatient = false;
-            MainForm.c1.isAppointmentPatientExist = false;  
+            GlobalVariable.isAddPatient = false;
+            GlobalVariable.isEditPatient = false;
+            GlobalVariable.isAppointmentPatientExist = false;
+
         }
 
         private void gender_DD_onItemSelected(object sender, EventArgs e)
@@ -52,8 +54,6 @@ namespace _846DentalClinicManagementSystem
 
         }
 
-
-
         public AddEditPatientRecord()
         {
             InitializeComponent();
@@ -62,21 +62,24 @@ namespace _846DentalClinicManagementSystem
         private void AddEditPatientRecord_Load(object sender, EventArgs e)
         {
 
-            if (MainForm.c1.isAddPatient == true && MainForm.c1.isEditPatient == false)
+            if (GlobalVariable.isAddPatient == true && GlobalVariable.isEditPatient == false)
             {
                 LoadID();
+                this.Text = "Add Patient Record";
                 // Para to sa mga patient sa appointment na wala pang record sa PatientDB, magfill up ng form tas iload ung name sa form
-                if (MainForm.c1.isAppointmentPatientExist == true)
+                if (GlobalVariable.isAppointmentPatientExist == true)
                 {
                     LoadAppointmentNameToForm();
                 }
                 
+                
             }
-            if (MainForm.c1.isEditPatient == true && MainForm.c1.isAddPatient == false)
+            if (GlobalVariable.isEditPatient == true && GlobalVariable.isAddPatient == false)
             {
                 txt_formHeader.Text = "Edit Patient Record";
+                this.Text = "Edit Patient Record";
                 btn_add.Text = "Update";
-                PatientID = MainForm.c1.PatientID;
+                PatientID = GlobalVariable.PatientID;
                 txt_PatientNo.Text = PatientID.ToString();
                 LoadPatientRecord();
             }
@@ -89,7 +92,7 @@ namespace _846DentalClinicManagementSystem
             DataTable dt = new DataTable();
             SqlCommand cmd = new SqlCommand("SELECT * FROM Appointment WHERE AppointmentID = @AppID", sqlcon);
             cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@AppID",MainForm.c1.AppointmentID);
+            cmd.Parameters.AddWithValue("@AppID", GlobalVariable.AppointmentID);
             adapter.SelectCommand = cmd;
             try
             {
@@ -105,7 +108,7 @@ namespace _846DentalClinicManagementSystem
         {
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable dt = new DataTable();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Patient WHERE PatientID = @ID",sqlcon);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Patient WHERE PatientID = @ID", sqlcon);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@ID", PatientID);
             adapter.SelectCommand = cmd;
@@ -136,7 +139,7 @@ namespace _846DentalClinicManagementSystem
 
         private void LoadID()
         {
-            SqlCommand cmd = new SqlCommand("SELECT PatientID From Patient ORDER BY PatientID DESC",sqlcon);
+            SqlCommand cmd = new SqlCommand("SELECT PatientID From Patient ORDER BY PatientID DESC", sqlcon);
             sqlcon.Open();
             try
             {
@@ -173,20 +176,20 @@ namespace _846DentalClinicManagementSystem
                             {
                                 if (string.IsNullOrEmpty(Address) == false)
                                 {
-
-                                    if (MainForm.c1.isAddPatient == true && MainForm.c1.isEditPatient == false)
+                                     var main = Application.OpenForms.OfType<MainForm>().First();
+                                    if (GlobalVariable.isAddPatient == true && GlobalVariable.isEditPatient == false)
                                     {
                                         InsertPatientRecordToDB();
-                                        MainForm.c1.PatientPanelSearch("");
-                                        MainForm.c1.isAddPatient = false;
-                                        MainForm.c1.isAppointmentPatientExist = false;
+                                        main.PatientPanelSearch("");
+                                        GlobalVariable.isAddPatient = false;
+                                        GlobalVariable.isAppointmentPatientExist = false;
                                         this.Hide();
                                     }
-                                    if (MainForm.c1.isEditPatient == true && MainForm.c1.isAddPatient == false)
+                                    if (GlobalVariable.isEditPatient == true && GlobalVariable.isAddPatient == false)
                                     {
                                         UpdatePatientRecordToDB();
-                                        MainForm.c1.PatientPanelSearch("");
-                                        MainForm.c1.isEditPatient = false;
+                                        main.PatientPanelSearch("");
+                                        GlobalVariable.isEditPatient = false;
                                         this.Hide();
 
                                     }
@@ -214,7 +217,7 @@ namespace _846DentalClinicManagementSystem
         {
             SqlCommand cmd = new SqlCommand(
                 "INSERT INTO [Patient] (PatientLName,PatientFName,PatientMName,PatientBirthday,PatientAge,PatientAddress,PatientGender,PatientFullName) " +
-                "VALUES(@LName,@FName,@MName,@birthday,@age,@address,@gender,@fullname)",sqlcon);
+                "VALUES(@LName,@FName,@MName,@birthday,@age,@address,@gender,@fullname)", sqlcon);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@LName",LName);
             cmd.Parameters.AddWithValue("@FName",FName);

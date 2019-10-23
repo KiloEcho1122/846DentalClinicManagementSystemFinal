@@ -17,25 +17,27 @@ namespace _846DentalClinicManagementSystem
         public MainForm()
         {
             InitializeComponent();
+            
 
         }
-        static String workingDirectory = Environment.CurrentDirectory;
-        static String projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
-        static String LocalDbSource = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=";
-        static String LocalDBFile = projectDirectory + @"\846DentalClinicDB.mdf";
-        static String connString = LocalDbSource + LocalDBFile + ";Integrated Security=True";
-        SqlConnection sqlcon = new SqlConnection(connString);
+        
+        //static String LocalDbSource = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=";
+        //static String LocalDBFile = projectDirectory + @"\846DentalClinicDB.mdf";
+        //static String connString = LocalDbSource + LocalDBFile + ";Integrated Security=True";
+        SqlConnection sqlcon = new SqlConnection(GlobalVariable.connString);
+      
+       
 
-        public static MainForm c1;
-        public int AppointmentID =0,PatientID = 0;
-        public String PatientName;
+        //public static MainForm c1;
+        //public int AppointmentID =0,PatientID = 0;
+        //public String PatientName;
 
 
-        public Boolean isEditAppointment { get; set; }
-        public Boolean isAddAppointment { get; set; }
-        public Boolean isEditPatient { get; set; }
-        public Boolean isAddPatient { get; set; }
-        public Boolean isAppointmentPatientExist { get; set; }
+        //public Boolean isEditAppointment { get; set; }
+        //public Boolean isAddAppointment { get; set; }
+        //public Boolean isEditPatient { get; set; }
+        //public Boolean isAddPatient { get; set; }
+        //public Boolean isAppointmentPatientExist { get; set; }
 
         private void HidePanels()
         {
@@ -48,7 +50,9 @@ namespace _846DentalClinicManagementSystem
 
         private void playVideo()
         {
-            
+         
+            String workingDirectory = Environment.CurrentDirectory;
+            String projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
             String videopath = projectDirectory + @"\Resources\846.mp4";
             this.axWindowsMediaPlayer1.uiMode = "none";
             this.axWindowsMediaPlayer1.settings.setMode("loop", true);
@@ -62,13 +66,13 @@ namespace _846DentalClinicManagementSystem
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            string date = DateTime.Today.ToString("M/d/yyyy");
+            SearchAppByDate_DP.Value = DateTime.Now;
+            lbl_Date.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
             HidePanels();
             HomePanel.Visible = true;
             playVideo();
-            ShowAppointment(date);
             PatientPanelSearch("");
-            c1 = this;
+            //c1 = this;
 
         }
 
@@ -118,10 +122,13 @@ namespace _846DentalClinicManagementSystem
 
         private void btn_AddApp_Click(object sender, EventArgs e)
         {
-            AddAppointment addAppointment = new AddAppointment();
-            isAddAppointment = true;
-            addAppointment.Show();
-           
+            if(GlobalVariable.isAddAppointment == false)
+            {
+                AddAppointment addAppointment = new AddAppointment();
+                GlobalVariable.isAddAppointment = true;
+                addAppointment.Show();
+            }
+            
         }
 
         public void ShowAppointment(string date)
@@ -132,13 +139,12 @@ namespace _846DentalClinicManagementSystem
             SqlCommand cmd = new SqlCommand(
                    "SELECT	Appointment.AppointmentID AS No, "+
                    "CONCAT(Appointment_LName, ', ',Appointment_FName , ' ', Appointment_MName) AS Patient_Name, " +
-                   "CONCAT(DentistFName, ' ', DentistMName, ' ', DentistLName) AS Dentist, "+
-                   "TreatmentType AS Treatment, " +
+                   "CONCAT(DentistFName, ' ', DentistMName, ' ', DentistLName) AS Dentist,Treatment,"+
                    "CONCAT(StartTime, ' - ', EndTime) AS Time, AppointmentDate AS Date," +
                    "Appointment.Status, Appointment.AppointmentNote AS Note " +
                    "FROM Appointment INNER JOIN[Dentist] ON DentistID_fk = DentistID "+
-                   "INNER JOIN[Treatment] ON TreatmentID_fk = TreatmentID " +
-                   "WHERE AppointmentDate = @date ORDER BY RefTime ASC", sqlcon);
+                   "INNER JOIN[PatientTreatment] ON AppointmentID = AppointmentID_fk " +
+                   "WHERE AppointmentDate = @date ORDER BY RefTime ASC",sqlcon);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@date", date);
            
@@ -146,9 +152,17 @@ namespace _846DentalClinicManagementSystem
             try
             {
                 adapter.Fill(dt);
+                //check if data table contains row
+                if (dt.Rows.Count > 0)
+                {
+                    //replace comma "," with line break
+                    dt.Rows[0][3] = dt.Rows[0][3].ToString().Replace(",", Environment.NewLine);
+                }
 
                 Appointment_DataGrid.DataSource = dt;
 
+                //width size
+                
 
                 Appointment_DataGrid.Columns[0].Width = 25;
                 Appointment_DataGrid.Columns[1].Width = 165;
@@ -158,7 +172,8 @@ namespace _846DentalClinicManagementSystem
                 Appointment_DataGrid.Columns[5].Width = 70;
                 Appointment_DataGrid.Columns[6].Width = 70;
 
-            
+                //date format
+                Appointment_DataGrid.Columns[5].DefaultCellStyle.Format = "M/d/yyyy";
 
             }
             catch(Exception ex) { Console.WriteLine(ex.Message); }
@@ -166,8 +181,10 @@ namespace _846DentalClinicManagementSystem
             if (Appointment_DataGrid.Rows.Count > 0)
             {
                 Appointment_DataGrid.Rows[0].Selected = true;
+                GlobalVariable.AppointmentID = Convert.ToInt32(Appointment_DataGrid.SelectedRows[0].Cells[0].Value);
                 ShowAppointmentDetail();
             }
+            
             
         }
 
@@ -187,12 +204,13 @@ namespace _846DentalClinicManagementSystem
         {
 
             ShowAppointmentDetail();
-            AppointmentID = Convert.ToInt32(Appointment_DataGrid.SelectedRows[0].Cells[0].Value);
+            GlobalVariable.AppointmentID = Convert.ToInt32(Appointment_DataGrid.SelectedRows[0].Cells[0].Value);
 
             
         }
 
-        private void ShowAppointmentDetail()
+
+        public void ShowAppointmentDetail()
         {
             if (Appointment_DataGrid.SelectedRows.Count > 0) // make sure user select at least 1 row 
             {
@@ -204,9 +222,8 @@ namespace _846DentalClinicManagementSystem
                 string Status = Appointment_DataGrid.SelectedRows[0].Cells[6].Value + string.Empty;
                 string Note = Appointment_DataGrid.SelectedRows[0].Cells[7].Value + string.Empty;
 
-
-
-                DateTime dateTime = DateTime.ParseExact(Date, "M/d/yyyy hh:mm:ss tt", System.Globalization.CultureInfo.CurrentCulture);
+                DateTime dateTime = DateTime.Parse(Date);
+                //DateTime dateTime = DateTime.ParseExact(Date, "M/d/yyyy hh:mm:ss tt", System.Globalization.CultureInfo.CurrentCulture);
                 Date = dateTime.ToString("dddd, dd MMMM yyyy");
 
                 lbl_Patient.Text = Patient;
@@ -222,68 +239,44 @@ namespace _846DentalClinicManagementSystem
 
         private void btn_EditApp_Click(object sender, EventArgs e)
         {
-           
-            if (AppointmentID > 0)
+            string Status = Appointment_DataGrid.SelectedRows[0].Cells[6].Value + string.Empty;
+            if (Status == "PENDING")
             {
-                AddAppointment addAppointment = new AddAppointment();
-                isEditAppointment = true;
-                addAppointment.Show();
-               
-            }
-        }
-
-        private void btn_CompleteAppointment_Click(object sender, EventArgs e)
-        {
-            //check if the name already exist in the patient database
-            // if exist { proceed to payment }
-            //          { change pending status to complete}
-
-            // if not   { complete patient info }
-            //          { proceed to payment }
-            //          { change pending status to complete}
-
-
-            if (AppointmentID > 0)
-            {
-                if (CheckIfPatientAlreadyinPatientDB() != 0)  // there is already an existing record in PatientDB
+                if (GlobalVariable.isEditAppointment == false)
                 {
-                    //proceed to payment
-                }                                           // theres no record in PatientDB
-                else
-                {
-                    MessageBox.Show("This Patient doesnt have record yet, Please complete Patient Information !");
-                    AddEditPatientRecord addEditPatientRecord = new AddEditPatientRecord();
-                    isAddPatient = true;
-                    isAppointmentPatientExist = true;
-                    addEditPatientRecord.Show();
-                 
+                    if (GlobalVariable.AppointmentID > 0)
+                    {
+                        GlobalVariable.isEditAppointment = true;
+                        AddAppointment addAppointment = new AddAppointment();
+                        addAppointment.Show();
+                    }
                 }
             }
+            else { MessageBox.Show("Cannot update : Appointment is already completed"); }
+           
+           
         }
-
-        private int CheckIfPatientAlreadyinPatientDB()
+       
+        private void Appointment_DataGrid_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            int PatientExist = 0;
-
-            SqlCommand cmd = new SqlCommand(
-                "SELECT* FROM Appointment " +
-            "WHERE Appointment.Appointment_FName in (SELECT Patient.PatientFName FROM Patient) " +
-            "AND Appointment.Appointment_MName in (SELECT Patient.PatientMName FROM Patient) " +
-            "AND Appointment.Appointment_LName in (SELECT Patient.PatientLName FROM Patient) AND AppointmentID = @AppID", sqlcon);
-            cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@AppId", AppointmentID);
-            sqlcon.Open();
-            try
+            string Status = Appointment_DataGrid.SelectedRows[0].Cells[6].Value + string.Empty;
+            if (Status == "PENDING")
             {
-                PatientExist = (int)(cmd.ExecuteScalar());
+                if (GlobalVariable.isEditAppointment == false)
+                {
+                    GlobalVariable.AppointmentID = Convert.ToInt32(Appointment_DataGrid.SelectedRows[0].Cells[0].Value);
+                    if (GlobalVariable.AppointmentID > 0)
+                    {
+                        GlobalVariable.isEditAppointment = true;
+                        AddAppointment addAppointment = new AddAppointment();
+                        addAppointment.Show();
+
+                    }
+                }
             }
-            catch (Exception ex) { Console.WriteLine(ex.Message); }
-            sqlcon.Close();
+            else { MessageBox.Show("Cannot update : Appointment is already completed"); }
 
-            return PatientExist;
         }
-
-
 
         // Scheduler Panel End ---------------------------------------------------------------------------------------------------------
 
@@ -318,6 +311,9 @@ namespace _846DentalClinicManagementSystem
                 Patient_DataGrid.Columns[1].Width = 200;
                 Patient_DataGrid.Columns[5].Width = 250;
 
+                // dateformat
+                Patient_DataGrid.Columns[4].DefaultCellStyle.Format = "MMMM d, yyyy";
+
 
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
@@ -333,43 +329,61 @@ namespace _846DentalClinicManagementSystem
 
         private void Patient_DataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-           PatientID = Convert.ToInt32 (Patient_DataGrid.SelectedRows[0].Cells[0].Value);
+            GlobalVariable.PatientID = Convert.ToInt32 (Patient_DataGrid.SelectedRows[0].Cells[0].Value);
         }
 
         private void btn_AddPatient_Click(object sender, EventArgs e)
         {
-            AddEditPatientRecord addEditPatient = new AddEditPatientRecord();
-            isAddPatient = true;
-            addEditPatient.Show();
+            if (GlobalVariable.isAddPatient == false)
+            {
+                GlobalVariable.isAddPatient = true;
+                AddEditPatientRecord addEditPatient = new AddEditPatientRecord();
+                addEditPatient.Show();
+            }
+            
         }
 
-        private void Patient_DataGrid_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+
+        private void ShowPatientDetails()
         {
-            PatientID = Convert.ToInt32(Patient_DataGrid.SelectedRows[0].Cells[0].Value);
-            PatientName = Patient_DataGrid.SelectedRows[0].Cells[1].Value.ToString();
-            if (PatientID > 0)
+            GlobalVariable.PatientID = Convert.ToInt32(Patient_DataGrid.SelectedRows[0].Cells[0].Value);
+            GlobalVariable.PatientName = Patient_DataGrid.SelectedRows[0].Cells[1].Value.ToString();
+            if (GlobalVariable.PatientID > 0)
             {
                 ShowPatientInfo showPatientInfo = new ShowPatientInfo();
                 showPatientInfo.Show();
             }
         }
+        private void btn_ShowDetails_Click(object sender, EventArgs e)
+        {
+            ShowPatientDetails();
+        }
 
-      
+        private void Patient_DataGrid_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ShowPatientDetails();
+        }
+
 
         private void btn_EditPatient_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(PatientID);
-            if (PatientID > 0)
+            if (GlobalVariable.isEditPatient == false)
             {
-                AddEditPatientRecord addEditPatient = new AddEditPatientRecord();
-                isEditPatient = true;
-                addEditPatient.Show();
+                if (GlobalVariable.PatientID > 0)
+                {
 
+                    GlobalVariable.isEditPatient = true;
+                    AddEditPatientRecord addEditPatient = new AddEditPatientRecord();
+                    addEditPatient.Show();
+
+                }
             }
+            
         }
+
 
         // Patient Panel End --------------------------------------------------------------------------------------------------------
 
-        
+
     }
 }

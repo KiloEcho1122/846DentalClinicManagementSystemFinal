@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddAppointment));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.TopPanel2 = new System.Windows.Forms.Panel();
@@ -40,7 +40,6 @@
             this.btn_PatientSearch = new Bunifu.Framework.UI.BunifuThinButton2();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.AppSearch_DataGrid = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.TreatmentDD = new Bunifu.Framework.UI.BunifuDropdown();
             this.DentistDD = new Bunifu.Framework.UI.BunifuDropdown();
             this.TimeDD = new Bunifu.Framework.UI.BunifuDropdown();
             this.DP_date = new Bunifu.Framework.UI.BunifuDatepicker();
@@ -61,6 +60,10 @@
             this.txt_MName = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.txt_AppNo = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.bunifuCustomLabel11 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.btn_CreateBilling = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.Treatment_CB = new System.Windows.Forms.ComboBox();
+            this.TreatmentList = new System.Windows.Forms.ListBox();
+            this.btn_RemoveItem = new Bunifu.Framework.UI.BunifuFlatButton();
             this.TopPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AppSearch_DataGrid)).BeginInit();
@@ -110,12 +113,13 @@
             this.txt_PatientSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.txt_PatientSearch.ForeColor = System.Drawing.Color.SeaGreen;
             this.txt_PatientSearch.Icon = ((System.Drawing.Image)(resources.GetObject("txt_PatientSearch.Icon")));
-            this.txt_PatientSearch.Location = new System.Drawing.Point(40, 68);
+            this.txt_PatientSearch.Location = new System.Drawing.Point(34, 68);
             this.txt_PatientSearch.Name = "txt_PatientSearch";
             this.txt_PatientSearch.Size = new System.Drawing.Size(267, 36);
             this.txt_PatientSearch.TabIndex = 0;
-            this.txt_PatientSearch.text = "Patient Name";
+            this.txt_PatientSearch.text = "";
             this.txt_PatientSearch.OnTextChange += new System.EventHandler(this.txt_PatientSearch_OnTextChange);
+            this.txt_PatientSearch.Leave += new System.EventHandler(this.txt_PatientSearch_Leave);
             // 
             // btn_PatientSearch
             // 
@@ -135,7 +139,7 @@
             this.btn_PatientSearch.IdleFillColor = System.Drawing.Color.White;
             this.btn_PatientSearch.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btn_PatientSearch.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btn_PatientSearch.Location = new System.Drawing.Point(324, 63);
+            this.btn_PatientSearch.Location = new System.Drawing.Point(309, 63);
             this.btn_PatientSearch.Margin = new System.Windows.Forms.Padding(5);
             this.btn_PatientSearch.Name = "btn_PatientSearch";
             this.btn_PatientSearch.Size = new System.Drawing.Size(94, 41);
@@ -148,7 +152,7 @@
             this.bunifuCustomLabel1.AutoSize = true;
             this.bunifuCustomLabel1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.Teal;
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(24, 48);
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(18, 48);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
             this.bunifuCustomLabel1.Size = new System.Drawing.Size(101, 17);
             this.bunifuCustomLabel1.TabIndex = 5;
@@ -160,27 +164,28 @@
             this.AppSearch_DataGrid.AllowUserToDeleteRows = false;
             this.AppSearch_DataGrid.AllowUserToResizeColumns = false;
             this.AppSearch_DataGrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.AppSearch_DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.AppSearch_DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.AppSearch_DataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.AppSearch_DataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.AppSearch_DataGrid.BackgroundColor = System.Drawing.SystemColors.Control;
             this.AppSearch_DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.AppSearch_DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AppSearch_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AppSearch_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.AppSearch_DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AppSearch_DataGrid.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AppSearch_DataGrid.DoubleBuffered = true;
             this.AppSearch_DataGrid.EnableHeadersVisualStyles = false;
             this.AppSearch_DataGrid.HeaderBgColor = System.Drawing.Color.SeaGreen;
             this.AppSearch_DataGrid.HeaderForeColor = System.Drawing.Color.Black;
-            this.AppSearch_DataGrid.Location = new System.Drawing.Point(42, 112);
+            this.AppSearch_DataGrid.Location = new System.Drawing.Point(45, 112);
             this.AppSearch_DataGrid.MultiSelect = false;
             this.AppSearch_DataGrid.Name = "AppSearch_DataGrid";
             this.AppSearch_DataGrid.ReadOnly = true;
@@ -188,22 +193,9 @@
             this.AppSearch_DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.AppSearch_DataGrid.Size = new System.Drawing.Size(723, 65);
             this.AppSearch_DataGrid.TabIndex = 6;
+            this.AppSearch_DataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AppSearch_DataGrid_CellContentClick);
             this.AppSearch_DataGrid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AppSearch_DataGrid_CellContentDoubleClick);
-            // 
-            // TreatmentDD
-            // 
-            this.TreatmentDD.BackColor = System.Drawing.Color.Transparent;
-            this.TreatmentDD.BorderRadius = 3;
-            this.TreatmentDD.ForeColor = System.Drawing.Color.White;
-            this.TreatmentDD.Items = new string[0];
-            this.TreatmentDD.Location = new System.Drawing.Point(43, 289);
-            this.TreatmentDD.Name = "TreatmentDD";
-            this.TreatmentDD.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.TreatmentDD.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.TreatmentDD.selectedIndex = -1;
-            this.TreatmentDD.Size = new System.Drawing.Size(162, 53);
-            this.TreatmentDD.TabIndex = 5;
-            this.TreatmentDD.onItemSelected += new System.EventHandler(this.TreatmentDD_onItemSelected);
+            this.AppSearch_DataGrid.MouseLeave += new System.EventHandler(this.AppSearch_DataGrid_MouseLeave);
             // 
             // DentistDD
             // 
@@ -211,7 +203,7 @@
             this.DentistDD.BorderRadius = 3;
             this.DentistDD.ForeColor = System.Drawing.Color.White;
             this.DentistDD.Items = new string[0];
-            this.DentistDD.Location = new System.Drawing.Point(225, 289);
+            this.DentistDD.Location = new System.Drawing.Point(37, 286);
             this.DentistDD.Name = "DentistDD";
             this.DentistDD.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
             this.DentistDD.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
@@ -243,7 +235,7 @@
         "04:00 PM",
         "04:30 PM",
         "05:00 PM"};
-            this.TimeDD.Location = new System.Drawing.Point(406, 289);
+            this.TimeDD.Location = new System.Drawing.Point(415, 286);
             this.TimeDD.Name = "TimeDD";
             this.TimeDD.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
             this.TimeDD.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
@@ -257,9 +249,9 @@
             this.DP_date.BackColor = System.Drawing.Color.SeaGreen;
             this.DP_date.BorderRadius = 0;
             this.DP_date.ForeColor = System.Drawing.Color.White;
-            this.DP_date.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.DP_date.FormatCustom = "MM-DD-YYYY";
-            this.DP_date.Location = new System.Drawing.Point(583, 289);
+            this.DP_date.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DP_date.FormatCustom = "dddd, MMMM dd  yyyy";
+            this.DP_date.Location = new System.Drawing.Point(217, 286);
             this.DP_date.Name = "DP_date";
             this.DP_date.Size = new System.Drawing.Size(182, 53);
             this.DP_date.TabIndex = 8;
@@ -271,7 +263,7 @@
             this.bunifuCustomLabel2.AutoSize = true;
             this.bunifuCustomLabel2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.Teal;
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(42, 269);
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(605, 185);
             this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
             this.bunifuCustomLabel2.Size = new System.Drawing.Size(73, 17);
             this.bunifuCustomLabel2.TabIndex = 11;
@@ -282,7 +274,7 @@
             this.bunifuCustomLabel3.AutoSize = true;
             this.bunifuCustomLabel3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel3.ForeColor = System.Drawing.Color.Teal;
-            this.bunifuCustomLabel3.Location = new System.Drawing.Point(226, 269);
+            this.bunifuCustomLabel3.Location = new System.Drawing.Point(38, 266);
             this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
             this.bunifuCustomLabel3.Size = new System.Drawing.Size(52, 17);
             this.bunifuCustomLabel3.TabIndex = 12;
@@ -293,7 +285,7 @@
             this.bunifuCustomLabel4.AutoSize = true;
             this.bunifuCustomLabel4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.Teal;
-            this.bunifuCustomLabel4.Location = new System.Drawing.Point(580, 269);
+            this.bunifuCustomLabel4.Location = new System.Drawing.Point(214, 266);
             this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
             this.bunifuCustomLabel4.Size = new System.Drawing.Size(40, 17);
             this.bunifuCustomLabel4.TabIndex = 13;
@@ -304,7 +296,7 @@
             this.bunifuCustomLabel6.AutoSize = true;
             this.bunifuCustomLabel6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel6.ForeColor = System.Drawing.Color.Teal;
-            this.bunifuCustomLabel6.Location = new System.Drawing.Point(408, 269);
+            this.bunifuCustomLabel6.Location = new System.Drawing.Point(417, 266);
             this.bunifuCustomLabel6.Name = "bunifuCustomLabel6";
             this.bunifuCustomLabel6.Size = new System.Drawing.Size(37, 17);
             this.bunifuCustomLabel6.TabIndex = 14;
@@ -315,7 +307,7 @@
             this.bunifuCustomLabel7.AutoSize = true;
             this.bunifuCustomLabel7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel7.ForeColor = System.Drawing.Color.Teal;
-            this.bunifuCustomLabel7.Location = new System.Drawing.Point(42, 357);
+            this.bunifuCustomLabel7.Location = new System.Drawing.Point(39, 360);
             this.bunifuCustomLabel7.Name = "bunifuCustomLabel7";
             this.bunifuCustomLabel7.Size = new System.Drawing.Size(40, 17);
             this.bunifuCustomLabel7.TabIndex = 15;
@@ -327,7 +319,7 @@
             this.txt_Note.BorderColor = System.Drawing.Color.SeaGreen;
             this.txt_Note.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Note.ForeColor = System.Drawing.SystemColors.Menu;
-            this.txt_Note.Location = new System.Drawing.Point(45, 388);
+            this.txt_Note.Location = new System.Drawing.Point(42, 391);
             this.txt_Note.Multiline = true;
             this.txt_Note.Name = "txt_Note";
             this.txt_Note.Size = new System.Drawing.Size(720, 59);
@@ -354,7 +346,7 @@
             this.btn_add.IconVisible = true;
             this.btn_add.IconZoom = 90D;
             this.btn_add.IsTab = false;
-            this.btn_add.Location = new System.Drawing.Point(668, 465);
+            this.btn_add.Location = new System.Drawing.Point(665, 468);
             this.btn_add.Name = "btn_add";
             this.btn_add.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
             this.btn_add.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
@@ -389,7 +381,7 @@
             this.btn_close.IconVisible = true;
             this.btn_close.IconZoom = 90D;
             this.btn_close.IsTab = false;
-            this.btn_close.Location = new System.Drawing.Point(565, 465);
+            this.btn_close.Location = new System.Drawing.Point(562, 468);
             this.btn_close.Name = "btn_close";
             this.btn_close.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
             this.btn_close.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
@@ -415,7 +407,7 @@
             this.bunifuCustomLabel8.AutoSize = true;
             this.bunifuCustomLabel8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel8.ForeColor = System.Drawing.Color.Teal;
-            this.bunifuCustomLabel8.Location = new System.Drawing.Point(230, 188);
+            this.bunifuCustomLabel8.Location = new System.Drawing.Point(42, 185);
             this.bunifuCustomLabel8.Name = "bunifuCustomLabel8";
             this.bunifuCustomLabel8.Size = new System.Drawing.Size(77, 17);
             this.bunifuCustomLabel8.TabIndex = 21;
@@ -426,7 +418,7 @@
             this.bunifuCustomLabel9.AutoSize = true;
             this.bunifuCustomLabel9.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel9.ForeColor = System.Drawing.Color.Teal;
-            this.bunifuCustomLabel9.Location = new System.Drawing.Point(403, 188);
+            this.bunifuCustomLabel9.Location = new System.Drawing.Point(215, 185);
             this.bunifuCustomLabel9.Name = "bunifuCustomLabel9";
             this.bunifuCustomLabel9.Size = new System.Drawing.Size(79, 17);
             this.bunifuCustomLabel9.TabIndex = 22;
@@ -437,7 +429,7 @@
             this.bunifuCustomLabel10.AutoSize = true;
             this.bunifuCustomLabel10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel10.ForeColor = System.Drawing.Color.Teal;
-            this.bunifuCustomLabel10.Location = new System.Drawing.Point(580, 188);
+            this.bunifuCustomLabel10.Location = new System.Drawing.Point(392, 185);
             this.bunifuCustomLabel10.Name = "bunifuCustomLabel10";
             this.bunifuCustomLabel10.Size = new System.Drawing.Size(95, 17);
             this.bunifuCustomLabel10.TabIndex = 23;
@@ -449,7 +441,7 @@
             this.txt_LName.BorderColor = System.Drawing.Color.SeaGreen;
             this.txt_LName.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_LName.ForeColor = System.Drawing.SystemColors.Menu;
-            this.txt_LName.Location = new System.Drawing.Point(233, 208);
+            this.txt_LName.Location = new System.Drawing.Point(37, 208);
             this.txt_LName.Multiline = true;
             this.txt_LName.Name = "txt_LName";
             this.txt_LName.Size = new System.Drawing.Size(164, 35);
@@ -461,7 +453,7 @@
             this.txt_FName.BorderColor = System.Drawing.Color.SeaGreen;
             this.txt_FName.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_FName.ForeColor = System.Drawing.SystemColors.Menu;
-            this.txt_FName.Location = new System.Drawing.Point(409, 211);
+            this.txt_FName.Location = new System.Drawing.Point(217, 208);
             this.txt_FName.Multiline = true;
             this.txt_FName.Name = "txt_FName";
             this.txt_FName.Size = new System.Drawing.Size(159, 35);
@@ -473,7 +465,7 @@
             this.txt_MName.BorderColor = System.Drawing.Color.SeaGreen;
             this.txt_MName.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_MName.ForeColor = System.Drawing.SystemColors.Menu;
-            this.txt_MName.Location = new System.Drawing.Point(583, 211);
+            this.txt_MName.Location = new System.Drawing.Point(395, 208);
             this.txt_MName.Multiline = true;
             this.txt_MName.Name = "txt_MName";
             this.txt_MName.Size = new System.Drawing.Size(182, 35);
@@ -483,10 +475,9 @@
             // 
             this.txt_AppNo.BackColor = System.Drawing.Color.Silver;
             this.txt_AppNo.BorderColor = System.Drawing.Color.SeaGreen;
-            this.txt_AppNo.Enabled = false;
             this.txt_AppNo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_AppNo.ForeColor = System.Drawing.Color.Black;
-            this.txt_AppNo.Location = new System.Drawing.Point(43, 211);
+            this.txt_AppNo.Location = new System.Drawing.Point(459, 71);
             this.txt_AppNo.Multiline = true;
             this.txt_AppNo.Name = "txt_AppNo";
             this.txt_AppNo.Size = new System.Drawing.Size(164, 35);
@@ -498,17 +489,121 @@
             this.bunifuCustomLabel11.AutoSize = true;
             this.bunifuCustomLabel11.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel11.ForeColor = System.Drawing.Color.Teal;
-            this.bunifuCustomLabel11.Location = new System.Drawing.Point(40, 188);
+            this.bunifuCustomLabel11.Location = new System.Drawing.Point(456, 48);
             this.bunifuCustomLabel11.Name = "bunifuCustomLabel11";
             this.bunifuCustomLabel11.Size = new System.Drawing.Size(121, 17);
             this.bunifuCustomLabel11.TabIndex = 27;
             this.bunifuCustomLabel11.Text = "Appointment No.";
             // 
+            // btn_CreateBilling
+            // 
+            this.btn_CreateBilling.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_CreateBilling.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_CreateBilling.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_CreateBilling.BorderRadius = 0;
+            this.btn_CreateBilling.ButtonText = "Make Billing Statement";
+            this.btn_CreateBilling.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_CreateBilling.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_CreateBilling.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_CreateBilling.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_CreateBilling.Iconimage")));
+            this.btn_CreateBilling.Iconimage_right = null;
+            this.btn_CreateBilling.Iconimage_right_Selected = null;
+            this.btn_CreateBilling.Iconimage_Selected = null;
+            this.btn_CreateBilling.IconMarginLeft = 0;
+            this.btn_CreateBilling.IconMarginRight = 0;
+            this.btn_CreateBilling.IconRightVisible = true;
+            this.btn_CreateBilling.IconRightZoom = 0D;
+            this.btn_CreateBilling.IconVisible = true;
+            this.btn_CreateBilling.IconZoom = 90D;
+            this.btn_CreateBilling.IsTab = false;
+            this.btn_CreateBilling.Location = new System.Drawing.Point(332, 468);
+            this.btn_CreateBilling.Name = "btn_CreateBilling";
+            this.btn_CreateBilling.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_CreateBilling.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.btn_CreateBilling.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_CreateBilling.selected = false;
+            this.btn_CreateBilling.Size = new System.Drawing.Size(215, 38);
+            this.btn_CreateBilling.TabIndex = 29;
+            this.btn_CreateBilling.Text = "Make Billing Statement";
+            this.btn_CreateBilling.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_CreateBilling.Textcolor = System.Drawing.Color.White;
+            this.btn_CreateBilling.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_CreateBilling.Click += new System.EventHandler(this.btn_CreateBilling_Click);
+            // 
+            // Treatment_CB
+            // 
+            this.Treatment_CB.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.Treatment_CB.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.Treatment_CB.BackColor = System.Drawing.Color.SeaGreen;
+            this.Treatment_CB.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Treatment_CB.DropDownHeight = 150;
+            this.Treatment_CB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Treatment_CB.ForeColor = System.Drawing.SystemColors.Window;
+            this.Treatment_CB.FormattingEnabled = true;
+            this.Treatment_CB.IntegralHeight = false;
+            this.Treatment_CB.ItemHeight = 13;
+            this.Treatment_CB.Location = new System.Drawing.Point(605, 208);
+            this.Treatment_CB.MaxDropDownItems = 10;
+            this.Treatment_CB.Name = "Treatment_CB";
+            this.Treatment_CB.Size = new System.Drawing.Size(149, 21);
+            this.Treatment_CB.TabIndex = 30;
+            this.Treatment_CB.Text = "Select Treatment";
+            this.Treatment_CB.SelectedIndexChanged += new System.EventHandler(this.Treatment_CB_SelectedIndexChanged);
+            this.Treatment_CB.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Treatment_CB_KeyDown);
+            // 
+            // TreatmentList
+            // 
+            this.TreatmentList.FormattingEnabled = true;
+            this.TreatmentList.HorizontalScrollbar = true;
+            this.TreatmentList.Location = new System.Drawing.Point(608, 233);
+            this.TreatmentList.Name = "TreatmentList";
+            this.TreatmentList.Size = new System.Drawing.Size(146, 69);
+            this.TreatmentList.TabIndex = 31;
+            // 
+            // btn_RemoveItem
+            // 
+            this.btn_RemoveItem.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_RemoveItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_RemoveItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_RemoveItem.BorderRadius = 0;
+            this.btn_RemoveItem.ButtonText = "Remove";
+            this.btn_RemoveItem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_RemoveItem.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_RemoveItem.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_RemoveItem.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_RemoveItem.Iconimage")));
+            this.btn_RemoveItem.Iconimage_right = null;
+            this.btn_RemoveItem.Iconimage_right_Selected = null;
+            this.btn_RemoveItem.Iconimage_Selected = null;
+            this.btn_RemoveItem.IconMarginLeft = 0;
+            this.btn_RemoveItem.IconMarginRight = 0;
+            this.btn_RemoveItem.IconRightVisible = true;
+            this.btn_RemoveItem.IconRightZoom = 0D;
+            this.btn_RemoveItem.IconVisible = true;
+            this.btn_RemoveItem.IconZoom = 90D;
+            this.btn_RemoveItem.IsTab = false;
+            this.btn_RemoveItem.Location = new System.Drawing.Point(620, 309);
+            this.btn_RemoveItem.Name = "btn_RemoveItem";
+            this.btn_RemoveItem.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_RemoveItem.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.btn_RemoveItem.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_RemoveItem.selected = false;
+            this.btn_RemoveItem.Size = new System.Drawing.Size(111, 30);
+            this.btn_RemoveItem.TabIndex = 32;
+            this.btn_RemoveItem.Text = "Remove";
+            this.btn_RemoveItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_RemoveItem.Textcolor = System.Drawing.Color.White;
+            this.btn_RemoveItem.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_RemoveItem.Click += new System.EventHandler(this.btn_RemoveItem_Click);
+            // 
             // AddAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(790, 515);
+            this.ClientSize = new System.Drawing.Size(790, 530);
+            this.Controls.Add(this.btn_RemoveItem);
+            this.Controls.Add(this.TreatmentList);
+            this.Controls.Add(this.Treatment_CB);
+            this.Controls.Add(this.btn_CreateBilling);
             this.Controls.Add(this.txt_AppNo);
             this.Controls.Add(this.bunifuCustomLabel11);
             this.Controls.Add(this.txt_MName);
@@ -528,7 +623,6 @@
             this.Controls.Add(this.DP_date);
             this.Controls.Add(this.TimeDD);
             this.Controls.Add(this.DentistDD);
-            this.Controls.Add(this.TreatmentDD);
             this.Controls.Add(this.AppSearch_DataGrid);
             this.Controls.Add(this.bunifuCustomLabel1);
             this.Controls.Add(this.btn_PatientSearch);
@@ -537,7 +631,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddAppointment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add Appointment";
+            this.Text = "Appointment";
             this.Load += new System.EventHandler(this.AddAppointment_Load);
             this.TopPanel2.ResumeLayout(false);
             this.TopPanel2.PerformLayout();
@@ -561,7 +655,6 @@
         private Bunifu.Framework.UI.BunifuDatepicker DP_date;
         private Bunifu.Framework.UI.BunifuDropdown TimeDD;
         private Bunifu.Framework.UI.BunifuDropdown DentistDD;
-        private Bunifu.Framework.UI.BunifuDropdown TreatmentDD;
         private Bunifu.Framework.UI.BunifuCustomDataGrid AppSearch_DataGrid;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private Bunifu.Framework.UI.BunifuThinButton2 btn_PatientSearch;
@@ -579,5 +672,9 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel10;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel9;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel8;
+        private Bunifu.Framework.UI.BunifuFlatButton btn_CreateBilling;
+        private System.Windows.Forms.ListBox TreatmentList;
+        private System.Windows.Forms.ComboBox Treatment_CB;
+        private Bunifu.Framework.UI.BunifuFlatButton btn_RemoveItem;
     }
 }

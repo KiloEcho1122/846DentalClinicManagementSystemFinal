@@ -11,23 +11,24 @@ using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 using System.Globalization;
 using System.IO;
+using System.Collections;
 
 namespace _846DentalClinicManagementSystem
 {
     public partial class AddAppointment : Form
     {
         
-        static String workingDirectory = Environment.CurrentDirectory;
-        static String projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
-        static String LocalDbSource = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=";
-        static String LocalDBFile = projectDirectory + @"\846DentalClinicDB.mdf";
-        static String connString = LocalDbSource + LocalDBFile + ";Integrated Security=True";
-        SqlConnection sqlcon = new SqlConnection(connString);
+        //static String workingDirectory = Environment.CurrentDirectory;
+        //static String projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
+        //static String LocalDbSource = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=";
+        //static String LocalDBFile = projectDirectory + @"\846DentalClinicDB.mdf";
+        //static String connString = LocalDbSource + LocalDBFile + ";Integrated Security=True";
+        SqlConnection sqlcon = new SqlConnection(GlobalVariable.connString);
+       
 
-        int SelectedTreatmentID = 0, SelectedDentistID = 0, AppNo = 0;
+        int SelectedDentistID = 0, AppNo = 0;
         String LName, MName, FName, StartTime, EndTime, refTime, AppDate,Note = "";
-        Boolean isDateChanged = false;
-
+        ArrayList RemovedTreatment = new ArrayList();
 
         public AddAppointment()
         {
@@ -38,24 +39,74 @@ namespace _846DentalClinicManagementSystem
         {
             
             LoadDropDownList();
+            DP_date.Value = DateTime.Now;
+
             // if add appointmen increment ID
-            var main = Application.OpenForms.OfType<MainForm>().First();
-            if (main.isAddAppointment == true && main.isEditAppointment == false)
+          
+            if (GlobalVariable.isAddAppointment == true && GlobalVariable.isEditAppointment == false)
             {
                 fillAppID();
                 txt_AppNo.Text = AppNo.ToString();
+                btn_CreateBilling.Visible = false;
+                txt_AppNo.Enabled = false;
+                this.Text = "Add Appointment";
 
             }
-            if (main.isEditAppointment == true && main.isAddAppointment ==false)
+            if (GlobalVariable.isEditAppointment == true && GlobalVariable.isAddAppointment ==false)
             {
-                AppNo = MainForm.c1.AppointmentID;
+                AppNo = GlobalVariable.AppointmentID;
                 txt_AppNo.Text = AppNo.ToString();
-                txt_PatientSearch.Enabled = false;
-                btn_add.Text = "Update";
-                txt_formHeader.Text = "Update Appointment";
                 fillFormforUpdate();
-
+                FormatEditForm();
+               
+              
             }
+
+
+        }
+        private void FormatEditForm()
+        {
+            this.Height = 464;
+            // //labels
+            bunifuCustomLabel11.Left = 38;
+            txt_AppNo.Left = 38;
+            bunifuCustomLabel8.Top = 130;
+            bunifuCustomLabel9.Top = 130;
+            bunifuCustomLabel10.Top = 130;
+            bunifuCustomLabel2.Top = 130;
+            bunifuCustomLabel3.Top = 211;
+            bunifuCustomLabel4.Top = 211;
+            bunifuCustomLabel6.Top = 211;
+            bunifuCustomLabel7.Top = 305;
+            //textboxes and dropdown
+            
+            txt_LName.Top = 153;
+            txt_FName.Top = 153;
+            txt_MName.Top = 153;
+            Treatment_CB.Top = 153;
+
+            TreatmentList.Top = 178;
+            btn_RemoveItem.Top = 254;
+
+            DentistDD.Top = 231;
+            DP_date.Top = 231;
+            TimeDD.Top = 231;
+            txt_Note.Top = 336;
+            // //buttons
+            btn_CreateBilling.Top = 413;
+            btn_close.Top = 413;
+            btn_add.Top = 413;
+
+            txt_PatientSearch.Visible = false;
+            btn_PatientSearch.Visible = false;
+            AppSearch_DataGrid.Visible = false;
+            bunifuCustomLabel1.Visible = false;
+            btn_CreateBilling.Visible = true;
+            btn_add.Text = "Update";
+            txt_formHeader.Text = "Update Appointment";
+            this.Text = "Update Appointment";
+            txt_AppNo.Enabled = false;
+
 
 
         }
@@ -63,10 +114,8 @@ namespace _846DentalClinicManagementSystem
         private void btn_close_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var main = Application.OpenForms.OfType<MainForm>().First();
-            main.isEditAppointment = false;
-            main.isAddAppointment = false;
-
+            GlobalVariable.isEditAppointment = false;
+            GlobalVariable.isAddAppointment = false;
 
         }
 
@@ -80,6 +129,7 @@ namespace _846DentalClinicManagementSystem
             MName = myTI.ToTitleCase(txt_MName.Text.Trim());
             Note = txt_Note.Text.Trim();
 
+
             bool isLNameValid = Regex.IsMatch(LName, @"^[a-zA-Z\x20]*?$");
             bool isFNameValid = Regex.IsMatch(FName, @"^[a-zA-Z\x20]*?$");
             bool isMNameValid = Regex.IsMatch(MName, @"^[a-zA-Z\x20]*?$");
@@ -88,45 +138,53 @@ namespace _846DentalClinicManagementSystem
             {
                 if ((isFNameValid == true) && (string.IsNullOrEmpty(FName) == false))
                 {
-                    if ((isMNameValid == true) && (string.IsNullOrEmpty(MName) == false))
+                    if (isMNameValid == true)
                     {
-                        if (SelectedTreatmentID > 0)
+                        if (TreatmentList.Items.Count > 0)
                         {
+
                             if (SelectedDentistID > 0)
                             {
+
+
                                 if (string.IsNullOrEmpty(StartTime) == false)
                                 {
-                                   
-                                    if (isDateChanged == false)
-                                    {
-                                        AppointmentDatePick();
-                                    }
-                                    //MessageBox.Show(AppDate);
+                                  
 
                                     if (string.IsNullOrEmpty(AppDate) == false)
                                     {
+
                                         var main = Application.OpenForms.OfType<MainForm>().First();
-                                        if (main.isAddAppointment == true && main.isEditAppointment == false)
+                                        if (GlobalVariable.isAddAppointment == true && GlobalVariable.isEditAppointment == false)
                                         {
                                             insertAppointmentToDB();
-                                            main.isAddAppointment = false;
+                                            GlobalVariable.isAddAppointment = false;
+                                            main.ShowAppointment(AppDate);
+                                            this.Hide();
 
                                         }
-                                        if (main.isEditAppointment == true && main.isAddAppointment == false)
+                                        if (GlobalVariable.isEditAppointment == true && GlobalVariable.isAddAppointment == false)
                                         {
                                             updateAppointmentToDB();
-                                            main.isEditAppointment = false;
+                                            GlobalVariable.isEditAppointment = false;
+                                            main.ShowAppointment(AppDate);
+                                            this.Hide();
 
                                         }
 
 
-                                    } else { MessageBox.Show("Invalid Date"); }
+                                    }
+                                    else { MessageBox.Show("Invalid Date"); }
 
-                                } else { MessageBox.Show("Time Overlapse with other appointment"); }
+                                }
+                                else { MessageBox.Show("Invalid Time"); }
 
-                            } else { MessageBox.Show("Invalid Dentist"); }
+                            }
+                            else { MessageBox.Show("Invalid Dentist"); }
 
-                        } else { MessageBox.Show("Invalid Treatment"); }
+                        }
+                        else { MessageBox.Show("Invalid Treatment"); }
+
 
                     } else { MessageBox.Show("Invalid Middle Name"); }
 
@@ -134,40 +192,237 @@ namespace _846DentalClinicManagementSystem
 
             } else { MessageBox.Show("Invalid Last Name"); }
 
-        }
 
-        private void fillFormforUpdate()
+        }
+        //------------------------------------------------------------------------------------------------------------------------------------
+
+       
+        private bool checkExistingAppointmentTreatment(object items)
         {
-            DataTable dt = new DataTable();
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            SqlCommand cmd = new SqlCommand("SELECT * From Appointment WHERE AppointmentID = @AppointmentID",sqlcon);
+            bool doesExist = true;
+            SqlCommand cmd = new SqlCommand(
+                "SELECT AppointmentID_fk FROM AppointmentTreatment WHERE AppointmentID_fk = @appID " +
+                            "AND TreatmentType = @TreatmentType ", sqlcon);
             cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@AppointmentID", AppNo);
-            adapter.SelectCommand = cmd;
+            cmd.Parameters.AddWithValue("@appID", AppNo);
+            cmd.Parameters.AddWithValue("@TreatmentType", items.ToString());
+
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+
             try
             {
-                adapter.Fill(dt);
+                //object obj = .ToString();
+                if (cmd.ExecuteScalar() == null)
+                {
+                    doesExist = false;
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+           sqlcon.Close();
+
+            return doesExist;
+        }
+
+        private void InsertAppointmentTreatmentDB(object items)
+        {
+            SqlCommand cmd = new SqlCommand(
+               "Insert Into [AppointmentTreatment] (AppointmentID_fk,TreatmentType) " +
+               "Values(@AppID,@TreatmentType) ", sqlcon);
+            cmd.Parameters.Clear();
+            
+            cmd.Parameters.AddWithValue("@AppID", AppNo);
+            cmd.Parameters.AddWithValue("@TreatmentType", items.ToString());
+
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+            try
+            {
+                cmd.ExecuteNonQuery();
+               
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
 
-            String itemTime = dt.Rows[0][5].ToString();
-            txt_LName.Text = dt.Rows[0][1].ToString();
-            txt_FName.Text = dt.Rows[0][2].ToString();
-            txt_MName.Text = dt.Rows[0][3].ToString();
-            txt_Note.Text = dt.Rows[0][10].ToString();
-            SelectedTreatmentID = Convert.ToInt32(dt.Rows[0][8]) - 1;
-            SelectedDentistID= Convert.ToInt32(dt.Rows[0][9]) - 1;
+           sqlcon.Close();
+        }
+
+
+        //-----------------------------------------------------------------------------------------------------------------------------
+
+        //PatientTreatmentDB - contains concatenation of AppointmentTreatment with and without prices
+        private void PatientTreatmentDB()
+        {
+            // if wala pa sa datbase, insert new
+            if (ExistingPatientTreatment() == false)
+            {
+                InsertPatientTreatmentDB();
+            }
+            else // else iupdate nalang
+            {
+               
+                UpdatePatientTreatmentDB();
+                
+            }
+        }
+
+        private bool ExistingPatientTreatment()
+        {
+            bool doesExist = true;
+            SqlCommand cmd = new SqlCommand(
+                "SELECT AppointmentID_fk FROM PatientTreatment WHERE AppointmentID_fk = @appID ", sqlcon);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@appID", AppNo);
+
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+               
+            try
+            {
+                //object obj = .ToString();
+                if (cmd.ExecuteScalar() == null)
+                {
+                    doesExist = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            sqlcon.Close();
+
+            return doesExist;
+        }
+
+        private string GetAppointmentTreatmentString()
+        {
+            string treatment = "";
+            
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand(
+                "SELECT TreatmentType FROM AppointmentTreatment WHERE AppointmentID_fk = @appNo", sqlcon);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@appNo", AppNo);
+            adapter.SelectCommand = cmd;
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+            try
+            {
+                adapter.Fill(dt);
+                foreach (DataRow row in dt.Rows)
+                {
+                    treatment += row[0].ToString() + ",";
+                }
+               
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+            sqlcon.Close();
+           
+            return treatment.Remove(treatment.Length-1);
+        }
+
+        private void InsertPatientTreatmentDB()
+        {
+            string treatment = GetAppointmentTreatmentString().ToString();
+            MessageBox.Show(treatment);
+            SqlCommand cmd = new SqlCommand(
+               "Insert Into [PatientTreatment] (AppointmentID_fk,Treatment) " +
+               "Values(@AppID,@treatment) ", sqlcon);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@AppID", AppNo);
+            cmd.Parameters.AddWithValue("@treatment", treatment);
+
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+            try
+            {
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            sqlcon.Close();
+        }
+
+        private void UpdatePatientTreatmentDB()
+        {
+            string treatment = GetAppointmentTreatmentString();
+            SqlCommand cmd = new SqlCommand(
+               "UPDATE [PatientTreatment] SET Treatment = @treatment " +
+               "WHERE AppointmentID_fk = @appNo ", sqlcon);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@treatment", treatment);
+            cmd.Parameters.AddWithValue("@appNo", AppNo);
+
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+            try
+            {
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            sqlcon.Close();
+        }
+
+
+        //------------------------------------------------------------------------------------------------------------------------
+
+        private void fillFormforUpdate()
+        {
+            string[] treatment = { };
+            DataTable dt1 = new DataTable();
+            SqlDataAdapter adapter1 = new SqlDataAdapter();
+            SqlCommand cmd1= new SqlCommand("SELECT * From Appointment WHERE AppointmentID = @AppointmentID", sqlcon);
+            cmd1.Parameters.Clear();
+            cmd1.Parameters.AddWithValue("@AppointmentID", AppNo);
+            adapter1.SelectCommand = cmd1;
+            SqlCommand cmd2 = new SqlCommand("SELECT Treatment From PatientTreatment WHERE AppointmentID_fk = @AppointmentID", sqlcon);
+            cmd2.Parameters.Clear();
+            cmd2.Parameters.AddWithValue("@AppointmentID", AppNo);
+
+            sqlcon.Open();
+            try
+            {
+                adapter1.Fill(dt1);
+                treatment = Regex.Split(cmd2.ExecuteScalar().ToString(), "[,]");
+                
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            sqlcon.Close();
+
+
+            foreach(string str in treatment)
+            {
+                
+                TreatmentList.Items.Add(str.Trim());
+            }
+
+            String itemTime = dt1.Rows[0][5].ToString();
+            txt_LName.Text = dt1.Rows[0][1].ToString();
+            txt_FName.Text = dt1.Rows[0][2].ToString();
+            txt_MName.Text = dt1.Rows[0][3].ToString();
+            txt_Note.Text = dt1.Rows[0][10].ToString();
+            
+         //   SelectedTreatmentID = Convert.ToInt32(dt.Rows[0][8]) - 1;
+            SelectedDentistID= Convert.ToInt32(dt1.Rows[0][8]) - 1;
 
             if (SelectedDentistID == -1) { SelectedDentistID = 0; }
-            if (SelectedTreatmentID == -1) { SelectedTreatmentID = 0; }
+         //   if (SelectedTreatmentID == -1) { SelectedTreatmentID = 0; }
          
-            TreatmentDD.selectedIndex = SelectedTreatmentID;
+          //  TreatmentDD.selectedIndex = SelectedTreatmentID;
             DentistDD.selectedIndex = SelectedDentistID;
 
-            DP_date.Value = DateTime.ParseExact(dt.Rows[0][4].ToString(), "M/d/yyyy hh:mm:ss tt", System.Globalization.CultureInfo.CurrentCulture);
+            string dateTime = DateTime.Parse(dt1.Rows[0][4].ToString()).ToString("M/d/yyyy hh:mm:ss tt");
+            DP_date.Value = DateTime.ParseExact(dateTime, "M/d/yyyy hh:mm:ss tt", System.Globalization.CultureInfo.CurrentCulture);
 
             for (int i = 0; i < TimeDD.Items.Length; i++)
             {
@@ -178,7 +433,8 @@ namespace _846DentalClinicManagementSystem
                 }
 
             }
-           
+
+            
           
         }
 
@@ -187,7 +443,7 @@ namespace _846DentalClinicManagementSystem
          
             SqlCommand cmd = new SqlCommand(
                 "UPDATE [Appointment] SET Appointment_LName = @LName, Appointment_FName = @FName, Appointment_MName = @MName, AppointmentDate = @Date," +
-                "StartTime = @StartTime, EndTime = @EndTime ,RefTime = @RefTime,TreatmentID_fk = @TreatmentID_fk, DentistID_fk = @DentistID_fk ," +
+                "StartTime = @StartTime, EndTime = @EndTime ,RefTime = @RefTime, DentistID_fk = @DentistID_fk ," +
                 "AppointmentNote = @Note WHERE AppointmentID = @AppointmentID ", sqlcon);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@LName", LName);
@@ -197,7 +453,6 @@ namespace _846DentalClinicManagementSystem
             cmd.Parameters.AddWithValue("@StartTime", StartTime);
             cmd.Parameters.AddWithValue("@EndTime", EndTime);
             cmd.Parameters.AddWithValue("@RefTime", refTime);
-            cmd.Parameters.AddWithValue("@TreatmentID_fk", SelectedTreatmentID);
             cmd.Parameters.AddWithValue("@DentistID_fk", SelectedDentistID);
             cmd.Parameters.AddWithValue("@Note", Note);
             cmd.Parameters.AddWithValue("@AppointmentID", AppNo);
@@ -206,11 +461,18 @@ namespace _846DentalClinicManagementSystem
             try
             {
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Appointment updated successfully");
-                //DateTime Todaydate = DateTime.Today;
-                //string date = Todaydate.ToString("M/d/yyyy");
-                MainForm.c1.ShowAppointment(AppDate);
+                foreach (var items in TreatmentList.Items)
+                {
+                    if (checkExistingAppointmentTreatment(items) == false)
+                    {
+                        InsertAppointmentTreatmentDB(items);
+                    }
 
+                }
+                RemoveTreatmentFromDB();
+                PatientTreatmentDB();
+                MessageBox.Show("Appointment updated successfully");
+              
                 this.Hide();
 
             }
@@ -226,8 +488,8 @@ namespace _846DentalClinicManagementSystem
         {
 
             SqlCommand cmd = new SqlCommand(
-                "Insert Into [Appointment] (Appointment_LName,Appointment_FName,Appointment_MName,AppointmentDate,StartTime,EndTime,RefTime,TreatmentID_fk,DentistID_fk,AppointmentNote) " +
-                "Values(@LName,@FName,@MName,@Date,@StartTime,@EndTime,@RefTime,@TreatmentID_fk,@DentistID_fk,@Note) ", sqlcon);
+                "Insert Into [Appointment] (Appointment_LName,Appointment_FName,Appointment_MName,AppointmentDate,StartTime,EndTime,RefTime,DentistID_fk,AppointmentNote) " +
+                "Values(@LName,@FName,@MName,@Date,@StartTime,@EndTime,@RefTime,@DentistID_fk,@Note) ", sqlcon);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@LName", LName);
             cmd.Parameters.AddWithValue("@FName", FName);
@@ -236,7 +498,6 @@ namespace _846DentalClinicManagementSystem
             cmd.Parameters.AddWithValue("@StartTime", StartTime);
             cmd.Parameters.AddWithValue("@EndTime", EndTime);
             cmd.Parameters.AddWithValue("@RefTime", refTime);
-            cmd.Parameters.AddWithValue("@TreatmentID_fk", SelectedTreatmentID);
             cmd.Parameters.AddWithValue("@DentistID_fk", SelectedDentistID);
             cmd.Parameters.AddWithValue("@Note", Note);
 
@@ -244,11 +505,17 @@ namespace _846DentalClinicManagementSystem
             try
             {
                 cmd.ExecuteNonQuery();
+                foreach (var items in TreatmentList.Items)
+                {
+                    if (checkExistingAppointmentTreatment(items) == false)
+                    {
+                        InsertAppointmentTreatmentDB(items);
+                    }
+                    
+                }
+                PatientTreatmentDB();
                 MessageBox.Show("Appointment added successfully");
-                //DateTime Todaydate = DateTime.Today;
-                //string date = Todaydate.ToString("M/d/yyyy");
-                MainForm.c1.ShowAppointment(AppDate);
-
+             
                 this.Hide();
 
             }
@@ -260,39 +527,7 @@ namespace _846DentalClinicManagementSystem
             sqlcon.Close();
         }
 
-        private void DP_date_onValueChanged(object sender, EventArgs e)
-        {
-
-            AppointmentDatePick();
-            isDateChanged = true;
-
-        }
-
-        private void AppointmentDatePick()
-        {
-            Checktime();
-            try
-            {
-                String time = TimeDD.selectedValue;
-                AppDate = DP_date.Value.ToString("M/d/yyyy") + " " + time;
-                DateTime DateApp = DateTime.ParseExact(AppDate, "M/d/yyyy hh:mm tt", System.Globalization.CultureInfo.CurrentCulture);
-                DateTime CurrentDate = DateTime.Now;
-
-                //check if Date is not less than current date
-                if (DateApp > CurrentDate)
-                {
-                    AppDate = DP_date.Value.ToString("M/d/yyyy");
-                }
-                else
-                {
-                    AppDate = "";
-                }
-
-            }
-            catch (Exception ex) { Console.WriteLine(ex.Message + AppDate); }
-
-
-        }
+      
 
         private void btn_PatientSearch_Click(object sender, EventArgs e)
         {
@@ -327,33 +562,12 @@ namespace _846DentalClinicManagementSystem
         private void txt_PatientSearch_OnTextChange(object sender, EventArgs e)
         {
             PatientSearch();
+            AppSearch_DataGrid.Visible = true;
         }
 
         private void AppSearch_DataGrid_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (AppSearch_DataGrid.SelectedRows.Count > 0) // make sure user select at least 1 row 
-            {
-                string ID = AppSearch_DataGrid.SelectedRows[0].Cells[0].Value + string.Empty;
-
-                SqlDataAdapter adapter = new SqlDataAdapter();
-                DataTable dt = new DataTable();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Patient WHERE PatientID = @ID", sqlcon);
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@ID",ID);
-                adapter.SelectCommand = cmd;
-
-                try
-                {
-                    adapter.Fill(dt);
-                    txt_LName.Text = dt.Rows[0][1].ToString();
-                    txt_FName.Text = dt.Rows[0][2].ToString();
-                    txt_MName.Text = dt.Rows[0][3].ToString();
-
-                }
-                catch(Exception ex) { Console.WriteLine(ex.Message); }
-               
-
-            }
+           
         }
 
         private void LoadDropDownList()
@@ -376,26 +590,35 @@ namespace _846DentalClinicManagementSystem
             try
             {
                 adapter1.Fill(dt1);
-                for (int i = 0; i < dt1.Rows.Count; i++)
+               foreach(DataRow row in dt1.Rows)
                 {
-                    this.TreatmentDD.AddItem(dt1.Rows[i][0].ToString());
+                    //    this.TreatmentDD.AddItem(dt1.Rows[i][0].ToString());
+                    Treatment_CB.Items.Add(row[0]);
                 }
 
                 adapter2.Fill(dt2);
-                for (int i = 0; i < dt2.Rows.Count; i++)
+
+                foreach (DataRow row in dt2.Rows)
                 {
-                    this.DentistDD.AddItem(dt2.Rows[i][0].ToString());
+                    this.DentistDD.AddItem(row[0].ToString());
                 }
 
             }
 
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.Message + "dito ba yun");
             }
             sqlcon.Close();
 
         }
+
+        private void DP_date_onValueChanged(object sender, EventArgs e)
+        {
+            Checktime();
+        }
+
+       
 
         private void fillAppID()
         {
@@ -408,18 +631,151 @@ namespace _846DentalClinicManagementSystem
             }
             catch(Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.Message + "or dito");
+            }
+            sqlcon.Close();
+        }
+
+      
+
+        private void AppSearch_DataGrid_MouseLeave(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txt_PatientSearch_Leave(object sender, EventArgs e)
+        {
+            AppSearch_DataGrid.Visible = false;
+        }
+
+        private void Treatment_CB_KeyDown(object sender, KeyEventArgs e)
+        {
+            Treatment_CB.DroppedDown = false;
+        }
+
+        private void Treatment_CB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (TreatmentList.Items.Contains(Treatment_CB.SelectedItem) == false)
+            {
+                TreatmentList.Items.Add(Treatment_CB.SelectedItem.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Treatment is already selected !");
             }
         }
 
-        private void TreatmentDD_onItemSelected(object sender, EventArgs e)
+        private void RemoveTreatmentFromDB()
         {
-            SelectedTreatmentID = TreatmentDD.selectedIndex + 1;
+            //Remove each treatment in the RemovedTreatment List
+            if (RemovedTreatment.Count > 0)
+            {
+                foreach (string item in RemovedTreatment)
+                {
+                    SqlCommand cmd = new SqlCommand(
+                                "DELETE From AppointmentTreatment Where AppointmentID_fk = @appID " +
+                                "AND TreatmentType = @TreatmentType ", sqlcon);
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@appID", AppNo);
+                    cmd.Parameters.AddWithValue("@TreatmentType", item);
+                    sqlcon.Open();
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                    sqlcon.Close();
+                }
+
+                RemovedTreatment.Clear();
+                PatientTreatmentDB();
+            }
+           
+
         }
+
+        private void btn_RemoveItem_Click(object sender, EventArgs e)
+        {
+            if (TreatmentList.SelectedIndex > -1) 
+            {
+                if (GlobalVariable.isEditAppointment == true && GlobalVariable.isAddAppointment == false)
+                {
+                    DialogResult result = MessageBox.Show("Remove " + TreatmentList.SelectedItem + " ?","Remove Treatment",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                    if(result == DialogResult.Yes)
+                    {
+
+                        RemovedTreatment.Add(TreatmentList.SelectedItem);
+                        
+                    }
+                }
+               
+                //Remove item anyway
+                    TreatmentList.Items.RemoveAt(TreatmentList.SelectedIndex);
+             
+            }
+        }
+
+        private void AppSearch_DataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (AppSearch_DataGrid.SelectedRows.Count > 0) // make sure user select at least 1 row 
+            {
+                string ID = AppSearch_DataGrid.SelectedRows[0].Cells[0].Value + string.Empty;
+
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                DataTable dt = new DataTable();
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Patient WHERE PatientID = @ID", sqlcon);
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@ID", ID);
+                adapter.SelectCommand = cmd;
+
+                try
+                {
+                    adapter.Fill(dt);
+                    txt_LName.Text = dt.Rows[0][1].ToString();
+                    txt_FName.Text = dt.Rows[0][2].ToString();
+                    txt_MName.Text = dt.Rows[0][3].ToString();
+
+                }
+                catch (Exception ex) { Console.WriteLine(ex.Message); }
+
+
+            }
+        }
+
+        
 
         private void DentistDD_onItemSelected(object sender, EventArgs e)
         {
             SelectedDentistID = DentistDD.selectedIndex + 1;
+        }
+
+        private void AppointmentDatePick()
+        {
+
+            try
+            {
+                String time = TimeDD.selectedValue;
+                AppDate = DP_date.Value.ToString("M/d/yyyy") + " " + time;
+                DateTime DateApp = DateTime.ParseExact(AppDate, "M/d/yyyy hh:mm tt", System.Globalization.CultureInfo.CurrentCulture);
+                DateTime CurrentDate = DateTime.Now;
+
+                //check if Date is not less than current date
+                if (DateApp > CurrentDate)
+                {
+                    AppDate = DP_date.Value.ToString("M/d/yyyy");
+                }
+                else
+                {
+                    AppDate = "";
+                }
+
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message + AppDate); }
+
         }
 
         private void TimeDD_onItemSelected(object sender, EventArgs e)
@@ -431,34 +787,49 @@ namespace _846DentalClinicManagementSystem
 
         private void Checktime()
         {
-            try
+            if (TimeDD.selectedIndex > -1)
             {
-                String SelectedTime = TimeDD.selectedValue;
-                DateTime timeStartA = DateTime.ParseExact(SelectedTime, "hh:mm tt", System.Globalization.CultureInfo.CurrentCulture);
-                DateTime timeEndA = timeStartA.AddHours(1);
-                String Addedtime = (timeEndA.ToString("hh:mm tt"));
+                try
+                {
 
-                //exclusive for appointment update only
-                //DateTime prevTime = DateTime.ParseExact(itemTime, "hh:mm tt", System.Globalization.CultureInfo.CurrentCulture);
-                //prevTime = prevTime.AddMinutes(30);
-                //String prevTimeString = prevTime.ToString("hh:mm tt");
-            
-                //
-                    
+                    String SelectedTime = TimeDD.selectedValue;
+
+                    DateTime timeStartA = DateTime.ParseExact(SelectedTime, "hh:mm tt", System.Globalization.CultureInfo.CurrentCulture);
+                    DateTime timeEndA = timeStartA.AddHours(1);
+                    String Addedtime = (timeEndA.ToString("hh:mm tt"));
+
+
+
                     if (CheckOverlapseTimeinDB(timeStartA, timeEndA) == false)
                     {
                         StartTime = SelectedTime;
                         EndTime = Addedtime;
                         refTime = (timeStartA.ToString("HH:mm"));
+
+                        AppDate = DP_date.Value.ToString("M/d/yyyy") + " " + StartTime;
+                        DateTime DateApp = DateTime.ParseExact(AppDate, "M/d/yyyy hh:mm tt", System.Globalization.CultureInfo.CurrentCulture);
+                        DateTime CurrentDate = DateTime.Now;
+
+                        //check if Date is not less than current date
+                        if (DateApp > CurrentDate)
+                        {
+                            AppDate = DP_date.Value.ToString("M/d/yyyy");
+                        }
+                        else
+                        {
+                            AppDate = "";
+                        }
+
                     }
-                    else {
-                    MessageBox.Show("Time Overlapse with other appointment");
-                    StartTime = "";
+                    else
+                    {
+                        MessageBox.Show("Time Overlapse with other appointment");
+                        StartTime = "";
+                    }
                 }
 
+                catch (Exception ex) { Console.WriteLine(ex.Message); }
             }
-            catch (Exception ex) { Console.WriteLine(ex.Message); }
-
      
         }
 
@@ -527,6 +898,89 @@ namespace _846DentalClinicManagementSystem
             return dtStartA < dtEndB && dtStartB < dtEndA;
         }
 
+
+
+        private void btn_CreateBilling_Click(object sender, EventArgs e)
+        {
+            //check if the name already exist in the patient database
+            // if exist { proceed to payment }
+            //          { change pending status to complete}
+
+            // if not   { complete patient info }
+            //          { proceed to payment }
+            //          { change pending status to complete}
+
+
+            if (GlobalVariable.AppointmentID > 0)
+            {
+                if (CheckIfPatientAlreadyinPatientDB() > 0)  // there is already an existing record in PatientDB
+                {
+                    GlobalVariable.PatientID = CheckIfPatientAlreadyinPatientDB();
+                    //  GlobalVariable.TreatmentID = SelectedTreatmentID;
+                    AddBilling addBilling = new AddBilling();
+                    if (CheckifBillingStatementAlreadyExist())
+                    {
+                        MessageBox.Show("Billing Statement already Exist !", "Billing Statement"
+                            , MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        GlobalVariable.isBillingStatementExist = true;
+                    }
+                        addBilling.Show();
+                  
+                }                                           
+                else
+                {
+                    MessageBox.Show("This Patient doesnt have record yet,\r\n Please complete Patient Information !" 
+                        ,"Patient Record",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    AddEditPatientRecord addEditPatientRecord = new AddEditPatientRecord();
+                    GlobalVariable.isAddPatient = true;
+                    GlobalVariable.isAppointmentPatientExist = true;
+                    addEditPatientRecord.Show();
+
+                }
+            }
+        }
+
+
+        private int CheckIfPatientAlreadyinPatientDB()
+        {
+            int PatientExist = 0;
+
+            SqlCommand cmd = new SqlCommand(
+                "SELECT p.PatientID FROM Patient p JOIN Appointment a " +
+            "ON p.PatientFName = a.Appointment_FName AND " +
+            "p.PatientMName = a.Appointment_MName AND " +
+            "p.PatientLName = a.Appointment_LName " +
+            "WHERE a.AppointmentID = @AppID", sqlcon);
+
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@AppId", AppNo);
+            sqlcon.Open();
+            try
+            {
+                PatientExist = (int)(cmd.ExecuteScalar());
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+            sqlcon.Close();
+
+            return PatientExist; // return the patientID if existing, return 0 if not
+        }
+
+
+        private bool CheckifBillingStatementAlreadyExist()
+        {
+            SqlCommand cmd = new SqlCommand(
+                "SELECT AmountPay FROM Billing WHERE AppointmentID_fk = @appNo",sqlcon);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@appNo", AppNo);
+            sqlcon.Open();
+            try
+            {
+               if (string.IsNullOrEmpty(cmd.ExecuteScalar().ToString())) { return false; }
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+            sqlcon.Close();
+            return true;
+        }
     }
 
 }

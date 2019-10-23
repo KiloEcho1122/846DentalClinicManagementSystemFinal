@@ -16,12 +16,12 @@ namespace _846DentalClinicManagementSystem
     public partial class Login : Form
     {
 
-        static String workingDirectory = Environment.CurrentDirectory;
-        static String projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
-        static String LocalDbSource = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=";
-        static String LocalDBFile = projectDirectory + @"\846DentalClinicDB.mdf";
-        static String connString = LocalDbSource + LocalDBFile + ";Integrated Security=True";
-        SqlConnection sqlcon = new SqlConnection(connString);
+        //static String workingDirectory = Environment.CurrentDirectory;
+        //static String projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
+        //static String LocalDbSource = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=";
+        //static String LocalDBFile = projectDirectory + @"\846DentalClinicDB.mdf";
+        //static String connString = LocalDbSource + LocalDBFile + ";Integrated Security=True";
+        SqlConnection sqlcon = new SqlConnection(GlobalVariable.connString);
 
         public Login()
         {
@@ -43,19 +43,21 @@ namespace _846DentalClinicManagementSystem
             {
                 if (!string.IsNullOrEmpty(Convert.ToString(cmd.ExecuteScalar())))
                 {
+                    GlobalVariable.Username = txtUsername.Text.Trim();
                     LoginProgressbar loginprogress = new LoginProgressbar();
                     this.Hide();
                     loginprogress.Show();
                 }
                 else
                 {
-                    MessageBox.Show("bobo mo");
+                    MessageBox.Show("Incorrect Username/Password");
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            sqlcon.Close();
         }
     
         private void btn_Login_Click(object sender, EventArgs e)
