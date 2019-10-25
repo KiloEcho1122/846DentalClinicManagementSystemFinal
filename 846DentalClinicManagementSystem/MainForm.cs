@@ -239,29 +239,24 @@ namespace _846DentalClinicManagementSystem
 
         private void btn_EditApp_Click(object sender, EventArgs e)
         {
-            string Status = Appointment_DataGrid.SelectedRows[0].Cells[6].Value + string.Empty;
-            if (Status == "PENDING")
+
+            if (GlobalVariable.isEditAppointment == false)
             {
-                if (GlobalVariable.isEditAppointment == false)
+                if (GlobalVariable.AppointmentID > 0)
                 {
-                    if (GlobalVariable.AppointmentID > 0)
-                    {
-                        GlobalVariable.isEditAppointment = true;
-                        AddAppointment addAppointment = new AddAppointment();
-                        addAppointment.Show();
-                    }
+                    GlobalVariable.isEditAppointment = true;
+                    AddAppointment addAppointment = new AddAppointment();
+                    addAppointment.Show();
                 }
             }
-            else { MessageBox.Show("Cannot update : Appointment is already completed"); }
+          
            
            
         }
        
         private void Appointment_DataGrid_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            string Status = Appointment_DataGrid.SelectedRows[0].Cells[6].Value + string.Empty;
-            if (Status == "PENDING")
-            {
+            
                 if (GlobalVariable.isEditAppointment == false)
                 {
                     GlobalVariable.AppointmentID = Convert.ToInt32(Appointment_DataGrid.SelectedRows[0].Cells[0].Value);
@@ -273,8 +268,7 @@ namespace _846DentalClinicManagementSystem
 
                     }
                 }
-            }
-            else { MessageBox.Show("Cannot update : Appointment is already completed"); }
+           
 
         }
 

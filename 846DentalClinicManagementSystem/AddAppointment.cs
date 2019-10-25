@@ -27,7 +27,7 @@ namespace _846DentalClinicManagementSystem
        
 
         int SelectedDentistID = 0, AppNo = 0;
-        String LName, MName, FName, StartTime, EndTime, refTime, AppDate,Note = "";
+        String LName, MName, FName, StartTime, EndTime, refTime, AppDate,Note = "",AppStatus ="";
         ArrayList RemovedTreatment = new ArrayList();
 
         public AddAppointment()
@@ -37,25 +37,24 @@ namespace _846DentalClinicManagementSystem
 
         private void AddAppointment_Load(object sender, EventArgs e)
         {
-            
             LoadDropDownList();
             DP_date.Value = DateTime.Now;
+            lbl_AppNo.Text = "Appointment No. " + AppNo.ToString();
 
             // if add appointmen increment ID
-          
+
             if (GlobalVariable.isAddAppointment == true && GlobalVariable.isEditAppointment == false)
             {
                 fillAppID();
-                txt_AppNo.Text = AppNo.ToString();
                 btn_CreateBilling.Visible = false;
-                txt_AppNo.Enabled = false;
+                bunifuCustomLabel5.Visible = false;
+                statusSwitch.Visible = false;
                 this.Text = "Add Appointment";
 
             }
             if (GlobalVariable.isEditAppointment == true && GlobalVariable.isAddAppointment ==false)
             {
                 AppNo = GlobalVariable.AppointmentID;
-                txt_AppNo.Text = AppNo.ToString();
                 fillFormforUpdate();
                 FormatEditForm();
                
@@ -68,8 +67,7 @@ namespace _846DentalClinicManagementSystem
         {
             this.Height = 464;
             // //labels
-            bunifuCustomLabel11.Left = 38;
-            txt_AppNo.Left = 38;
+            lbl_AppNo.Left = 38;
             bunifuCustomLabel8.Top = 130;
             bunifuCustomLabel9.Top = 130;
             bunifuCustomLabel10.Top = 130;
@@ -78,8 +76,9 @@ namespace _846DentalClinicManagementSystem
             bunifuCustomLabel4.Top = 211;
             bunifuCustomLabel6.Top = 211;
             bunifuCustomLabel7.Top = 305;
+            bunifuCustomLabel5.Top = 423;
             //textboxes and dropdown
-            
+
             txt_LName.Top = 153;
             txt_FName.Top = 153;
             txt_MName.Top = 153;
@@ -96,6 +95,9 @@ namespace _846DentalClinicManagementSystem
             btn_CreateBilling.Top = 413;
             btn_close.Top = 413;
             btn_add.Top = 413;
+            statusSwitch.Top = 419;
+
+
 
             txt_PatientSearch.Visible = false;
             btn_PatientSearch.Visible = false;
@@ -105,9 +107,6 @@ namespace _846DentalClinicManagementSystem
             btn_add.Text = "Update";
             txt_formHeader.Text = "Update Appointment";
             this.Text = "Update Appointment";
-            txt_AppNo.Enabled = false;
-
-
 
         }
 
@@ -116,6 +115,8 @@ namespace _846DentalClinicManagementSystem
             this.Hide();
             GlobalVariable.isEditAppointment = false;
             GlobalVariable.isAddAppointment = false;
+            var main = Application.OpenForms.OfType<MainForm>().First();
+            main.ShowAppointment(AppDate);
 
         }
 
@@ -410,8 +411,10 @@ namespace _846DentalClinicManagementSystem
             txt_LName.Text = dt1.Rows[0][1].ToString();
             txt_FName.Text = dt1.Rows[0][2].ToString();
             txt_MName.Text = dt1.Rows[0][3].ToString();
-            txt_Note.Text = dt1.Rows[0][10].ToString();
-            
+            txt_Note.Text = dt1.Rows[0][9].ToString();
+
+            if(dt1.Rows[0][10].ToString() == "COMPLETED") { statusSwitch.Value = true; }
+           
          //   SelectedTreatmentID = Convert.ToInt32(dt.Rows[0][8]) - 1;
             SelectedDentistID= Convert.ToInt32(dt1.Rows[0][8]) - 1;
 
@@ -444,7 +447,7 @@ namespace _846DentalClinicManagementSystem
             SqlCommand cmd = new SqlCommand(
                 "UPDATE [Appointment] SET Appointment_LName = @LName, Appointment_FName = @FName, Appointment_MName = @MName, AppointmentDate = @Date," +
                 "StartTime = @StartTime, EndTime = @EndTime ,RefTime = @RefTime, DentistID_fk = @DentistID_fk ," +
-                "AppointmentNote = @Note WHERE AppointmentID = @AppointmentID ", sqlcon);
+                "AppointmentNote = @Note, Status = @Status WHERE AppointmentID = @AppointmentID ", sqlcon);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@LName", LName);
             cmd.Parameters.AddWithValue("@FName", FName);
@@ -456,6 +459,7 @@ namespace _846DentalClinicManagementSystem
             cmd.Parameters.AddWithValue("@DentistID_fk", SelectedDentistID);
             cmd.Parameters.AddWithValue("@Note", Note);
             cmd.Parameters.AddWithValue("@AppointmentID", AppNo);
+            cmd.Parameters.AddWithValue("@Status", AppStatus);
 
             sqlcon.Open();
             try
@@ -565,10 +569,7 @@ namespace _846DentalClinicManagementSystem
             AppSearch_DataGrid.Visible = true;
         }
 
-        private void AppSearch_DataGrid_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
-        }
+
 
         private void LoadDropDownList()
         {
@@ -636,12 +637,6 @@ namespace _846DentalClinicManagementSystem
             sqlcon.Close();
         }
 
-      
-
-        private void AppSearch_DataGrid_MouseLeave(object sender, EventArgs e)
-        {
-            
-        }
 
         private void txt_PatientSearch_Leave(object sender, EventArgs e)
         {
@@ -776,6 +771,40 @@ namespace _846DentalClinicManagementSystem
             }
             catch (Exception ex) { Console.WriteLine(ex.Message + AppDate); }
 
+        }
+
+        private void statusSwitch_Click(object sender, EventArgs e)
+        {
+            if (statusSwitch.Value == true)
+            {
+                AppStatus = "COMPLETED";
+                changeStatus();
+                MessageBox.Show("Appointment Status changed to COMPLETE !");
+            }
+            else
+            {
+                AppStatus = "PENDING";
+                changeStatus();
+                MessageBox.Show("Appointment Status changed to PENDING !");
+            }
+        }
+
+        private void changeStatus()
+        {
+            SqlCommand cmd = new SqlCommand(
+               "UPDATE [Appointment] SET Status = @Status WHERE AppointmentID = @AppointmentID ", sqlcon);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@AppointmentID", AppNo);
+            cmd.Parameters.AddWithValue("@Status", AppStatus);
+
+            sqlcon.Open();
+            try
+            {
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+            sqlcon.Close();
         }
 
         private void TimeDD_onItemSelected(object sender, EventArgs e)

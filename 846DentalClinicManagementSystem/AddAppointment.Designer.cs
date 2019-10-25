@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddAppointment));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.TopPanel2 = new System.Windows.Forms.Panel();
@@ -58,12 +58,13 @@
             this.txt_LName = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.txt_FName = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.txt_MName = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
-            this.txt_AppNo = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
-            this.bunifuCustomLabel11 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.lbl_AppNo = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btn_CreateBilling = new Bunifu.Framework.UI.BunifuFlatButton();
             this.Treatment_CB = new System.Windows.Forms.ComboBox();
             this.TreatmentList = new System.Windows.Forms.ListBox();
             this.btn_RemoveItem = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.statusSwitch = new Bunifu.Framework.UI.BunifuiOSSwitch();
+            this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.TopPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AppSearch_DataGrid)).BeginInit();
@@ -164,21 +165,21 @@
             this.AppSearch_DataGrid.AllowUserToDeleteRows = false;
             this.AppSearch_DataGrid.AllowUserToResizeColumns = false;
             this.AppSearch_DataGrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.AppSearch_DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.AppSearch_DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.AppSearch_DataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.AppSearch_DataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.AppSearch_DataGrid.BackgroundColor = System.Drawing.SystemColors.Control;
             this.AppSearch_DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.AppSearch_DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AppSearch_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AppSearch_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.AppSearch_DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AppSearch_DataGrid.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AppSearch_DataGrid.DoubleBuffered = true;
@@ -194,8 +195,8 @@
             this.AppSearch_DataGrid.Size = new System.Drawing.Size(723, 65);
             this.AppSearch_DataGrid.TabIndex = 6;
             this.AppSearch_DataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AppSearch_DataGrid_CellContentClick);
-            this.AppSearch_DataGrid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AppSearch_DataGrid_CellContentDoubleClick);
-            this.AppSearch_DataGrid.MouseLeave += new System.EventHandler(this.AppSearch_DataGrid_MouseLeave);
+            
+         
             // 
             // DentistDD
             // 
@@ -471,29 +472,16 @@
             this.txt_MName.Size = new System.Drawing.Size(182, 35);
             this.txt_MName.TabIndex = 4;
             // 
-            // txt_AppNo
+            // lbl_AppNo
             // 
-            this.txt_AppNo.BackColor = System.Drawing.Color.Silver;
-            this.txt_AppNo.BorderColor = System.Drawing.Color.SeaGreen;
-            this.txt_AppNo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_AppNo.ForeColor = System.Drawing.Color.Black;
-            this.txt_AppNo.Location = new System.Drawing.Point(459, 71);
-            this.txt_AppNo.Multiline = true;
-            this.txt_AppNo.Name = "txt_AppNo";
-            this.txt_AppNo.Size = new System.Drawing.Size(164, 35);
-            this.txt_AppNo.TabIndex = 28;
-            this.txt_AppNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // bunifuCustomLabel11
-            // 
-            this.bunifuCustomLabel11.AutoSize = true;
-            this.bunifuCustomLabel11.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel11.ForeColor = System.Drawing.Color.Teal;
-            this.bunifuCustomLabel11.Location = new System.Drawing.Point(456, 48);
-            this.bunifuCustomLabel11.Name = "bunifuCustomLabel11";
-            this.bunifuCustomLabel11.Size = new System.Drawing.Size(121, 17);
-            this.bunifuCustomLabel11.TabIndex = 27;
-            this.bunifuCustomLabel11.Text = "Appointment No.";
+            this.lbl_AppNo.AutoSize = true;
+            this.lbl_AppNo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_AppNo.ForeColor = System.Drawing.Color.Teal;
+            this.lbl_AppNo.Location = new System.Drawing.Point(456, 48);
+            this.lbl_AppNo.Name = "lbl_AppNo";
+            this.lbl_AppNo.Size = new System.Drawing.Size(121, 17);
+            this.lbl_AppNo.TabIndex = 27;
+            this.lbl_AppNo.Text = "Appointment No.";
             // 
             // btn_CreateBilling
             // 
@@ -595,17 +583,44 @@
             this.btn_RemoveItem.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_RemoveItem.Click += new System.EventHandler(this.btn_RemoveItem_Click);
             // 
+            // statusSwitch
+            // 
+            this.statusSwitch.BackColor = System.Drawing.Color.Transparent;
+            this.statusSwitch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("statusSwitch.BackgroundImage")));
+            this.statusSwitch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.statusSwitch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.statusSwitch.Location = new System.Drawing.Point(131, 474);
+            this.statusSwitch.Name = "statusSwitch";
+            this.statusSwitch.OffColor = System.Drawing.Color.Gray;
+            this.statusSwitch.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
+            this.statusSwitch.Size = new System.Drawing.Size(43, 25);
+            this.statusSwitch.TabIndex = 34;
+            this.statusSwitch.Value = false;
+            this.statusSwitch.Click += new System.EventHandler(this.statusSwitch_Click);
+            // 
+            // bunifuCustomLabel5
+            // 
+            this.bunifuCustomLabel5.AutoSize = true;
+            this.bunifuCustomLabel5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel5.ForeColor = System.Drawing.Color.Teal;
+            this.bunifuCustomLabel5.Location = new System.Drawing.Point(42, 478);
+            this.bunifuCustomLabel5.Name = "bunifuCustomLabel5";
+            this.bunifuCustomLabel5.Size = new System.Drawing.Size(83, 17);
+            this.bunifuCustomLabel5.TabIndex = 35;
+            this.bunifuCustomLabel5.Text = "Completed";
+            // 
             // AddAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(790, 530);
+            this.Controls.Add(this.bunifuCustomLabel5);
+            this.Controls.Add(this.statusSwitch);
             this.Controls.Add(this.btn_RemoveItem);
             this.Controls.Add(this.TreatmentList);
             this.Controls.Add(this.Treatment_CB);
             this.Controls.Add(this.btn_CreateBilling);
-            this.Controls.Add(this.txt_AppNo);
-            this.Controls.Add(this.bunifuCustomLabel11);
+            this.Controls.Add(this.lbl_AppNo);
             this.Controls.Add(this.txt_MName);
             this.Controls.Add(this.txt_FName);
             this.Controls.Add(this.txt_LName);
@@ -664,8 +679,7 @@
         private Bunifu.Framework.UI.BunifuFlatButton btn_close;
         private Bunifu.Framework.UI.BunifuFlatButton btn_add;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
-        private WindowsFormsControlLibrary1.BunifuCustomTextbox txt_AppNo;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel11;
+        private Bunifu.Framework.UI.BunifuCustomLabel lbl_AppNo;
         private WindowsFormsControlLibrary1.BunifuCustomTextbox txt_MName;
         private WindowsFormsControlLibrary1.BunifuCustomTextbox txt_FName;
         private WindowsFormsControlLibrary1.BunifuCustomTextbox txt_LName;
@@ -676,5 +690,7 @@
         private System.Windows.Forms.ListBox TreatmentList;
         private System.Windows.Forms.ComboBox Treatment_CB;
         private Bunifu.Framework.UI.BunifuFlatButton btn_RemoveItem;
+        private Bunifu.Framework.UI.BunifuiOSSwitch statusSwitch;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel5;
     }
 }

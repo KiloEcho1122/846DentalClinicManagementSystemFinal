@@ -367,37 +367,6 @@ namespace _846DentalClinicManagementSystem
         }
 
 
-        //private void updateAppointmentStatus()
-        //{
-        //    Console.WriteLine(GlobalVariable.AppointmentID);
-        //    SqlCommand cmd = new SqlCommand(
-        //        "UPDATE [Appointment] SET Status = @status " +
-        //        "WHERE AppointmentID = @AppointmentID ", sqlcon);
-        //    cmd.Parameters.Clear();
-        //    cmd.Parameters.AddWithValue("@status", "COMPLETED");
-        //    cmd.Parameters.AddWithValue("@AppointmentID", GlobalVariable.AppointmentID);
-
-
-        //    sqlcon.Open();
-        //    try
-        //    {
-        //        cmd.ExecuteNonQuery();
-        //        MessageBox.Show("Appointment status : COMPLETED !");
-        //        var main = Application.OpenForms.OfType<MainForm>().First();
-        //        main.ShowAppointment("");
-
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine(ex.Message);
-        //    }
-
-        //    sqlcon.Close();
-        //}
-
-
-
         private void btn_Close_Click(object sender, EventArgs e)
         {
             GlobalVariable.isBillingStatementExist = false;
