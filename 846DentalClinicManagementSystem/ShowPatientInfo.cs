@@ -649,8 +649,12 @@ namespace _846DentalClinicManagementSystem
             }
             else if (PatientInfoTAB.SelectedIndex == 2)
             {
-                LoadNotes();
+                
 
+            }
+            else if (PatientInfoTAB.SelectedIndex == 3)
+            {
+                LoadNotes();
             }
         }
 
@@ -766,18 +770,18 @@ namespace _846DentalClinicManagementSystem
             TeethArray.Clear();
         }
 
-        private void btn_SaveNotes_Click(object sender, EventArgs e)
+        private void btn_SaveNotes_Click_1(object sender, EventArgs e)
         {
             String PatientNote = txt_PatientNote.Text.Trim();
             String DateToday = DateTime.Today.ToString("M/d/yyyy");
 
             if (NoteIsEdit == true)
             {
-                UpdateNote(PatientNote,DateToday);
+                UpdateNote(PatientNote, DateToday);
             }
             else
             {
-                InsertNote(PatientNote,DateToday);
+                InsertNote(PatientNote, DateToday);
             }
             txt_PatientNote.Clear();
             LoadNotes();
@@ -857,10 +861,12 @@ namespace _846DentalClinicManagementSystem
             catch(Exception ex) { Console.WriteLine(ex.Message); }
         }
 
-        private void NoteDD_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void NoteDD_CellContentDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
             NoteIsEdit = true;
             txt_PatientNote.Text = NoteDD.SelectedRows[0].Cells[2].Value.ToString();
+         
+                
         }
 
         public void ShowBilling()
@@ -1091,6 +1097,8 @@ namespace _846DentalClinicManagementSystem
             }
             
         }
+
+        
     }
 
    

@@ -32,9 +32,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowPatientInfo));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowPatientInfo));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.TopPanel2 = new System.Windows.Forms.Panel();
             this.txt_formHeader = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -97,14 +100,16 @@
             this.TeethPanel13 = new System.Windows.Forms.Panel();
             this.TeethPanel29 = new System.Windows.Forms.Panel();
             this.TeethPanel21 = new System.Windows.Forms.Panel();
-            this.Notes_tab = new System.Windows.Forms.TabPage();
-            this.btn_SaveNotes = new System.Windows.Forms.Button();
+            this.TreatmentHistory_TAB = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btn_closePatientInfo = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.Notes_TAB = new System.Windows.Forms.TabPage();
+            this.btn_SaveNotes = new System.Windows.Forms.Button();
             this.NoteDD = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.txt_PatientNote = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
-            this.btn_closePatientInfo = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.bunifuCustomDataGrid1 = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.TopPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.PatientInfoTAB.SuspendLayout();
@@ -117,10 +122,12 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
-            this.Notes_tab.SuspendLayout();
+            this.TreatmentHistory_TAB.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.Notes_TAB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NoteDD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid1)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -185,7 +192,8 @@
             // 
             this.PatientInfoTAB.Controls.Add(this.General_tab);
             this.PatientInfoTAB.Controls.Add(this.tabPage2);
-            this.PatientInfoTAB.Controls.Add(this.Notes_tab);
+            this.PatientInfoTAB.Controls.Add(this.TreatmentHistory_TAB);
+            this.PatientInfoTAB.Controls.Add(this.Notes_TAB);
             this.PatientInfoTAB.Location = new System.Drawing.Point(34, 109);
             this.PatientInfoTAB.Name = "PatientInfoTAB";
             this.PatientInfoTAB.SelectedIndex = 0;
@@ -864,34 +872,17 @@
             this.TeethPanel21.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel21_Paint);
             this.TeethPanel21.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel21_MouseClick);
             // 
-            // Notes_tab
+            // TreatmentHistory_TAB
             // 
-            this.Notes_tab.Controls.Add(this.btn_SaveNotes);
-            this.Notes_tab.Controls.Add(this.panel2);
-            this.Notes_tab.Controls.Add(this.NoteDD);
-            this.Notes_tab.Controls.Add(this.txt_PatientNote);
-            this.Notes_tab.Location = new System.Drawing.Point(4, 22);
-            this.Notes_tab.Name = "Notes_tab";
-            this.Notes_tab.Padding = new System.Windows.Forms.Padding(3);
-            this.Notes_tab.Size = new System.Drawing.Size(957, 404);
-            this.Notes_tab.TabIndex = 2;
-            this.Notes_tab.Text = "NOTES";
-            this.Notes_tab.UseVisualStyleBackColor = true;
-            // 
-            // btn_SaveNotes
-            // 
-            this.btn_SaveNotes.BackColor = System.Drawing.Color.SeaGreen;
-            this.btn_SaveNotes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_SaveNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_SaveNotes.ForeColor = System.Drawing.Color.White;
-            this.btn_SaveNotes.Location = new System.Drawing.Point(794, 336);
-            this.btn_SaveNotes.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_SaveNotes.Name = "btn_SaveNotes";
-            this.btn_SaveNotes.Size = new System.Drawing.Size(106, 54);
-            this.btn_SaveNotes.TabIndex = 57;
-            this.btn_SaveNotes.Text = "Save";
-            this.btn_SaveNotes.UseVisualStyleBackColor = false;
-            this.btn_SaveNotes.Click += new System.EventHandler(this.btn_SaveNotes_Click);
+            this.TreatmentHistory_TAB.Controls.Add(this.bunifuCustomDataGrid1);
+            this.TreatmentHistory_TAB.Controls.Add(this.panel2);
+            this.TreatmentHistory_TAB.Location = new System.Drawing.Point(4, 22);
+            this.TreatmentHistory_TAB.Name = "TreatmentHistory_TAB";
+            this.TreatmentHistory_TAB.Padding = new System.Windows.Forms.Padding(3);
+            this.TreatmentHistory_TAB.Size = new System.Drawing.Size(957, 404);
+            this.TreatmentHistory_TAB.TabIndex = 2;
+            this.TreatmentHistory_TAB.Text = "TREATMENT HISTORY";
+            this.TreatmentHistory_TAB.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -924,54 +915,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(19, 20);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
-            // 
-            // NoteDD
-            // 
-            this.NoteDD.AllowUserToAddRows = false;
-            this.NoteDD.AllowUserToDeleteRows = false;
-            this.NoteDD.AllowUserToResizeColumns = false;
-            this.NoteDD.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.NoteDD.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.NoteDD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.NoteDD.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.NoteDD.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.NoteDD.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.NoteDD.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.NoteDD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.NoteDD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.NoteDD.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.NoteDD.DoubleBuffered = true;
-            this.NoteDD.EnableHeadersVisualStyles = false;
-            this.NoteDD.HeaderBgColor = System.Drawing.Color.SeaGreen;
-            this.NoteDD.HeaderForeColor = System.Drawing.Color.Black;
-            this.NoteDD.Location = new System.Drawing.Point(39, 46);
-            this.NoteDD.Name = "NoteDD";
-            this.NoteDD.ReadOnly = true;
-            this.NoteDD.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.NoteDD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.NoteDD.Size = new System.Drawing.Size(896, 190);
-            this.NoteDD.TabIndex = 43;
-            this.NoteDD.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.NoteDD_CellContentDoubleClick);
-            // 
-            // txt_PatientNote
-            // 
-            this.txt_PatientNote.BackColor = System.Drawing.Color.SeaGreen;
-            this.txt_PatientNote.BorderColor = System.Drawing.Color.SeaGreen;
-            this.txt_PatientNote.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_PatientNote.ForeColor = System.Drawing.SystemColors.Menu;
-            this.txt_PatientNote.Location = new System.Drawing.Point(39, 242);
-            this.txt_PatientNote.Multiline = true;
-            this.txt_PatientNote.Name = "txt_PatientNote";
-            this.txt_PatientNote.Size = new System.Drawing.Size(896, 80);
-            this.txt_PatientNote.TabIndex = 26;
             // 
             // btn_closePatientInfo
             // 
@@ -1008,6 +951,124 @@
             this.btn_closePatientInfo.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_closePatientInfo.Click += new System.EventHandler(this.btn_closePatientInfo_Click);
             // 
+            // Notes_TAB
+            // 
+            this.Notes_TAB.Controls.Add(this.btn_SaveNotes);
+            this.Notes_TAB.Controls.Add(this.NoteDD);
+            this.Notes_TAB.Controls.Add(this.txt_PatientNote);
+            this.Notes_TAB.Location = new System.Drawing.Point(4, 22);
+            this.Notes_TAB.Name = "Notes_TAB";
+            this.Notes_TAB.Padding = new System.Windows.Forms.Padding(3);
+            this.Notes_TAB.Size = new System.Drawing.Size(957, 404);
+            this.Notes_TAB.TabIndex = 3;
+            this.Notes_TAB.Text = "NOTES";
+            this.Notes_TAB.UseVisualStyleBackColor = true;
+            // 
+            // btn_SaveNotes
+            // 
+            this.btn_SaveNotes.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn_SaveNotes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_SaveNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_SaveNotes.ForeColor = System.Drawing.Color.White;
+            this.btn_SaveNotes.Location = new System.Drawing.Point(786, 326);
+            this.btn_SaveNotes.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_SaveNotes.Name = "btn_SaveNotes";
+            this.btn_SaveNotes.Size = new System.Drawing.Size(106, 54);
+            this.btn_SaveNotes.TabIndex = 60;
+            this.btn_SaveNotes.Text = "Save";
+            this.btn_SaveNotes.UseVisualStyleBackColor = false;
+            this.btn_SaveNotes.Click += new System.EventHandler(this.btn_SaveNotes_Click_1);
+            // 
+            // NoteDD
+            // 
+            this.NoteDD.AllowUserToAddRows = false;
+            this.NoteDD.AllowUserToDeleteRows = false;
+            this.NoteDD.AllowUserToResizeColumns = false;
+            this.NoteDD.AllowUserToResizeRows = false;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.NoteDD.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.NoteDD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.NoteDD.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.NoteDD.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.NoteDD.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.NoteDD.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.NoteDD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.NoteDD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.NoteDD.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.NoteDD.DoubleBuffered = true;
+            this.NoteDD.EnableHeadersVisualStyles = false;
+            this.NoteDD.HeaderBgColor = System.Drawing.Color.SeaGreen;
+            this.NoteDD.HeaderForeColor = System.Drawing.Color.Black;
+            this.NoteDD.Location = new System.Drawing.Point(31, 36);
+            this.NoteDD.Name = "NoteDD";
+            this.NoteDD.ReadOnly = true;
+            this.NoteDD.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.NoteDD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.NoteDD.Size = new System.Drawing.Size(896, 190);
+            this.NoteDD.TabIndex = 59;
+            this.NoteDD.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.NoteDD_CellContentDoubleClick_1);
+            // 
+            // txt_PatientNote
+            // 
+            this.txt_PatientNote.BackColor = System.Drawing.Color.SeaGreen;
+            this.txt_PatientNote.BorderColor = System.Drawing.Color.SeaGreen;
+            this.txt_PatientNote.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_PatientNote.ForeColor = System.Drawing.SystemColors.Menu;
+            this.txt_PatientNote.Location = new System.Drawing.Point(31, 232);
+            this.txt_PatientNote.Multiline = true;
+            this.txt_PatientNote.Name = "txt_PatientNote";
+            this.txt_PatientNote.Size = new System.Drawing.Size(896, 80);
+            this.txt_PatientNote.TabIndex = 58;
+            // 
+            // bunifuCustomDataGrid1
+            // 
+            this.bunifuCustomDataGrid1.AllowUserToAddRows = false;
+            this.bunifuCustomDataGrid1.AllowUserToDeleteRows = false;
+            this.bunifuCustomDataGrid1.AllowUserToResizeRows = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.bunifuCustomDataGrid1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.bunifuCustomDataGrid1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.bunifuCustomDataGrid1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.bunifuCustomDataGrid1.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.bunifuCustomDataGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.bunifuCustomDataGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.bunifuCustomDataGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.bunifuCustomDataGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.bunifuCustomDataGrid1.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.bunifuCustomDataGrid1.DefaultCellStyle = dataGridViewCellStyle6;
+            this.bunifuCustomDataGrid1.DoubleBuffered = true;
+            this.bunifuCustomDataGrid1.EnableHeadersVisualStyles = false;
+            this.bunifuCustomDataGrid1.HeaderBgColor = System.Drawing.Color.SeaGreen;
+            this.bunifuCustomDataGrid1.HeaderForeColor = System.Drawing.Color.White;
+            this.bunifuCustomDataGrid1.Location = new System.Drawing.Point(64, 59);
+            this.bunifuCustomDataGrid1.Name = "bunifuCustomDataGrid1";
+            this.bunifuCustomDataGrid1.ReadOnly = true;
+            this.bunifuCustomDataGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.bunifuCustomDataGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.bunifuCustomDataGrid1.Size = new System.Drawing.Size(814, 289);
+            this.bunifuCustomDataGrid1.TabIndex = 55;
+            // 
             // ShowPatientInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1040,12 +1101,14 @@
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.Notes_tab.ResumeLayout(false);
-            this.Notes_tab.PerformLayout();
+            this.TreatmentHistory_TAB.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Notes_TAB.ResumeLayout(false);
+            this.Notes_TAB.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NoteDD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1095,10 +1158,8 @@
         private System.Windows.Forms.Panel TeethPanel13;
         private System.Windows.Forms.Panel TeethPanel29;
         private System.Windows.Forms.Panel TeethPanel21;
-        private System.Windows.Forms.TabPage Notes_tab;
+        private System.Windows.Forms.TabPage TreatmentHistory_TAB;
         private Bunifu.Framework.UI.BunifuCustomLabel lbl_PatientName;
-        private WindowsFormsControlLibrary1.BunifuCustomTextbox txt_PatientNote;
-        private Bunifu.Framework.UI.BunifuCustomDataGrid NoteDD;
         private System.Windows.Forms.Panel panel4;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel4;
         private System.Windows.Forms.PictureBox pictureBox3;
@@ -1112,7 +1173,6 @@
         private Bunifu.Framework.UI.BunifuFlatButton btn_closePatientInfo;
         private System.Windows.Forms.Button btn_SaveChart;
         private System.Windows.Forms.Button btn_RefreshChart;
-        private System.Windows.Forms.Button btn_SaveNotes;
         private System.Windows.Forms.Button btn_AddPayment;
         private System.Windows.Forms.Panel Payment_Panel;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
@@ -1123,5 +1183,10 @@
         private WindowsFormsControlLibrary1.BunifuCustomTextbox txt_BllingID;
         private System.Windows.Forms.Button btn_closePayment;
         private System.Windows.Forms.Button btn_ShowPayhistory;
+        private System.Windows.Forms.TabPage Notes_TAB;
+        private System.Windows.Forms.Button btn_SaveNotes;
+        private Bunifu.Framework.UI.BunifuCustomDataGrid NoteDD;
+        private WindowsFormsControlLibrary1.BunifuCustomTextbox txt_PatientNote;
+        private Bunifu.Framework.UI.BunifuCustomDataGrid bunifuCustomDataGrid1;
     }
 }
