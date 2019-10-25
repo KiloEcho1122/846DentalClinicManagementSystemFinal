@@ -649,7 +649,7 @@ namespace _846DentalClinicManagementSystem
             }
             else if (PatientInfoTAB.SelectedIndex == 2)
             {
-                
+                LoadTreatmentHistory();
 
             }
             else if (PatientInfoTAB.SelectedIndex == 3)
@@ -859,6 +859,37 @@ namespace _846DentalClinicManagementSystem
 
             }
             catch(Exception ex) { Console.WriteLine(ex.Message); }
+        }
+
+
+        private void LoadTreatmentHistory()
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand(
+                "SELECT a.AppointmentID,a.AppointmentDate As Date,CONCAT(a.StartTime, ' - ', a.EndTime) AS Time, " +
+                "p.Treatment,CONCAT(d.DentistFName, ' ', d.DentistLName) AS Dentist, a.Status " +
+                "FROM Appointment a INNER JOIN PatientTreatment p ON a.AppointmentID = p.AppointmentID_fk " +
+                "INNER JOIN Dentist d ON a.DentistID_fk = d.DentistID  WHERE p.PatientID_fk = @PatientID AND a.Status = 'COMPLETED'", sqlcon);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@PatientID", PatientID);
+            adapter.SelectCommand = cmd;
+
+            try
+            {
+                adapter.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    //replace comma "," with line break
+                    dt.Rows[0][3] = dt.Rows[0][3].ToString().Replace(",", Environment.NewLine);
+                }
+                TreatmentHistory_DG.DataSource = dt;
+
+                TreatmentHistory_DG.Columns[1].DefaultCellStyle.Format = "M/d/yyyy";
+
+
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
         }
 
         private void NoteDD_CellContentDoubleClick_1(object sender, DataGridViewCellEventArgs e)

@@ -39,7 +39,7 @@ namespace _846DentalClinicManagementSystem
         {
             LoadDropDownList();
             DP_date.Value = DateTime.Now;
-            lbl_AppNo.Text = "Appointment No. " + AppNo.ToString();
+           
 
             // if add appointmen increment ID
 
@@ -61,7 +61,7 @@ namespace _846DentalClinicManagementSystem
               
             }
 
-
+            lbl_AppNo.Text = "Appointment No. " + AppNo.ToString();
         }
         private void FormatEditForm()
         {
@@ -775,17 +775,39 @@ namespace _846DentalClinicManagementSystem
 
         private void statusSwitch_Click(object sender, EventArgs e)
         {
-            if (statusSwitch.Value == true)
+            
+            if (CheckIfPatientAlreadyinPatientDB() > 0)  // there is already an existing record in PatientDB
             {
-                AppStatus = "COMPLETED";
-                changeStatus();
-                MessageBox.Show("Appointment Status changed to COMPLETE !");
+               
+                if (statusSwitch.Value == true)
+                {
+                    AppStatus = "COMPLETED";
+                    changeStatus();
+                    updatePatientTreatment_PatientID();
+                    MessageBox.Show("Appointment Status changed to COMPLETE !");
+                }
+                else
+                {
+                    AppStatus = "PENDING";
+                    changeStatus();
+                    MessageBox.Show("Appointment Status changed to PENDING !");
+                }
             }
             else
             {
-                AppStatus = "PENDING";
-                changeStatus();
-                MessageBox.Show("Appointment Status changed to PENDING !");
+               DialogResult result =  MessageBox.Show("This Patient doesnt have record yet,\r\n Please complete Patient Information !"
+                    , "Patient Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (result == DialogResult.OK)
+                {
+                    AddEditPatientRecord addEditPatientRecord = new AddEditPatientRecord();
+                    GlobalVariable.isAddPatient = true;
+                    GlobalVariable.isAppointmentPatientExist = true;
+                    addEditPatientRecord.Show();
+                    statusSwitch.Value = false;
+                }
+                
+               
+
             }
         }
 
@@ -796,6 +818,24 @@ namespace _846DentalClinicManagementSystem
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@AppointmentID", AppNo);
             cmd.Parameters.AddWithValue("@Status", AppStatus);
+
+            sqlcon.Open();
+            try
+            {
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+            sqlcon.Close();
+        }
+
+        private void updatePatientTreatment_PatientID()
+        {
+            SqlCommand cmd = new SqlCommand(
+              "UPDATE [PatientTreatment] SET PatientID_fk = @PatientID WHERE AppointmentID_fk = @AppointmentID ", sqlcon);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@AppointmentID", AppNo);
+            cmd.Parameters.AddWithValue("@PatientID", GlobalVariable.PatientID);
 
             sqlcon.Open();
             try
@@ -944,7 +984,7 @@ namespace _846DentalClinicManagementSystem
             {
                 if (CheckIfPatientAlreadyinPatientDB() > 0)  // there is already an existing record in PatientDB
                 {
-                    GlobalVariable.PatientID = CheckIfPatientAlreadyinPatientDB();
+                   
                     //  GlobalVariable.TreatmentID = SelectedTreatmentID;
                     AddBilling addBilling = new AddBilling();
                     if (CheckifBillingStatementAlreadyExist())
@@ -969,8 +1009,9 @@ namespace _846DentalClinicManagementSystem
             }
         }
 
+        
 
-        private int CheckIfPatientAlreadyinPatientDB()
+    private int CheckIfPatientAlreadyinPatientDB()
         {
             int PatientExist = 0;
 
@@ -985,12 +1026,19 @@ namespace _846DentalClinicManagementSystem
             cmd.Parameters.AddWithValue("@AppId", AppNo);
             sqlcon.Open();
             try
-            {
-                PatientExist = (int)(cmd.ExecuteScalar());
+            {   
+                object fetch = cmd.ExecuteScalar();
+                if (fetch != null)
+                {
+                    PatientExist = (int)(fetch);
+                }
+               
+                
             }
-            catch (Exception ex) { Console.WriteLine(ex.Message); }
+            catch (Exception ex) { Console.WriteLine(ex.Message + "No records found, create patient record"); }
             sqlcon.Close();
 
+            GlobalVariable.PatientID = PatientExist;
             return PatientExist; // return the patientID if existing, return 0 if not
         }
 

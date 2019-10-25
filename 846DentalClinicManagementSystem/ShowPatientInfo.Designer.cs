@@ -109,7 +109,10 @@
             this.btn_SaveNotes = new System.Windows.Forms.Button();
             this.NoteDD = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.txt_PatientNote = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
-            this.bunifuCustomDataGrid1 = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.TreatmentHistory_DG = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.TopPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.PatientInfoTAB.SuspendLayout();
@@ -127,7 +130,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Notes_TAB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NoteDD)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TreatmentHistory_DG)).BeginInit();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -513,7 +518,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel1.BackgroundImage = global::_846DentalClinicManagementSystem.Properties.Resources.Chart;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.TeethPanel25);
             this.panel1.Controls.Add(this.TeethPanel17);
@@ -555,7 +559,7 @@
             // TeethPanel25
             // 
             this.TeethPanel25.BackColor = System.Drawing.Color.White;
-            this.TeethPanel25.Location = new System.Drawing.Point(395, 179);
+            this.TeethPanel25.Location = new System.Drawing.Point(286, 179);
             this.TeethPanel25.Name = "TeethPanel25";
             this.TeethPanel25.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel25.TabIndex = 116;
@@ -575,7 +579,7 @@
             // TeethPanel9
             // 
             this.TeethPanel9.BackColor = System.Drawing.Color.White;
-            this.TeethPanel9.Location = new System.Drawing.Point(395, 111);
+            this.TeethPanel9.Location = new System.Drawing.Point(286, 144);
             this.TeethPanel9.Name = "TeethPanel9";
             this.TeethPanel9.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel9.TabIndex = 108;
@@ -585,7 +589,7 @@
             // TeethPanel3
             // 
             this.TeethPanel3.BackColor = System.Drawing.Color.White;
-            this.TeethPanel3.Location = new System.Drawing.Point(110, 111);
+            this.TeethPanel3.Location = new System.Drawing.Point(82, 144);
             this.TeethPanel3.Name = "TeethPanel3";
             this.TeethPanel3.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel3.TabIndex = 92;
@@ -595,7 +599,7 @@
             // TeethPanel1
             // 
             this.TeethPanel1.BackColor = System.Drawing.Color.White;
-            this.TeethPanel1.Location = new System.Drawing.Point(14, 111);
+            this.TeethPanel1.Location = new System.Drawing.Point(14, 144);
             this.TeethPanel1.Name = "TeethPanel1";
             this.TeethPanel1.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel1.TabIndex = 97;
@@ -605,7 +609,7 @@
             // TeethPanel2
             // 
             this.TeethPanel2.BackColor = System.Drawing.Color.White;
-            this.TeethPanel2.Location = new System.Drawing.Point(64, 111);
+            this.TeethPanel2.Location = new System.Drawing.Point(48, 144);
             this.TeethPanel2.Name = "TeethPanel2";
             this.TeethPanel2.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel2.TabIndex = 91;
@@ -615,7 +619,7 @@
             // TeethPanel32
             // 
             this.TeethPanel32.BackColor = System.Drawing.Color.White;
-            this.TeethPanel32.Location = new System.Drawing.Point(709, 179);
+            this.TeethPanel32.Location = new System.Drawing.Point(524, 179);
             this.TeethPanel32.Name = "TeethPanel32";
             this.TeethPanel32.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel32.TabIndex = 122;
@@ -625,7 +629,7 @@
             // TeethPanel18
             // 
             this.TeethPanel18.BackColor = System.Drawing.Color.White;
-            this.TeethPanel18.Location = new System.Drawing.Point(64, 179);
+            this.TeethPanel18.Location = new System.Drawing.Point(48, 179);
             this.TeethPanel18.Name = "TeethPanel18";
             this.TeethPanel18.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel18.TabIndex = 99;
@@ -635,7 +639,7 @@
             // TeethPanel24
             // 
             this.TeethPanel24.BackColor = System.Drawing.Color.White;
-            this.TeethPanel24.Location = new System.Drawing.Point(343, 179);
+            this.TeethPanel24.Location = new System.Drawing.Point(252, 179);
             this.TeethPanel24.Name = "TeethPanel24";
             this.TeethPanel24.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel24.TabIndex = 106;
@@ -645,7 +649,7 @@
             // TeethPanel10
             // 
             this.TeethPanel10.BackColor = System.Drawing.Color.White;
-            this.TeethPanel10.Location = new System.Drawing.Point(438, 111);
+            this.TeethPanel10.Location = new System.Drawing.Point(320, 144);
             this.TeethPanel10.Name = "TeethPanel10";
             this.TeethPanel10.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel10.TabIndex = 107;
@@ -655,7 +659,7 @@
             // TeethPanel16
             // 
             this.TeethPanel16.BackColor = System.Drawing.Color.White;
-            this.TeethPanel16.Location = new System.Drawing.Point(709, 111);
+            this.TeethPanel16.Location = new System.Drawing.Point(524, 144);
             this.TeethPanel16.Name = "TeethPanel16";
             this.TeethPanel16.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel16.TabIndex = 114;
@@ -665,7 +669,7 @@
             // TeethPanel26
             // 
             this.TeethPanel26.BackColor = System.Drawing.Color.White;
-            this.TeethPanel26.Location = new System.Drawing.Point(438, 179);
+            this.TeethPanel26.Location = new System.Drawing.Point(320, 179);
             this.TeethPanel26.Name = "TeethPanel26";
             this.TeethPanel26.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel26.TabIndex = 115;
@@ -675,7 +679,7 @@
             // TeethPanel8
             // 
             this.TeethPanel8.BackColor = System.Drawing.Color.White;
-            this.TeethPanel8.Location = new System.Drawing.Point(343, 111);
+            this.TeethPanel8.Location = new System.Drawing.Point(252, 144);
             this.TeethPanel8.Name = "TeethPanel8";
             this.TeethPanel8.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel8.TabIndex = 98;
@@ -685,7 +689,7 @@
             // TeethPanel19
             // 
             this.TeethPanel19.BackColor = System.Drawing.Color.White;
-            this.TeethPanel19.Location = new System.Drawing.Point(110, 179);
+            this.TeethPanel19.Location = new System.Drawing.Point(82, 179);
             this.TeethPanel19.Name = "TeethPanel19";
             this.TeethPanel19.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel19.TabIndex = 105;
@@ -695,7 +699,7 @@
             // TeethPanel31
             // 
             this.TeethPanel31.BackColor = System.Drawing.Color.White;
-            this.TeethPanel31.Location = new System.Drawing.Point(665, 179);
+            this.TeethPanel31.Location = new System.Drawing.Point(490, 179);
             this.TeethPanel31.Name = "TeethPanel31";
             this.TeethPanel31.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel31.TabIndex = 117;
@@ -705,7 +709,7 @@
             // TeethPanel11
             // 
             this.TeethPanel11.BackColor = System.Drawing.Color.White;
-            this.TeethPanel11.Location = new System.Drawing.Point(484, 111);
+            this.TeethPanel11.Location = new System.Drawing.Point(354, 144);
             this.TeethPanel11.Name = "TeethPanel11";
             this.TeethPanel11.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel11.TabIndex = 113;
@@ -715,7 +719,7 @@
             // TeethPanel23
             // 
             this.TeethPanel23.BackColor = System.Drawing.Color.White;
-            this.TeethPanel23.Location = new System.Drawing.Point(299, 179);
+            this.TeethPanel23.Location = new System.Drawing.Point(218, 179);
             this.TeethPanel23.Name = "TeethPanel23";
             this.TeethPanel23.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel23.TabIndex = 101;
@@ -725,7 +729,7 @@
             // TeethPanel4
             // 
             this.TeethPanel4.BackColor = System.Drawing.Color.White;
-            this.TeethPanel4.Location = new System.Drawing.Point(158, 111);
+            this.TeethPanel4.Location = new System.Drawing.Point(116, 144);
             this.TeethPanel4.Name = "TeethPanel4";
             this.TeethPanel4.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel4.TabIndex = 93;
@@ -735,7 +739,7 @@
             // TeethPanel15
             // 
             this.TeethPanel15.BackColor = System.Drawing.Color.White;
-            this.TeethPanel15.Location = new System.Drawing.Point(665, 111);
+            this.TeethPanel15.Location = new System.Drawing.Point(490, 144);
             this.TeethPanel15.Name = "TeethPanel15";
             this.TeethPanel15.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel15.TabIndex = 109;
@@ -745,7 +749,7 @@
             // TeethPanel27
             // 
             this.TeethPanel27.BackColor = System.Drawing.Color.White;
-            this.TeethPanel27.Location = new System.Drawing.Point(484, 179);
+            this.TeethPanel27.Location = new System.Drawing.Point(354, 179);
             this.TeethPanel27.Name = "TeethPanel27";
             this.TeethPanel27.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel27.TabIndex = 121;
@@ -755,7 +759,7 @@
             // TeethPanel7
             // 
             this.TeethPanel7.BackColor = System.Drawing.Color.White;
-            this.TeethPanel7.Location = new System.Drawing.Point(299, 111);
+            this.TeethPanel7.Location = new System.Drawing.Point(218, 144);
             this.TeethPanel7.Name = "TeethPanel7";
             this.TeethPanel7.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel7.TabIndex = 95;
@@ -765,7 +769,7 @@
             // TeethPanel12
             // 
             this.TeethPanel12.BackColor = System.Drawing.Color.White;
-            this.TeethPanel12.Location = new System.Drawing.Point(529, 111);
+            this.TeethPanel12.Location = new System.Drawing.Point(388, 144);
             this.TeethPanel12.Name = "TeethPanel12";
             this.TeethPanel12.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel12.TabIndex = 112;
@@ -775,7 +779,7 @@
             // TeethPanel30
             // 
             this.TeethPanel30.BackColor = System.Drawing.Color.White;
-            this.TeethPanel30.Location = new System.Drawing.Point(619, 179);
+            this.TeethPanel30.Location = new System.Drawing.Point(456, 179);
             this.TeethPanel30.Name = "TeethPanel30";
             this.TeethPanel30.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel30.TabIndex = 118;
@@ -785,7 +789,7 @@
             // TeethPanel20
             // 
             this.TeethPanel20.BackColor = System.Drawing.Color.White;
-            this.TeethPanel20.Location = new System.Drawing.Point(158, 179);
+            this.TeethPanel20.Location = new System.Drawing.Point(116, 179);
             this.TeethPanel20.Name = "TeethPanel20";
             this.TeethPanel20.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel20.TabIndex = 104;
@@ -795,7 +799,7 @@
             // TeethPanel22
             // 
             this.TeethPanel22.BackColor = System.Drawing.Color.White;
-            this.TeethPanel22.Location = new System.Drawing.Point(251, 179);
+            this.TeethPanel22.Location = new System.Drawing.Point(184, 179);
             this.TeethPanel22.Name = "TeethPanel22";
             this.TeethPanel22.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel22.TabIndex = 102;
@@ -805,7 +809,7 @@
             // TeethPanel28
             // 
             this.TeethPanel28.BackColor = System.Drawing.Color.White;
-            this.TeethPanel28.Location = new System.Drawing.Point(529, 179);
+            this.TeethPanel28.Location = new System.Drawing.Point(388, 179);
             this.TeethPanel28.Name = "TeethPanel28";
             this.TeethPanel28.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel28.TabIndex = 120;
@@ -815,7 +819,7 @@
             // TeethPanel14
             // 
             this.TeethPanel14.BackColor = System.Drawing.Color.White;
-            this.TeethPanel14.Location = new System.Drawing.Point(619, 111);
+            this.TeethPanel14.Location = new System.Drawing.Point(456, 144);
             this.TeethPanel14.Name = "TeethPanel14";
             this.TeethPanel14.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel14.TabIndex = 110;
@@ -825,7 +829,7 @@
             // TeethPanel5
             // 
             this.TeethPanel5.BackColor = System.Drawing.Color.White;
-            this.TeethPanel5.Location = new System.Drawing.Point(207, 111);
+            this.TeethPanel5.Location = new System.Drawing.Point(150, 144);
             this.TeethPanel5.Name = "TeethPanel5";
             this.TeethPanel5.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel5.TabIndex = 94;
@@ -835,7 +839,7 @@
             // TeethPanel6
             // 
             this.TeethPanel6.BackColor = System.Drawing.Color.White;
-            this.TeethPanel6.Location = new System.Drawing.Point(251, 111);
+            this.TeethPanel6.Location = new System.Drawing.Point(184, 144);
             this.TeethPanel6.Name = "TeethPanel6";
             this.TeethPanel6.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel6.TabIndex = 96;
@@ -845,7 +849,7 @@
             // TeethPanel13
             // 
             this.TeethPanel13.BackColor = System.Drawing.Color.White;
-            this.TeethPanel13.Location = new System.Drawing.Point(573, 111);
+            this.TeethPanel13.Location = new System.Drawing.Point(422, 144);
             this.TeethPanel13.Name = "TeethPanel13";
             this.TeethPanel13.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel13.TabIndex = 111;
@@ -855,7 +859,7 @@
             // TeethPanel29
             // 
             this.TeethPanel29.BackColor = System.Drawing.Color.White;
-            this.TeethPanel29.Location = new System.Drawing.Point(572, 179);
+            this.TeethPanel29.Location = new System.Drawing.Point(422, 179);
             this.TeethPanel29.Name = "TeethPanel29";
             this.TeethPanel29.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel29.TabIndex = 119;
@@ -865,7 +869,7 @@
             // TeethPanel21
             // 
             this.TeethPanel21.BackColor = System.Drawing.Color.White;
-            this.TeethPanel21.Location = new System.Drawing.Point(207, 179);
+            this.TeethPanel21.Location = new System.Drawing.Point(150, 179);
             this.TeethPanel21.Name = "TeethPanel21";
             this.TeethPanel21.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel21.TabIndex = 103;
@@ -874,7 +878,7 @@
             // 
             // TreatmentHistory_TAB
             // 
-            this.TreatmentHistory_TAB.Controls.Add(this.bunifuCustomDataGrid1);
+            this.TreatmentHistory_TAB.Controls.Add(this.TreatmentHistory_DG);
             this.TreatmentHistory_TAB.Controls.Add(this.panel2);
             this.TreatmentHistory_TAB.Location = new System.Drawing.Point(4, 22);
             this.TreatmentHistory_TAB.Name = "TreatmentHistory_TAB";
@@ -902,9 +906,9 @@
             this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.Silver;
             this.bunifuCustomLabel2.Location = new System.Drawing.Point(27, 3);
             this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
-            this.bunifuCustomLabel2.Size = new System.Drawing.Size(55, 21);
+            this.bunifuCustomLabel2.Size = new System.Drawing.Size(147, 21);
             this.bunifuCustomLabel2.TabIndex = 3;
-            this.bunifuCustomLabel2.Text = "Notes";
+            this.bunifuCustomLabel2.Text = "Treatment History";
             // 
             // pictureBox1
             // 
@@ -953,6 +957,7 @@
             // 
             // Notes_TAB
             // 
+            this.Notes_TAB.Controls.Add(this.panel5);
             this.Notes_TAB.Controls.Add(this.btn_SaveNotes);
             this.Notes_TAB.Controls.Add(this.NoteDD);
             this.Notes_TAB.Controls.Add(this.txt_PatientNote);
@@ -1027,18 +1032,18 @@
             this.txt_PatientNote.Size = new System.Drawing.Size(896, 80);
             this.txt_PatientNote.TabIndex = 58;
             // 
-            // bunifuCustomDataGrid1
+            // TreatmentHistory_DG
             // 
-            this.bunifuCustomDataGrid1.AllowUserToAddRows = false;
-            this.bunifuCustomDataGrid1.AllowUserToDeleteRows = false;
-            this.bunifuCustomDataGrid1.AllowUserToResizeRows = false;
+            this.TreatmentHistory_DG.AllowUserToAddRows = false;
+            this.TreatmentHistory_DG.AllowUserToDeleteRows = false;
+            this.TreatmentHistory_DG.AllowUserToResizeRows = false;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.bunifuCustomDataGrid1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.bunifuCustomDataGrid1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.bunifuCustomDataGrid1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.bunifuCustomDataGrid1.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.bunifuCustomDataGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.bunifuCustomDataGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.TreatmentHistory_DG.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.TreatmentHistory_DG.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.TreatmentHistory_DG.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.TreatmentHistory_DG.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.TreatmentHistory_DG.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TreatmentHistory_DG.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.SeaGreen;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1046,9 +1051,9 @@
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bunifuCustomDataGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.bunifuCustomDataGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.bunifuCustomDataGrid1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.TreatmentHistory_DG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.TreatmentHistory_DG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.TreatmentHistory_DG.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1056,18 +1061,50 @@
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bunifuCustomDataGrid1.DefaultCellStyle = dataGridViewCellStyle6;
-            this.bunifuCustomDataGrid1.DoubleBuffered = true;
-            this.bunifuCustomDataGrid1.EnableHeadersVisualStyles = false;
-            this.bunifuCustomDataGrid1.HeaderBgColor = System.Drawing.Color.SeaGreen;
-            this.bunifuCustomDataGrid1.HeaderForeColor = System.Drawing.Color.White;
-            this.bunifuCustomDataGrid1.Location = new System.Drawing.Point(64, 59);
-            this.bunifuCustomDataGrid1.Name = "bunifuCustomDataGrid1";
-            this.bunifuCustomDataGrid1.ReadOnly = true;
-            this.bunifuCustomDataGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.bunifuCustomDataGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.bunifuCustomDataGrid1.Size = new System.Drawing.Size(814, 289);
-            this.bunifuCustomDataGrid1.TabIndex = 55;
+            this.TreatmentHistory_DG.DefaultCellStyle = dataGridViewCellStyle6;
+            this.TreatmentHistory_DG.DoubleBuffered = true;
+            this.TreatmentHistory_DG.EnableHeadersVisualStyles = false;
+            this.TreatmentHistory_DG.HeaderBgColor = System.Drawing.Color.SeaGreen;
+            this.TreatmentHistory_DG.HeaderForeColor = System.Drawing.Color.White;
+            this.TreatmentHistory_DG.Location = new System.Drawing.Point(64, 59);
+            this.TreatmentHistory_DG.Name = "TreatmentHistory_DG";
+            this.TreatmentHistory_DG.ReadOnly = true;
+            this.TreatmentHistory_DG.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.TreatmentHistory_DG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.TreatmentHistory_DG.Size = new System.Drawing.Size(773, 289);
+            this.TreatmentHistory_DG.TabIndex = 55;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
+            this.panel5.Controls.Add(this.bunifuCustomLabel5);
+            this.panel5.Controls.Add(this.pictureBox4);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(3, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(951, 29);
+            this.panel5.TabIndex = 61;
+            // 
+            // bunifuCustomLabel5
+            // 
+            this.bunifuCustomLabel5.AutoSize = true;
+            this.bunifuCustomLabel5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel5.ForeColor = System.Drawing.Color.Silver;
+            this.bunifuCustomLabel5.Location = new System.Drawing.Point(27, 3);
+            this.bunifuCustomLabel5.Name = "bunifuCustomLabel5";
+            this.bunifuCustomLabel5.Size = new System.Drawing.Size(55, 21);
+            this.bunifuCustomLabel5.TabIndex = 3;
+            this.bunifuCustomLabel5.Text = "Notes";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImage = global::_846DentalClinicManagementSystem.Properties.Resources.btnpatients;
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox4.Location = new System.Drawing.Point(8, 4);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(19, 20);
+            this.pictureBox4.TabIndex = 2;
+            this.pictureBox4.TabStop = false;
             // 
             // ShowPatientInfo
             // 
@@ -1108,7 +1145,10 @@
             this.Notes_TAB.ResumeLayout(false);
             this.Notes_TAB.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NoteDD)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TreatmentHistory_DG)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1187,6 +1227,9 @@
         private System.Windows.Forms.Button btn_SaveNotes;
         private Bunifu.Framework.UI.BunifuCustomDataGrid NoteDD;
         private WindowsFormsControlLibrary1.BunifuCustomTextbox txt_PatientNote;
-        private Bunifu.Framework.UI.BunifuCustomDataGrid bunifuCustomDataGrid1;
+        private Bunifu.Framework.UI.BunifuCustomDataGrid TreatmentHistory_DG;
+        private System.Windows.Forms.Panel panel5;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel5;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }
