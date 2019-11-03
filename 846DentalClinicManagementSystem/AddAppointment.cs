@@ -115,9 +115,9 @@ namespace _846DentalClinicManagementSystem
             this.Hide();
             GlobalVariable.isEditAppointment = false;
             GlobalVariable.isAddAppointment = false;
-            var main = Application.OpenForms.OfType<MainForm>().First();
-            main.ShowAppointment(AppDate);
-
+          //  var main = Application.OpenForms.OfType<MainForm>().First();
+          ////  main.ShowAppointment(DP_date.Value.ToShortDateString());
+          //  main.SearchAppByDate_DP.Value = DP_date.Value;
         }
 
         private void btn_add_Click(object sender, EventArgs e)
@@ -160,7 +160,7 @@ namespace _846DentalClinicManagementSystem
                                         {
                                             insertAppointmentToDB();
                                             GlobalVariable.isAddAppointment = false;
-                                            main.ShowAppointment(AppDate);
+                                            main.SearchAppByDate_DP.Value = DP_date.Value;
                                             this.Hide();
 
                                         }
@@ -168,7 +168,7 @@ namespace _846DentalClinicManagementSystem
                                         {
                                             updateAppointmentToDB();
                                             GlobalVariable.isEditAppointment = false;
-                                            main.ShowAppointment(AppDate);
+                                            main.SearchAppByDate_DP.Value = DP_date.Value;
                                             this.Hide();
 
                                         }
@@ -447,7 +447,7 @@ namespace _846DentalClinicManagementSystem
             SqlCommand cmd = new SqlCommand(
                 "UPDATE [Appointment] SET Appointment_LName = @LName, Appointment_FName = @FName, Appointment_MName = @MName, AppointmentDate = @Date," +
                 "StartTime = @StartTime, EndTime = @EndTime ,RefTime = @RefTime, DentistID_fk = @DentistID_fk ," +
-                "AppointmentNote = @Note, Status = @Status WHERE AppointmentID = @AppointmentID ", sqlcon);
+                "AppointmentNote = @Note WHERE AppointmentID = @AppointmentID ", sqlcon);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@LName", LName);
             cmd.Parameters.AddWithValue("@FName", FName);
@@ -459,7 +459,7 @@ namespace _846DentalClinicManagementSystem
             cmd.Parameters.AddWithValue("@DentistID_fk", SelectedDentistID);
             cmd.Parameters.AddWithValue("@Note", Note);
             cmd.Parameters.AddWithValue("@AppointmentID", AppNo);
-            cmd.Parameters.AddWithValue("@Status", AppStatus);
+   
 
             sqlcon.Open();
             try
@@ -618,8 +618,6 @@ namespace _846DentalClinicManagementSystem
         {
             Checktime();
         }
-
-       
 
         private void fillAppID()
         {
@@ -805,10 +803,10 @@ namespace _846DentalClinicManagementSystem
                     addEditPatientRecord.Show();
                     statusSwitch.Value = false;
                 }
-                
-               
 
             }
+            var main = Application.OpenForms.OfType<MainForm>().First();
+            main.SearchAppByDate_DP.Value = DP_date.Value;
         }
 
         private void changeStatus()
@@ -827,6 +825,11 @@ namespace _846DentalClinicManagementSystem
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
             sqlcon.Close();
+        }
+
+        private void statusSwitch_OnValueChange(object sender, EventArgs e)
+        {
+
         }
 
         private void updatePatientTreatment_PatientID()

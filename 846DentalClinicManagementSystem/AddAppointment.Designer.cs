@@ -195,8 +195,6 @@
             this.AppSearch_DataGrid.Size = new System.Drawing.Size(723, 65);
             this.AppSearch_DataGrid.TabIndex = 6;
             this.AppSearch_DataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AppSearch_DataGrid_CellContentClick);
-            
-         
             // 
             // DentistDD
             // 
@@ -596,6 +594,7 @@
             this.statusSwitch.Size = new System.Drawing.Size(43, 25);
             this.statusSwitch.TabIndex = 34;
             this.statusSwitch.Value = false;
+            this.statusSwitch.OnValueChange += new System.EventHandler(this.statusSwitch_OnValueChange);
             this.statusSwitch.Click += new System.EventHandler(this.statusSwitch_Click);
             // 
             // bunifuCustomLabel5
