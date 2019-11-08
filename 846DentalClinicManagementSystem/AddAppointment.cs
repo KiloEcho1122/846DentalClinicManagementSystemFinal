@@ -832,6 +832,8 @@ namespace _846DentalClinicManagementSystem
 
         }
 
+    
+
         private void updatePatientTreatment_PatientID()
         {
             SqlCommand cmd = new SqlCommand(

@@ -68,15 +68,17 @@ namespace _846DentalClinicManagementSystem
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            SearchAppByDate_DP.Value = DateTime.Now;
             HidePanels();
             HomePanel.Visible = true;
             playVideo();
             iniatializeTimeArray();
+            setTimelabel();
             DrawAppointmentTable();
+            
+            SearchAppByDate_DP.Value = DateTime.Now;
             PatientPanelSearch("");
             //c1 = this;
-
+            setAutoScrollfalse();
         }
 
         //Main Panel Start
@@ -158,7 +160,7 @@ namespace _846DentalClinicManagementSystem
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@date", date);
 
-                ControlsCount = 22;
+                ControlsCount = 3;
 
             }
             else
@@ -185,7 +187,7 @@ namespace _846DentalClinicManagementSystem
                 cmd.Parameters.AddWithValue("@date", date);
                 cmd.Parameters.AddWithValue("@date2", date2);
 
-                ControlsCount = 36;
+                ControlsCount = 8;
             }
             
             
@@ -252,19 +254,19 @@ namespace _846DentalClinicManagementSystem
            int b = (int)StartDate.DayOfWeek;
             switch (b)
             {
-                case 0: loc = 182;
+                case 0: loc = 11;
                     break; 
-                case 1: loc = 482;
+                case 1: loc = 311;
                     break;
-                case 2: loc = 782;
+                case 2: loc = 611;
                     break;
-                case 3: loc = 1082;
+                case 3: loc = 911;
                     break;
-                case 4: loc = 1382;
+                case 4: loc = 1211;
                     break;
-                case 5: loc = 1682;
+                case 5: loc = 1511;
                     break;
-                case 6: loc = 1982;
+                case 6: loc = 1811;
                     break;
             }
 
@@ -280,12 +282,12 @@ namespace _846DentalClinicManagementSystem
             int y = appointmentYlocation(time); // get the y location
             if (WeekSwitch.Value == false)
             {
-                 x = (dentID == 1) ? 182 : 482;  // get the x location
+                 x = (dentID == 1) ? 11 : 311;  // get the x location
             }
             else
             {
                  x = appointmentXlocation(date);
-                y += 65;
+                y += 50;
             }
         
          
@@ -389,23 +391,41 @@ namespace _846DentalClinicManagementSystem
             }
         }
 
+    private void setTimelabel()
+        {
+            int horizontalY = 60;
+            DateTime time = new DateTime(2019, 10, 29, 9, 0, 0);
 
+            for (int i = 0; i < 19; i++)
+            {
+
+                Label timeLabel = new Label();
+                timeLabel.Font = new Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                timeLabel.Location = new Point(50, horizontalY - 10);
+                timeLabel.Text = time.ToString("hh:mm tt");
+                this.AppTimePanel.Controls.Add(timeLabel);
+                time = time.AddMinutes(30);
+                horizontalY += 50;
+            }
+        }
 
         private void DrawAppointmentTable()
         {
-
-            int verticalX = 180;
+        
+            int verticalX = 10;
             int verticalY = 0;
-            int horizontalY = 60;
             int vertx = verticalX;
-            DateTime time = new DateTime(2019, 10, 29, 9, 0, 0);
+            AppointmentHeader_Panel.Controls.Clear();
+            Appointment_Panel.Controls.Clear();
+            AppointmentHeader_Panel.AutoScrollPosition = new Point(0, 0);
+
+            this.AppointmentHeader_Panel.Controls.Add(this.panel27);
+            this.AppointmentHeader_Panel.Controls.Add(this.panel26);
+
 
             if (WeekSwitch.Value == false)
             {
-                this.Appointment_Panel.Controls.Clear();
-                AppointmentHeader_Panel.Visible = true;
-                Appointment_Panel.Location = new Point(331, 197);
-                Appointment_Panel.Size = new Size(927, 465);
+         
                 for (int i = 0; i < 3; i++)
                 {
                     Panel verticalPanel = new Panel();
@@ -417,55 +437,34 @@ namespace _846DentalClinicManagementSystem
                     this.Appointment_Panel.Controls.Add(verticalPanel);
 
                 }
-
-                for (int i = 0; i < 19; i++)
-                {
-
-                    Label timeLabel = new Label();
-                    timeLabel.Font = new Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                    timeLabel.Location = new Point(50, horizontalY - 10);
-                    timeLabel.Text = time.ToString("hh:mm tt");
-                    this.Appointment_Panel.Controls.Add(timeLabel);
-                    time = time.AddMinutes(30);
-                    horizontalY += 50;
-
-                    isWeek = false;
-                }
+                isWeek = false;
+              
             }
             else
             {
 
-                this.Appointment_Panel.Controls.Clear();
-                AppointmentHeader_Panel.Visible = false;
-                Appointment_Panel.Location = new Point(331, 133);
-                Appointment_Panel.Size = new Size(927, 529);
-
-                
-
-                Label label2 = new Label();
-                label2.Font = new Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                label2.Location = new Point(63, 28);
-                label2.Size = new Size(53, 24);
-                label2.Text = "Time";
-                Appointment_Panel.Controls.Add(label2);
+                Appointment_Panel.Controls.Clear();
+                AppointmentHeader_Panel.Controls.Clear();
+                AppointmentHeader_Panel.AutoScrollPosition = new Point(0, 0);
 
                 for (int i = 0; i < 8; i++)
                 {
                     Panel verticalPanel = new Panel();
-                    verticalPanel.Size = new Size(1, 1005);
+                    verticalPanel.Size = new Size(1, 960);
                     verticalPanel.BackColor = Color.Silver;
                     verticalPanel.Margin = new Padding(0);
-                    verticalPanel.Location = new Point(verticalX, 20);
+                    verticalPanel.Location = new Point(verticalX, verticalY);
                     verticalX += 300;
                     this.Appointment_Panel.Controls.Add(verticalPanel);
                 }
+              
 
                 Panel panel = new Panel();
-                panel.Size = new Size(2100, 45);
+                panel.Size = new Size(2125, 45);
                 panel.BackColor = Color.PaleTurquoise;
                 panel.Margin = new Padding(0);
-                panel.Location = new Point(180, 20);
-                this.Appointment_Panel.Controls.Add(panel);
+                panel.Location = new Point(0, 20);
+                this.AppointmentHeader_Panel.Controls.Add(panel);
 
 
                 DateTime dateStart = SearchAppByDate_DP.Value;
@@ -477,72 +476,74 @@ namespace _846DentalClinicManagementSystem
                     dateStart = dateStart.AddDays(-(b));
 
                 }
-
+                
 
                 for (int i = 0; i < 7; i++)
                 {
 
                     Label label4 = new Label();
                     label4.Font = new Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                    label4.Location = new Point(vertx - 160, verticalY + 5);
+                    label4.Location = new Point(vertx + 20, verticalY );
                     label4.Text = dateStart.ToString("ddd");
                     panel.Controls.Add(label4);
 
 
                     Label label = new Label();
                     label.Font = new Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                    label.Location = new Point(vertx + 20, verticalY + 70);
+                    label.Location = new Point(vertx + 20, verticalY + 20);
                     label.Text = dateStart.ToString("M/d");
-                    this.Appointment_Panel.Controls.Add(label);
+                    panel.Controls.Add(label);
 
                     vertx += 300;
                     dateStart = dateStart.AddDays(1);
                 }
 
-                for (int i = 0; i < 19; i++)
-                {
-
-                    Label timeLabel = new Label();
-                    timeLabel.Font = new Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                    timeLabel.Location = new Point(50, horizontalY + 54);
-                    timeLabel.Text = time.ToString("hh:mm tt");
-                    this.Appointment_Panel.Controls.Add(timeLabel);
-                    time = time.AddMinutes(30);
-                    horizontalY += 50;
-
-                    isWeek = true;
-
-
-                }
-
-               
+                isWeek = true;
             }
 
-           DrawLines();
+            DrawLines();
+
         }
 
+        private void setAutoScrollfalse()
+        {
+            
+            AppTimePanel.VerticalScroll.Maximum = Appointment_Panel.VerticalScroll.Maximum;
+            AppTimePanel.VerticalScroll.Minimum = Appointment_Panel.VerticalScroll.Minimum;
+            AppointmentHeader_Panel.HorizontalScroll.Maximum = Appointment_Panel.HorizontalScroll.Maximum;
+            AppointmentHeader_Panel.HorizontalScroll.Minimum = Appointment_Panel.HorizontalScroll.Minimum;
+            AppTimePanel.AutoScroll = false;
+
+            
+
+
+        }
+        
         private void DrawLines()
         {
 
-
             int horizontalX = 0;
-            int horizontalY = 0;
+            int horizontalY = 60;
             int width;
 
             if (WeekSwitch.Value == false)
             {
                 width = 610;
-                horizontalX = 170;
-                horizontalY = 60;
+
             }
             else
             {
                 width = 2110;
-                horizontalX = 170;
-                horizontalY = 125;
             }
 
-                for (int i = 0; i < 19; i++)
+            Panel HorizontalPanel1 = new Panel();
+            HorizontalPanel1.Size = new Size(width, 1);
+            HorizontalPanel1.BackColor = Color.Silver;
+            HorizontalPanel1.Margin = new Padding(0);
+            HorizontalPanel1.Location = new Point(horizontalX, 5);
+            this.Appointment_Panel.Controls.Add(HorizontalPanel1);
+
+            for (int i = 0; i < 19; i++)
             {
                 Panel HorizontalPanel = new Panel();
                 HorizontalPanel.Size = new Size(width, 1);
@@ -552,16 +553,31 @@ namespace _846DentalClinicManagementSystem
                 this.Appointment_Panel.Controls.Add(HorizontalPanel);
                 horizontalY += 50;
             }
+            
         }
 
 
         private void WeekSwitch_OnValueChange(object sender, EventArgs e)
         {
+            
             DrawAppointmentTable();
+            AppointmentHeader_Panel.AutoScroll = false;
             ShowAppointment(SearchAppByDate_DP.Value.ToString("M/d/yyyy"));
 
-           
+
         }
+
+        private void Appointment_Panel_Scroll(object sender, ScrollEventArgs e)
+        {
+           
+            AppTimePanel.AutoScrollPosition = new Point(0, Appointment_Panel.VerticalScroll.Value);
+            AppointmentHeader_Panel.AutoScrollPosition = new Point(Appointment_Panel.HorizontalScroll.Value, 0);
+        }
+        private void Appointment_Panel_MouseMove(object sender, MouseEventArgs e)
+        {
+            AppTimePanel.AutoScrollPosition = new Point(0, Appointment_Panel.VerticalScroll.Value);
+        }
+
 
         // Scheduler Panel End ---------------------------------------------------------------------------------------------------------
 
@@ -670,6 +686,14 @@ namespace _846DentalClinicManagementSystem
         {
 
         }
+
+        
+
+
+
+
+
+
 
 
 
