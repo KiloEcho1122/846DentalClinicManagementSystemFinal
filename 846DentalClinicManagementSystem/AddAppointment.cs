@@ -806,7 +806,7 @@ namespace _846DentalClinicManagementSystem
 
             }
             var main = Application.OpenForms.OfType<MainForm>().First();
-            main.SearchAppByDate_DP.Value = DP_date.Value;
+            main.RefreshAppointmentView();
         }
 
         private void changeStatus()
@@ -827,10 +827,7 @@ namespace _846DentalClinicManagementSystem
             sqlcon.Close();
         }
 
-        private void statusSwitch_OnValueChange(object sender, EventArgs e)
-        {
-
-        }
+      
 
     
 

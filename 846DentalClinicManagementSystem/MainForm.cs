@@ -348,12 +348,18 @@ namespace _846DentalClinicManagementSystem
 
         }
 
-        private void SearchAppByDate_DP_onValueChanged(object sender, EventArgs e)
+        public void RefreshAppointmentView()
         {
             string date = SearchAppByDate_DP.Value.ToString("M/d/yyyy");
-            if (isWeek){DrawAppointmentTable();  }
+            if (isWeek) { DrawAppointmentTable(); }
+
 
             ShowAppointment(date);
+        }
+
+        private void SearchAppByDate_DP_onValueChanged(object sender, EventArgs e)
+        {
+            RefreshAppointmentView();
         }
 
 

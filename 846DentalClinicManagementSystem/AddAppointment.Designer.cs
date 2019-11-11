@@ -594,7 +594,6 @@
             this.statusSwitch.Size = new System.Drawing.Size(43, 25);
             this.statusSwitch.TabIndex = 34;
             this.statusSwitch.Value = false;
-            this.statusSwitch.OnValueChange += new System.EventHandler(this.statusSwitch_OnValueChange);
             this.statusSwitch.Click += new System.EventHandler(this.statusSwitch_Click);
             // 
             // bunifuCustomLabel5
