@@ -24,7 +24,7 @@ namespace _846DentalClinicManagementSystem
         //static String LocalDBFile = projectDirectory + @"\846DentalClinicDB.mdf";
         //static String connString = LocalDbSource + LocalDBFile + ";Integrated Security=True";
         SqlConnection sqlcon = new SqlConnection(GlobalVariable.connString);
-        String LName, FName, MName, Gender, Address, Birthday;
+        String LName, FName, MName, Gender, Address, Birthday, ContactNo;
         long age ;
         int PatientID;
      
@@ -118,10 +118,11 @@ namespace _846DentalClinicManagementSystem
                 txt_LName.Text = dt.Rows[0][1].ToString();
                 txt_FName.Text = dt.Rows[0][2].ToString();
                 txt_MName.Text = dt.Rows[0][3].ToString();
-                birthday_DP.Value = DateTime.ParseExact(dt.Rows[0][4].ToString(), "M/d/yyyy hh:mm:ss tt", System.Globalization.CultureInfo.CurrentCulture);
-                txt_Age.Text = dt.Rows[0][5].ToString();
-                txt_address.Text = dt.Rows[0][6].ToString();
-                String itemGender = dt.Rows[0][7].ToString();
+                txt_ContactNo.Text = dt.Rows[0][4].ToString();
+                birthday_DP.Value = DateTime.ParseExact(dt.Rows[0][5].ToString(), "M/d/yyyy hh:mm:ss tt", System.Globalization.CultureInfo.CurrentCulture);
+                txt_Age.Text = dt.Rows[0][6].ToString();
+                txt_address.Text = dt.Rows[0][7].ToString();
+                String itemGender = dt.Rows[0][8].ToString();
 
                 for (int i = 0; i < gender_DD.Items.Length; i++)
                 {
@@ -159,10 +160,12 @@ namespace _846DentalClinicManagementSystem
             FName = myTI.ToTitleCase(txt_FName.Text.Trim());
             MName = myTI.ToTitleCase(txt_MName.Text.Trim());
             Address = myTI.ToTitleCase(txt_address.Text.Trim());
+            ContactNo = txt_ContactNo.Text.Trim();
 
             bool isLNameValid = Regex.IsMatch(LName, @"^[a-zA-Z\x20]*?$");
             bool isFNameValid = Regex.IsMatch(FName, @"^[a-zA-Z\x20]*?$");
             bool isMNameValid = Regex.IsMatch(MName, @"^[a-zA-Z\x20]*?$");
+            bool isContactValid = Regex.IsMatch(ContactNo, @"^[0-9]+$");
 
             if ((isLNameValid == true) && (string.IsNullOrEmpty(LName) == false))
             {
@@ -170,39 +173,44 @@ namespace _846DentalClinicManagementSystem
                 {
                     if ((isMNameValid == true) && (string.IsNullOrEmpty(MName) == false))
                     {
-                        if (string.IsNullOrEmpty(Gender) == false)
+                        if ((string.IsNullOrEmpty(ContactNo) == false) && isContactValid && ContactNo.Length == 11)
                         {
-                            if ((string.IsNullOrEmpty(Birthday) == false) || (age < 2))
+
+                            if (string.IsNullOrEmpty(Gender) == false)
                             {
-                                if (string.IsNullOrEmpty(Address) == false)
+                                if ((string.IsNullOrEmpty(Birthday) == false) || (age < 2))
                                 {
-                                     var main = Application.OpenForms.OfType<MainForm>().First();
-                                    if (GlobalVariable.isAddPatient == true && GlobalVariable.isEditPatient == false)
+                                    if (string.IsNullOrEmpty(Address) == false)
                                     {
-                                        InsertPatientRecordToDB();
-                                        main.PatientPanelSearch("");
-                                        GlobalVariable.isAddPatient = false;
-                                        GlobalVariable.isAppointmentPatientExist = false;
-                                        this.Hide();
-                                    }
-                                    if (GlobalVariable.isEditPatient == true && GlobalVariable.isAddPatient == false)
-                                    {
-                                        UpdatePatientRecordToDB();
-                                        main.PatientPanelSearch("");
-                                        GlobalVariable.isEditPatient = false;
-                                        this.Hide();
+
+                                        var main = Application.OpenForms.OfType<MainForm>().First();
+                                        if (GlobalVariable.isAddPatient == true && GlobalVariable.isEditPatient == false)
+                                        {
+                                            InsertPatientRecordToDB();
+                                            main.PatientPanelSearch("");
+                                            GlobalVariable.isAddPatient = false;
+                                            GlobalVariable.isAppointmentPatientExist = false;
+                                            this.Hide();
+                                        }
+                                        if (GlobalVariable.isEditPatient == true && GlobalVariable.isAddPatient == false)
+                                        {
+                                            UpdatePatientRecordToDB();
+                                            main.PatientPanelSearch("");
+                                            GlobalVariable.isEditPatient = false;
+                                            this.Hide();
+
+                                        }
+
 
                                     }
-
-                                   
+                                    else { MessageBox.Show("Invalid Address"); }
                                 }
-                                else { MessageBox.Show("Invalid Address"); }
+                                else { MessageBox.Show("Invalid Birthday"); }
+
                             }
-                            else { MessageBox.Show("Invalid Birthday"); }
-
+                            else { MessageBox.Show("Invalid Gender"); }
                         }
-                        else { MessageBox.Show("Invalid Gender"); }
-
+                        else { MessageBox.Show("Invalid Contact Number"); }
                     }
                     else { MessageBox.Show("Invalid Middle Name"); }
 
@@ -216,12 +224,13 @@ namespace _846DentalClinicManagementSystem
         private void InsertPatientRecordToDB()
         {
             SqlCommand cmd = new SqlCommand(
-                "INSERT INTO [Patient] (PatientLName,PatientFName,PatientMName,PatientBirthday,PatientAge,PatientAddress,PatientGender,PatientFullName) " +
-                "VALUES(@LName,@FName,@MName,@birthday,@age,@address,@gender,@fullname)", sqlcon);
+                "INSERT INTO [Patient] (PatientLName,PatientFName,PatientMName,PatientContact,PatientBirthday,PatientAge,PatientAddress,PatientGender,PatientFullName) " +
+                "VALUES(@LName,@FName,@MName,@Contact,@birthday,@age,@address,@gender,@fullname)", sqlcon);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@LName",LName);
             cmd.Parameters.AddWithValue("@FName",FName);
             cmd.Parameters.AddWithValue("@MName",MName);
+            cmd.Parameters.AddWithValue("@Contact", ContactNo);
             cmd.Parameters.AddWithValue("@birthday",Birthday);
             cmd.Parameters.AddWithValue("@age",age);
             cmd.Parameters.AddWithValue("@address",Address);
@@ -243,13 +252,14 @@ namespace _846DentalClinicManagementSystem
         private void UpdatePatientRecordToDB()
         {
             SqlCommand cmd = new SqlCommand(
-                "UPDATE [Patient] SET PatientLName = @LName,PatientFName =@FName,PatientMName = @MName,PatientBirthday = @birthday, " +
+                "UPDATE [Patient] SET PatientLName = @LName,PatientFName =@FName,PatientMName = @MName,PatientContact = @Contact,PatientBirthday = @birthday, " +
                 "PatientAge = @age,PatientAddress = @address,PatientGender = @gender,PatientFullName = @fullname " +
                 "WHERE PatientID = @ID", sqlcon);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@LName", LName);
             cmd.Parameters.AddWithValue("@FName", FName);
             cmd.Parameters.AddWithValue("@MName", MName);
+            cmd.Parameters.AddWithValue("@Contact", ContactNo);
             cmd.Parameters.AddWithValue("@birthday", Birthday);
             cmd.Parameters.AddWithValue("@age", age);
             cmd.Parameters.AddWithValue("@address", Address);

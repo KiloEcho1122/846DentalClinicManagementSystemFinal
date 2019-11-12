@@ -13,6 +13,7 @@ using System.Globalization;
 using System.IO;
 using System.Collections;
 
+
 namespace _846DentalClinicManagementSystem
 {
     public partial class AddAppointment : Form
@@ -27,7 +28,7 @@ namespace _846DentalClinicManagementSystem
        
 
         int SelectedDentistID = 0, AppNo = 0;
-        String LName, MName, FName, StartTime, EndTime, refTime, AppDate,Note = "",AppStatus ="";
+        String LName, MName, FName, StartTime, EndTime, refTime, AppDate,Note = "",AppStatus ="",contactNo;
         ArrayList RemovedTreatment = new ArrayList();
 
         public AddAppointment()
@@ -76,21 +77,25 @@ namespace _846DentalClinicManagementSystem
             bunifuCustomLabel4.Top = 211;
             bunifuCustomLabel6.Top = 211;
             bunifuCustomLabel7.Top = 305;
+            lblContact.Top = 305;
             bunifuCustomLabel5.Top = 423;
             //textboxes and dropdown
 
             txt_LName.Top = 153;
             txt_FName.Top = 153;
             txt_MName.Top = 153;
-            Treatment_CB.Top = 153;
+            TreatmentDropDownPanel.Top = 153;
+          
 
-            TreatmentList.Top = 178;
-            btn_RemoveItem.Top = 254;
+            
+            btn_RemoveItem.Top = 295;
 
+            TreatmentList.Top = 231;
             DentistDD.Top = 231;
             DP_date.Top = 231;
             TimeDD.Top = 231;
             txt_Note.Top = 336;
+            txt_ContactNo.Top = 336;
             // //buttons
             btn_CreateBilling.Top = 413;
             btn_close.Top = 413;
@@ -129,11 +134,13 @@ namespace _846DentalClinicManagementSystem
             FName = myTI.ToTitleCase(txt_FName.Text.Trim());
             MName = myTI.ToTitleCase(txt_MName.Text.Trim());
             Note = txt_Note.Text.Trim();
+            contactNo = txt_ContactNo.Text.Trim();
 
 
             bool isLNameValid = Regex.IsMatch(LName, @"^[a-zA-Z\x20]*?$");
             bool isFNameValid = Regex.IsMatch(FName, @"^[a-zA-Z\x20]*?$");
             bool isMNameValid = Regex.IsMatch(MName, @"^[a-zA-Z\x20]*?$");
+            bool isContactValid = Regex.IsMatch(contactNo, @"^[0-9]+$");
 
             if ((isLNameValid == true) && (string.IsNullOrEmpty(LName) == false))
             {
@@ -155,24 +162,27 @@ namespace _846DentalClinicManagementSystem
                                     if (string.IsNullOrEmpty(AppDate) == false)
                                     {
 
-                                        var main = Application.OpenForms.OfType<MainForm>().First();
-                                        if (GlobalVariable.isAddAppointment == true && GlobalVariable.isEditAppointment == false)
+                                        if((string.IsNullOrEmpty(contactNo) == false) && isContactValid && contactNo.Length == 11)
                                         {
-                                            insertAppointmentToDB();
-                                            GlobalVariable.isAddAppointment = false;
-                                            main.SearchAppByDate_DP.Value = DP_date.Value;
-                                            this.Hide();
+                                            var main = Application.OpenForms.OfType<MainForm>().First();
+                                            if (GlobalVariable.isAddAppointment == true && GlobalVariable.isEditAppointment == false)
+                                            {
+                                                insertAppointmentToDB();
+                                                GlobalVariable.isAddAppointment = false;
+                                                main.SearchAppByDate_DP.Value = DP_date.Value;
+                                                this.Hide();
 
+                                            }
+                                            if (GlobalVariable.isEditAppointment == true && GlobalVariable.isAddAppointment == false)
+                                            {
+                                                updateAppointmentToDB();
+                                                GlobalVariable.isEditAppointment = false;
+                                                main.SearchAppByDate_DP.Value = DP_date.Value;
+                                                this.Hide();
+
+                                            }
                                         }
-                                        if (GlobalVariable.isEditAppointment == true && GlobalVariable.isAddAppointment == false)
-                                        {
-                                            updateAppointmentToDB();
-                                            GlobalVariable.isEditAppointment = false;
-                                            main.SearchAppByDate_DP.Value = DP_date.Value;
-                                            this.Hide();
-
-                                        }
-
+                                        else { MessageBox.Show("Invalid Contact Number"); }
 
                                     }
                                     else { MessageBox.Show("Invalid Date"); }
@@ -327,7 +337,6 @@ namespace _846DentalClinicManagementSystem
         private void InsertPatientTreatmentDB()
         {
             string treatment = GetAppointmentTreatmentString().ToString();
-            MessageBox.Show(treatment);
             SqlCommand cmd = new SqlCommand(
                "Insert Into [PatientTreatment] (AppointmentID_fk,Treatment) " +
                "Values(@AppID,@treatment) ", sqlcon);
@@ -407,16 +416,17 @@ namespace _846DentalClinicManagementSystem
                 TreatmentList.Items.Add(str.Trim());
             }
 
-            String itemTime = dt1.Rows[0][5].ToString();
+            String itemTime = dt1.Rows[0][6].ToString();
             txt_LName.Text = dt1.Rows[0][1].ToString();
             txt_FName.Text = dt1.Rows[0][2].ToString();
             txt_MName.Text = dt1.Rows[0][3].ToString();
-            txt_Note.Text = dt1.Rows[0][9].ToString();
+            txt_ContactNo.Text = dt1.Rows[0][4].ToString();
+            txt_Note.Text = dt1.Rows[0][10].ToString();
 
-            if(dt1.Rows[0][10].ToString() == "COMPLETED") { statusSwitch.Value = true; }
+            if(dt1.Rows[0][11].ToString() == "COMPLETED") { statusSwitch.Value = true; }
            
          //   SelectedTreatmentID = Convert.ToInt32(dt.Rows[0][8]) - 1;
-            SelectedDentistID= Convert.ToInt32(dt1.Rows[0][8]) - 1;
+            SelectedDentistID= Convert.ToInt32(dt1.Rows[0][9]) - 1;
 
             if (SelectedDentistID == -1) { SelectedDentistID = 0; }
          //   if (SelectedTreatmentID == -1) { SelectedTreatmentID = 0; }
@@ -424,7 +434,7 @@ namespace _846DentalClinicManagementSystem
           //  TreatmentDD.selectedIndex = SelectedTreatmentID;
             DentistDD.selectedIndex = SelectedDentistID;
 
-            string dateTime = DateTime.Parse(dt1.Rows[0][4].ToString()).ToString("M/d/yyyy hh:mm:ss tt");
+            string dateTime = DateTime.Parse(dt1.Rows[0][5].ToString()).ToString("M/d/yyyy hh:mm:ss tt");
             DP_date.Value = DateTime.ParseExact(dateTime, "M/d/yyyy hh:mm:ss tt", System.Globalization.CultureInfo.CurrentCulture);
 
             for (int i = 0; i < TimeDD.Items.Length; i++)
@@ -436,8 +446,6 @@ namespace _846DentalClinicManagementSystem
                 }
 
             }
-
-            
           
         }
 
@@ -445,13 +453,14 @@ namespace _846DentalClinicManagementSystem
         {
          
             SqlCommand cmd = new SqlCommand(
-                "UPDATE [Appointment] SET Appointment_LName = @LName, Appointment_FName = @FName, Appointment_MName = @MName, AppointmentDate = @Date," +
-                "StartTime = @StartTime, EndTime = @EndTime ,RefTime = @RefTime, DentistID_fk = @DentistID_fk ," +
+                "UPDATE [Appointment] SET Appointment_LName = @LName, Appointment_FName = @FName, Appointment_MName = @MName, Appointment_Contact = @contact," +
+                "AppointmentDate = @Date, StartTime = @StartTime, EndTime = @EndTime ,RefTime = @RefTime, DentistID_fk = @DentistID_fk ," +
                 "AppointmentNote = @Note WHERE AppointmentID = @AppointmentID ", sqlcon);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@LName", LName);
             cmd.Parameters.AddWithValue("@FName", FName);
             cmd.Parameters.AddWithValue("@MName", MName);
+            cmd.Parameters.AddWithValue("@contact", contactNo);
             cmd.Parameters.AddWithValue("@Date", AppDate);
             cmd.Parameters.AddWithValue("@StartTime", StartTime);
             cmd.Parameters.AddWithValue("@EndTime", EndTime);
@@ -492,12 +501,13 @@ namespace _846DentalClinicManagementSystem
         {
 
             SqlCommand cmd = new SqlCommand(
-                "Insert Into [Appointment] (Appointment_LName,Appointment_FName,Appointment_MName,AppointmentDate,StartTime,EndTime,RefTime,DentistID_fk,AppointmentNote) " +
-                "Values(@LName,@FName,@MName,@Date,@StartTime,@EndTime,@RefTime,@DentistID_fk,@Note) ", sqlcon);
+                "Insert Into [Appointment] (Appointment_LName,Appointment_FName,Appointment_MName,Appointment_Contact,AppointmentDate,StartTime,EndTime,RefTime,DentistID_fk,AppointmentNote) " +
+                "Values(@LName,@FName,@MName,@Contact,@Date,@StartTime,@EndTime,@RefTime,@DentistID_fk,@Note) ", sqlcon);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@LName", LName);
             cmd.Parameters.AddWithValue("@FName", FName);
             cmd.Parameters.AddWithValue("@MName", MName);
+            cmd.Parameters.AddWithValue("@Contact", contactNo);
             cmd.Parameters.AddWithValue("@Date", AppDate);
             cmd.Parameters.AddWithValue("@StartTime", StartTime);
             cmd.Parameters.AddWithValue("@EndTime", EndTime);
@@ -731,6 +741,7 @@ namespace _846DentalClinicManagementSystem
                     txt_LName.Text = dt.Rows[0][1].ToString();
                     txt_FName.Text = dt.Rows[0][2].ToString();
                     txt_MName.Text = dt.Rows[0][3].ToString();
+                    txt_ContactNo.Text = dt.Rows[0][4].ToString();
 
                 }
                 catch (Exception ex) { Console.WriteLine(ex.Message); }
@@ -809,6 +820,7 @@ namespace _846DentalClinicManagementSystem
              main.RefreshAppointmentView();
 
         }
+
 
         private void changeStatus()
         {

@@ -80,6 +80,7 @@ namespace _846DentalClinicManagementSystem
             PatientPanelSearch("");
             //c1 = this;
             setAutoScrollfalse();
+            autosuggest();
         }
 
         //Main Panel Start
@@ -153,7 +154,7 @@ namespace _846DentalClinicManagementSystem
                 query = "SELECT	Appointment.AppointmentID AS No, " +
                    "CONCAT(Appointment_LName, ', ',Appointment_FName , ' ', Appointment_MName) AS Patient_Name, " +
                    "DentistID_fk,Treatment," +
-                   "Appointment.Status, StartTime, AppointmentDate FROM Appointment INNER JOIN[PatientTreatment] ON AppointmentID = AppointmentID_fk " +
+                   "Appointment.Status, StartTime, AppointmentDate,Appointment_Contact FROM Appointment INNER JOIN[PatientTreatment] ON AppointmentID = AppointmentID_fk " +
                    "WHERE AppointmentDate = @date ORDER BY RefTime ASC";
 
 
@@ -179,7 +180,7 @@ namespace _846DentalClinicManagementSystem
                 query = "SELECT	Appointment.AppointmentID AS No, " +
                    "CONCAT(Appointment_LName, ', ',Appointment_FName , ' ', Appointment_MName) AS Patient_Name, " +
                    "DentistID_fk,Treatment," +
-                   "Appointment.Status, StartTime, AppointmentDate FROM Appointment INNER JOIN[PatientTreatment] ON AppointmentID = AppointmentID_fk " +
+                   "Appointment.Status, StartTime, AppointmentDate,Appointment_Contact FROM Appointment INNER JOIN[PatientTreatment] ON AppointmentID = AppointmentID_fk " +
                    "WHERE AppointmentDate BETWEEN @date AND @date2 ORDER BY AppointmentDate ASC";
 
                
@@ -220,7 +221,9 @@ namespace _846DentalClinicManagementSystem
                     string status = row[4].ToString();
                     string time = row[5].ToString();
                     string appdate = row[6].ToString();
-                    DrawAppointments(id, name, treatment, dentist_id, status, time, appdate);
+                    string contact = row[7].ToString();
+
+                    DrawAppointments(id, name, treatment, dentist_id, status, time, appdate,contact);
                 }
 
                 DrawLines();
@@ -257,35 +260,25 @@ namespace _846DentalClinicManagementSystem
 
             switch (b)
             {
-                case 0:
-                    loc = 11;
+                case 0: loc = 11;
                     break;
-                case 1:
-                    loc = 311;
+                case 1:  loc = 311;
                     break;
-                case 2:
-                    loc = 611;
+                case 2: loc = 611;
                     break;
-                case 3:
-                    loc = 911;
+                case 3:  loc = 911;
                     break;
-                case 4:
-                    loc = 1211;
+                case 4: loc = 1211;
+                    break; 
+                case 5:  loc = 1511;
                     break;
-                case 5:
-                    loc = 1511;
+                case 6:  loc = 1811;
                     break;
-                case 6:
-                    loc = 1811;
-                    break;
-
             }
             if (dentID == 2)
             {
                 loc += 150;   
             }
-          
-           
 
             return loc;
         }
@@ -293,13 +286,13 @@ namespace _846DentalClinicManagementSystem
         bool isWeek = false;
    
 
-        private void DrawAppointments(string id, string name, string treatment, int dentID, string status, string time, string date)
+        private void DrawAppointments(string id, string name, string treatment, int dentID, string status, string time, string date,string contact)
         {
             treatment = treatment.Replace(",", Environment.NewLine);
             Appointment_Panel.AutoScrollPosition = new Point(0, 0); // set the autoscroll to normal position
             int x = 0;
             int y = appointmentYlocation(time); // get the y location
-            int labelWidth = 250;
+            int labelWidth = 260;
             int FlowPanelWidth = 298;
             Single nameTextSize = 12.25F, treatmentTextSize = 11.25F;
             if (WeekSwitch.Value == false)
@@ -310,7 +303,7 @@ namespace _846DentalClinicManagementSystem
             {
                  x = appointmentXlocation(date, dentID);
                 y += 50;
-                labelWidth = 100;
+                labelWidth = 110;
                 FlowPanelWidth = 148;
                 nameTextSize = 10.25F;
                 treatmentTextSize = 9.25F;
@@ -343,11 +336,8 @@ namespace _846DentalClinicManagementSystem
             PictureBox pictureBox = new PictureBox();
             pictureBox.Name = id.ToString();
             pictureBox.BackColor = System.Drawing.Color.Transparent;
-            pictureBox.Size = new System.Drawing.Size(25, 25);
-         //   pictureBox.Location = new System.Drawing.Point(x + 275, y + 5);
+            pictureBox.Size = new System.Drawing.Size(20, 20);
             pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            pictureBox.TabIndex = 19;
-            pictureBox.TabStop = false;
             pictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
             pictureBox.Click += (sender, e) =>
             {
@@ -366,6 +356,14 @@ namespace _846DentalClinicManagementSystem
                 pictureBox.Image = global::_846DentalClinicManagementSystem.Properties.Resources.warning;
             }
             appointment.Controls.Add(pictureBox);
+
+            Label lblcontact = new Label();
+            new ToolTip().SetToolTip(lblcontact, contact);
+            lblcontact.Text = contact;
+            lblcontact.ForeColor = Color.White;
+            lblcontact.Size = new Size(labelWidth, 20);
+            lblcontact.Font = new Font("Microsoft Sans Serif", nameTextSize, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            appointment.Controls.Add(lblcontact);
 
             Label name1 = new Label();
             name1.Text = treatment;
@@ -622,6 +620,29 @@ namespace _846DentalClinicManagementSystem
         {
             String search = txt_SearchPatient.text.Trim();
             PatientPanelSearch(search);
+        }
+
+        private void autosuggest()
+        {
+            AutoCompleteStringCollection myCollection = new AutoCompleteStringCollection();
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            
+            SqlCommand cmd = new SqlCommand("SELECT PatientFullName FROM Patient", sqlcon);
+            sqlcon.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                myCollection.Add(reader.GetString(0));
+            }
+            sqlcon.Close();
+            txttxt.AutoCompleteCustomSource = myCollection;
+            foreach (var i in myCollection)
+            {
+                Console.WriteLine(i);
+
+            }
+            
+            
         }
 
         public void PatientPanelSearch(String search)

@@ -65,9 +65,20 @@
             this.btn_RemoveItem = new Bunifu.Framework.UI.BunifuFlatButton();
             this.statusSwitch = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.lblContact = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.txt_ContactNo = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.TreatmentDropDownPanel = new System.Windows.Forms.Panel();
             this.TopPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AppSearch_DataGrid)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.TreatmentDropDownPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -200,6 +211,7 @@
             // 
             this.DentistDD.BackColor = System.Drawing.Color.Transparent;
             this.DentistDD.BorderRadius = 3;
+            this.DentistDD.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DentistDD.ForeColor = System.Drawing.Color.White;
             this.DentistDD.Items = new string[0];
             this.DentistDD.Location = new System.Drawing.Point(37, 286);
@@ -215,6 +227,7 @@
             // 
             this.TimeDD.BackColor = System.Drawing.Color.Transparent;
             this.TimeDD.BorderRadius = 3;
+            this.TimeDD.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TimeDD.ForeColor = System.Drawing.Color.White;
             this.TimeDD.Items = new string[] {
         "09:00 AM",
@@ -306,7 +319,7 @@
             this.bunifuCustomLabel7.AutoSize = true;
             this.bunifuCustomLabel7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel7.ForeColor = System.Drawing.Color.Teal;
-            this.bunifuCustomLabel7.Location = new System.Drawing.Point(39, 360);
+            this.bunifuCustomLabel7.Location = new System.Drawing.Point(216, 360);
             this.bunifuCustomLabel7.Name = "bunifuCustomLabel7";
             this.bunifuCustomLabel7.Size = new System.Drawing.Size(40, 17);
             this.bunifuCustomLabel7.TabIndex = 15;
@@ -318,10 +331,10 @@
             this.txt_Note.BorderColor = System.Drawing.Color.SeaGreen;
             this.txt_Note.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Note.ForeColor = System.Drawing.SystemColors.Menu;
-            this.txt_Note.Location = new System.Drawing.Point(42, 391);
+            this.txt_Note.Location = new System.Drawing.Point(217, 391);
             this.txt_Note.Multiline = true;
             this.txt_Note.Name = "txt_Note";
-            this.txt_Note.Size = new System.Drawing.Size(720, 59);
+            this.txt_Note.Size = new System.Drawing.Size(551, 35);
             this.txt_Note.TabIndex = 9;
             // 
             // btn_add
@@ -406,7 +419,7 @@
             this.bunifuCustomLabel8.AutoSize = true;
             this.bunifuCustomLabel8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel8.ForeColor = System.Drawing.Color.Teal;
-            this.bunifuCustomLabel8.Location = new System.Drawing.Point(42, 185);
+            this.bunifuCustomLabel8.Location = new System.Drawing.Point(35, 185);
             this.bunifuCustomLabel8.Name = "bunifuCustomLabel8";
             this.bunifuCustomLabel8.Size = new System.Drawing.Size(77, 17);
             this.bunifuCustomLabel8.TabIndex = 21;
@@ -475,7 +488,7 @@
             this.lbl_AppNo.AutoSize = true;
             this.lbl_AppNo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_AppNo.ForeColor = System.Drawing.Color.Teal;
-            this.lbl_AppNo.Location = new System.Drawing.Point(456, 48);
+            this.lbl_AppNo.Location = new System.Drawing.Point(606, 48);
             this.lbl_AppNo.Name = "lbl_AppNo";
             this.lbl_AppNo.Size = new System.Drawing.Size(121, 17);
             this.lbl_AppNo.TabIndex = 27;
@@ -523,15 +536,15 @@
             this.Treatment_CB.BackColor = System.Drawing.Color.SeaGreen;
             this.Treatment_CB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Treatment_CB.DropDownHeight = 150;
-            this.Treatment_CB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Treatment_CB.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Treatment_CB.ForeColor = System.Drawing.SystemColors.Window;
             this.Treatment_CB.FormattingEnabled = true;
             this.Treatment_CB.IntegralHeight = false;
-            this.Treatment_CB.ItemHeight = 13;
-            this.Treatment_CB.Location = new System.Drawing.Point(605, 208);
+            this.Treatment_CB.ItemHeight = 17;
+            this.Treatment_CB.Location = new System.Drawing.Point(1, 0);
             this.Treatment_CB.MaxDropDownItems = 10;
             this.Treatment_CB.Name = "Treatment_CB";
-            this.Treatment_CB.Size = new System.Drawing.Size(149, 21);
+            this.Treatment_CB.Size = new System.Drawing.Size(173, 25);
             this.Treatment_CB.TabIndex = 30;
             this.Treatment_CB.Text = "Select Treatment";
             this.Treatment_CB.SelectedIndexChanged += new System.EventHandler(this.Treatment_CB_SelectedIndexChanged);
@@ -541,9 +554,9 @@
             // 
             this.TreatmentList.FormattingEnabled = true;
             this.TreatmentList.HorizontalScrollbar = true;
-            this.TreatmentList.Location = new System.Drawing.Point(608, 233);
+            this.TreatmentList.Location = new System.Drawing.Point(596, 283);
             this.TreatmentList.Name = "TreatmentList";
-            this.TreatmentList.Size = new System.Drawing.Size(146, 69);
+            this.TreatmentList.Size = new System.Drawing.Size(172, 56);
             this.TreatmentList.TabIndex = 31;
             // 
             // btn_RemoveItem
@@ -567,7 +580,7 @@
             this.btn_RemoveItem.IconVisible = true;
             this.btn_RemoveItem.IconZoom = 90D;
             this.btn_RemoveItem.IsTab = false;
-            this.btn_RemoveItem.Location = new System.Drawing.Point(620, 309);
+            this.btn_RemoveItem.Location = new System.Drawing.Point(620, 347);
             this.btn_RemoveItem.Name = "btn_RemoveItem";
             this.btn_RemoveItem.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
             this.btn_RemoveItem.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
@@ -607,16 +620,106 @@
             this.bunifuCustomLabel5.TabIndex = 35;
             this.bunifuCustomLabel5.Text = "Completed";
             // 
+            // lblContact
+            // 
+            this.lblContact.AutoSize = true;
+            this.lblContact.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContact.ForeColor = System.Drawing.Color.Teal;
+            this.lblContact.Location = new System.Drawing.Point(35, 360);
+            this.lblContact.Name = "lblContact";
+            this.lblContact.Size = new System.Drawing.Size(86, 17);
+            this.lblContact.TabIndex = 37;
+            this.lblContact.Text = "Contact No";
+            // 
+            // txt_ContactNo
+            // 
+            this.txt_ContactNo.BackColor = System.Drawing.Color.SeaGreen;
+            this.txt_ContactNo.BorderColor = System.Drawing.Color.SeaGreen;
+            this.txt_ContactNo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_ContactNo.ForeColor = System.Drawing.SystemColors.Menu;
+            this.txt_ContactNo.Location = new System.Drawing.Point(37, 391);
+            this.txt_ContactNo.Multiline = true;
+            this.txt_ContactNo.Name = "txt_ContactNo";
+            this.txt_ContactNo.Size = new System.Drawing.Size(164, 35);
+            this.txt_ContactNo.TabIndex = 36;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.SeaGreen;
+            this.panel1.Controls.Add(this.panel4);
+            this.panel1.Location = new System.Drawing.Point(4, 22);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(151, 13);
+            this.panel1.TabIndex = 38;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Location = new System.Drawing.Point(153, 24);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(21, 11);
+            this.panel2.TabIndex = 39;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Location = new System.Drawing.Point(-2, 9);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(173, 4);
+            this.panel4.TabIndex = 41;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.Location = new System.Drawing.Point(154, 21);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(19, 11);
+            this.panel5.TabIndex = 41;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.White;
+            this.panel7.Location = new System.Drawing.Point(2, 19);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(2, 15);
+            this.panel7.TabIndex = 42;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Location = new System.Drawing.Point(1, 21);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(4, 14);
+            this.panel3.TabIndex = 40;
+            // 
+            // TreatmentDropDownPanel
+            // 
+            this.TreatmentDropDownPanel.Controls.Add(this.panel5);
+            this.TreatmentDropDownPanel.Controls.Add(this.panel1);
+            this.TreatmentDropDownPanel.Controls.Add(this.panel7);
+            this.TreatmentDropDownPanel.Controls.Add(this.Treatment_CB);
+            this.TreatmentDropDownPanel.Controls.Add(this.panel2);
+            this.TreatmentDropDownPanel.Controls.Add(this.panel3);
+            this.TreatmentDropDownPanel.Location = new System.Drawing.Point(596, 208);
+            this.TreatmentDropDownPanel.Name = "TreatmentDropDownPanel";
+            this.TreatmentDropDownPanel.Size = new System.Drawing.Size(178, 35);
+            this.TreatmentDropDownPanel.TabIndex = 42;
+            // 
             // AddAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(790, 530);
+            this.Controls.Add(this.TreatmentDropDownPanel);
+            this.Controls.Add(this.txt_ContactNo);
+            this.Controls.Add(this.lblContact);
             this.Controls.Add(this.bunifuCustomLabel5);
             this.Controls.Add(this.statusSwitch);
             this.Controls.Add(this.btn_RemoveItem);
             this.Controls.Add(this.TreatmentList);
-            this.Controls.Add(this.Treatment_CB);
             this.Controls.Add(this.btn_CreateBilling);
             this.Controls.Add(this.lbl_AppNo);
             this.Controls.Add(this.txt_MName);
@@ -650,6 +753,8 @@
             this.TopPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AppSearch_DataGrid)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.TreatmentDropDownPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -690,5 +795,14 @@
         private Bunifu.Framework.UI.BunifuFlatButton btn_RemoveItem;
         private Bunifu.Framework.UI.BunifuiOSSwitch statusSwitch;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel5;
+        private System.Windows.Forms.Panel panel1;
+        private WindowsFormsControlLibrary1.BunifuCustomTextbox txt_ContactNo;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblContact;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel TreatmentDropDownPanel;
     }
 }
