@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace _846DentalClinicManagementSystem
 {
@@ -246,48 +247,74 @@ namespace _846DentalClinicManagementSystem
             return y;
         }
 
-        private int appointmentXlocation(string date)
+        private int appointmentXlocation(string date, int dentID)
         {
             int loc = 0;
 
            DateTime StartDate =  DateTime.ParseExact(date, "M/d/yyyy hh:mm:ss tt", System.Globalization.CultureInfo.CurrentCulture);
            int b = (int)StartDate.DayOfWeek;
+
+
             switch (b)
             {
-                case 0: loc = 11;
-                    break; 
-                case 1: loc = 311;
+                case 0:
+                    loc = 11;
                     break;
-                case 2: loc = 611;
+                case 1:
+                    loc = 311;
                     break;
-                case 3: loc = 911;
+                case 2:
+                    loc = 611;
                     break;
-                case 4: loc = 1211;
+                case 3:
+                    loc = 911;
                     break;
-                case 5: loc = 1511;
+                case 4:
+                    loc = 1211;
                     break;
-                case 6: loc = 1811;
+                case 5:
+                    loc = 1511;
                     break;
+                case 6:
+                    loc = 1811;
+                    break;
+
             }
+            if (dentID == 2)
+            {
+                loc += 150;   
+            }
+          
+           
 
             return loc;
         }
 
         bool isWeek = false;
+   
 
         private void DrawAppointments(string id, string name, string treatment, int dentID, string status, string time, string date)
         {
+            treatment = treatment.Replace(",", Environment.NewLine);
             Appointment_Panel.AutoScrollPosition = new Point(0, 0); // set the autoscroll to normal position
             int x = 0;
             int y = appointmentYlocation(time); // get the y location
+            int labelWidth = 250;
+            int FlowPanelWidth = 298;
+            Single nameTextSize = 12.25F, treatmentTextSize = 11.25F;
             if (WeekSwitch.Value == false)
             {
                  x = (dentID == 1) ? 11 : 311;  // get the x location
             }
             else
             {
-                 x = appointmentXlocation(date);
+                 x = appointmentXlocation(date, dentID);
                 y += 50;
+                labelWidth = 100;
+                FlowPanelWidth = 148;
+                nameTextSize = 10.25F;
+                treatmentTextSize = 9.25F;
+
             }
         
          
@@ -297,7 +324,7 @@ namespace _846DentalClinicManagementSystem
             //
           
                 FlowLayoutPanel appointment = new FlowLayoutPanel();
-                appointment.Size = new Size(298, 98);
+                appointment.Size = new Size(FlowPanelWidth, 98);
                 appointment.Location = new Point(x, y);
                 appointment.BackColor = Color.LightSeaGreen;
                 appointment.FlowDirection = FlowDirection.LeftToRight;
@@ -306,17 +333,18 @@ namespace _846DentalClinicManagementSystem
                 this.Appointment_Panel.Controls.Add(appointment);
 
             Label namee = new Label();
+            new ToolTip().SetToolTip(namee, name);
             namee.Text = name;
             namee.ForeColor = Color.White;
-            namee.Size = new Size(250, 20);
-            namee.Font = new Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            namee.Size = new Size(labelWidth, 20);
+            namee.Font = new Font("Microsoft Sans Serif", nameTextSize, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             appointment.Controls.Add(namee);
 
             PictureBox pictureBox = new PictureBox();
             pictureBox.Name = id.ToString();
             pictureBox.BackColor = System.Drawing.Color.Transparent;
             pictureBox.Size = new System.Drawing.Size(25, 25);
-            pictureBox.Location = new System.Drawing.Point(x + 275, y + 5);
+         //   pictureBox.Location = new System.Drawing.Point(x + 275, y + 5);
             pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             pictureBox.TabIndex = 19;
             pictureBox.TabStop = false;
@@ -341,9 +369,10 @@ namespace _846DentalClinicManagementSystem
 
             Label name1 = new Label();
             name1.Text = treatment;
+            new ToolTip().SetToolTip(name1, treatment);
             name1.ForeColor = Color.White;
-            name1.Size = new Size(250, 78);
-            name1.Font = new Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            name1.Size = new Size(labelWidth + 50, 78);
+            name1.Font = new Font("Microsoft Sans Serif", treatmentTextSize, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             appointment.Controls.Add(name1);
 
         }

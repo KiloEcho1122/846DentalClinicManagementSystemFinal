@@ -806,7 +806,8 @@ namespace _846DentalClinicManagementSystem
 
             }
             var main = Application.OpenForms.OfType<MainForm>().First();
-            main.RefreshAppointmentView();
+             main.RefreshAppointmentView();
+
         }
 
         private void changeStatus()
