@@ -32,12 +32,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowPatientInfo));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowPatientInfo));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.TopPanel2 = new System.Windows.Forms.Panel();
             this.txt_formHeader = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -61,13 +61,49 @@
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.btn_SaveChart = new System.Windows.Forms.Button();
             this.btn_RefreshChart = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.TeethPanel25 = new System.Windows.Forms.Panel();
             this.TeethPanel17 = new System.Windows.Forms.Panel();
             this.TeethPanel9 = new System.Windows.Forms.Panel();
@@ -101,18 +137,18 @@
             this.TeethPanel29 = new System.Windows.Forms.Panel();
             this.TeethPanel21 = new System.Windows.Forms.Panel();
             this.TreatmentHistory_TAB = new System.Windows.Forms.TabPage();
+            this.TreatmentHistory_DG = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.panel2 = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btn_closePatientInfo = new Bunifu.Framework.UI.BunifuFlatButton();
             this.Notes_TAB = new System.Windows.Forms.TabPage();
-            this.btn_SaveNotes = new System.Windows.Forms.Button();
-            this.NoteDD = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.txt_PatientNote = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
-            this.TreatmentHistory_DG = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.panel5 = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.btn_SaveNotes = new System.Windows.Forms.Button();
+            this.NoteDD = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.txt_PatientNote = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
+            this.btn_closePatientInfo = new Bunifu.Framework.UI.BunifuFlatButton();
             this.TopPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.PatientInfoTAB.SuspendLayout();
@@ -122,17 +158,19 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.TreatmentHistory_TAB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TreatmentHistory_DG)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Notes_TAB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NoteDD)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TreatmentHistory_DG)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NoteDD)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -431,10 +469,10 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.panel6);
             this.tabPage2.Controls.Add(this.btn_SaveChart);
             this.tabPage2.Controls.Add(this.btn_RefreshChart);
             this.tabPage2.Controls.Add(this.panel3);
-            this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Controls.Add(this.panel1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -444,16 +482,34 @@
             this.tabPage2.Text = "CHARTING";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // panel6
+            // 
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.label1);
+            this.panel6.Location = new System.Drawing.Point(11, 38);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(147, 354);
+            this.panel6.TabIndex = 56;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(4, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "LEGEND";
+            // 
             // btn_SaveChart
             // 
             this.btn_SaveChart.BackColor = System.Drawing.Color.SeaGreen;
             this.btn_SaveChart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_SaveChart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_SaveChart.ForeColor = System.Drawing.Color.White;
-            this.btn_SaveChart.Location = new System.Drawing.Point(820, 315);
+            this.btn_SaveChart.Location = new System.Drawing.Point(837, 354);
             this.btn_SaveChart.Margin = new System.Windows.Forms.Padding(0);
             this.btn_SaveChart.Name = "btn_SaveChart";
-            this.btn_SaveChart.Size = new System.Drawing.Size(106, 54);
+            this.btn_SaveChart.Size = new System.Drawing.Size(106, 38);
             this.btn_SaveChart.TabIndex = 55;
             this.btn_SaveChart.Text = "Save";
             this.btn_SaveChart.UseVisualStyleBackColor = false;
@@ -465,10 +521,10 @@
             this.btn_RefreshChart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_RefreshChart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_RefreshChart.ForeColor = System.Drawing.Color.White;
-            this.btn_RefreshChart.Location = new System.Drawing.Point(820, 252);
+            this.btn_RefreshChart.Location = new System.Drawing.Point(731, 354);
             this.btn_RefreshChart.Margin = new System.Windows.Forms.Padding(0);
             this.btn_RefreshChart.Name = "btn_RefreshChart";
-            this.btn_RefreshChart.Size = new System.Drawing.Size(106, 54);
+            this.btn_RefreshChart.Size = new System.Drawing.Size(106, 38);
             this.btn_RefreshChart.TabIndex = 54;
             this.btn_RefreshChart.Text = "Refresh";
             this.btn_RefreshChart.UseVisualStyleBackColor = false;
@@ -506,19 +562,45 @@
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(817, 56);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "LEGEND";
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.pictureBox6);
+            this.panel1.Controls.Add(this.label26);
+            this.panel1.Controls.Add(this.label27);
+            this.panel1.Controls.Add(this.label28);
+            this.panel1.Controls.Add(this.label29);
+            this.panel1.Controls.Add(this.label30);
+            this.panel1.Controls.Add(this.label31);
+            this.panel1.Controls.Add(this.label32);
+            this.panel1.Controls.Add(this.label33);
+            this.panel1.Controls.Add(this.label18);
+            this.panel1.Controls.Add(this.label19);
+            this.panel1.Controls.Add(this.label20);
+            this.panel1.Controls.Add(this.label21);
+            this.panel1.Controls.Add(this.label22);
+            this.panel1.Controls.Add(this.label23);
+            this.panel1.Controls.Add(this.label24);
+            this.panel1.Controls.Add(this.label25);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.label14);
+            this.panel1.Controls.Add(this.label15);
+            this.panel1.Controls.Add(this.label16);
+            this.panel1.Controls.Add(this.label17);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.panel8);
+            this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.TeethPanel25);
             this.panel1.Controls.Add(this.TeethPanel17);
             this.panel1.Controls.Add(this.TeethPanel9);
@@ -551,15 +633,331 @@
             this.panel1.Controls.Add(this.TeethPanel13);
             this.panel1.Controls.Add(this.TeethPanel29);
             this.panel1.Controls.Add(this.TeethPanel21);
-            this.panel1.Location = new System.Drawing.Point(34, 36);
+            this.panel1.Location = new System.Drawing.Point(178, 54);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(755, 333);
+            this.panel1.Size = new System.Drawing.Size(755, 288);
             this.panel1.TabIndex = 1;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox6.Image = global::_846DentalClinicManagementSystem.Properties.Resources.icons8_checkmark_100;
+            this.pictureBox6.Location = new System.Drawing.Point(23, 79);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(20, 16);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 156;
+            this.pictureBox6.TabStop = false;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(444, 155);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(19, 13);
+            this.label26.TabIndex = 155;
+            this.label26.Text = "32";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(488, 155);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(19, 13);
+            this.label27.TabIndex = 154;
+            this.label27.Text = "33";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(533, 155);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(19, 13);
+            this.label28.TabIndex = 153;
+            this.label28.Text = "34";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(577, 155);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(19, 13);
+            this.label29.TabIndex = 152;
+            this.label29.Text = "35";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(624, 155);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(19, 13);
+            this.label30.TabIndex = 151;
+            this.label30.Text = "36";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(669, 155);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(19, 13);
+            this.label31.TabIndex = 150;
+            this.label31.Text = "37";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(714, 155);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(19, 13);
+            this.label32.TabIndex = 149;
+            this.label32.Text = "38";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(397, 155);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(19, 13);
+            this.label33.TabIndex = 148;
+            this.label33.Text = "31";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(68, 155);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(19, 13);
+            this.label18.TabIndex = 147;
+            this.label18.Text = "47";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(112, 155);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(19, 13);
+            this.label19.TabIndex = 146;
+            this.label19.Text = "46";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(157, 155);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(19, 13);
+            this.label20.TabIndex = 145;
+            this.label20.Text = "45";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(201, 155);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(19, 13);
+            this.label21.TabIndex = 144;
+            this.label21.Text = "44";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(248, 155);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(19, 13);
+            this.label22.TabIndex = 143;
+            this.label22.Text = "43";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(293, 155);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(19, 13);
+            this.label23.TabIndex = 142;
+            this.label23.Text = "42";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(338, 155);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(19, 13);
+            this.label24.TabIndex = 141;
+            this.label24.Text = "41";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(21, 155);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(19, 13);
+            this.label25.TabIndex = 140;
+            this.label25.Text = "48";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(444, 112);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(19, 13);
+            this.label10.TabIndex = 139;
+            this.label10.Text = "22";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(488, 112);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(19, 13);
+            this.label11.TabIndex = 138;
+            this.label11.Text = "23";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(533, 112);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(19, 13);
+            this.label12.TabIndex = 137;
+            this.label12.Text = "24";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(577, 112);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(19, 13);
+            this.label13.TabIndex = 136;
+            this.label13.Text = "25";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(624, 112);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(19, 13);
+            this.label14.TabIndex = 135;
+            this.label14.Text = "26";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(669, 112);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(19, 13);
+            this.label15.TabIndex = 134;
+            this.label15.Text = "27";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(714, 112);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(19, 13);
+            this.label16.TabIndex = 133;
+            this.label16.Text = "28";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(397, 112);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(19, 13);
+            this.label17.TabIndex = 132;
+            this.label17.Text = "21";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(68, 112);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(19, 13);
+            this.label9.TabIndex = 131;
+            this.label9.Text = "17";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(112, 112);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(19, 13);
+            this.label8.TabIndex = 130;
+            this.label8.Text = "16";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(157, 112);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(19, 13);
+            this.label7.TabIndex = 129;
+            this.label7.Text = "15";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(201, 112);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(19, 13);
+            this.label6.TabIndex = 128;
+            this.label6.Text = "14";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(248, 112);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(19, 13);
+            this.label5.TabIndex = 127;
+            this.label5.Text = "13";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(293, 112);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(19, 13);
+            this.label4.TabIndex = 126;
+            this.label4.Text = "12";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(338, 112);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(19, 13);
+            this.label3.TabIndex = 125;
+            this.label3.Text = "11";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(21, 112);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(19, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "18";
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.Silver;
+            this.panel8.Location = new System.Drawing.Point(378, 1);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(1, 288);
+            this.panel8.TabIndex = 124;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.Silver;
+            this.panel7.Location = new System.Drawing.Point(1, 139);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(755, 1);
+            this.panel7.TabIndex = 123;
             // 
             // TeethPanel25
             // 
             this.TeethPanel25.BackColor = System.Drawing.Color.White;
-            this.TeethPanel25.Location = new System.Drawing.Point(286, 179);
+            this.TeethPanel25.Location = new System.Drawing.Point(389, 209);
             this.TeethPanel25.Name = "TeethPanel25";
             this.TeethPanel25.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel25.TabIndex = 116;
@@ -569,7 +967,7 @@
             // TeethPanel17
             // 
             this.TeethPanel17.BackColor = System.Drawing.Color.White;
-            this.TeethPanel17.Location = new System.Drawing.Point(14, 179);
+            this.TeethPanel17.Location = new System.Drawing.Point(16, 209);
             this.TeethPanel17.Name = "TeethPanel17";
             this.TeethPanel17.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel17.TabIndex = 100;
@@ -579,7 +977,7 @@
             // TeethPanel9
             // 
             this.TeethPanel9.BackColor = System.Drawing.Color.White;
-            this.TeethPanel9.Location = new System.Drawing.Point(286, 144);
+            this.TeethPanel9.Location = new System.Drawing.Point(389, 34);
             this.TeethPanel9.Name = "TeethPanel9";
             this.TeethPanel9.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel9.TabIndex = 108;
@@ -589,7 +987,7 @@
             // TeethPanel3
             // 
             this.TeethPanel3.BackColor = System.Drawing.Color.White;
-            this.TeethPanel3.Location = new System.Drawing.Point(82, 144);
+            this.TeethPanel3.Location = new System.Drawing.Point(106, 34);
             this.TeethPanel3.Name = "TeethPanel3";
             this.TeethPanel3.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel3.TabIndex = 92;
@@ -599,7 +997,7 @@
             // TeethPanel1
             // 
             this.TeethPanel1.BackColor = System.Drawing.Color.White;
-            this.TeethPanel1.Location = new System.Drawing.Point(14, 144);
+            this.TeethPanel1.Location = new System.Drawing.Point(16, 34);
             this.TeethPanel1.Name = "TeethPanel1";
             this.TeethPanel1.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel1.TabIndex = 97;
@@ -609,7 +1007,7 @@
             // TeethPanel2
             // 
             this.TeethPanel2.BackColor = System.Drawing.Color.White;
-            this.TeethPanel2.Location = new System.Drawing.Point(48, 144);
+            this.TeethPanel2.Location = new System.Drawing.Point(61, 34);
             this.TeethPanel2.Name = "TeethPanel2";
             this.TeethPanel2.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel2.TabIndex = 91;
@@ -619,7 +1017,7 @@
             // TeethPanel32
             // 
             this.TeethPanel32.BackColor = System.Drawing.Color.White;
-            this.TeethPanel32.Location = new System.Drawing.Point(524, 179);
+            this.TeethPanel32.Location = new System.Drawing.Point(704, 209);
             this.TeethPanel32.Name = "TeethPanel32";
             this.TeethPanel32.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel32.TabIndex = 122;
@@ -629,7 +1027,7 @@
             // TeethPanel18
             // 
             this.TeethPanel18.BackColor = System.Drawing.Color.White;
-            this.TeethPanel18.Location = new System.Drawing.Point(48, 179);
+            this.TeethPanel18.Location = new System.Drawing.Point(61, 209);
             this.TeethPanel18.Name = "TeethPanel18";
             this.TeethPanel18.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel18.TabIndex = 99;
@@ -639,7 +1037,7 @@
             // TeethPanel24
             // 
             this.TeethPanel24.BackColor = System.Drawing.Color.White;
-            this.TeethPanel24.Location = new System.Drawing.Point(252, 179);
+            this.TeethPanel24.Location = new System.Drawing.Point(331, 209);
             this.TeethPanel24.Name = "TeethPanel24";
             this.TeethPanel24.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel24.TabIndex = 106;
@@ -649,7 +1047,7 @@
             // TeethPanel10
             // 
             this.TeethPanel10.BackColor = System.Drawing.Color.White;
-            this.TeethPanel10.Location = new System.Drawing.Point(320, 144);
+            this.TeethPanel10.Location = new System.Drawing.Point(434, 34);
             this.TeethPanel10.Name = "TeethPanel10";
             this.TeethPanel10.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel10.TabIndex = 107;
@@ -659,7 +1057,7 @@
             // TeethPanel16
             // 
             this.TeethPanel16.BackColor = System.Drawing.Color.White;
-            this.TeethPanel16.Location = new System.Drawing.Point(524, 144);
+            this.TeethPanel16.Location = new System.Drawing.Point(704, 34);
             this.TeethPanel16.Name = "TeethPanel16";
             this.TeethPanel16.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel16.TabIndex = 114;
@@ -669,7 +1067,7 @@
             // TeethPanel26
             // 
             this.TeethPanel26.BackColor = System.Drawing.Color.White;
-            this.TeethPanel26.Location = new System.Drawing.Point(320, 179);
+            this.TeethPanel26.Location = new System.Drawing.Point(434, 209);
             this.TeethPanel26.Name = "TeethPanel26";
             this.TeethPanel26.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel26.TabIndex = 115;
@@ -679,7 +1077,7 @@
             // TeethPanel8
             // 
             this.TeethPanel8.BackColor = System.Drawing.Color.White;
-            this.TeethPanel8.Location = new System.Drawing.Point(252, 144);
+            this.TeethPanel8.Location = new System.Drawing.Point(331, 34);
             this.TeethPanel8.Name = "TeethPanel8";
             this.TeethPanel8.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel8.TabIndex = 98;
@@ -689,7 +1087,7 @@
             // TeethPanel19
             // 
             this.TeethPanel19.BackColor = System.Drawing.Color.White;
-            this.TeethPanel19.Location = new System.Drawing.Point(82, 179);
+            this.TeethPanel19.Location = new System.Drawing.Point(106, 209);
             this.TeethPanel19.Name = "TeethPanel19";
             this.TeethPanel19.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel19.TabIndex = 105;
@@ -699,7 +1097,7 @@
             // TeethPanel31
             // 
             this.TeethPanel31.BackColor = System.Drawing.Color.White;
-            this.TeethPanel31.Location = new System.Drawing.Point(490, 179);
+            this.TeethPanel31.Location = new System.Drawing.Point(659, 209);
             this.TeethPanel31.Name = "TeethPanel31";
             this.TeethPanel31.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel31.TabIndex = 117;
@@ -709,7 +1107,7 @@
             // TeethPanel11
             // 
             this.TeethPanel11.BackColor = System.Drawing.Color.White;
-            this.TeethPanel11.Location = new System.Drawing.Point(354, 144);
+            this.TeethPanel11.Location = new System.Drawing.Point(479, 34);
             this.TeethPanel11.Name = "TeethPanel11";
             this.TeethPanel11.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel11.TabIndex = 113;
@@ -719,7 +1117,7 @@
             // TeethPanel23
             // 
             this.TeethPanel23.BackColor = System.Drawing.Color.White;
-            this.TeethPanel23.Location = new System.Drawing.Point(218, 179);
+            this.TeethPanel23.Location = new System.Drawing.Point(286, 209);
             this.TeethPanel23.Name = "TeethPanel23";
             this.TeethPanel23.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel23.TabIndex = 101;
@@ -729,7 +1127,7 @@
             // TeethPanel4
             // 
             this.TeethPanel4.BackColor = System.Drawing.Color.White;
-            this.TeethPanel4.Location = new System.Drawing.Point(116, 144);
+            this.TeethPanel4.Location = new System.Drawing.Point(151, 34);
             this.TeethPanel4.Name = "TeethPanel4";
             this.TeethPanel4.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel4.TabIndex = 93;
@@ -739,7 +1137,7 @@
             // TeethPanel15
             // 
             this.TeethPanel15.BackColor = System.Drawing.Color.White;
-            this.TeethPanel15.Location = new System.Drawing.Point(490, 144);
+            this.TeethPanel15.Location = new System.Drawing.Point(659, 34);
             this.TeethPanel15.Name = "TeethPanel15";
             this.TeethPanel15.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel15.TabIndex = 109;
@@ -749,7 +1147,7 @@
             // TeethPanel27
             // 
             this.TeethPanel27.BackColor = System.Drawing.Color.White;
-            this.TeethPanel27.Location = new System.Drawing.Point(354, 179);
+            this.TeethPanel27.Location = new System.Drawing.Point(479, 209);
             this.TeethPanel27.Name = "TeethPanel27";
             this.TeethPanel27.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel27.TabIndex = 121;
@@ -759,7 +1157,7 @@
             // TeethPanel7
             // 
             this.TeethPanel7.BackColor = System.Drawing.Color.White;
-            this.TeethPanel7.Location = new System.Drawing.Point(218, 144);
+            this.TeethPanel7.Location = new System.Drawing.Point(286, 34);
             this.TeethPanel7.Name = "TeethPanel7";
             this.TeethPanel7.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel7.TabIndex = 95;
@@ -769,7 +1167,7 @@
             // TeethPanel12
             // 
             this.TeethPanel12.BackColor = System.Drawing.Color.White;
-            this.TeethPanel12.Location = new System.Drawing.Point(388, 144);
+            this.TeethPanel12.Location = new System.Drawing.Point(524, 34);
             this.TeethPanel12.Name = "TeethPanel12";
             this.TeethPanel12.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel12.TabIndex = 112;
@@ -779,7 +1177,7 @@
             // TeethPanel30
             // 
             this.TeethPanel30.BackColor = System.Drawing.Color.White;
-            this.TeethPanel30.Location = new System.Drawing.Point(456, 179);
+            this.TeethPanel30.Location = new System.Drawing.Point(614, 209);
             this.TeethPanel30.Name = "TeethPanel30";
             this.TeethPanel30.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel30.TabIndex = 118;
@@ -789,7 +1187,7 @@
             // TeethPanel20
             // 
             this.TeethPanel20.BackColor = System.Drawing.Color.White;
-            this.TeethPanel20.Location = new System.Drawing.Point(116, 179);
+            this.TeethPanel20.Location = new System.Drawing.Point(151, 209);
             this.TeethPanel20.Name = "TeethPanel20";
             this.TeethPanel20.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel20.TabIndex = 104;
@@ -799,7 +1197,7 @@
             // TeethPanel22
             // 
             this.TeethPanel22.BackColor = System.Drawing.Color.White;
-            this.TeethPanel22.Location = new System.Drawing.Point(184, 179);
+            this.TeethPanel22.Location = new System.Drawing.Point(241, 209);
             this.TeethPanel22.Name = "TeethPanel22";
             this.TeethPanel22.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel22.TabIndex = 102;
@@ -809,7 +1207,7 @@
             // TeethPanel28
             // 
             this.TeethPanel28.BackColor = System.Drawing.Color.White;
-            this.TeethPanel28.Location = new System.Drawing.Point(388, 179);
+            this.TeethPanel28.Location = new System.Drawing.Point(524, 209);
             this.TeethPanel28.Name = "TeethPanel28";
             this.TeethPanel28.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel28.TabIndex = 120;
@@ -819,7 +1217,7 @@
             // TeethPanel14
             // 
             this.TeethPanel14.BackColor = System.Drawing.Color.White;
-            this.TeethPanel14.Location = new System.Drawing.Point(456, 144);
+            this.TeethPanel14.Location = new System.Drawing.Point(614, 34);
             this.TeethPanel14.Name = "TeethPanel14";
             this.TeethPanel14.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel14.TabIndex = 110;
@@ -829,7 +1227,7 @@
             // TeethPanel5
             // 
             this.TeethPanel5.BackColor = System.Drawing.Color.White;
-            this.TeethPanel5.Location = new System.Drawing.Point(150, 144);
+            this.TeethPanel5.Location = new System.Drawing.Point(196, 34);
             this.TeethPanel5.Name = "TeethPanel5";
             this.TeethPanel5.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel5.TabIndex = 94;
@@ -839,7 +1237,7 @@
             // TeethPanel6
             // 
             this.TeethPanel6.BackColor = System.Drawing.Color.White;
-            this.TeethPanel6.Location = new System.Drawing.Point(184, 144);
+            this.TeethPanel6.Location = new System.Drawing.Point(241, 34);
             this.TeethPanel6.Name = "TeethPanel6";
             this.TeethPanel6.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel6.TabIndex = 96;
@@ -849,7 +1247,7 @@
             // TeethPanel13
             // 
             this.TeethPanel13.BackColor = System.Drawing.Color.White;
-            this.TeethPanel13.Location = new System.Drawing.Point(422, 144);
+            this.TeethPanel13.Location = new System.Drawing.Point(569, 34);
             this.TeethPanel13.Name = "TeethPanel13";
             this.TeethPanel13.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel13.TabIndex = 111;
@@ -859,7 +1257,7 @@
             // TeethPanel29
             // 
             this.TeethPanel29.BackColor = System.Drawing.Color.White;
-            this.TeethPanel29.Location = new System.Drawing.Point(422, 179);
+            this.TeethPanel29.Location = new System.Drawing.Point(569, 209);
             this.TeethPanel29.Name = "TeethPanel29";
             this.TeethPanel29.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel29.TabIndex = 119;
@@ -869,7 +1267,7 @@
             // TeethPanel21
             // 
             this.TeethPanel21.BackColor = System.Drawing.Color.White;
-            this.TeethPanel21.Location = new System.Drawing.Point(150, 179);
+            this.TeethPanel21.Location = new System.Drawing.Point(196, 209);
             this.TeethPanel21.Name = "TeethPanel21";
             this.TeethPanel21.Size = new System.Drawing.Size(33, 34);
             this.TeethPanel21.TabIndex = 103;
@@ -887,6 +1285,48 @@
             this.TreatmentHistory_TAB.TabIndex = 2;
             this.TreatmentHistory_TAB.Text = "TREATMENT HISTORY";
             this.TreatmentHistory_TAB.UseVisualStyleBackColor = true;
+            // 
+            // TreatmentHistory_DG
+            // 
+            this.TreatmentHistory_DG.AllowUserToAddRows = false;
+            this.TreatmentHistory_DG.AllowUserToDeleteRows = false;
+            this.TreatmentHistory_DG.AllowUserToResizeRows = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.TreatmentHistory_DG.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.TreatmentHistory_DG.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.TreatmentHistory_DG.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.TreatmentHistory_DG.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.TreatmentHistory_DG.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TreatmentHistory_DG.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.TreatmentHistory_DG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.TreatmentHistory_DG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.TreatmentHistory_DG.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.TreatmentHistory_DG.DefaultCellStyle = dataGridViewCellStyle6;
+            this.TreatmentHistory_DG.DoubleBuffered = true;
+            this.TreatmentHistory_DG.EnableHeadersVisualStyles = false;
+            this.TreatmentHistory_DG.HeaderBgColor = System.Drawing.Color.SeaGreen;
+            this.TreatmentHistory_DG.HeaderForeColor = System.Drawing.Color.White;
+            this.TreatmentHistory_DG.Location = new System.Drawing.Point(64, 59);
+            this.TreatmentHistory_DG.Name = "TreatmentHistory_DG";
+            this.TreatmentHistory_DG.ReadOnly = true;
+            this.TreatmentHistory_DG.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.TreatmentHistory_DG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.TreatmentHistory_DG.Size = new System.Drawing.Size(773, 289);
+            this.TreatmentHistory_DG.TabIndex = 55;
             // 
             // panel2
             // 
@@ -920,41 +1360,6 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // btn_closePatientInfo
-            // 
-            this.btn_closePatientInfo.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_closePatientInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_closePatientInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_closePatientInfo.BorderRadius = 0;
-            this.btn_closePatientInfo.ButtonText = "Close";
-            this.btn_closePatientInfo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_closePatientInfo.DisabledColor = System.Drawing.Color.Gray;
-            this.btn_closePatientInfo.Iconcolor = System.Drawing.Color.Transparent;
-            this.btn_closePatientInfo.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_closePatientInfo.Iconimage")));
-            this.btn_closePatientInfo.Iconimage_right = null;
-            this.btn_closePatientInfo.Iconimage_right_Selected = null;
-            this.btn_closePatientInfo.Iconimage_Selected = null;
-            this.btn_closePatientInfo.IconMarginLeft = 0;
-            this.btn_closePatientInfo.IconMarginRight = 0;
-            this.btn_closePatientInfo.IconRightVisible = true;
-            this.btn_closePatientInfo.IconRightZoom = 0D;
-            this.btn_closePatientInfo.IconVisible = true;
-            this.btn_closePatientInfo.IconZoom = 90D;
-            this.btn_closePatientInfo.IsTab = false;
-            this.btn_closePatientInfo.Location = new System.Drawing.Point(878, 558);
-            this.btn_closePatientInfo.Name = "btn_closePatientInfo";
-            this.btn_closePatientInfo.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_closePatientInfo.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.btn_closePatientInfo.OnHoverTextColor = System.Drawing.Color.White;
-            this.btn_closePatientInfo.selected = false;
-            this.btn_closePatientInfo.Size = new System.Drawing.Size(117, 48);
-            this.btn_closePatientInfo.TabIndex = 56;
-            this.btn_closePatientInfo.Text = "Close";
-            this.btn_closePatientInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_closePatientInfo.Textcolor = System.Drawing.Color.White;
-            this.btn_closePatientInfo.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_closePatientInfo.Click += new System.EventHandler(this.btn_closePatientInfo_Click);
-            // 
             // Notes_TAB
             // 
             this.Notes_TAB.Controls.Add(this.panel5);
@@ -968,6 +1373,38 @@
             this.Notes_TAB.TabIndex = 3;
             this.Notes_TAB.Text = "NOTES";
             this.Notes_TAB.UseVisualStyleBackColor = true;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
+            this.panel5.Controls.Add(this.bunifuCustomLabel5);
+            this.panel5.Controls.Add(this.pictureBox4);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(3, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(951, 29);
+            this.panel5.TabIndex = 61;
+            // 
+            // bunifuCustomLabel5
+            // 
+            this.bunifuCustomLabel5.AutoSize = true;
+            this.bunifuCustomLabel5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel5.ForeColor = System.Drawing.Color.Silver;
+            this.bunifuCustomLabel5.Location = new System.Drawing.Point(27, 3);
+            this.bunifuCustomLabel5.Name = "bunifuCustomLabel5";
+            this.bunifuCustomLabel5.Size = new System.Drawing.Size(55, 21);
+            this.bunifuCustomLabel5.TabIndex = 3;
+            this.bunifuCustomLabel5.Text = "Notes";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImage = global::_846DentalClinicManagementSystem.Properties.Resources.btnpatients;
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox4.Location = new System.Drawing.Point(8, 4);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(19, 20);
+            this.pictureBox4.TabIndex = 2;
+            this.pictureBox4.TabStop = false;
             // 
             // btn_SaveNotes
             // 
@@ -1032,79 +1469,40 @@
             this.txt_PatientNote.Size = new System.Drawing.Size(896, 80);
             this.txt_PatientNote.TabIndex = 58;
             // 
-            // TreatmentHistory_DG
+            // btn_closePatientInfo
             // 
-            this.TreatmentHistory_DG.AllowUserToAddRows = false;
-            this.TreatmentHistory_DG.AllowUserToDeleteRows = false;
-            this.TreatmentHistory_DG.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.TreatmentHistory_DG.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.TreatmentHistory_DG.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.TreatmentHistory_DG.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.TreatmentHistory_DG.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.TreatmentHistory_DG.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TreatmentHistory_DG.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.TreatmentHistory_DG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.TreatmentHistory_DG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.TreatmentHistory_DG.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.TreatmentHistory_DG.DefaultCellStyle = dataGridViewCellStyle6;
-            this.TreatmentHistory_DG.DoubleBuffered = true;
-            this.TreatmentHistory_DG.EnableHeadersVisualStyles = false;
-            this.TreatmentHistory_DG.HeaderBgColor = System.Drawing.Color.SeaGreen;
-            this.TreatmentHistory_DG.HeaderForeColor = System.Drawing.Color.White;
-            this.TreatmentHistory_DG.Location = new System.Drawing.Point(64, 59);
-            this.TreatmentHistory_DG.Name = "TreatmentHistory_DG";
-            this.TreatmentHistory_DG.ReadOnly = true;
-            this.TreatmentHistory_DG.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.TreatmentHistory_DG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.TreatmentHistory_DG.Size = new System.Drawing.Size(773, 289);
-            this.TreatmentHistory_DG.TabIndex = 55;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
-            this.panel5.Controls.Add(this.bunifuCustomLabel5);
-            this.panel5.Controls.Add(this.pictureBox4);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(3, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(951, 29);
-            this.panel5.TabIndex = 61;
-            // 
-            // bunifuCustomLabel5
-            // 
-            this.bunifuCustomLabel5.AutoSize = true;
-            this.bunifuCustomLabel5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel5.ForeColor = System.Drawing.Color.Silver;
-            this.bunifuCustomLabel5.Location = new System.Drawing.Point(27, 3);
-            this.bunifuCustomLabel5.Name = "bunifuCustomLabel5";
-            this.bunifuCustomLabel5.Size = new System.Drawing.Size(55, 21);
-            this.bunifuCustomLabel5.TabIndex = 3;
-            this.bunifuCustomLabel5.Text = "Notes";
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackgroundImage = global::_846DentalClinicManagementSystem.Properties.Resources.btnpatients;
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.Location = new System.Drawing.Point(8, 4);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(19, 20);
-            this.pictureBox4.TabIndex = 2;
-            this.pictureBox4.TabStop = false;
+            this.btn_closePatientInfo.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_closePatientInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_closePatientInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_closePatientInfo.BorderRadius = 0;
+            this.btn_closePatientInfo.ButtonText = "Close";
+            this.btn_closePatientInfo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_closePatientInfo.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_closePatientInfo.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_closePatientInfo.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_closePatientInfo.Iconimage")));
+            this.btn_closePatientInfo.Iconimage_right = null;
+            this.btn_closePatientInfo.Iconimage_right_Selected = null;
+            this.btn_closePatientInfo.Iconimage_Selected = null;
+            this.btn_closePatientInfo.IconMarginLeft = 0;
+            this.btn_closePatientInfo.IconMarginRight = 0;
+            this.btn_closePatientInfo.IconRightVisible = true;
+            this.btn_closePatientInfo.IconRightZoom = 0D;
+            this.btn_closePatientInfo.IconVisible = true;
+            this.btn_closePatientInfo.IconZoom = 90D;
+            this.btn_closePatientInfo.IsTab = false;
+            this.btn_closePatientInfo.Location = new System.Drawing.Point(878, 558);
+            this.btn_closePatientInfo.Name = "btn_closePatientInfo";
+            this.btn_closePatientInfo.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_closePatientInfo.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.btn_closePatientInfo.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_closePatientInfo.selected = false;
+            this.btn_closePatientInfo.Size = new System.Drawing.Size(117, 48);
+            this.btn_closePatientInfo.TabIndex = 56;
+            this.btn_closePatientInfo.Text = "Close";
+            this.btn_closePatientInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_closePatientInfo.Textcolor = System.Drawing.Color.White;
+            this.btn_closePatientInfo.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_closePatientInfo.Click += new System.EventHandler(this.btn_closePatientInfo_Click);
             // 
             // ShowPatientInfo
             // 
@@ -1133,22 +1531,25 @@
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.TreatmentHistory_TAB.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.TreatmentHistory_DG)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Notes_TAB.ResumeLayout(false);
             this.Notes_TAB.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NoteDD)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TreatmentHistory_DG)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NoteDD)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1231,5 +1632,41 @@
         private System.Windows.Forms.Panel panel5;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel5;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 }

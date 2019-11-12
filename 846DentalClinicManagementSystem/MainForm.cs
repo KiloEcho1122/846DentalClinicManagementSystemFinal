@@ -80,7 +80,6 @@ namespace _846DentalClinicManagementSystem
             PatientPanelSearch("");
             //c1 = this;
             setAutoScrollfalse();
-            autosuggest();
         }
 
         //Main Panel Start
@@ -622,29 +621,7 @@ namespace _846DentalClinicManagementSystem
             PatientPanelSearch(search);
         }
 
-        private void autosuggest()
-        {
-            AutoCompleteStringCollection myCollection = new AutoCompleteStringCollection();
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            
-            SqlCommand cmd = new SqlCommand("SELECT PatientFullName FROM Patient", sqlcon);
-            sqlcon.Open();
-            SqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
-            {
-                myCollection.Add(reader.GetString(0));
-            }
-            sqlcon.Close();
-            txttxt.AutoCompleteCustomSource = myCollection;
-            foreach (var i in myCollection)
-            {
-                Console.WriteLine(i);
-
-            }
-            
-            
-        }
-
+      
         public void PatientPanelSearch(String search)
         {
             
