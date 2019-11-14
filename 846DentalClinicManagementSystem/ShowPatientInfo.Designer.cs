@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle249 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle250 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle251 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle252 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle253 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle254 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle255 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle256 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowPatientInfo));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.TopPanel2 = new System.Windows.Forms.Panel();
@@ -69,6 +69,38 @@
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.TeethPanel3 = new System.Windows.Forms.Panel();
+            this.TeethPanel1 = new System.Windows.Forms.Panel();
+            this.TeethPanel2 = new System.Windows.Forms.Panel();
+            this.TeethPanel8 = new System.Windows.Forms.Panel();
+            this.TeethPanel4 = new System.Windows.Forms.Panel();
+            this.TeethPanel7 = new System.Windows.Forms.Panel();
+            this.TeethPanel5 = new System.Windows.Forms.Panel();
+            this.TeethPanel6 = new System.Windows.Forms.Panel();
+            this.TeethPanel9 = new System.Windows.Forms.Panel();
+            this.TeethPanel10 = new System.Windows.Forms.Panel();
+            this.TeethPanel16 = new System.Windows.Forms.Panel();
+            this.TeethPanel11 = new System.Windows.Forms.Panel();
+            this.TeethPanel15 = new System.Windows.Forms.Panel();
+            this.TeethPanel12 = new System.Windows.Forms.Panel();
+            this.TeethPanel14 = new System.Windows.Forms.Panel();
+            this.TeethPanel13 = new System.Windows.Forms.Panel();
+            this.TeethPanel17 = new System.Windows.Forms.Panel();
+            this.TeethPanel18 = new System.Windows.Forms.Panel();
+            this.TeethPanel24 = new System.Windows.Forms.Panel();
+            this.TeethPanel19 = new System.Windows.Forms.Panel();
+            this.TeethPanel23 = new System.Windows.Forms.Panel();
+            this.TeethPanel20 = new System.Windows.Forms.Panel();
+            this.TeethPanel22 = new System.Windows.Forms.Panel();
+            this.TeethPanel21 = new System.Windows.Forms.Panel();
+            this.TeethPanel25 = new System.Windows.Forms.Panel();
+            this.TeethPanel32 = new System.Windows.Forms.Panel();
+            this.TeethPanel26 = new System.Windows.Forms.Panel();
+            this.TeethPanel31 = new System.Windows.Forms.Panel();
+            this.TeethPanel27 = new System.Windows.Forms.Panel();
+            this.TeethPanel30 = new System.Windows.Forms.Panel();
+            this.TeethPanel28 = new System.Windows.Forms.Panel();
+            this.TeethPanel29 = new System.Windows.Forms.Panel();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
@@ -104,38 +136,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.TeethPanel25 = new System.Windows.Forms.Panel();
-            this.TeethPanel17 = new System.Windows.Forms.Panel();
-            this.TeethPanel9 = new System.Windows.Forms.Panel();
-            this.TeethPanel3 = new System.Windows.Forms.Panel();
-            this.TeethPanel1 = new System.Windows.Forms.Panel();
-            this.TeethPanel2 = new System.Windows.Forms.Panel();
-            this.TeethPanel32 = new System.Windows.Forms.Panel();
-            this.TeethPanel18 = new System.Windows.Forms.Panel();
-            this.TeethPanel24 = new System.Windows.Forms.Panel();
-            this.TeethPanel10 = new System.Windows.Forms.Panel();
-            this.TeethPanel16 = new System.Windows.Forms.Panel();
-            this.TeethPanel26 = new System.Windows.Forms.Panel();
-            this.TeethPanel8 = new System.Windows.Forms.Panel();
-            this.TeethPanel19 = new System.Windows.Forms.Panel();
-            this.TeethPanel31 = new System.Windows.Forms.Panel();
-            this.TeethPanel11 = new System.Windows.Forms.Panel();
-            this.TeethPanel23 = new System.Windows.Forms.Panel();
-            this.TeethPanel4 = new System.Windows.Forms.Panel();
-            this.TeethPanel15 = new System.Windows.Forms.Panel();
-            this.TeethPanel27 = new System.Windows.Forms.Panel();
-            this.TeethPanel7 = new System.Windows.Forms.Panel();
-            this.TeethPanel12 = new System.Windows.Forms.Panel();
-            this.TeethPanel30 = new System.Windows.Forms.Panel();
-            this.TeethPanel20 = new System.Windows.Forms.Panel();
-            this.TeethPanel22 = new System.Windows.Forms.Panel();
-            this.TeethPanel28 = new System.Windows.Forms.Panel();
-            this.TeethPanel14 = new System.Windows.Forms.Panel();
-            this.TeethPanel5 = new System.Windows.Forms.Panel();
-            this.TeethPanel6 = new System.Windows.Forms.Panel();
-            this.TeethPanel13 = new System.Windows.Forms.Panel();
-            this.TeethPanel29 = new System.Windows.Forms.Panel();
-            this.TeethPanel21 = new System.Windows.Forms.Panel();
             this.TreatmentHistory_TAB = new System.Windows.Forms.TabPage();
             this.TreatmentHistory_DG = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -397,31 +397,31 @@
             this.Billing_DataGrid.AllowUserToAddRows = false;
             this.Billing_DataGrid.AllowUserToDeleteRows = false;
             this.Billing_DataGrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Billing_DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle249.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Billing_DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle249;
             this.Billing_DataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Billing_DataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.Billing_DataGrid.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.Billing_DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Billing_DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Billing_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle250.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle250.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle250.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle250.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle250.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle250.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle250.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Billing_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle250;
             this.Billing_DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Billing_DataGrid.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Billing_DataGrid.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle251.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle251.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle251.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle251.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle251.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle251.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle251.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Billing_DataGrid.DefaultCellStyle = dataGridViewCellStyle251;
             this.Billing_DataGrid.DoubleBuffered = true;
             this.Billing_DataGrid.EnableHeadersVisualStyles = false;
             this.Billing_DataGrid.HeaderBgColor = System.Drawing.Color.SeaGreen;
@@ -566,6 +566,38 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.TeethPanel3);
+            this.panel1.Controls.Add(this.TeethPanel1);
+            this.panel1.Controls.Add(this.TeethPanel2);
+            this.panel1.Controls.Add(this.TeethPanel8);
+            this.panel1.Controls.Add(this.TeethPanel4);
+            this.panel1.Controls.Add(this.TeethPanel7);
+            this.panel1.Controls.Add(this.TeethPanel5);
+            this.panel1.Controls.Add(this.TeethPanel6);
+            this.panel1.Controls.Add(this.TeethPanel9);
+            this.panel1.Controls.Add(this.TeethPanel10);
+            this.panel1.Controls.Add(this.TeethPanel16);
+            this.panel1.Controls.Add(this.TeethPanel11);
+            this.panel1.Controls.Add(this.TeethPanel15);
+            this.panel1.Controls.Add(this.TeethPanel12);
+            this.panel1.Controls.Add(this.TeethPanel14);
+            this.panel1.Controls.Add(this.TeethPanel13);
+            this.panel1.Controls.Add(this.TeethPanel17);
+            this.panel1.Controls.Add(this.TeethPanel18);
+            this.panel1.Controls.Add(this.TeethPanel24);
+            this.panel1.Controls.Add(this.TeethPanel19);
+            this.panel1.Controls.Add(this.TeethPanel23);
+            this.panel1.Controls.Add(this.TeethPanel20);
+            this.panel1.Controls.Add(this.TeethPanel22);
+            this.panel1.Controls.Add(this.TeethPanel21);
+            this.panel1.Controls.Add(this.TeethPanel25);
+            this.panel1.Controls.Add(this.TeethPanel32);
+            this.panel1.Controls.Add(this.TeethPanel26);
+            this.panel1.Controls.Add(this.TeethPanel31);
+            this.panel1.Controls.Add(this.TeethPanel27);
+            this.panel1.Controls.Add(this.TeethPanel30);
+            this.panel1.Controls.Add(this.TeethPanel28);
+            this.panel1.Controls.Add(this.TeethPanel29);
             this.panel1.Controls.Add(this.pictureBox6);
             this.panel1.Controls.Add(this.label26);
             this.panel1.Controls.Add(this.label27);
@@ -601,43 +633,330 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.panel8);
             this.panel1.Controls.Add(this.panel7);
-            this.panel1.Controls.Add(this.TeethPanel25);
-            this.panel1.Controls.Add(this.TeethPanel17);
-            this.panel1.Controls.Add(this.TeethPanel9);
-            this.panel1.Controls.Add(this.TeethPanel3);
-            this.panel1.Controls.Add(this.TeethPanel1);
-            this.panel1.Controls.Add(this.TeethPanel2);
-            this.panel1.Controls.Add(this.TeethPanel32);
-            this.panel1.Controls.Add(this.TeethPanel18);
-            this.panel1.Controls.Add(this.TeethPanel24);
-            this.panel1.Controls.Add(this.TeethPanel10);
-            this.panel1.Controls.Add(this.TeethPanel16);
-            this.panel1.Controls.Add(this.TeethPanel26);
-            this.panel1.Controls.Add(this.TeethPanel8);
-            this.panel1.Controls.Add(this.TeethPanel19);
-            this.panel1.Controls.Add(this.TeethPanel31);
-            this.panel1.Controls.Add(this.TeethPanel11);
-            this.panel1.Controls.Add(this.TeethPanel23);
-            this.panel1.Controls.Add(this.TeethPanel4);
-            this.panel1.Controls.Add(this.TeethPanel15);
-            this.panel1.Controls.Add(this.TeethPanel27);
-            this.panel1.Controls.Add(this.TeethPanel7);
-            this.panel1.Controls.Add(this.TeethPanel12);
-            this.panel1.Controls.Add(this.TeethPanel30);
-            this.panel1.Controls.Add(this.TeethPanel20);
-            this.panel1.Controls.Add(this.TeethPanel22);
-            this.panel1.Controls.Add(this.TeethPanel28);
-            this.panel1.Controls.Add(this.TeethPanel14);
-            this.panel1.Controls.Add(this.TeethPanel5);
-            this.panel1.Controls.Add(this.TeethPanel6);
-            this.panel1.Controls.Add(this.TeethPanel13);
-            this.panel1.Controls.Add(this.TeethPanel29);
-            this.panel1.Controls.Add(this.TeethPanel21);
             this.panel1.Location = new System.Drawing.Point(178, 54);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(755, 288);
             this.panel1.TabIndex = 1;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // TeethPanel3
+            // 
+            this.TeethPanel3.BackColor = System.Drawing.Color.White;
+            this.TeethPanel3.Location = new System.Drawing.Point(106, 34);
+            this.TeethPanel3.Name = "TeethPanel3";
+            this.TeethPanel3.Size = new System.Drawing.Size(33, 34);
+            this.TeethPanel3.TabIndex = 190;
+            this.TeethPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel3_Paint);
+            this.TeethPanel3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel3_MouseClick);
+            // 
+            // TeethPanel1
+            // 
+            this.TeethPanel1.BackColor = System.Drawing.Color.White;
+            this.TeethPanel1.Location = new System.Drawing.Point(16, 34);
+            this.TeethPanel1.Name = "TeethPanel1";
+            this.TeethPanel1.Size = new System.Drawing.Size(33, 34);
+            this.TeethPanel1.TabIndex = 195;
+            this.TeethPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel1_Paint);
+            this.TeethPanel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel1_MouseClick);
+            // 
+            // TeethPanel2
+            // 
+            this.TeethPanel2.BackColor = System.Drawing.Color.White;
+            this.TeethPanel2.Location = new System.Drawing.Point(61, 34);
+            this.TeethPanel2.Name = "TeethPanel2";
+            this.TeethPanel2.Size = new System.Drawing.Size(33, 34);
+            this.TeethPanel2.TabIndex = 189;
+            this.TeethPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel2_Paint);
+            this.TeethPanel2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel2_MouseClick);
+            // 
+            // TeethPanel8
+            // 
+            this.TeethPanel8.BackColor = System.Drawing.Color.White;
+            this.TeethPanel8.Location = new System.Drawing.Point(331, 34);
+            this.TeethPanel8.Name = "TeethPanel8";
+            this.TeethPanel8.Size = new System.Drawing.Size(33, 34);
+            this.TeethPanel8.TabIndex = 196;
+            this.TeethPanel8.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel8_Paint);
+            this.TeethPanel8.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel8_MouseClick);
+            // 
+            // TeethPanel4
+            // 
+            this.TeethPanel4.BackColor = System.Drawing.Color.White;
+            this.TeethPanel4.Location = new System.Drawing.Point(151, 34);
+            this.TeethPanel4.Name = "TeethPanel4";
+            this.TeethPanel4.Size = new System.Drawing.Size(33, 34);
+            this.TeethPanel4.TabIndex = 191;
+            this.TeethPanel4.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel4_Paint);
+            this.TeethPanel4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel4_MouseClick);
+            // 
+            // TeethPanel7
+            // 
+            this.TeethPanel7.BackColor = System.Drawing.Color.White;
+            this.TeethPanel7.Location = new System.Drawing.Point(286, 34);
+            this.TeethPanel7.Name = "TeethPanel7";
+            this.TeethPanel7.Size = new System.Drawing.Size(33, 34);
+            this.TeethPanel7.TabIndex = 193;
+            this.TeethPanel7.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel7_Paint);
+            this.TeethPanel7.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel7_MouseClick);
+            // 
+            // TeethPanel5
+            // 
+            this.TeethPanel5.BackColor = System.Drawing.Color.White;
+            this.TeethPanel5.Location = new System.Drawing.Point(196, 34);
+            this.TeethPanel5.Name = "TeethPanel5";
+            this.TeethPanel5.Size = new System.Drawing.Size(33, 34);
+            this.TeethPanel5.TabIndex = 192;
+            this.TeethPanel5.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel5_Paint);
+            this.TeethPanel5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel5_MouseClick);
+            // 
+            // TeethPanel6
+            // 
+            this.TeethPanel6.BackColor = System.Drawing.Color.White;
+            this.TeethPanel6.Location = new System.Drawing.Point(241, 34);
+            this.TeethPanel6.Name = "TeethPanel6";
+            this.TeethPanel6.Size = new System.Drawing.Size(33, 34);
+            this.TeethPanel6.TabIndex = 194;
+            this.TeethPanel6.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel6_Paint);
+            this.TeethPanel6.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel6_MouseClick);
+            // 
+            // TeethPanel9
+            // 
+            this.TeethPanel9.BackColor = System.Drawing.Color.White;
+            this.TeethPanel9.Location = new System.Drawing.Point(389, 34);
+            this.TeethPanel9.Name = "TeethPanel9";
+            this.TeethPanel9.Size = new System.Drawing.Size(33, 34);
+            this.TeethPanel9.TabIndex = 182;
+            this.TeethPanel9.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel9_Paint);
+            this.TeethPanel9.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel9_MouseClick);
+            // 
+            // TeethPanel10
+            // 
+            this.TeethPanel10.BackColor = System.Drawing.Color.White;
+            this.TeethPanel10.Location = new System.Drawing.Point(434, 34);
+            this.TeethPanel10.Name = "TeethPanel10";
+            this.TeethPanel10.Size = new System.Drawing.Size(33, 34);
+            this.TeethPanel10.TabIndex = 181;
+            this.TeethPanel10.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel10_Paint);
+            this.TeethPanel10.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel10_MouseClick);
+            // 
+            // TeethPanel16
+            // 
+            this.TeethPanel16.BackColor = System.Drawing.Color.White;
+            this.TeethPanel16.Location = new System.Drawing.Point(704, 34);
+            this.TeethPanel16.Name = "TeethPanel16";
+            this.TeethPanel16.Size = new System.Drawing.Size(33, 34);
+            this.TeethPanel16.TabIndex = 188;
+            this.TeethPanel16.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel16_Paint);
+            this.TeethPanel16.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel16_MouseClick);
+            // 
+            // TeethPanel11
+            // 
+            this.TeethPanel11.BackColor = System.Drawing.Color.White;
+            this.TeethPanel11.Location = new System.Drawing.Point(479, 34);
+            this.TeethPanel11.Name = "TeethPanel11";
+            this.TeethPanel11.Size = new System.Drawing.Size(33, 34);
+            this.TeethPanel11.TabIndex = 187;
+            this.TeethPanel11.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel11_Paint);
+            this.TeethPanel11.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel11_MouseClick);
+            // 
+            // TeethPanel15
+            // 
+            this.TeethPanel15.BackColor = System.Drawing.Color.White;
+            this.TeethPanel15.Location = new System.Drawing.Point(659, 34);
+            this.TeethPanel15.Name = "TeethPanel15";
+            this.TeethPanel15.Size = new System.Drawing.Size(33, 34);
+            this.TeethPanel15.TabIndex = 183;
+            this.TeethPanel15.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel15_Paint);
+            this.TeethPanel15.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel15_MouseClick);
+            // 
+            // TeethPanel12
+            // 
+            this.TeethPanel12.BackColor = System.Drawing.Color.White;
+            this.TeethPanel12.Location = new System.Drawing.Point(524, 34);
+            this.TeethPanel12.Name = "TeethPanel12";
+            this.TeethPanel12.Size = new System.Drawing.Size(33, 34);
+            this.TeethPanel12.TabIndex = 186;
+            this.TeethPanel12.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel12_Paint);
+            this.TeethPanel12.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel12_MouseClick);
+            // 
+            // TeethPanel14
+            // 
+            this.TeethPanel14.BackColor = System.Drawing.Color.White;
+            this.TeethPanel14.Location = new System.Drawing.Point(614, 34);
+            this.TeethPanel14.Name = "TeethPanel14";
+            this.TeethPanel14.Size = new System.Drawing.Size(33, 34);
+            this.TeethPanel14.TabIndex = 184;
+            this.TeethPanel14.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel14_Paint);
+            this.TeethPanel14.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel14_MouseClick);
+            // 
+            // TeethPanel13
+            // 
+            this.TeethPanel13.BackColor = System.Drawing.Color.White;
+            this.TeethPanel13.Location = new System.Drawing.Point(569, 34);
+            this.TeethPanel13.Name = "TeethPanel13";
+            this.TeethPanel13.Size = new System.Drawing.Size(33, 34);
+            this.TeethPanel13.TabIndex = 185;
+            this.TeethPanel13.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel13_Paint);
+            this.TeethPanel13.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel13_MouseClick);
+            // 
+            // TeethPanel17
+            // 
+            this.TeethPanel17.BackColor = System.Drawing.Color.White;
+            this.TeethPanel17.Location = new System.Drawing.Point(16, 209);
+            this.TeethPanel17.Name = "TeethPanel17";
+            this.TeethPanel17.Size = new System.Drawing.Size(33, 34);
+            this.TeethPanel17.TabIndex = 174;
+            this.TeethPanel17.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel17_Paint);
+            this.TeethPanel17.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel17_MouseClick);
+            // 
+            // TeethPanel18
+            // 
+            this.TeethPanel18.BackColor = System.Drawing.Color.White;
+            this.TeethPanel18.Location = new System.Drawing.Point(61, 209);
+            this.TeethPanel18.Name = "TeethPanel18";
+            this.TeethPanel18.Size = new System.Drawing.Size(33, 34);
+            this.TeethPanel18.TabIndex = 173;
+            this.TeethPanel18.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel18_Paint);
+            this.TeethPanel18.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel18_MouseClick);
+            // 
+            // TeethPanel24
+            // 
+            this.TeethPanel24.BackColor = System.Drawing.Color.White;
+            this.TeethPanel24.Location = new System.Drawing.Point(331, 209);
+            this.TeethPanel24.Name = "TeethPanel24";
+            this.TeethPanel24.Size = new System.Drawing.Size(33, 34);
+            this.TeethPanel24.TabIndex = 180;
+            this.TeethPanel24.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel24_Paint);
+            this.TeethPanel24.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel24_MouseClick);
+            // 
+            // TeethPanel19
+            // 
+            this.TeethPanel19.BackColor = System.Drawing.Color.White;
+            this.TeethPanel19.Location = new System.Drawing.Point(106, 209);
+            this.TeethPanel19.Name = "TeethPanel19";
+            this.TeethPanel19.Size = new System.Drawing.Size(33, 34);
+            this.TeethPanel19.TabIndex = 179;
+            this.TeethPanel19.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel19_Paint);
+            this.TeethPanel19.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel19_MouseClick);
+            // 
+            // TeethPanel23
+            // 
+            this.TeethPanel23.BackColor = System.Drawing.Color.White;
+            this.TeethPanel23.Location = new System.Drawing.Point(286, 209);
+            this.TeethPanel23.Name = "TeethPanel23";
+            this.TeethPanel23.Size = new System.Drawing.Size(33, 34);
+            this.TeethPanel23.TabIndex = 175;
+            this.TeethPanel23.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel23_Paint);
+            this.TeethPanel23.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel23_MouseClick);
+            // 
+            // TeethPanel20
+            // 
+            this.TeethPanel20.BackColor = System.Drawing.Color.White;
+            this.TeethPanel20.Location = new System.Drawing.Point(151, 209);
+            this.TeethPanel20.Name = "TeethPanel20";
+            this.TeethPanel20.Size = new System.Drawing.Size(33, 34);
+            this.TeethPanel20.TabIndex = 178;
+            this.TeethPanel20.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel20_Paint);
+            this.TeethPanel20.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel20_MouseClick);
+            // 
+            // TeethPanel22
+            // 
+            this.TeethPanel22.BackColor = System.Drawing.Color.White;
+            this.TeethPanel22.Location = new System.Drawing.Point(241, 209);
+            this.TeethPanel22.Name = "TeethPanel22";
+            this.TeethPanel22.Size = new System.Drawing.Size(33, 34);
+            this.TeethPanel22.TabIndex = 176;
+            this.TeethPanel22.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel22_Paint);
+            this.TeethPanel22.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel22_MouseClick);
+            // 
+            // TeethPanel21
+            // 
+            this.TeethPanel21.BackColor = System.Drawing.Color.White;
+            this.TeethPanel21.Location = new System.Drawing.Point(196, 209);
+            this.TeethPanel21.Name = "TeethPanel21";
+            this.TeethPanel21.Size = new System.Drawing.Size(33, 34);
+            this.TeethPanel21.TabIndex = 177;
+            this.TeethPanel21.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel21_Paint);
+            this.TeethPanel21.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel21_MouseClick);
+            // 
+            // TeethPanel25
+            // 
+            this.TeethPanel25.BackColor = System.Drawing.Color.White;
+            this.TeethPanel25.Location = new System.Drawing.Point(389, 209);
+            this.TeethPanel25.Name = "TeethPanel25";
+            this.TeethPanel25.Size = new System.Drawing.Size(33, 34);
+            this.TeethPanel25.TabIndex = 166;
+            this.TeethPanel25.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel25_Paint);
+            this.TeethPanel25.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel25_MouseClick);
+            // 
+            // TeethPanel32
+            // 
+            this.TeethPanel32.BackColor = System.Drawing.Color.White;
+            this.TeethPanel32.Location = new System.Drawing.Point(704, 209);
+            this.TeethPanel32.Name = "TeethPanel32";
+            this.TeethPanel32.Size = new System.Drawing.Size(33, 34);
+            this.TeethPanel32.TabIndex = 172;
+            this.TeethPanel32.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel32_Paint);
+            this.TeethPanel32.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel32_MouseClick);
+            // 
+            // TeethPanel26
+            // 
+            this.TeethPanel26.BackColor = System.Drawing.Color.White;
+            this.TeethPanel26.Location = new System.Drawing.Point(434, 209);
+            this.TeethPanel26.Name = "TeethPanel26";
+            this.TeethPanel26.Size = new System.Drawing.Size(33, 34);
+            this.TeethPanel26.TabIndex = 165;
+            this.TeethPanel26.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel26_Paint);
+            this.TeethPanel26.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel26_MouseClick);
+            // 
+            // TeethPanel31
+            // 
+            this.TeethPanel31.BackColor = System.Drawing.Color.White;
+            this.TeethPanel31.Location = new System.Drawing.Point(659, 209);
+            this.TeethPanel31.Name = "TeethPanel31";
+            this.TeethPanel31.Size = new System.Drawing.Size(33, 34);
+            this.TeethPanel31.TabIndex = 167;
+            this.TeethPanel31.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel31_Paint);
+            this.TeethPanel31.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel31_MouseClick);
+            // 
+            // TeethPanel27
+            // 
+            this.TeethPanel27.BackColor = System.Drawing.Color.White;
+            this.TeethPanel27.Location = new System.Drawing.Point(479, 209);
+            this.TeethPanel27.Name = "TeethPanel27";
+            this.TeethPanel27.Size = new System.Drawing.Size(33, 34);
+            this.TeethPanel27.TabIndex = 171;
+            this.TeethPanel27.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel27_Paint);
+            this.TeethPanel27.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel27_MouseClick);
+            // 
+            // TeethPanel30
+            // 
+            this.TeethPanel30.BackColor = System.Drawing.Color.White;
+            this.TeethPanel30.Location = new System.Drawing.Point(614, 209);
+            this.TeethPanel30.Name = "TeethPanel30";
+            this.TeethPanel30.Size = new System.Drawing.Size(33, 34);
+            this.TeethPanel30.TabIndex = 168;
+            this.TeethPanel30.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel30_Paint);
+            this.TeethPanel30.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel30_MouseClick);
+            // 
+            // TeethPanel28
+            // 
+            this.TeethPanel28.BackColor = System.Drawing.Color.White;
+            this.TeethPanel28.Location = new System.Drawing.Point(524, 209);
+            this.TeethPanel28.Name = "TeethPanel28";
+            this.TeethPanel28.Size = new System.Drawing.Size(33, 34);
+            this.TeethPanel28.TabIndex = 170;
+            this.TeethPanel28.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel28_Paint);
+            this.TeethPanel28.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel28_MouseClick);
+            // 
+            // TeethPanel29
+            // 
+            this.TeethPanel29.BackColor = System.Drawing.Color.White;
+            this.TeethPanel29.Location = new System.Drawing.Point(569, 209);
+            this.TeethPanel29.Name = "TeethPanel29";
+            this.TeethPanel29.Size = new System.Drawing.Size(33, 34);
+            this.TeethPanel29.TabIndex = 169;
+            this.TeethPanel29.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel29_Paint);
+            this.TeethPanel29.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel29_MouseClick);
             // 
             // pictureBox6
             // 
@@ -954,326 +1273,6 @@
             this.panel7.Size = new System.Drawing.Size(755, 1);
             this.panel7.TabIndex = 123;
             // 
-            // TeethPanel25
-            // 
-            this.TeethPanel25.BackColor = System.Drawing.Color.White;
-            this.TeethPanel25.Location = new System.Drawing.Point(389, 209);
-            this.TeethPanel25.Name = "TeethPanel25";
-            this.TeethPanel25.Size = new System.Drawing.Size(33, 34);
-            this.TeethPanel25.TabIndex = 116;
-            this.TeethPanel25.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel25_Paint);
-            this.TeethPanel25.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel25_MouseClick);
-            // 
-            // TeethPanel17
-            // 
-            this.TeethPanel17.BackColor = System.Drawing.Color.White;
-            this.TeethPanel17.Location = new System.Drawing.Point(16, 209);
-            this.TeethPanel17.Name = "TeethPanel17";
-            this.TeethPanel17.Size = new System.Drawing.Size(33, 34);
-            this.TeethPanel17.TabIndex = 100;
-            this.TeethPanel17.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel17_Paint);
-            this.TeethPanel17.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel17_MouseClick);
-            // 
-            // TeethPanel9
-            // 
-            this.TeethPanel9.BackColor = System.Drawing.Color.White;
-            this.TeethPanel9.Location = new System.Drawing.Point(389, 34);
-            this.TeethPanel9.Name = "TeethPanel9";
-            this.TeethPanel9.Size = new System.Drawing.Size(33, 34);
-            this.TeethPanel9.TabIndex = 108;
-            this.TeethPanel9.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel9_Paint);
-            this.TeethPanel9.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel9_MouseClick);
-            // 
-            // TeethPanel3
-            // 
-            this.TeethPanel3.BackColor = System.Drawing.Color.White;
-            this.TeethPanel3.Location = new System.Drawing.Point(106, 34);
-            this.TeethPanel3.Name = "TeethPanel3";
-            this.TeethPanel3.Size = new System.Drawing.Size(33, 34);
-            this.TeethPanel3.TabIndex = 92;
-            this.TeethPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel3_Paint);
-            this.TeethPanel3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel3_MouseClick);
-            // 
-            // TeethPanel1
-            // 
-            this.TeethPanel1.BackColor = System.Drawing.Color.White;
-            this.TeethPanel1.Location = new System.Drawing.Point(16, 34);
-            this.TeethPanel1.Name = "TeethPanel1";
-            this.TeethPanel1.Size = new System.Drawing.Size(33, 34);
-            this.TeethPanel1.TabIndex = 97;
-            this.TeethPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel1_Paint);
-            this.TeethPanel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel1_MouseClick);
-            // 
-            // TeethPanel2
-            // 
-            this.TeethPanel2.BackColor = System.Drawing.Color.White;
-            this.TeethPanel2.Location = new System.Drawing.Point(61, 34);
-            this.TeethPanel2.Name = "TeethPanel2";
-            this.TeethPanel2.Size = new System.Drawing.Size(33, 34);
-            this.TeethPanel2.TabIndex = 91;
-            this.TeethPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel2_Paint);
-            this.TeethPanel2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel2_MouseClick);
-            // 
-            // TeethPanel32
-            // 
-            this.TeethPanel32.BackColor = System.Drawing.Color.White;
-            this.TeethPanel32.Location = new System.Drawing.Point(704, 209);
-            this.TeethPanel32.Name = "TeethPanel32";
-            this.TeethPanel32.Size = new System.Drawing.Size(33, 34);
-            this.TeethPanel32.TabIndex = 122;
-            this.TeethPanel32.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel32_Paint);
-            this.TeethPanel32.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel32_MouseClick);
-            // 
-            // TeethPanel18
-            // 
-            this.TeethPanel18.BackColor = System.Drawing.Color.White;
-            this.TeethPanel18.Location = new System.Drawing.Point(61, 209);
-            this.TeethPanel18.Name = "TeethPanel18";
-            this.TeethPanel18.Size = new System.Drawing.Size(33, 34);
-            this.TeethPanel18.TabIndex = 99;
-            this.TeethPanel18.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel18_Paint);
-            this.TeethPanel18.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel18_MouseClick);
-            // 
-            // TeethPanel24
-            // 
-            this.TeethPanel24.BackColor = System.Drawing.Color.White;
-            this.TeethPanel24.Location = new System.Drawing.Point(331, 209);
-            this.TeethPanel24.Name = "TeethPanel24";
-            this.TeethPanel24.Size = new System.Drawing.Size(33, 34);
-            this.TeethPanel24.TabIndex = 106;
-            this.TeethPanel24.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel24_Paint);
-            this.TeethPanel24.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel24_MouseClick);
-            // 
-            // TeethPanel10
-            // 
-            this.TeethPanel10.BackColor = System.Drawing.Color.White;
-            this.TeethPanel10.Location = new System.Drawing.Point(434, 34);
-            this.TeethPanel10.Name = "TeethPanel10";
-            this.TeethPanel10.Size = new System.Drawing.Size(33, 34);
-            this.TeethPanel10.TabIndex = 107;
-            this.TeethPanel10.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel10_Paint);
-            this.TeethPanel10.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel10_MouseClick);
-            // 
-            // TeethPanel16
-            // 
-            this.TeethPanel16.BackColor = System.Drawing.Color.White;
-            this.TeethPanel16.Location = new System.Drawing.Point(704, 34);
-            this.TeethPanel16.Name = "TeethPanel16";
-            this.TeethPanel16.Size = new System.Drawing.Size(33, 34);
-            this.TeethPanel16.TabIndex = 114;
-            this.TeethPanel16.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel16_Paint);
-            this.TeethPanel16.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel16_MouseClick);
-            // 
-            // TeethPanel26
-            // 
-            this.TeethPanel26.BackColor = System.Drawing.Color.White;
-            this.TeethPanel26.Location = new System.Drawing.Point(434, 209);
-            this.TeethPanel26.Name = "TeethPanel26";
-            this.TeethPanel26.Size = new System.Drawing.Size(33, 34);
-            this.TeethPanel26.TabIndex = 115;
-            this.TeethPanel26.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel26_Paint);
-            this.TeethPanel26.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel26_MouseClick);
-            // 
-            // TeethPanel8
-            // 
-            this.TeethPanel8.BackColor = System.Drawing.Color.White;
-            this.TeethPanel8.Location = new System.Drawing.Point(331, 34);
-            this.TeethPanel8.Name = "TeethPanel8";
-            this.TeethPanel8.Size = new System.Drawing.Size(33, 34);
-            this.TeethPanel8.TabIndex = 98;
-            this.TeethPanel8.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel8_Paint);
-            this.TeethPanel8.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel8_MouseClick);
-            // 
-            // TeethPanel19
-            // 
-            this.TeethPanel19.BackColor = System.Drawing.Color.White;
-            this.TeethPanel19.Location = new System.Drawing.Point(106, 209);
-            this.TeethPanel19.Name = "TeethPanel19";
-            this.TeethPanel19.Size = new System.Drawing.Size(33, 34);
-            this.TeethPanel19.TabIndex = 105;
-            this.TeethPanel19.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel19_Paint);
-            this.TeethPanel19.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel19_MouseClick);
-            // 
-            // TeethPanel31
-            // 
-            this.TeethPanel31.BackColor = System.Drawing.Color.White;
-            this.TeethPanel31.Location = new System.Drawing.Point(659, 209);
-            this.TeethPanel31.Name = "TeethPanel31";
-            this.TeethPanel31.Size = new System.Drawing.Size(33, 34);
-            this.TeethPanel31.TabIndex = 117;
-            this.TeethPanel31.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel31_Paint);
-            this.TeethPanel31.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel31_MouseClick);
-            // 
-            // TeethPanel11
-            // 
-            this.TeethPanel11.BackColor = System.Drawing.Color.White;
-            this.TeethPanel11.Location = new System.Drawing.Point(479, 34);
-            this.TeethPanel11.Name = "TeethPanel11";
-            this.TeethPanel11.Size = new System.Drawing.Size(33, 34);
-            this.TeethPanel11.TabIndex = 113;
-            this.TeethPanel11.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel11_Paint);
-            this.TeethPanel11.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel11_MouseClick);
-            // 
-            // TeethPanel23
-            // 
-            this.TeethPanel23.BackColor = System.Drawing.Color.White;
-            this.TeethPanel23.Location = new System.Drawing.Point(286, 209);
-            this.TeethPanel23.Name = "TeethPanel23";
-            this.TeethPanel23.Size = new System.Drawing.Size(33, 34);
-            this.TeethPanel23.TabIndex = 101;
-            this.TeethPanel23.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel23_Paint);
-            this.TeethPanel23.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel23_MouseClick);
-            // 
-            // TeethPanel4
-            // 
-            this.TeethPanel4.BackColor = System.Drawing.Color.White;
-            this.TeethPanel4.Location = new System.Drawing.Point(151, 34);
-            this.TeethPanel4.Name = "TeethPanel4";
-            this.TeethPanel4.Size = new System.Drawing.Size(33, 34);
-            this.TeethPanel4.TabIndex = 93;
-            this.TeethPanel4.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel4_Paint);
-            this.TeethPanel4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel4_MouseClick);
-            // 
-            // TeethPanel15
-            // 
-            this.TeethPanel15.BackColor = System.Drawing.Color.White;
-            this.TeethPanel15.Location = new System.Drawing.Point(659, 34);
-            this.TeethPanel15.Name = "TeethPanel15";
-            this.TeethPanel15.Size = new System.Drawing.Size(33, 34);
-            this.TeethPanel15.TabIndex = 109;
-            this.TeethPanel15.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel15_Paint);
-            this.TeethPanel15.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel15_MouseClick);
-            // 
-            // TeethPanel27
-            // 
-            this.TeethPanel27.BackColor = System.Drawing.Color.White;
-            this.TeethPanel27.Location = new System.Drawing.Point(479, 209);
-            this.TeethPanel27.Name = "TeethPanel27";
-            this.TeethPanel27.Size = new System.Drawing.Size(33, 34);
-            this.TeethPanel27.TabIndex = 121;
-            this.TeethPanel27.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel27_Paint);
-            this.TeethPanel27.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel27_MouseClick);
-            // 
-            // TeethPanel7
-            // 
-            this.TeethPanel7.BackColor = System.Drawing.Color.White;
-            this.TeethPanel7.Location = new System.Drawing.Point(286, 34);
-            this.TeethPanel7.Name = "TeethPanel7";
-            this.TeethPanel7.Size = new System.Drawing.Size(33, 34);
-            this.TeethPanel7.TabIndex = 95;
-            this.TeethPanel7.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel7_Paint);
-            this.TeethPanel7.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel7_MouseClick);
-            // 
-            // TeethPanel12
-            // 
-            this.TeethPanel12.BackColor = System.Drawing.Color.White;
-            this.TeethPanel12.Location = new System.Drawing.Point(524, 34);
-            this.TeethPanel12.Name = "TeethPanel12";
-            this.TeethPanel12.Size = new System.Drawing.Size(33, 34);
-            this.TeethPanel12.TabIndex = 112;
-            this.TeethPanel12.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel12_Paint);
-            this.TeethPanel12.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel12_MouseClick);
-            // 
-            // TeethPanel30
-            // 
-            this.TeethPanel30.BackColor = System.Drawing.Color.White;
-            this.TeethPanel30.Location = new System.Drawing.Point(614, 209);
-            this.TeethPanel30.Name = "TeethPanel30";
-            this.TeethPanel30.Size = new System.Drawing.Size(33, 34);
-            this.TeethPanel30.TabIndex = 118;
-            this.TeethPanel30.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel30_Paint);
-            this.TeethPanel30.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel30_MouseClick);
-            // 
-            // TeethPanel20
-            // 
-            this.TeethPanel20.BackColor = System.Drawing.Color.White;
-            this.TeethPanel20.Location = new System.Drawing.Point(151, 209);
-            this.TeethPanel20.Name = "TeethPanel20";
-            this.TeethPanel20.Size = new System.Drawing.Size(33, 34);
-            this.TeethPanel20.TabIndex = 104;
-            this.TeethPanel20.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel20_Paint);
-            this.TeethPanel20.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel20_MouseClick);
-            // 
-            // TeethPanel22
-            // 
-            this.TeethPanel22.BackColor = System.Drawing.Color.White;
-            this.TeethPanel22.Location = new System.Drawing.Point(241, 209);
-            this.TeethPanel22.Name = "TeethPanel22";
-            this.TeethPanel22.Size = new System.Drawing.Size(33, 34);
-            this.TeethPanel22.TabIndex = 102;
-            this.TeethPanel22.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel22_Paint);
-            this.TeethPanel22.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel22_MouseClick);
-            // 
-            // TeethPanel28
-            // 
-            this.TeethPanel28.BackColor = System.Drawing.Color.White;
-            this.TeethPanel28.Location = new System.Drawing.Point(524, 209);
-            this.TeethPanel28.Name = "TeethPanel28";
-            this.TeethPanel28.Size = new System.Drawing.Size(33, 34);
-            this.TeethPanel28.TabIndex = 120;
-            this.TeethPanel28.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel28_Paint);
-            this.TeethPanel28.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel28_MouseClick);
-            // 
-            // TeethPanel14
-            // 
-            this.TeethPanel14.BackColor = System.Drawing.Color.White;
-            this.TeethPanel14.Location = new System.Drawing.Point(614, 34);
-            this.TeethPanel14.Name = "TeethPanel14";
-            this.TeethPanel14.Size = new System.Drawing.Size(33, 34);
-            this.TeethPanel14.TabIndex = 110;
-            this.TeethPanel14.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel14_Paint);
-            this.TeethPanel14.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel14_MouseClick);
-            // 
-            // TeethPanel5
-            // 
-            this.TeethPanel5.BackColor = System.Drawing.Color.White;
-            this.TeethPanel5.Location = new System.Drawing.Point(196, 34);
-            this.TeethPanel5.Name = "TeethPanel5";
-            this.TeethPanel5.Size = new System.Drawing.Size(33, 34);
-            this.TeethPanel5.TabIndex = 94;
-            this.TeethPanel5.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel5_Paint);
-            this.TeethPanel5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel5_MouseClick);
-            // 
-            // TeethPanel6
-            // 
-            this.TeethPanel6.BackColor = System.Drawing.Color.White;
-            this.TeethPanel6.Location = new System.Drawing.Point(241, 34);
-            this.TeethPanel6.Name = "TeethPanel6";
-            this.TeethPanel6.Size = new System.Drawing.Size(33, 34);
-            this.TeethPanel6.TabIndex = 96;
-            this.TeethPanel6.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel6_Paint);
-            this.TeethPanel6.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel6_MouseClick);
-            // 
-            // TeethPanel13
-            // 
-            this.TeethPanel13.BackColor = System.Drawing.Color.White;
-            this.TeethPanel13.Location = new System.Drawing.Point(569, 34);
-            this.TeethPanel13.Name = "TeethPanel13";
-            this.TeethPanel13.Size = new System.Drawing.Size(33, 34);
-            this.TeethPanel13.TabIndex = 111;
-            this.TeethPanel13.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel13_Paint);
-            this.TeethPanel13.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel13_MouseClick);
-            // 
-            // TeethPanel29
-            // 
-            this.TeethPanel29.BackColor = System.Drawing.Color.White;
-            this.TeethPanel29.Location = new System.Drawing.Point(569, 209);
-            this.TeethPanel29.Name = "TeethPanel29";
-            this.TeethPanel29.Size = new System.Drawing.Size(33, 34);
-            this.TeethPanel29.TabIndex = 119;
-            this.TeethPanel29.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel29_Paint);
-            this.TeethPanel29.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel29_MouseClick);
-            // 
-            // TeethPanel21
-            // 
-            this.TeethPanel21.BackColor = System.Drawing.Color.White;
-            this.TeethPanel21.Location = new System.Drawing.Point(196, 209);
-            this.TeethPanel21.Name = "TeethPanel21";
-            this.TeethPanel21.Size = new System.Drawing.Size(33, 34);
-            this.TeethPanel21.TabIndex = 103;
-            this.TeethPanel21.Paint += new System.Windows.Forms.PaintEventHandler(this.TeethPanel21_Paint);
-            this.TeethPanel21.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TeethPanel21_MouseClick);
-            // 
             // TreatmentHistory_TAB
             // 
             this.TreatmentHistory_TAB.Controls.Add(this.TreatmentHistory_DG);
@@ -1291,31 +1290,31 @@
             this.TreatmentHistory_DG.AllowUserToAddRows = false;
             this.TreatmentHistory_DG.AllowUserToDeleteRows = false;
             this.TreatmentHistory_DG.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.TreatmentHistory_DG.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle252.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.TreatmentHistory_DG.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle252;
             this.TreatmentHistory_DG.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.TreatmentHistory_DG.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.TreatmentHistory_DG.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.TreatmentHistory_DG.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TreatmentHistory_DG.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.TreatmentHistory_DG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle253.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle253.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle253.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle253.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle253.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle253.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle253.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.TreatmentHistory_DG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle253;
             this.TreatmentHistory_DG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.TreatmentHistory_DG.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.TreatmentHistory_DG.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle254.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle254.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle254.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle254.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle254.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle254.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle254.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.TreatmentHistory_DG.DefaultCellStyle = dataGridViewCellStyle254;
             this.TreatmentHistory_DG.DoubleBuffered = true;
             this.TreatmentHistory_DG.EnableHeadersVisualStyles = false;
             this.TreatmentHistory_DG.HeaderBgColor = System.Drawing.Color.SeaGreen;
@@ -1427,21 +1426,21 @@
             this.NoteDD.AllowUserToDeleteRows = false;
             this.NoteDD.AllowUserToResizeColumns = false;
             this.NoteDD.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.NoteDD.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle255.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.NoteDD.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle255;
             this.NoteDD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.NoteDD.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.NoteDD.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.NoteDD.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.NoteDD.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.NoteDD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle256.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle256.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle256.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle256.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle256.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle256.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle256.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.NoteDD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle256;
             this.NoteDD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.NoteDD.Cursor = System.Windows.Forms.Cursors.Hand;
             this.NoteDD.DoubleBuffered = true;
@@ -1567,38 +1566,6 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel TeethPanel25;
-        private System.Windows.Forms.Panel TeethPanel17;
-        private System.Windows.Forms.Panel TeethPanel9;
-        private System.Windows.Forms.Panel TeethPanel3;
-        private System.Windows.Forms.Panel TeethPanel1;
-        private System.Windows.Forms.Panel TeethPanel2;
-        private System.Windows.Forms.Panel TeethPanel32;
-        private System.Windows.Forms.Panel TeethPanel18;
-        private System.Windows.Forms.Panel TeethPanel24;
-        private System.Windows.Forms.Panel TeethPanel10;
-        private System.Windows.Forms.Panel TeethPanel16;
-        private System.Windows.Forms.Panel TeethPanel26;
-        private System.Windows.Forms.Panel TeethPanel8;
-        private System.Windows.Forms.Panel TeethPanel19;
-        private System.Windows.Forms.Panel TeethPanel31;
-        private System.Windows.Forms.Panel TeethPanel11;
-        private System.Windows.Forms.Panel TeethPanel23;
-        private System.Windows.Forms.Panel TeethPanel4;
-        private System.Windows.Forms.Panel TeethPanel15;
-        private System.Windows.Forms.Panel TeethPanel27;
-        private System.Windows.Forms.Panel TeethPanel7;
-        private System.Windows.Forms.Panel TeethPanel12;
-        private System.Windows.Forms.Panel TeethPanel30;
-        private System.Windows.Forms.Panel TeethPanel20;
-        private System.Windows.Forms.Panel TeethPanel22;
-        private System.Windows.Forms.Panel TeethPanel28;
-        private System.Windows.Forms.Panel TeethPanel14;
-        private System.Windows.Forms.Panel TeethPanel5;
-        private System.Windows.Forms.Panel TeethPanel6;
-        private System.Windows.Forms.Panel TeethPanel13;
-        private System.Windows.Forms.Panel TeethPanel29;
-        private System.Windows.Forms.Panel TeethPanel21;
         private System.Windows.Forms.TabPage TreatmentHistory_TAB;
         private Bunifu.Framework.UI.BunifuCustomLabel lbl_PatientName;
         private System.Windows.Forms.Panel panel4;
@@ -1668,5 +1635,37 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel TeethPanel25;
+        private System.Windows.Forms.Panel TeethPanel32;
+        private System.Windows.Forms.Panel TeethPanel26;
+        private System.Windows.Forms.Panel TeethPanel31;
+        private System.Windows.Forms.Panel TeethPanel27;
+        private System.Windows.Forms.Panel TeethPanel30;
+        private System.Windows.Forms.Panel TeethPanel28;
+        private System.Windows.Forms.Panel TeethPanel29;
+        private System.Windows.Forms.Panel TeethPanel17;
+        private System.Windows.Forms.Panel TeethPanel18;
+        private System.Windows.Forms.Panel TeethPanel24;
+        private System.Windows.Forms.Panel TeethPanel19;
+        private System.Windows.Forms.Panel TeethPanel23;
+        private System.Windows.Forms.Panel TeethPanel20;
+        private System.Windows.Forms.Panel TeethPanel22;
+        private System.Windows.Forms.Panel TeethPanel21;
+        private System.Windows.Forms.Panel TeethPanel3;
+        private System.Windows.Forms.Panel TeethPanel1;
+        private System.Windows.Forms.Panel TeethPanel2;
+        private System.Windows.Forms.Panel TeethPanel8;
+        private System.Windows.Forms.Panel TeethPanel4;
+        private System.Windows.Forms.Panel TeethPanel7;
+        private System.Windows.Forms.Panel TeethPanel5;
+        private System.Windows.Forms.Panel TeethPanel6;
+        private System.Windows.Forms.Panel TeethPanel9;
+        private System.Windows.Forms.Panel TeethPanel10;
+        private System.Windows.Forms.Panel TeethPanel16;
+        private System.Windows.Forms.Panel TeethPanel11;
+        private System.Windows.Forms.Panel TeethPanel15;
+        private System.Windows.Forms.Panel TeethPanel12;
+        private System.Windows.Forms.Panel TeethPanel14;
+        private System.Windows.Forms.Panel TeethPanel13;
     }
 }

@@ -85,7 +85,7 @@ namespace _846DentalClinicManagementSystem
            
         }
 
-        private void FillArrayValues()
+        private void SetDefaultTeethColor()
         {
             for (int i = 0; i < 32; i++)
             {
@@ -99,7 +99,6 @@ namespace _846DentalClinicManagementSystem
 
             }
         }
-
 
         private void TeethPanel1_Paint(object sender, PaintEventArgs e) => DrawTeeth(TeethPanel1);
         private void TeethPanel2_Paint(object sender, PaintEventArgs e) => DrawTeeth(TeethPanel2);
@@ -133,6 +132,7 @@ namespace _846DentalClinicManagementSystem
         private void TeethPanel30_Paint(object sender, PaintEventArgs e) => DrawTeeth(TeethPanel30);
         private void TeethPanel31_Paint(object sender, PaintEventArgs e) => DrawTeeth(TeethPanel31);
         private void TeethPanel32_Paint(object sender, PaintEventArgs e) => DrawTeeth(TeethPanel32);
+
 
         private void DrawTeeth(Panel TeethPanel)
         {
@@ -351,43 +351,19 @@ namespace _846DentalClinicManagementSystem
         private Panel PanelNumber(int teethNumber)
         {
             // Console.WriteLine(teethNumber);
-            switch (teethNumber)
-            {
-                case 0: return TeethPanel1;
-                case 1: return TeethPanel2;
-                case 2: return TeethPanel3;
-                case 3: return TeethPanel4;
-                case 4: return TeethPanel5;
-                case 5: return TeethPanel6;
-                case 6: return TeethPanel7;
-                case 7: return TeethPanel8;
-                case 8: return TeethPanel9;
-                case 9: return TeethPanel10;
-                case 10: return TeethPanel11;
-                case 11: return TeethPanel12;
-                case 12: return TeethPanel13;
-                case 13: return TeethPanel14;
-                case 14: return TeethPanel15;
-                case 15: return TeethPanel16;
-                case 16: return TeethPanel17;
-                case 17: return TeethPanel18;
-                case 18: return TeethPanel19;
-                case 19: return TeethPanel20;
-                case 20: return TeethPanel21;
-                case 21: return TeethPanel22;
-                case 22: return TeethPanel23;
-                case 23: return TeethPanel24;
-                case 24: return TeethPanel25;
-                case 25: return TeethPanel26;
-                case 26: return TeethPanel27;
-                case 27: return TeethPanel28;
-                case 28: return TeethPanel29;
-                case 29: return TeethPanel30;
-                case 30: return TeethPanel31;
-                case 31: return TeethPanel32;
+            teethNumber++;
+            string PanelName = "TeethPanel" + teethNumber;
 
+            foreach (Control panelControl in panel1.Controls)
+            {
+
+                if (panelControl.Name == PanelName)
+                {
+                    return (Panel)panelControl;
+                }
             }
 
+          
             return null;
 
         }
@@ -466,7 +442,7 @@ namespace _846DentalClinicManagementSystem
             //    "THEN CAST (1 AS BIT) ELSE CAST(0 AS BIT) END " ,sqlcon);
             SqlCommand cmd = new SqlCommand(
                 "SELECT TeethID FROM Teeth " +
-                "INNER JOIN[Patient-Teeth] ON TeethID = TeethID_fk " +
+                "INNER JOIN[PatientTeeth] ON TeethID = TeethID_fk " +
                 "WHERE PatientID_fk = @patientID AND TeethNumber = @teethnum", sqlcon);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@patientID", PatientID);
@@ -492,7 +468,7 @@ namespace _846DentalClinicManagementSystem
            
             SqlCommand cmd = new SqlCommand(
                 "UPDATE [Teeth] SET TeethTop = @Top, TeethBottom = @Bottom, TeethRight = @Right, " +
-                "TeethLeft = @Left, TeethCenter = Center, TeethCheck = @Check, TeethCross = @Cross " +
+                "TeethLeft = @Left, TeethCenter = @Center, TeethCheck = @Check, TeethCross = @Cross " +
                 "WHERE TeethID = @TeethID", sqlcon);
 
             cmd.Parameters.Clear();
@@ -551,14 +527,13 @@ namespace _846DentalClinicManagementSystem
 
 
                 teethNumber = Convert.ToInt32(dt.Rows[i][0]);
-                teethTop = dt.Rows[i][1].ToString();
-                teethBottom = dt.Rows[i][2].ToString();
-                teethLeft = dt.Rows[i][3].ToString();
-                teethRight = dt.Rows[i][4].ToString();
-                teethCenter = dt.Rows[i][5].ToString();
-                teethCheck = dt.Rows[i][6].ToString();
-                teethEx = dt.Rows[i][7].ToString();
-
+                TopTeethColor[teethNumber] = teethTop = dt.Rows[i][1].ToString();
+                BottomTeethColor[teethNumber] = teethBottom = dt.Rows[i][2].ToString();
+                RightTeethColor[teethNumber] = teethRight = dt.Rows[i][3].ToString();
+                LeftTeethColor[teethNumber] = teethLeft = dt.Rows[i][4].ToString();
+                CenterTeethColor[teethNumber] = teethCenter = dt.Rows[i][5].ToString();
+                Checked[teethNumber] = teethCheck = dt.Rows[i][6].ToString();
+                ex[teethNumber] = teethEx = dt.Rows[i][7].ToString();
 
                 Panel teethNumberPanel = new Panel();
                 teethNumberPanel = PanelNumber(teethNumber);
@@ -644,7 +619,8 @@ namespace _846DentalClinicManagementSystem
             }
             else if (PatientInfoTAB.SelectedIndex == 1)
             {
-                FillArrayValues();
+                SetDefaultTeethColor();
+                TeethArray.Clear();
                 RetrievePatientTeethStatus();
             }
             else if (PatientInfoTAB.SelectedIndex == 2)
@@ -659,77 +635,23 @@ namespace _846DentalClinicManagementSystem
         }
 
 
-        private void EnableTeethPanel()
+        private void RefreshTeethPanel()
         {
-            TeethPanel1.Enabled = true;
-            TeethPanel2.Enabled = true;
-            TeethPanel3.Enabled = true;
-            TeethPanel4.Enabled = true;
-            TeethPanel5.Enabled = true;
-            TeethPanel6.Enabled = true;
-            TeethPanel7.Enabled = true;
-            TeethPanel8.Enabled = true;
-            TeethPanel9.Enabled = true;
-            TeethPanel10.Enabled = true;
-            TeethPanel11.Enabled = true;
-            TeethPanel12.Enabled = true;
-            TeethPanel13.Enabled = true;
-            TeethPanel14.Enabled = true;
-            TeethPanel15.Enabled = true;
-            TeethPanel16.Enabled = true;
-            TeethPanel17.Enabled = true;
-            TeethPanel18.Enabled = true;
-            TeethPanel19.Enabled = true;
-            TeethPanel20.Enabled = true;
-            TeethPanel21.Enabled = true;
-            TeethPanel22.Enabled = true;
-            TeethPanel23.Enabled = true;
-            TeethPanel24.Enabled = true;
-            TeethPanel25.Enabled = true;
-            TeethPanel26.Enabled = true;
-            TeethPanel27.Enabled = true;
-            TeethPanel28.Enabled = true;
-            TeethPanel29.Enabled = true;
-            TeethPanel30.Enabled = true;
-            TeethPanel31.Enabled = true;
-            TeethPanel32.Enabled = true;
-            
-        }
+            foreach(int panelControls in TeethArray)
+            {
+                int panelNumber = panelControls + 1;
+                string panelName = "TeethPanel" + panelNumber;
 
-        private void DisableTeethPanel()
-        {
-            TeethPanel1.Enabled = false;
-            TeethPanel2.Enabled = false;
-            TeethPanel3.Enabled = false;
-            TeethPanel4.Enabled = false;
-            TeethPanel5.Enabled = false;
-            TeethPanel6.Enabled = false;
-            TeethPanel7.Enabled = false;
-            TeethPanel8.Enabled = false;
-            TeethPanel9.Enabled = false;
-            TeethPanel10.Enabled = false;
-            TeethPanel11.Enabled = false;
-            TeethPanel12.Enabled = false;
-            TeethPanel13.Enabled = false;
-            TeethPanel14.Enabled = false;
-            TeethPanel15.Enabled = false;
-            TeethPanel16.Enabled = false;
-            TeethPanel17.Enabled = false;
-            TeethPanel18.Enabled = false;
-            TeethPanel19.Enabled = false;
-            TeethPanel20.Enabled = false;
-            TeethPanel21.Enabled = false;
-            TeethPanel22.Enabled = false;
-            TeethPanel23.Enabled = false;
-            TeethPanel24.Enabled = false;
-            TeethPanel25.Enabled = false;
-            TeethPanel26.Enabled = false;
-            TeethPanel27.Enabled = false;
-            TeethPanel28.Enabled = false;
-            TeethPanel29.Enabled = false;
-            TeethPanel30.Enabled = false;
-            TeethPanel31.Enabled = false;
-            TeethPanel32.Enabled = false;
+                foreach (Control panelControl in panel1.Controls)
+                {
+
+                    if (panelControl.Name == panelName)
+                    {
+                        panelControl.Enabled = false;
+                        panelControl.Enabled = true;
+                    }
+                }
+            }
         }
 
       
@@ -758,16 +680,18 @@ namespace _846DentalClinicManagementSystem
                 }
             }
             MessageBox.Show("Save Successfully");
-
             TeethArray.Clear(); // empty arraylist
         }
 
         private void btn_RefreshChart_Click(object sender, EventArgs e)
         {
-            DisableTeethPanel();
-            EnableTeethPanel();
+            // DisableTeethPanel();
+
+            RefreshTeethPanel();
+            SetDefaultTeethColor();
             RetrievePatientTeethStatus();
             TeethArray.Clear();
+
         }
 
         private void btn_SaveNotes_Click_1(object sender, EventArgs e)
@@ -1129,10 +1053,7 @@ namespace _846DentalClinicManagementSystem
             
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
     }
 
    
