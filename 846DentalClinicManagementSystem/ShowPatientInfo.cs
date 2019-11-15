@@ -132,6 +132,26 @@ namespace _846DentalClinicManagementSystem
         private void TeethPanel30_Paint(object sender, PaintEventArgs e) => DrawTeeth(TeethPanel30);
         private void TeethPanel31_Paint(object sender, PaintEventArgs e) => DrawTeeth(TeethPanel31);
         private void TeethPanel32_Paint(object sender, PaintEventArgs e) => DrawTeeth(TeethPanel32);
+        private void TeethPanel33_Paint(object sender, PaintEventArgs e) => DrawTeeth(TeethPanel33);
+        private void TeethPanel34_Paint(object sender, PaintEventArgs e) => DrawTeeth(TeethPanel34);
+        private void TeethPanel35_Paint(object sender, PaintEventArgs e) => DrawTeeth(TeethPanel35);
+        private void TeethPanel36_Paint(object sender, PaintEventArgs e) => DrawTeeth(TeethPanel36);
+        private void TeethPanel37_Paint(object sender, PaintEventArgs e) => DrawTeeth(TeethPanel37);
+        private void TeethPanel38_Paint(object sender, PaintEventArgs e) => DrawTeeth(TeethPanel38);
+        private void TeethPanel39_Paint(object sender, PaintEventArgs e) => DrawTeeth(TeethPanel39);
+        private void TeethPanel40_Paint(object sender, PaintEventArgs e) => DrawTeeth(TeethPanel40);
+        private void TeethPanel41_Paint(object sender, PaintEventArgs e) => DrawTeeth(TeethPanel41);
+        private void TeethPanel42_Paint(object sender, PaintEventArgs e) => DrawTeeth(TeethPanel42);
+        private void TeethPanel43_Paint(object sender, PaintEventArgs e) => DrawTeeth(TeethPanel43);
+        private void TeethPanel44_Paint(object sender, PaintEventArgs e) => DrawTeeth(TeethPanel44);
+        private void TeethPanel45_Paint(object sender, PaintEventArgs e) => DrawTeeth(TeethPanel45);
+        private void TeethPanel46_Paint(object sender, PaintEventArgs e) => DrawTeeth(TeethPanel46);
+        private void TeethPanel47_Paint(object sender, PaintEventArgs e) => DrawTeeth(TeethPanel47);
+        private void TeethPanel48_Paint(object sender, PaintEventArgs e) => DrawTeeth(TeethPanel48);
+        private void TeethPanel49_Paint(object sender, PaintEventArgs e) => DrawTeeth(TeethPanel49);
+        private void TeethPanel50_Paint(object sender, PaintEventArgs e) => DrawTeeth(TeethPanel50);
+        private void TeethPanel51_Paint(object sender, PaintEventArgs e) => DrawTeeth(TeethPanel51);
+        private void TeethPanel52_Paint(object sender, PaintEventArgs e) => DrawTeeth(TeethPanel52);
 
 
         private void DrawTeeth(Panel TeethPanel)
@@ -1053,7 +1073,7 @@ namespace _846DentalClinicManagementSystem
             
         }
 
-
+     
     }
 
    

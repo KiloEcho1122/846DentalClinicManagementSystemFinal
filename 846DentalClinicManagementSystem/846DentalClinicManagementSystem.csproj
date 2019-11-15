@@ -235,5 +235,8 @@
   <ItemGroup>
     <None Include="Resources\icons8-checkmark-100.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-mark.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
