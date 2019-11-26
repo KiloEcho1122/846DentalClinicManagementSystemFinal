@@ -120,9 +120,10 @@ namespace _846DentalClinicManagementSystem
             this.Hide();
             GlobalVariable.isEditAppointment = false;
             GlobalVariable.isAddAppointment = false;
-          //  var main = Application.OpenForms.OfType<MainForm>().First();
-          ////  main.ShowAppointment(DP_date.Value.ToShortDateString());
-          //  main.SearchAppByDate_DP.Value = DP_date.Value;
+           // var main = Application.OpenForms.OfType<MainForm>().First();
+            ////  main.ShowAppointment(DP_date.Value.ToShortDateString());
+            //  main.SearchAppByDate_DP.Value = DP_date.Value;
+          
         }
 
         private void btn_add_Click(object sender, EventArgs e)
@@ -817,7 +818,7 @@ namespace _846DentalClinicManagementSystem
 
             }
             var main = Application.OpenForms.OfType<MainForm>().First();
-             main.RefreshAppointmentView();
+            main.ChangeStatusIcon(statusSwitch.Value);
 
         }
 

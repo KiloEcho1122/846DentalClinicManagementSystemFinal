@@ -294,6 +294,7 @@ namespace _846DentalClinicManagementSystem
             int labelWidth = 260;
             int FlowPanelWidth = 298;
             Single nameTextSize = 12.25F, treatmentTextSize = 11.25F;
+     
             if (WeekSwitch.Value == false)
             {
                  x = (dentID == 1) ? 11 : 311;  // get the x location
@@ -316,12 +317,14 @@ namespace _846DentalClinicManagementSystem
             //
           
                 FlowLayoutPanel appointment = new FlowLayoutPanel();
+               // appointment.Name = id.ToString();
                 appointment.Size = new Size(FlowPanelWidth, 98);
                 appointment.Location = new Point(x, y);
-                appointment.BackColor = Color.LightSeaGreen;
                 appointment.FlowDirection = FlowDirection.LeftToRight;
                 appointment.WrapContents = true;
-             //  appointment.AutoScroll = true;
+            //  appointment.AutoScroll = true;
+                appointment.BackColor = Color.LightSeaGreen;
+            if (dentID == 2) { appointment.BackColor = Color.FromArgb(217, 102, 135); }
                 this.Appointment_Panel.Controls.Add(appointment);
 
             Label namee = new Label();
@@ -342,6 +345,7 @@ namespace _846DentalClinicManagementSystem
             {
                 Int32.TryParse(pictureBox.Name, out int appid);
                 editApp(appid);
+                
 
 
             };
@@ -373,24 +377,49 @@ namespace _846DentalClinicManagementSystem
             appointment.Controls.Add(name1);
 
         }
-
+        int LastScrollPosX = 0, LastScrollPosY= 0;
         public void RefreshAppointmentView()
         {
             string date = SearchAppByDate_DP.Value.ToString("M/d/yyyy");
             if (isWeek) { DrawAppointmentTable(); }
-
-
             ShowAppointment(date);
+            Appointment_Panel.AutoScrollPosition = new Point(LastScrollPosX, LastScrollPosY);
         }
 
         private void SearchAppByDate_DP_onValueChanged(object sender, EventArgs e)
         {
+            LastScrollPosX = Appointment_Panel.HorizontalScroll.Value;
+            LastScrollPosY = Appointment_Panel.VerticalScroll.Value;
             RefreshAppointmentView();
         }
 
+        public void ChangeStatusIcon(Boolean AppStatus) {
+
+            foreach (Control control in Appointment_Panel.Controls) {
+                    foreach(Control s in control.Controls)
+                {
+                    if (s.Name == GlobalVariable.AppointmentID.ToString())
+                    {
+                
+                      if (AppStatus == true)
+                        {
+
+                            ((PictureBox)s).Image = global::_846DentalClinicManagementSystem.Properties.Resources.success;
+                        }
+                        else
+                        {
+                            ((PictureBox)s).Image = global::_846DentalClinicManagementSystem.Properties.Resources.warning;
+                        }
+                    }
+                }
+                    
+                        }
+
+        }
 
         private void editApp(int id)
         {
+
             GlobalVariable.AppointmentID = id;
             if (GlobalVariable.isEditAppointment == false)
             {
@@ -489,14 +518,16 @@ namespace _846DentalClinicManagementSystem
                     verticalX += 300;
                     this.Appointment_Panel.Controls.Add(verticalPanel);
                 }
-              
+
 
                 Panel panel = new Panel();
-                panel.Size = new Size(2125, 45);
-                panel.BackColor = Color.PaleTurquoise;
+                panel.Size = new Size(2100, 45);
+                panel.BackColor = Color.Salmon;
                 panel.Margin = new Padding(0);
-                panel.Location = new Point(0, 20);
+                panel.Location = new Point(0, 0);
                 this.AppointmentHeader_Panel.Controls.Add(panel);
+
+               
 
 
                 DateTime dateStart = SearchAppByDate_DP.Value;
@@ -529,6 +560,45 @@ namespace _846DentalClinicManagementSystem
                     vertx += 300;
                     dateStart = dateStart.AddDays(1);
                 }
+                int loc = 0;
+                for (int i = 0; i < 14; i++)
+                {
+                    Panel aira = new Panel();
+                    aira.Size = new Size(161, 20);
+                    aira.Margin = new Padding(0);
+                    aira.Location = new Point(loc, 45);
+                    if (i % 2 == 0)
+                    {
+                        aira.BackColor = Color.PaleTurquoise;
+                    }
+                    else
+                    {
+                        aira.BackColor = Color.Pink;
+                    }
+                    if (i == 13) { aira.Size = new Size(150, 20); }
+                   
+
+                    loc += 150;
+                    this.AppointmentHeader_Panel.Controls.Add(aira);
+
+                    Label esther = new Label();
+                    esther.Font = new Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    esther.Location = new Point(58, 0);
+
+                    if (i % 2 == 0)
+                    {
+                        esther.Text = "Dr. Aira";
+                    }
+                    else
+                    {
+                        esther.Text = "Dr. Esther";
+                        esther.Location = new Point(54, 0);
+                    }
+                    if (i == 13) { aira.Size = new Size(150, 20); }
+
+                    aira.Controls.Add(esther);
+                }
+
 
                 isWeek = true;
             }
@@ -539,15 +609,12 @@ namespace _846DentalClinicManagementSystem
 
         private void setAutoScrollfalse()
         {
-            
+
             AppTimePanel.VerticalScroll.Maximum = Appointment_Panel.VerticalScroll.Maximum;
             AppTimePanel.VerticalScroll.Minimum = Appointment_Panel.VerticalScroll.Minimum;
             AppointmentHeader_Panel.HorizontalScroll.Maximum = Appointment_Panel.HorizontalScroll.Maximum;
             AppointmentHeader_Panel.HorizontalScroll.Minimum = Appointment_Panel.HorizontalScroll.Minimum;
             AppTimePanel.AutoScroll = false;
-
-            
-
 
         }
         
@@ -604,6 +671,9 @@ namespace _846DentalClinicManagementSystem
            
             AppTimePanel.AutoScrollPosition = new Point(0, Appointment_Panel.VerticalScroll.Value);
             AppointmentHeader_Panel.AutoScrollPosition = new Point(Appointment_Panel.HorizontalScroll.Value, 0);
+           
+           // Console.WriteLine("Horizontal = " + Appointment_Panel.HorizontalScroll.Value);
+           // Console.WriteLine("Vertical = " + Appointment_Panel.VerticalScroll.Value);
         }
         private void Appointment_Panel_MouseMove(object sender, MouseEventArgs e)
         {
