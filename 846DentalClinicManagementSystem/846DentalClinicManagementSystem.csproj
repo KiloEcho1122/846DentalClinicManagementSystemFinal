@@ -240,14 +240,6 @@
   <ItemGroup>
     <None Include="Resources\check-mark.png" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="data\846DentalClinicDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <Content Include="data\846DentalClinicDB_log.ldf">
-      <DependentUpon>846DentalClinicDB.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
