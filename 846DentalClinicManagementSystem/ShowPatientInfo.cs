@@ -19,7 +19,35 @@ namespace _846DentalClinicManagementSystem
         {
             InitializeComponent();
         }
-       
+
+        private void btn_closePatientInfo_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void PatientInfoTAB_Click(object sender, EventArgs e)
+        {
+            if (PatientInfoTAB.SelectedIndex == 0)
+            {
+
+            }
+            else if (PatientInfoTAB.SelectedIndex == 1)
+            {
+                SetDefaultTeethColor();
+                TeethArray.Clear();
+                RetrievePatientTeethStatus();
+            }
+            else if (PatientInfoTAB.SelectedIndex == 2)
+            {
+                LoadTreatmentHistory();
+
+            }
+            else if (PatientInfoTAB.SelectedIndex == 3)
+            {
+                LoadNotes();
+            }
+        }
+
         SqlConnection sqlcon = new SqlConnection(GlobalVariable.connString);
         Boolean NoteIsEdit;
        
@@ -625,36 +653,6 @@ namespace _846DentalClinicManagementSystem
             }
         }
 
-     
-        private void btn_closePatientInfo_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-        }
-
-        private void PatientInfoTAB_Click(object sender, EventArgs e)
-        {
-            if (PatientInfoTAB.SelectedIndex == 0)
-            {
-
-            }
-            else if (PatientInfoTAB.SelectedIndex == 1)
-            {
-                SetDefaultTeethColor();
-                TeethArray.Clear();
-                RetrievePatientTeethStatus();
-            }
-            else if (PatientInfoTAB.SelectedIndex == 2)
-            {
-                LoadTreatmentHistory();
-
-            }
-            else if (PatientInfoTAB.SelectedIndex == 3)
-            {
-                LoadNotes();
-            }
-        }
-
-
         private void RefreshTeethPanel()
         {
             foreach(int panelControls in TeethArray)
@@ -713,7 +711,8 @@ namespace _846DentalClinicManagementSystem
             TeethArray.Clear();
 
         }
-
+ //----------------------------------------------------------------------------------------------------------------------------------
+ // Notes
         private void btn_SaveNotes_Click_1(object sender, EventArgs e)
         {
             String PatientNote = txt_PatientNote.Text.Trim();
@@ -805,6 +804,16 @@ namespace _846DentalClinicManagementSystem
             catch(Exception ex) { Console.WriteLine(ex.Message); }
         }
 
+        private void NoteDD_CellContentDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            NoteIsEdit = true;
+            txt_PatientNote.Text = NoteDD.SelectedRows[0].Cells[2].Value.ToString();
+
+
+        }
+
+        //-------------------------------------------------------------------------------------------------------------------------------
+        //Treatment History
 
         private void LoadTreatmentHistory()
         {
@@ -836,13 +845,8 @@ namespace _846DentalClinicManagementSystem
             catch (Exception ex) { Console.WriteLine(ex.Message); }
         }
 
-        private void NoteDD_CellContentDoubleClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            NoteIsEdit = true;
-            txt_PatientNote.Text = NoteDD.SelectedRows[0].Cells[2].Value.ToString();
-         
-                
-        }
+ // -------------------------------------------------------------------------------------------------------------------------------
+ // Billing
 
         public void ShowBilling()
         { 
@@ -960,41 +964,6 @@ namespace _846DentalClinicManagementSystem
 
         }
 
-
-        //private float GetBalance()
-        //{
-        //    float getBalance = 0;
-        //    SqlCommand cmd = new SqlCommand("SELECT BillingBalance FROM Billing " +
-        //                                    "WHERE BillingID = @BillingID",sqlcon);
-        //    cmd.Parameters.Clear();
-        //    cmd.Parameters.AddWithValue("@BillingID", GlobalVariable.BillingID);
-        //    sqlcon.Open();
-        //    try
-        //    {
-        //       getBalance = (float)(cmd.ExecuteNonQuery());
-        //    }catch(Exception ex) { Console.WriteLine(ex.Message); }
-        //    sqlcon.Close();
-        //    return getBalance;
-        //}
-
-        //private string GetUserFullName()
-        //{
-        //    string name = "";
-        //    GlobalVariable.Username = "mike";
-        //    SqlCommand cmd = new SqlCommand(
-        //        "SELECT CONCAT(LName, ' ', FName) FROM Login " +
-        //        "WHERE Username = @username COLLATE SQL_Latin1_General_CP1_CS_AS ", sqlcon);
-        //    cmd.Parameters.Clear();
-        //    cmd.Parameters.AddWithValue("@username", GlobalVariable.Username);
-        //    sqlcon.Open();
-        //    try
-        //    {
-        //        name = cmd.ExecuteNonQuery().ToString();   
-        //    }catch(Exception ex) { Console.WriteLine(ex.Message); }
-        //    sqlcon.Close();
-        //    return name;
-        //}
-
         private void InsertPayment()
         {
            float.TryParse(txt_Amount.Text,out float Amount);
@@ -1051,17 +1020,13 @@ namespace _846DentalClinicManagementSystem
         {
             txt_BllingID.Text = Billing_DataGrid.SelectedRows[0].Cells[0].Value.ToString();
             GlobalVariable.BillingID = (int)(Billing_DataGrid.SelectedRows[0].Cells[0].Value);
-        }
-
-        private void btn_ShowPayhistory_Click(object sender, EventArgs e)
-        {
-            PaymentHistory paymentHistory = new PaymentHistory();
-            paymentHistory.Show();
+            ShowPaymentHistory();
         }
 
         private void btn_add_Click(object sender, EventArgs e)
         {
             add();
+            ShowPaymentHistory();
         }
 
         private void txt_Amount_KeyDown(object sender, KeyEventArgs e)
@@ -1076,6 +1041,156 @@ namespace _846DentalClinicManagementSystem
 
         private void General_tab_Click(object sender, EventArgs e)
         {
+
+        }
+ //--------------------------------------------------------------------------------------------------------------------------------
+//Payment History
+        ArrayList paymentID = new ArrayList();
+
+        private void btn_CancelPayment_Click(object sender, EventArgs e)
+        {
+            if (PaymentHistory_DataGrid.SelectedRows.Count > 0)
+            {
+
+                SqlCommand cmd = new SqlCommand(
+                "UPDATE Payment SET Status = 'Canceled', LoginID_fk = @LoginID WHERE PaymentID = @PaymentID", sqlcon);
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@LoginID", GlobalVariable.LoginID);
+                cmd.Parameters.AddWithValue("@PaymentID", (int)(PaymentHistory_DataGrid.SelectedRows[0].Cells[0].Value));
+
+                sqlcon.Open();
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    UpdateBalanceAfterPayment();
+                    ShowPaymentHistory();
+                    var ShowPatientInfo = Application.OpenForms.OfType<ShowPatientInfo>().First();
+                    if (paymentID.Count > 0) { ShowPatientInfo.UpdateBillingAfterPayment(); }
+                    ShowPatientInfo.ShowBilling();
+                    paymentID.Clear();
+
+                }
+                catch (Exception ex) { Console.WriteLine(ex.Message); }
+                sqlcon.Close();
+            }
+        }
+
+
+        private void ShowPaymentHistory()
+        {
+
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand(
+                "SELECT PaymentID,PaymentDate,PaymentAmount,PaymentBalance,CONCAT(l.FName, ' ', l.LName) AS UpdatedBy,Status " +
+                "FROM Payment p INNER JOIN Login l ON p.LoginID_fk = l.LoginID WHERE BillingID_fk = @BillingID", sqlcon);
+
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@BillingID", GlobalVariable.BillingID);
+            adapter.SelectCommand = cmd;
+            try
+            {
+                adapter.Fill(dt);
+                PaymentHistory_DataGrid.DataSource = dt;
+
+                PaymentHistory_DataGrid.Columns[0].HeaderText = "ID";
+                PaymentHistory_DataGrid.Columns[1].HeaderText = "Date";
+                PaymentHistory_DataGrid.Columns[2].HeaderText = "Payment";
+                PaymentHistory_DataGrid.Columns[3].HeaderText = "Balance after Payment";
+                PaymentHistory_DataGrid.Columns[4].HeaderText = "Updated By";
+
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+            if (PaymentHistory_DataGrid.Rows.Count > 0)
+            {
+                PaymentHistory_DataGrid.Rows[0].Selected = true;
+            }
+
+        }
+
+        private void getPaymentID()
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand(
+                "SELECT PaymentID FROM Payment WHERE BillingID_fk = @BillingID AND Status = 'Completed' ORDER BY PaymentID", sqlcon);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@BillingID", GlobalVariable.BillingID);
+            adapter.SelectCommand = cmd;
+            try
+            {
+                adapter.Fill(dt);
+                foreach (DataRow row in dt.Rows)
+                {
+                    paymentID.Add(row[0]);
+                }
+
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+
+
+        }
+
+        private void UpdateBalanceAfterPayment()
+        {
+            getPaymentID();
+            bool _firstLoopDone = false;
+            if (paymentID.Count > 0 && _firstLoopDone == false)
+            {
+                SqlCommand cmd = new SqlCommand(
+                    "UPDATE Payment SET PaymentBalance = (SELECT AmountCharged FROM Billing WHERE BillingID = @BillingID) - " +
+                    "(SELECT PaymentAmount FROM Payment WHERE PaymentID = @PaymentID) WHERE PaymentID = @PaymentID", sqlcon);
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@BillingID", GlobalVariable.BillingID);
+                cmd.Parameters.AddWithValue("@PaymentID", paymentID[0]);
+                if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex) { Console.WriteLine(ex.Message); }
+                sqlcon.Close();
+                _firstLoopDone = true;
+            }
+            if (paymentID.Count > 1 && _firstLoopDone == true)
+            {
+                for (int i = 1; i < paymentID.Count; i++)
+                {
+                    SqlCommand cmd = new SqlCommand(
+                    "UPDATE Payment SET PaymentBalance = (SELECT PaymentBalance FROM Payment WHERE PaymentID = @Payment1)" +
+                    " - (SELECT PaymentAmount FROM Payment WHERE PaymentID = @Payment2) WHERE PaymentID = @Payment2", sqlcon);
+
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@Payment1", paymentID[i - 1]);
+                    cmd.Parameters.AddWithValue("@Payment2", paymentID[i]);
+                    if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception ex) { Console.WriteLine(ex.Message); }
+                    sqlcon.Close();
+                }
+            }
+            if (paymentID.Count == 0)
+            {
+                SqlCommand cmd = new SqlCommand(
+              "UPDATE Billing SET BillingBalance = AmountCharged, AmountPay = 0 WHERE BillingID = @BillingID", sqlcon);
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@BillingID", GlobalVariable.BillingID);
+
+                if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex) { Console.WriteLine(ex.Message); }
+                sqlcon.Close();
+            }
+
 
         }
     }

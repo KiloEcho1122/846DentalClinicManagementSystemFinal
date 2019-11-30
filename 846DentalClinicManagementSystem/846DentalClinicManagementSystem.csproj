@@ -243,13 +243,30 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Bunifu_UI_v1.52\Bunifu_UI_v1.52.dll" />
-    <Content Include="Data\ISADDATABASE.mdf">
+    <Content Include="Data\ISADDATABASEFINAL.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Data\ISADDATABASE_log.ldf">
-      <DependentUpon>ISADDATABASE.mdf</DependentUpon>
+    <Content Include="Data\ISADDATABASEFINAL_log.ldf">
+      <DependentUpon>ISADDATABASEFINAL.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\gold4.PNG" />
+    <None Include="Resources\gold3.PNG" />
+    <None Include="Resources\gold2.PNG" />
+    <None Include="Resources\gold.PNG" />
+    <None Include="Resources\silver.PNG" />
+    <None Include="Resources\yellow.PNG" />
+    <None Include="Resources\lime.PNG" />
+    <None Include="Resources\lightyellow.PNG" />
+    <None Include="Resources\orange.PNG" />
+    <None Include="Resources\gray.PNG" />
+    <None Include="Resources\purple.PNG" />
+    <None Include="Resources\red.PNG" />
+    <None Include="Resources\pfm.PNG" />
+    <None Include="Resources\icons8-dental-implant-50.png" />
+    <None Include="Resources\IMP.PNG" />
+    <None Include="Resources\RF.PNG" />
+    <None Include="Resources\M.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
