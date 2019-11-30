@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowPatientInfo));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.TopPanel2 = new System.Windows.Forms.Panel();
             this.btn_closePatientInfo = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -271,6 +271,22 @@
             this.btn_SaveNotes = new System.Windows.Forms.Button();
             this.NoteDD = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.txt_PatientNote = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
+            this.bunifuThinButton237 = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.bunifuThinButton238 = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.bunifuThinButton239 = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.bunifuThinButton240 = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.bunifuThinButton241 = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.bunifuThinButton242 = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.bunifuThinButton243 = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.bunifuThinButton244 = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.bunifuThinButton245 = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.bunifuThinButton246 = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.bunifuThinButton247 = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.bunifuThinButton248 = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.bunifuThinButton249 = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.bunifuThinButton250 = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.bunifuThinButton251 = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.bunifuThinButton252 = new Bunifu.Framework.UI.BunifuThinButton2();
             this.TopPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.PatientInfoTAB.SuspendLayout();
@@ -469,6 +485,8 @@
             this.PatientInfoTAB.Controls.Add(this.tabPage2);
             this.PatientInfoTAB.Controls.Add(this.TreatmentHistory_TAB);
             this.PatientInfoTAB.Controls.Add(this.Notes_TAB);
+            this.PatientInfoTAB.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PatientInfoTAB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PatientInfoTAB.Location = new System.Drawing.Point(34, 80);
             this.PatientInfoTAB.Name = "PatientInfoTAB";
             this.PatientInfoTAB.SelectedIndex = 0;
@@ -515,21 +533,21 @@
             this.PaymentHistory_DataGrid.AllowUserToDeleteRows = false;
             this.PaymentHistory_DataGrid.AllowUserToResizeColumns = false;
             this.PaymentHistory_DataGrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.PaymentHistory_DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.PaymentHistory_DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.PaymentHistory_DataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.PaymentHistory_DataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.PaymentHistory_DataGrid.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.PaymentHistory_DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PaymentHistory_DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PaymentHistory_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PaymentHistory_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.PaymentHistory_DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PaymentHistory_DataGrid.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PaymentHistory_DataGrid.DoubleBuffered = true;
@@ -698,31 +716,31 @@
             this.Billing_DataGrid.AllowUserToAddRows = false;
             this.Billing_DataGrid.AllowUserToDeleteRows = false;
             this.Billing_DataGrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Billing_DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Billing_DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.Billing_DataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Billing_DataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.Billing_DataGrid.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.Billing_DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Billing_DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Billing_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Billing_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.Billing_DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Billing_DataGrid.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Billing_DataGrid.DefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Billing_DataGrid.DefaultCellStyle = dataGridViewCellStyle5;
             this.Billing_DataGrid.DoubleBuffered = true;
             this.Billing_DataGrid.EnableHeadersVisualStyles = false;
             this.Billing_DataGrid.HeaderBgColor = System.Drawing.Color.SeaGreen;
@@ -775,10 +793,10 @@
             this.tabPage2.Controls.Add(this.btn_RefreshChart);
             this.tabPage2.Controls.Add(this.panel3);
             this.tabPage2.Controls.Add(this.panel1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(957, 595);
+            this.tabPage2.Size = new System.Drawing.Size(957, 592);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "CHARTING";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -854,7 +872,7 @@
             // 
             this.pictureBox68.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox68.Image = global::_846DentalClinicManagementSystem.Properties.Resources.gold4;
-            this.pictureBox68.Location = new System.Drawing.Point(137, 454);
+            this.pictureBox68.Location = new System.Drawing.Point(145, 462);
             this.pictureBox68.Name = "pictureBox68";
             this.pictureBox68.Size = new System.Drawing.Size(20, 16);
             this.pictureBox68.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -865,7 +883,7 @@
             // 
             this.pictureBox75.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox75.Image = global::_846DentalClinicManagementSystem.Properties.Resources.silver;
-            this.pictureBox75.Location = new System.Drawing.Point(137, 524);
+            this.pictureBox75.Location = new System.Drawing.Point(145, 530);
             this.pictureBox75.Name = "pictureBox75";
             this.pictureBox75.Size = new System.Drawing.Size(20, 16);
             this.pictureBox75.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -875,6 +893,7 @@
             // button11
             // 
             this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button11.Location = new System.Drawing.Point(-1, 442);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(173, 51);
@@ -886,6 +905,7 @@
             // button18
             // 
             this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button18.Location = new System.Drawing.Point(-1, 522);
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(173, 32);
@@ -898,7 +918,7 @@
             // 
             this.pictureBox76.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox76.Image = global::_846DentalClinicManagementSystem.Properties.Resources.gold;
-            this.pictureBox76.Location = new System.Drawing.Point(137, 493);
+            this.pictureBox76.Location = new System.Drawing.Point(145, 500);
             this.pictureBox76.Name = "pictureBox76";
             this.pictureBox76.Size = new System.Drawing.Size(20, 16);
             this.pictureBox76.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -908,6 +928,7 @@
             // button19
             // 
             this.button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button19.Location = new System.Drawing.Point(-1, 491);
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(173, 32);
@@ -920,7 +941,7 @@
             // 
             this.pictureBox66.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox66.Image = global::_846DentalClinicManagementSystem.Properties.Resources.gold;
-            this.pictureBox66.Location = new System.Drawing.Point(137, 383);
+            this.pictureBox66.Location = new System.Drawing.Point(145, 389);
             this.pictureBox66.Name = "pictureBox66";
             this.pictureBox66.Size = new System.Drawing.Size(20, 16);
             this.pictureBox66.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -930,6 +951,7 @@
             // button9
             // 
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.Location = new System.Drawing.Point(-1, 382);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(173, 32);
@@ -942,7 +964,7 @@
             // 
             this.pictureBox73.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox73.Image = global::_846DentalClinicManagementSystem.Properties.Resources.orange;
-            this.pictureBox73.Location = new System.Drawing.Point(137, 272);
+            this.pictureBox73.Location = new System.Drawing.Point(145, 278);
             this.pictureBox73.Name = "pictureBox73";
             this.pictureBox73.Size = new System.Drawing.Size(20, 16);
             this.pictureBox73.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -952,6 +974,7 @@
             // button16
             // 
             this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button16.Location = new System.Drawing.Point(-1, 270);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(173, 32);
@@ -986,7 +1009,7 @@
             // 
             this.pictureBox71.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox71.Image = global::_846DentalClinicManagementSystem.Properties.Resources.gray;
-            this.pictureBox71.Location = new System.Drawing.Point(137, 241);
+            this.pictureBox71.Location = new System.Drawing.Point(145, 245);
             this.pictureBox71.Name = "pictureBox71";
             this.pictureBox71.Size = new System.Drawing.Size(20, 16);
             this.pictureBox71.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -996,6 +1019,7 @@
             // button14
             // 
             this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button14.Location = new System.Drawing.Point(-1, 239);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(173, 32);
@@ -1008,7 +1032,7 @@
             // 
             this.pictureBox72.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox72.Image = global::_846DentalClinicManagementSystem.Properties.Resources.purple;
-            this.pictureBox72.Location = new System.Drawing.Point(137, 211);
+            this.pictureBox72.Location = new System.Drawing.Point(145, 215);
             this.pictureBox72.Name = "pictureBox72";
             this.pictureBox72.Size = new System.Drawing.Size(20, 16);
             this.pictureBox72.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1018,6 +1042,7 @@
             // button15
             // 
             this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button15.Location = new System.Drawing.Point(-1, 209);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(173, 32);
@@ -1030,7 +1055,7 @@
             // 
             this.pictureBox69.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox69.Image = global::_846DentalClinicManagementSystem.Properties.Resources.silver;
-            this.pictureBox69.Location = new System.Drawing.Point(137, 414);
+            this.pictureBox69.Location = new System.Drawing.Point(145, 420);
             this.pictureBox69.Name = "pictureBox69";
             this.pictureBox69.Size = new System.Drawing.Size(20, 16);
             this.pictureBox69.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1040,6 +1065,7 @@
             // button12
             // 
             this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button12.Location = new System.Drawing.Point(-1, 413);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(173, 32);
@@ -1052,7 +1078,7 @@
             // 
             this.pictureBox70.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox70.Image = global::_846DentalClinicManagementSystem.Properties.Resources.gold4;
-            this.pictureBox70.Location = new System.Drawing.Point(137, 352);
+            this.pictureBox70.Location = new System.Drawing.Point(145, 358);
             this.pictureBox70.Name = "pictureBox70";
             this.pictureBox70.Size = new System.Drawing.Size(20, 16);
             this.pictureBox70.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1062,6 +1088,7 @@
             // button13
             // 
             this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button13.Location = new System.Drawing.Point(-1, 351);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(173, 32);
@@ -1074,7 +1101,7 @@
             // 
             this.pictureBox67.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox67.Image = global::_846DentalClinicManagementSystem.Properties.Resources.gold2;
-            this.pictureBox67.Location = new System.Drawing.Point(137, 313);
+            this.pictureBox67.Location = new System.Drawing.Point(145, 317);
             this.pictureBox67.Name = "pictureBox67";
             this.pictureBox67.Size = new System.Drawing.Size(20, 16);
             this.pictureBox67.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1084,6 +1111,7 @@
             // button10
             // 
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.Location = new System.Drawing.Point(-1, 301);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(173, 51);
@@ -1140,7 +1168,7 @@
             // 
             this.pictureBox64.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox64.Image = global::_846DentalClinicManagementSystem.Properties.Resources.red;
-            this.pictureBox64.Location = new System.Drawing.Point(137, 181);
+            this.pictureBox64.Location = new System.Drawing.Point(145, 184);
             this.pictureBox64.Name = "pictureBox64";
             this.pictureBox64.Size = new System.Drawing.Size(20, 16);
             this.pictureBox64.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1150,6 +1178,7 @@
             // button7
             // 
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.Location = new System.Drawing.Point(-1, 179);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(173, 32);
@@ -1162,7 +1191,7 @@
             // 
             this.pictureBox65.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox65.Image = global::_846DentalClinicManagementSystem.Properties.Resources.IMP;
-            this.pictureBox65.Location = new System.Drawing.Point(137, 151);
+            this.pictureBox65.Location = new System.Drawing.Point(145, 154);
             this.pictureBox65.Name = "pictureBox65";
             this.pictureBox65.Size = new System.Drawing.Size(20, 16);
             this.pictureBox65.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1172,6 +1201,7 @@
             // button8
             // 
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.Location = new System.Drawing.Point(-1, 149);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(173, 32);
@@ -1184,7 +1214,7 @@
             // 
             this.pictureBox60.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox60.Image = global::_846DentalClinicManagementSystem.Properties.Resources.icons8_dental_implant_50;
-            this.pictureBox60.Location = new System.Drawing.Point(137, 120);
+            this.pictureBox60.Location = new System.Drawing.Point(145, 124);
             this.pictureBox60.Name = "pictureBox60";
             this.pictureBox60.Size = new System.Drawing.Size(20, 16);
             this.pictureBox60.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1194,6 +1224,7 @@
             // button3
             // 
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Location = new System.Drawing.Point(-1, 118);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(173, 32);
@@ -1206,7 +1237,7 @@
             // 
             this.pictureBox61.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox61.Image = global::_846DentalClinicManagementSystem.Properties.Resources.RF;
-            this.pictureBox61.Location = new System.Drawing.Point(137, 90);
+            this.pictureBox61.Location = new System.Drawing.Point(145, 93);
             this.pictureBox61.Name = "pictureBox61";
             this.pictureBox61.Size = new System.Drawing.Size(20, 16);
             this.pictureBox61.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1216,6 +1247,7 @@
             // button4
             // 
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Location = new System.Drawing.Point(-1, 88);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(173, 32);
@@ -1228,7 +1260,7 @@
             // 
             this.pictureBox59.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox59.Image = global::_846DentalClinicManagementSystem.Properties.Resources.M;
-            this.pictureBox59.Location = new System.Drawing.Point(137, 60);
+            this.pictureBox59.Location = new System.Drawing.Point(145, 64);
             this.pictureBox59.Name = "pictureBox59";
             this.pictureBox59.Size = new System.Drawing.Size(20, 16);
             this.pictureBox59.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1238,6 +1270,7 @@
             // button2
             // 
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(-1, 58);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(173, 32);
@@ -1250,7 +1283,7 @@
             // 
             this.pictureBox58.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox58.Image = global::_846DentalClinicManagementSystem.Properties.Resources.check_mark;
-            this.pictureBox58.Location = new System.Drawing.Point(137, 30);
+            this.pictureBox58.Location = new System.Drawing.Point(145, 33);
             this.pictureBox58.Name = "pictureBox58";
             this.pictureBox58.Size = new System.Drawing.Size(20, 16);
             this.pictureBox58.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1260,6 +1293,7 @@
             // button1
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(-1, 28);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(173, 32);
@@ -1334,6 +1368,22 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.bunifuThinButton237);
+            this.panel1.Controls.Add(this.bunifuThinButton238);
+            this.panel1.Controls.Add(this.bunifuThinButton239);
+            this.panel1.Controls.Add(this.bunifuThinButton240);
+            this.panel1.Controls.Add(this.bunifuThinButton241);
+            this.panel1.Controls.Add(this.bunifuThinButton242);
+            this.panel1.Controls.Add(this.bunifuThinButton243);
+            this.panel1.Controls.Add(this.bunifuThinButton244);
+            this.panel1.Controls.Add(this.bunifuThinButton245);
+            this.panel1.Controls.Add(this.bunifuThinButton246);
+            this.panel1.Controls.Add(this.bunifuThinButton247);
+            this.panel1.Controls.Add(this.bunifuThinButton248);
+            this.panel1.Controls.Add(this.bunifuThinButton249);
+            this.panel1.Controls.Add(this.bunifuThinButton250);
+            this.panel1.Controls.Add(this.bunifuThinButton251);
+            this.panel1.Controls.Add(this.bunifuThinButton252);
             this.panel1.Controls.Add(this.bunifuThinButton21);
             this.panel1.Controls.Add(this.bunifuThinButton22);
             this.panel1.Controls.Add(this.bunifuThinButton23);
@@ -1478,7 +1528,7 @@
             this.panel1.Controls.Add(this.TeethPanel29);
             this.panel1.Controls.Add(this.pictureBox6);
             this.panel1.Controls.Add(this.panel7);
-            this.panel1.Location = new System.Drawing.Point(191, 38);
+            this.panel1.Location = new System.Drawing.Point(192, 38);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(755, 509);
             this.panel1.TabIndex = 1;
@@ -1492,7 +1542,7 @@
             this.bunifuThinButton21.ActiveLineColor = System.Drawing.Color.DarkCyan;
             this.bunifuThinButton21.BackColor = System.Drawing.Color.White;
             this.bunifuThinButton21.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton21.BackgroundImage")));
-            this.bunifuThinButton21.ButtonText = "65";
+            this.bunifuThinButton21.ButtonText = "51";
             this.bunifuThinButton21.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuThinButton21.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuThinButton21.ForeColor = System.Drawing.Color.White;
@@ -1517,7 +1567,7 @@
             this.bunifuThinButton22.ActiveLineColor = System.Drawing.Color.DarkCyan;
             this.bunifuThinButton22.BackColor = System.Drawing.Color.White;
             this.bunifuThinButton22.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton22.BackgroundImage")));
-            this.bunifuThinButton22.ButtonText = "64";
+            this.bunifuThinButton22.ButtonText = "52";
             this.bunifuThinButton22.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuThinButton22.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuThinButton22.ForeColor = System.Drawing.Color.White;
@@ -1542,7 +1592,7 @@
             this.bunifuThinButton23.ActiveLineColor = System.Drawing.Color.DarkCyan;
             this.bunifuThinButton23.BackColor = System.Drawing.Color.White;
             this.bunifuThinButton23.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton23.BackgroundImage")));
-            this.bunifuThinButton23.ButtonText = "63";
+            this.bunifuThinButton23.ButtonText = "53";
             this.bunifuThinButton23.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuThinButton23.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuThinButton23.ForeColor = System.Drawing.Color.White;
@@ -1567,7 +1617,7 @@
             this.bunifuThinButton24.ActiveLineColor = System.Drawing.Color.DarkCyan;
             this.bunifuThinButton24.BackColor = System.Drawing.Color.White;
             this.bunifuThinButton24.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton24.BackgroundImage")));
-            this.bunifuThinButton24.ButtonText = "62";
+            this.bunifuThinButton24.ButtonText = "54";
             this.bunifuThinButton24.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuThinButton24.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuThinButton24.ForeColor = System.Drawing.Color.White;
@@ -1592,7 +1642,7 @@
             this.bunifuThinButton25.ActiveLineColor = System.Drawing.Color.DarkCyan;
             this.bunifuThinButton25.BackColor = System.Drawing.Color.White;
             this.bunifuThinButton25.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton25.BackgroundImage")));
-            this.bunifuThinButton25.ButtonText = "61";
+            this.bunifuThinButton25.ButtonText = "55";
             this.bunifuThinButton25.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuThinButton25.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuThinButton25.ForeColor = System.Drawing.Color.White;
@@ -1617,7 +1667,7 @@
             this.bunifuThinButton229.ActiveLineColor = System.Drawing.Color.DarkCyan;
             this.bunifuThinButton229.BackColor = System.Drawing.Color.White;
             this.bunifuThinButton229.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton229.BackgroundImage")));
-            this.bunifuThinButton229.ButtonText = "51";
+            this.bunifuThinButton229.ButtonText = "28";
             this.bunifuThinButton229.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuThinButton229.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuThinButton229.ForeColor = System.Drawing.Color.White;
@@ -1642,7 +1692,7 @@
             this.bunifuThinButton230.ActiveLineColor = System.Drawing.Color.DarkCyan;
             this.bunifuThinButton230.BackColor = System.Drawing.Color.White;
             this.bunifuThinButton230.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton230.BackgroundImage")));
-            this.bunifuThinButton230.ButtonText = "52";
+            this.bunifuThinButton230.ButtonText = "27";
             this.bunifuThinButton230.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuThinButton230.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuThinButton230.ForeColor = System.Drawing.Color.White;
@@ -1667,7 +1717,7 @@
             this.bunifuThinButton231.ActiveLineColor = System.Drawing.Color.DarkCyan;
             this.bunifuThinButton231.BackColor = System.Drawing.Color.White;
             this.bunifuThinButton231.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton231.BackgroundImage")));
-            this.bunifuThinButton231.ButtonText = "53";
+            this.bunifuThinButton231.ButtonText = "26";
             this.bunifuThinButton231.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuThinButton231.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuThinButton231.ForeColor = System.Drawing.Color.White;
@@ -1692,7 +1742,7 @@
             this.bunifuThinButton232.ActiveLineColor = System.Drawing.Color.DarkCyan;
             this.bunifuThinButton232.BackColor = System.Drawing.Color.White;
             this.bunifuThinButton232.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton232.BackgroundImage")));
-            this.bunifuThinButton232.ButtonText = "51";
+            this.bunifuThinButton232.ButtonText = "25";
             this.bunifuThinButton232.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuThinButton232.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuThinButton232.ForeColor = System.Drawing.Color.White;
@@ -1717,7 +1767,7 @@
             this.bunifuThinButton233.ActiveLineColor = System.Drawing.Color.DarkCyan;
             this.bunifuThinButton233.BackColor = System.Drawing.Color.White;
             this.bunifuThinButton233.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton233.BackgroundImage")));
-            this.bunifuThinButton233.ButtonText = "52";
+            this.bunifuThinButton233.ButtonText = "24";
             this.bunifuThinButton233.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuThinButton233.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuThinButton233.ForeColor = System.Drawing.Color.White;
@@ -1742,7 +1792,7 @@
             this.bunifuThinButton234.ActiveLineColor = System.Drawing.Color.DarkCyan;
             this.bunifuThinButton234.BackColor = System.Drawing.Color.White;
             this.bunifuThinButton234.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton234.BackgroundImage")));
-            this.bunifuThinButton234.ButtonText = "53";
+            this.bunifuThinButton234.ButtonText = "23";
             this.bunifuThinButton234.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuThinButton234.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuThinButton234.ForeColor = System.Drawing.Color.White;
@@ -1767,7 +1817,7 @@
             this.bunifuThinButton235.ActiveLineColor = System.Drawing.Color.DarkCyan;
             this.bunifuThinButton235.BackColor = System.Drawing.Color.White;
             this.bunifuThinButton235.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton235.BackgroundImage")));
-            this.bunifuThinButton235.ButtonText = "54";
+            this.bunifuThinButton235.ButtonText = "22";
             this.bunifuThinButton235.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuThinButton235.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuThinButton235.ForeColor = System.Drawing.Color.White;
@@ -1792,7 +1842,7 @@
             this.bunifuThinButton236.ActiveLineColor = System.Drawing.Color.DarkCyan;
             this.bunifuThinButton236.BackColor = System.Drawing.Color.White;
             this.bunifuThinButton236.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton236.BackgroundImage")));
-            this.bunifuThinButton236.ButtonText = "55";
+            this.bunifuThinButton236.ButtonText = "21";
             this.bunifuThinButton236.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuThinButton236.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuThinButton236.ForeColor = System.Drawing.Color.White;
@@ -1817,7 +1867,7 @@
             this.bunifuThinButton219.ActiveLineColor = System.Drawing.Color.DarkCyan;
             this.bunifuThinButton219.BackColor = System.Drawing.Color.White;
             this.bunifuThinButton219.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton219.BackgroundImage")));
-            this.bunifuThinButton219.ButtonText = "65";
+            this.bunifuThinButton219.ButtonText = "75";
             this.bunifuThinButton219.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuThinButton219.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuThinButton219.ForeColor = System.Drawing.Color.White;
@@ -1842,7 +1892,7 @@
             this.bunifuThinButton220.ActiveLineColor = System.Drawing.Color.DarkCyan;
             this.bunifuThinButton220.BackColor = System.Drawing.Color.White;
             this.bunifuThinButton220.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton220.BackgroundImage")));
-            this.bunifuThinButton220.ButtonText = "64";
+            this.bunifuThinButton220.ButtonText = "74";
             this.bunifuThinButton220.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuThinButton220.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuThinButton220.ForeColor = System.Drawing.Color.White;
@@ -1867,7 +1917,7 @@
             this.bunifuThinButton221.ActiveLineColor = System.Drawing.Color.DarkCyan;
             this.bunifuThinButton221.BackColor = System.Drawing.Color.White;
             this.bunifuThinButton221.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton221.BackgroundImage")));
-            this.bunifuThinButton221.ButtonText = "63";
+            this.bunifuThinButton221.ButtonText = "73";
             this.bunifuThinButton221.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuThinButton221.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuThinButton221.ForeColor = System.Drawing.Color.White;
@@ -1892,7 +1942,7 @@
             this.bunifuThinButton222.ActiveLineColor = System.Drawing.Color.DarkCyan;
             this.bunifuThinButton222.BackColor = System.Drawing.Color.White;
             this.bunifuThinButton222.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton222.BackgroundImage")));
-            this.bunifuThinButton222.ButtonText = "62";
+            this.bunifuThinButton222.ButtonText = "72";
             this.bunifuThinButton222.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuThinButton222.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuThinButton222.ForeColor = System.Drawing.Color.White;
@@ -1917,7 +1967,7 @@
             this.bunifuThinButton223.ActiveLineColor = System.Drawing.Color.DarkCyan;
             this.bunifuThinButton223.BackColor = System.Drawing.Color.White;
             this.bunifuThinButton223.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton223.BackgroundImage")));
-            this.bunifuThinButton223.ButtonText = "61";
+            this.bunifuThinButton223.ButtonText = "71";
             this.bunifuThinButton223.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuThinButton223.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuThinButton223.ForeColor = System.Drawing.Color.White;
@@ -1942,7 +1992,7 @@
             this.bunifuThinButton224.ActiveLineColor = System.Drawing.Color.DarkCyan;
             this.bunifuThinButton224.BackColor = System.Drawing.Color.White;
             this.bunifuThinButton224.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton224.BackgroundImage")));
-            this.bunifuThinButton224.ButtonText = "51";
+            this.bunifuThinButton224.ButtonText = "81";
             this.bunifuThinButton224.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuThinButton224.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuThinButton224.ForeColor = System.Drawing.Color.White;
@@ -1967,7 +2017,7 @@
             this.bunifuThinButton225.ActiveLineColor = System.Drawing.Color.DarkCyan;
             this.bunifuThinButton225.BackColor = System.Drawing.Color.White;
             this.bunifuThinButton225.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton225.BackgroundImage")));
-            this.bunifuThinButton225.ButtonText = "52";
+            this.bunifuThinButton225.ButtonText = "82";
             this.bunifuThinButton225.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuThinButton225.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuThinButton225.ForeColor = System.Drawing.Color.White;
@@ -1992,7 +2042,7 @@
             this.bunifuThinButton226.ActiveLineColor = System.Drawing.Color.DarkCyan;
             this.bunifuThinButton226.BackColor = System.Drawing.Color.White;
             this.bunifuThinButton226.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton226.BackgroundImage")));
-            this.bunifuThinButton226.ButtonText = "53";
+            this.bunifuThinButton226.ButtonText = "83";
             this.bunifuThinButton226.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuThinButton226.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuThinButton226.ForeColor = System.Drawing.Color.White;
@@ -2017,7 +2067,7 @@
             this.bunifuThinButton227.ActiveLineColor = System.Drawing.Color.DarkCyan;
             this.bunifuThinButton227.BackColor = System.Drawing.Color.White;
             this.bunifuThinButton227.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton227.BackgroundImage")));
-            this.bunifuThinButton227.ButtonText = "54";
+            this.bunifuThinButton227.ButtonText = "84";
             this.bunifuThinButton227.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuThinButton227.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuThinButton227.ForeColor = System.Drawing.Color.White;
@@ -2042,7 +2092,7 @@
             this.bunifuThinButton228.ActiveLineColor = System.Drawing.Color.DarkCyan;
             this.bunifuThinButton228.BackColor = System.Drawing.Color.White;
             this.bunifuThinButton228.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton228.BackgroundImage")));
-            this.bunifuThinButton228.ButtonText = "55";
+            this.bunifuThinButton228.ButtonText = "85";
             this.bunifuThinButton228.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuThinButton228.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuThinButton228.ForeColor = System.Drawing.Color.White;
@@ -2067,7 +2117,7 @@
             this.bunifuThinButton216.ActiveLineColor = System.Drawing.Color.DarkCyan;
             this.bunifuThinButton216.BackColor = System.Drawing.Color.White;
             this.bunifuThinButton216.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton216.BackgroundImage")));
-            this.bunifuThinButton216.ButtonText = "51";
+            this.bunifuThinButton216.ButtonText = "11";
             this.bunifuThinButton216.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuThinButton216.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuThinButton216.ForeColor = System.Drawing.Color.White;
@@ -2092,7 +2142,7 @@
             this.bunifuThinButton217.ActiveLineColor = System.Drawing.Color.DarkCyan;
             this.bunifuThinButton217.BackColor = System.Drawing.Color.White;
             this.bunifuThinButton217.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton217.BackgroundImage")));
-            this.bunifuThinButton217.ButtonText = "52";
+            this.bunifuThinButton217.ButtonText = "12";
             this.bunifuThinButton217.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuThinButton217.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuThinButton217.ForeColor = System.Drawing.Color.White;
@@ -2117,7 +2167,7 @@
             this.bunifuThinButton218.ActiveLineColor = System.Drawing.Color.DarkCyan;
             this.bunifuThinButton218.BackColor = System.Drawing.Color.White;
             this.bunifuThinButton218.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton218.BackgroundImage")));
-            this.bunifuThinButton218.ButtonText = "53";
+            this.bunifuThinButton218.ButtonText = "13";
             this.bunifuThinButton218.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuThinButton218.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuThinButton218.ForeColor = System.Drawing.Color.White;
@@ -2142,7 +2192,7 @@
             this.bunifuThinButton211.ActiveLineColor = System.Drawing.Color.DarkCyan;
             this.bunifuThinButton211.BackColor = System.Drawing.Color.White;
             this.bunifuThinButton211.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton211.BackgroundImage")));
-            this.bunifuThinButton211.ButtonText = "51";
+            this.bunifuThinButton211.ButtonText = "14";
             this.bunifuThinButton211.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuThinButton211.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuThinButton211.ForeColor = System.Drawing.Color.White;
@@ -2167,7 +2217,7 @@
             this.bunifuThinButton212.ActiveLineColor = System.Drawing.Color.DarkCyan;
             this.bunifuThinButton212.BackColor = System.Drawing.Color.White;
             this.bunifuThinButton212.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton212.BackgroundImage")));
-            this.bunifuThinButton212.ButtonText = "52";
+            this.bunifuThinButton212.ButtonText = "15";
             this.bunifuThinButton212.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuThinButton212.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuThinButton212.ForeColor = System.Drawing.Color.White;
@@ -2192,7 +2242,7 @@
             this.bunifuThinButton213.ActiveLineColor = System.Drawing.Color.DarkCyan;
             this.bunifuThinButton213.BackColor = System.Drawing.Color.White;
             this.bunifuThinButton213.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton213.BackgroundImage")));
-            this.bunifuThinButton213.ButtonText = "53";
+            this.bunifuThinButton213.ButtonText = "16";
             this.bunifuThinButton213.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuThinButton213.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuThinButton213.ForeColor = System.Drawing.Color.White;
@@ -2217,7 +2267,7 @@
             this.bunifuThinButton214.ActiveLineColor = System.Drawing.Color.DarkCyan;
             this.bunifuThinButton214.BackColor = System.Drawing.Color.White;
             this.bunifuThinButton214.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton214.BackgroundImage")));
-            this.bunifuThinButton214.ButtonText = "54";
+            this.bunifuThinButton214.ButtonText = "17";
             this.bunifuThinButton214.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuThinButton214.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuThinButton214.ForeColor = System.Drawing.Color.White;
@@ -2242,7 +2292,7 @@
             this.bunifuThinButton215.ActiveLineColor = System.Drawing.Color.DarkCyan;
             this.bunifuThinButton215.BackColor = System.Drawing.Color.White;
             this.bunifuThinButton215.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton215.BackgroundImage")));
-            this.bunifuThinButton215.ButtonText = "55";
+            this.bunifuThinButton215.ButtonText = "18";
             this.bunifuThinButton215.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuThinButton215.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuThinButton215.ForeColor = System.Drawing.Color.White;
@@ -3504,31 +3554,31 @@
             this.TreatmentHistory_DG.AllowUserToAddRows = false;
             this.TreatmentHistory_DG.AllowUserToDeleteRows = false;
             this.TreatmentHistory_DG.AllowUserToResizeRows = false;
-            dataGridViewCellStyle26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.TreatmentHistory_DG.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.TreatmentHistory_DG.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.TreatmentHistory_DG.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.TreatmentHistory_DG.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.TreatmentHistory_DG.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.TreatmentHistory_DG.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TreatmentHistory_DG.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle27.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.TreatmentHistory_DG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.TreatmentHistory_DG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.TreatmentHistory_DG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.TreatmentHistory_DG.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.TreatmentHistory_DG.DefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.TreatmentHistory_DG.DefaultCellStyle = dataGridViewCellStyle8;
             this.TreatmentHistory_DG.DoubleBuffered = true;
             this.TreatmentHistory_DG.EnableHeadersVisualStyles = false;
             this.TreatmentHistory_DG.HeaderBgColor = System.Drawing.Color.SeaGreen;
@@ -3640,21 +3690,21 @@
             this.NoteDD.AllowUserToDeleteRows = false;
             this.NoteDD.AllowUserToResizeColumns = false;
             this.NoteDD.AllowUserToResizeRows = false;
-            dataGridViewCellStyle29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.NoteDD.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.NoteDD.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.NoteDD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.NoteDD.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.NoteDD.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.NoteDD.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.NoteDD.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle30.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.NoteDD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.NoteDD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.NoteDD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.NoteDD.Cursor = System.Windows.Forms.Cursors.Hand;
             this.NoteDD.DoubleBuffered = true;
@@ -3681,6 +3731,406 @@
             this.txt_PatientNote.Name = "txt_PatientNote";
             this.txt_PatientNote.Size = new System.Drawing.Size(896, 80);
             this.txt_PatientNote.TabIndex = 58;
+            // 
+            // bunifuThinButton237
+            // 
+            this.bunifuThinButton237.ActiveBorderThickness = 1;
+            this.bunifuThinButton237.ActiveCornerRadius = 20;
+            this.bunifuThinButton237.ActiveFillColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton237.ActiveForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton237.ActiveLineColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton237.BackColor = System.Drawing.Color.White;
+            this.bunifuThinButton237.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton237.BackgroundImage")));
+            this.bunifuThinButton237.ButtonText = "38";
+            this.bunifuThinButton237.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuThinButton237.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuThinButton237.ForeColor = System.Drawing.Color.White;
+            this.bunifuThinButton237.IdleBorderThickness = 1;
+            this.bunifuThinButton237.IdleCornerRadius = 20;
+            this.bunifuThinButton237.IdleFillColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton237.IdleForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton237.IdleLineColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton237.Location = new System.Drawing.Point(707, 255);
+            this.bunifuThinButton237.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bunifuThinButton237.Name = "bunifuThinButton237";
+            this.bunifuThinButton237.Size = new System.Drawing.Size(28, 30);
+            this.bunifuThinButton237.TabIndex = 345;
+            this.bunifuThinButton237.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // bunifuThinButton238
+            // 
+            this.bunifuThinButton238.ActiveBorderThickness = 1;
+            this.bunifuThinButton238.ActiveCornerRadius = 20;
+            this.bunifuThinButton238.ActiveFillColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton238.ActiveForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton238.ActiveLineColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton238.BackColor = System.Drawing.Color.White;
+            this.bunifuThinButton238.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton238.BackgroundImage")));
+            this.bunifuThinButton238.ButtonText = "37";
+            this.bunifuThinButton238.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuThinButton238.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuThinButton238.ForeColor = System.Drawing.Color.White;
+            this.bunifuThinButton238.IdleBorderThickness = 1;
+            this.bunifuThinButton238.IdleCornerRadius = 20;
+            this.bunifuThinButton238.IdleFillColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton238.IdleForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton238.IdleLineColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton238.Location = new System.Drawing.Point(662, 255);
+            this.bunifuThinButton238.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bunifuThinButton238.Name = "bunifuThinButton238";
+            this.bunifuThinButton238.Size = new System.Drawing.Size(28, 30);
+            this.bunifuThinButton238.TabIndex = 344;
+            this.bunifuThinButton238.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // bunifuThinButton239
+            // 
+            this.bunifuThinButton239.ActiveBorderThickness = 1;
+            this.bunifuThinButton239.ActiveCornerRadius = 20;
+            this.bunifuThinButton239.ActiveFillColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton239.ActiveForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton239.ActiveLineColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton239.BackColor = System.Drawing.Color.White;
+            this.bunifuThinButton239.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton239.BackgroundImage")));
+            this.bunifuThinButton239.ButtonText = "36";
+            this.bunifuThinButton239.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuThinButton239.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuThinButton239.ForeColor = System.Drawing.Color.White;
+            this.bunifuThinButton239.IdleBorderThickness = 1;
+            this.bunifuThinButton239.IdleCornerRadius = 20;
+            this.bunifuThinButton239.IdleFillColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton239.IdleForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton239.IdleLineColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton239.Location = new System.Drawing.Point(617, 255);
+            this.bunifuThinButton239.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bunifuThinButton239.Name = "bunifuThinButton239";
+            this.bunifuThinButton239.Size = new System.Drawing.Size(28, 30);
+            this.bunifuThinButton239.TabIndex = 343;
+            this.bunifuThinButton239.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // bunifuThinButton240
+            // 
+            this.bunifuThinButton240.ActiveBorderThickness = 1;
+            this.bunifuThinButton240.ActiveCornerRadius = 20;
+            this.bunifuThinButton240.ActiveFillColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton240.ActiveForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton240.ActiveLineColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton240.BackColor = System.Drawing.Color.White;
+            this.bunifuThinButton240.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton240.BackgroundImage")));
+            this.bunifuThinButton240.ButtonText = "35";
+            this.bunifuThinButton240.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuThinButton240.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuThinButton240.ForeColor = System.Drawing.Color.White;
+            this.bunifuThinButton240.IdleBorderThickness = 1;
+            this.bunifuThinButton240.IdleCornerRadius = 20;
+            this.bunifuThinButton240.IdleFillColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton240.IdleForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton240.IdleLineColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton240.Location = new System.Drawing.Point(569, 255);
+            this.bunifuThinButton240.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bunifuThinButton240.Name = "bunifuThinButton240";
+            this.bunifuThinButton240.Size = new System.Drawing.Size(28, 30);
+            this.bunifuThinButton240.TabIndex = 342;
+            this.bunifuThinButton240.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // bunifuThinButton241
+            // 
+            this.bunifuThinButton241.ActiveBorderThickness = 1;
+            this.bunifuThinButton241.ActiveCornerRadius = 20;
+            this.bunifuThinButton241.ActiveFillColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton241.ActiveForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton241.ActiveLineColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton241.BackColor = System.Drawing.Color.White;
+            this.bunifuThinButton241.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton241.BackgroundImage")));
+            this.bunifuThinButton241.ButtonText = "34";
+            this.bunifuThinButton241.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuThinButton241.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuThinButton241.ForeColor = System.Drawing.Color.White;
+            this.bunifuThinButton241.IdleBorderThickness = 1;
+            this.bunifuThinButton241.IdleCornerRadius = 20;
+            this.bunifuThinButton241.IdleFillColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton241.IdleForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton241.IdleLineColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton241.Location = new System.Drawing.Point(524, 255);
+            this.bunifuThinButton241.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bunifuThinButton241.Name = "bunifuThinButton241";
+            this.bunifuThinButton241.Size = new System.Drawing.Size(28, 30);
+            this.bunifuThinButton241.TabIndex = 341;
+            this.bunifuThinButton241.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // bunifuThinButton242
+            // 
+            this.bunifuThinButton242.ActiveBorderThickness = 1;
+            this.bunifuThinButton242.ActiveCornerRadius = 20;
+            this.bunifuThinButton242.ActiveFillColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton242.ActiveForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton242.ActiveLineColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton242.BackColor = System.Drawing.Color.White;
+            this.bunifuThinButton242.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton242.BackgroundImage")));
+            this.bunifuThinButton242.ButtonText = "33";
+            this.bunifuThinButton242.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuThinButton242.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuThinButton242.ForeColor = System.Drawing.Color.White;
+            this.bunifuThinButton242.IdleBorderThickness = 1;
+            this.bunifuThinButton242.IdleCornerRadius = 20;
+            this.bunifuThinButton242.IdleFillColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton242.IdleForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton242.IdleLineColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton242.Location = new System.Drawing.Point(479, 255);
+            this.bunifuThinButton242.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bunifuThinButton242.Name = "bunifuThinButton242";
+            this.bunifuThinButton242.Size = new System.Drawing.Size(28, 30);
+            this.bunifuThinButton242.TabIndex = 340;
+            this.bunifuThinButton242.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // bunifuThinButton243
+            // 
+            this.bunifuThinButton243.ActiveBorderThickness = 1;
+            this.bunifuThinButton243.ActiveCornerRadius = 20;
+            this.bunifuThinButton243.ActiveFillColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton243.ActiveForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton243.ActiveLineColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton243.BackColor = System.Drawing.Color.White;
+            this.bunifuThinButton243.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton243.BackgroundImage")));
+            this.bunifuThinButton243.ButtonText = "32";
+            this.bunifuThinButton243.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuThinButton243.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuThinButton243.ForeColor = System.Drawing.Color.White;
+            this.bunifuThinButton243.IdleBorderThickness = 1;
+            this.bunifuThinButton243.IdleCornerRadius = 20;
+            this.bunifuThinButton243.IdleFillColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton243.IdleForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton243.IdleLineColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton243.Location = new System.Drawing.Point(433, 255);
+            this.bunifuThinButton243.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bunifuThinButton243.Name = "bunifuThinButton243";
+            this.bunifuThinButton243.Size = new System.Drawing.Size(28, 30);
+            this.bunifuThinButton243.TabIndex = 339;
+            this.bunifuThinButton243.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // bunifuThinButton244
+            // 
+            this.bunifuThinButton244.ActiveBorderThickness = 1;
+            this.bunifuThinButton244.ActiveCornerRadius = 20;
+            this.bunifuThinButton244.ActiveFillColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton244.ActiveForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton244.ActiveLineColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton244.BackColor = System.Drawing.Color.White;
+            this.bunifuThinButton244.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton244.BackgroundImage")));
+            this.bunifuThinButton244.ButtonText = "31";
+            this.bunifuThinButton244.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuThinButton244.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuThinButton244.ForeColor = System.Drawing.Color.White;
+            this.bunifuThinButton244.IdleBorderThickness = 1;
+            this.bunifuThinButton244.IdleCornerRadius = 20;
+            this.bunifuThinButton244.IdleFillColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton244.IdleForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton244.IdleLineColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton244.Location = new System.Drawing.Point(389, 255);
+            this.bunifuThinButton244.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bunifuThinButton244.Name = "bunifuThinButton244";
+            this.bunifuThinButton244.Size = new System.Drawing.Size(28, 30);
+            this.bunifuThinButton244.TabIndex = 338;
+            this.bunifuThinButton244.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // bunifuThinButton245
+            // 
+            this.bunifuThinButton245.ActiveBorderThickness = 1;
+            this.bunifuThinButton245.ActiveCornerRadius = 20;
+            this.bunifuThinButton245.ActiveFillColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton245.ActiveForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton245.ActiveLineColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton245.BackColor = System.Drawing.Color.White;
+            this.bunifuThinButton245.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton245.BackgroundImage")));
+            this.bunifuThinButton245.ButtonText = "41";
+            this.bunifuThinButton245.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuThinButton245.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuThinButton245.ForeColor = System.Drawing.Color.White;
+            this.bunifuThinButton245.IdleBorderThickness = 1;
+            this.bunifuThinButton245.IdleCornerRadius = 20;
+            this.bunifuThinButton245.IdleFillColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton245.IdleForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton245.IdleLineColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton245.Location = new System.Drawing.Point(333, 255);
+            this.bunifuThinButton245.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bunifuThinButton245.Name = "bunifuThinButton245";
+            this.bunifuThinButton245.Size = new System.Drawing.Size(28, 30);
+            this.bunifuThinButton245.TabIndex = 337;
+            this.bunifuThinButton245.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // bunifuThinButton246
+            // 
+            this.bunifuThinButton246.ActiveBorderThickness = 1;
+            this.bunifuThinButton246.ActiveCornerRadius = 20;
+            this.bunifuThinButton246.ActiveFillColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton246.ActiveForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton246.ActiveLineColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton246.BackColor = System.Drawing.Color.White;
+            this.bunifuThinButton246.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton246.BackgroundImage")));
+            this.bunifuThinButton246.ButtonText = "42";
+            this.bunifuThinButton246.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuThinButton246.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuThinButton246.ForeColor = System.Drawing.Color.White;
+            this.bunifuThinButton246.IdleBorderThickness = 1;
+            this.bunifuThinButton246.IdleCornerRadius = 20;
+            this.bunifuThinButton246.IdleFillColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton246.IdleForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton246.IdleLineColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton246.Location = new System.Drawing.Point(288, 255);
+            this.bunifuThinButton246.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bunifuThinButton246.Name = "bunifuThinButton246";
+            this.bunifuThinButton246.Size = new System.Drawing.Size(28, 30);
+            this.bunifuThinButton246.TabIndex = 336;
+            this.bunifuThinButton246.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // bunifuThinButton247
+            // 
+            this.bunifuThinButton247.ActiveBorderThickness = 1;
+            this.bunifuThinButton247.ActiveCornerRadius = 20;
+            this.bunifuThinButton247.ActiveFillColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton247.ActiveForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton247.ActiveLineColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton247.BackColor = System.Drawing.Color.White;
+            this.bunifuThinButton247.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton247.BackgroundImage")));
+            this.bunifuThinButton247.ButtonText = "43";
+            this.bunifuThinButton247.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuThinButton247.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuThinButton247.ForeColor = System.Drawing.Color.White;
+            this.bunifuThinButton247.IdleBorderThickness = 1;
+            this.bunifuThinButton247.IdleCornerRadius = 20;
+            this.bunifuThinButton247.IdleFillColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton247.IdleForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton247.IdleLineColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton247.Location = new System.Drawing.Point(243, 255);
+            this.bunifuThinButton247.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bunifuThinButton247.Name = "bunifuThinButton247";
+            this.bunifuThinButton247.Size = new System.Drawing.Size(28, 30);
+            this.bunifuThinButton247.TabIndex = 335;
+            this.bunifuThinButton247.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // bunifuThinButton248
+            // 
+            this.bunifuThinButton248.ActiveBorderThickness = 1;
+            this.bunifuThinButton248.ActiveCornerRadius = 20;
+            this.bunifuThinButton248.ActiveFillColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton248.ActiveForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton248.ActiveLineColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton248.BackColor = System.Drawing.Color.White;
+            this.bunifuThinButton248.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton248.BackgroundImage")));
+            this.bunifuThinButton248.ButtonText = "51";
+            this.bunifuThinButton248.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuThinButton248.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuThinButton248.ForeColor = System.Drawing.Color.White;
+            this.bunifuThinButton248.IdleBorderThickness = 1;
+            this.bunifuThinButton248.IdleCornerRadius = 20;
+            this.bunifuThinButton248.IdleFillColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton248.IdleForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton248.IdleLineColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton248.Location = new System.Drawing.Point(195, 255);
+            this.bunifuThinButton248.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bunifuThinButton248.Name = "bunifuThinButton248";
+            this.bunifuThinButton248.Size = new System.Drawing.Size(28, 30);
+            this.bunifuThinButton248.TabIndex = 334;
+            this.bunifuThinButton248.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // bunifuThinButton249
+            // 
+            this.bunifuThinButton249.ActiveBorderThickness = 1;
+            this.bunifuThinButton249.ActiveCornerRadius = 20;
+            this.bunifuThinButton249.ActiveFillColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton249.ActiveForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton249.ActiveLineColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton249.BackColor = System.Drawing.Color.White;
+            this.bunifuThinButton249.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton249.BackgroundImage")));
+            this.bunifuThinButton249.ButtonText = "44";
+            this.bunifuThinButton249.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuThinButton249.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuThinButton249.ForeColor = System.Drawing.Color.White;
+            this.bunifuThinButton249.IdleBorderThickness = 1;
+            this.bunifuThinButton249.IdleCornerRadius = 20;
+            this.bunifuThinButton249.IdleFillColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton249.IdleForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton249.IdleLineColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton249.Location = new System.Drawing.Point(150, 255);
+            this.bunifuThinButton249.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bunifuThinButton249.Name = "bunifuThinButton249";
+            this.bunifuThinButton249.Size = new System.Drawing.Size(28, 30);
+            this.bunifuThinButton249.TabIndex = 333;
+            this.bunifuThinButton249.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // bunifuThinButton250
+            // 
+            this.bunifuThinButton250.ActiveBorderThickness = 1;
+            this.bunifuThinButton250.ActiveCornerRadius = 20;
+            this.bunifuThinButton250.ActiveFillColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton250.ActiveForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton250.ActiveLineColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton250.BackColor = System.Drawing.Color.White;
+            this.bunifuThinButton250.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton250.BackgroundImage")));
+            this.bunifuThinButton250.ButtonText = "45";
+            this.bunifuThinButton250.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuThinButton250.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuThinButton250.ForeColor = System.Drawing.Color.White;
+            this.bunifuThinButton250.IdleBorderThickness = 1;
+            this.bunifuThinButton250.IdleCornerRadius = 20;
+            this.bunifuThinButton250.IdleFillColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton250.IdleForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton250.IdleLineColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton250.Location = new System.Drawing.Point(105, 255);
+            this.bunifuThinButton250.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bunifuThinButton250.Name = "bunifuThinButton250";
+            this.bunifuThinButton250.Size = new System.Drawing.Size(28, 30);
+            this.bunifuThinButton250.TabIndex = 332;
+            this.bunifuThinButton250.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // bunifuThinButton251
+            // 
+            this.bunifuThinButton251.ActiveBorderThickness = 1;
+            this.bunifuThinButton251.ActiveCornerRadius = 20;
+            this.bunifuThinButton251.ActiveFillColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton251.ActiveForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton251.ActiveLineColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton251.BackColor = System.Drawing.Color.White;
+            this.bunifuThinButton251.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton251.BackgroundImage")));
+            this.bunifuThinButton251.ButtonText = "46";
+            this.bunifuThinButton251.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuThinButton251.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuThinButton251.ForeColor = System.Drawing.Color.White;
+            this.bunifuThinButton251.IdleBorderThickness = 1;
+            this.bunifuThinButton251.IdleCornerRadius = 20;
+            this.bunifuThinButton251.IdleFillColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton251.IdleForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton251.IdleLineColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton251.Location = new System.Drawing.Point(59, 255);
+            this.bunifuThinButton251.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bunifuThinButton251.Name = "bunifuThinButton251";
+            this.bunifuThinButton251.Size = new System.Drawing.Size(28, 30);
+            this.bunifuThinButton251.TabIndex = 331;
+            this.bunifuThinButton251.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // bunifuThinButton252
+            // 
+            this.bunifuThinButton252.ActiveBorderThickness = 1;
+            this.bunifuThinButton252.ActiveCornerRadius = 20;
+            this.bunifuThinButton252.ActiveFillColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton252.ActiveForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton252.ActiveLineColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton252.BackColor = System.Drawing.Color.White;
+            this.bunifuThinButton252.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton252.BackgroundImage")));
+            this.bunifuThinButton252.ButtonText = "47";
+            this.bunifuThinButton252.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuThinButton252.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuThinButton252.ForeColor = System.Drawing.Color.White;
+            this.bunifuThinButton252.IdleBorderThickness = 1;
+            this.bunifuThinButton252.IdleCornerRadius = 20;
+            this.bunifuThinButton252.IdleFillColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton252.IdleForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton252.IdleLineColor = System.Drawing.Color.DarkCyan;
+            this.bunifuThinButton252.Location = new System.Drawing.Point(15, 255);
+            this.bunifuThinButton252.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bunifuThinButton252.Name = "bunifuThinButton252";
+            this.bunifuThinButton252.Size = new System.Drawing.Size(28, 30);
+            this.bunifuThinButton252.TabIndex = 330;
+            this.bunifuThinButton252.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ShowPatientInfo
             // 
@@ -4039,5 +4489,21 @@
         private System.Windows.Forms.PictureBox pictureBox77;
         private Bunifu.Framework.UI.BunifuCustomDataGrid PaymentHistory_DataGrid;
         private System.Windows.Forms.Button btn_CancelPayment;
+        private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton237;
+        private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton238;
+        private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton239;
+        private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton240;
+        private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton241;
+        private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton242;
+        private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton243;
+        private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton244;
+        private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton245;
+        private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton246;
+        private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton247;
+        private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton248;
+        private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton249;
+        private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton250;
+        private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton251;
+        private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton252;
     }
 }
