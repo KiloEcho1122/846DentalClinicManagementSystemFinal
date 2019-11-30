@@ -50,7 +50,8 @@ namespace _846DentalClinicManagementSystem
             sqlcon.Open();
             try
             {
-                if (float.Parse(cmd.ExecuteScalar().ToString()) > 0) return true;
+                object obj = cmd.ExecuteScalar();
+                if (obj != null && float.Parse(obj.ToString()) > 0) return true;
 
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }

@@ -916,19 +916,20 @@ namespace _846DentalClinicManagementSystem
             {
                 if (row.Cells[0].Value.ToString().Contains(txt_BllingID.Text))
                 {
+                    float _TotalPay = 0, _Balance = 0, _Payment = 0, _AmountCharge = 0;
+                    float.TryParse(txt_Amount.Text, out _Payment);
 
-
-                    if (isPaymentValid == true)
+                    if (isPaymentValid == true && _Payment > 0)
                     {
-                        float _TotalPay = 0, _Balance = 0, _Payment = 0, _AmountCharge = 0;
-                        float.TryParse(txt_Amount.Text, out _Payment);
+                       
+                        
                         float.TryParse(row.Cells[3].Value.ToString(),out _AmountCharge);
                         float.TryParse(row.Cells[4].Value.ToString(), out _TotalPay);
                         float.TryParse(row.Cells[5].Value.ToString(), out _Balance);
 
                         if (_Balance > 0)
                         {
-                            if (_TotalPay <= _AmountCharge)
+                            if (_TotalPay + _Payment <= _AmountCharge)
                             {
                                 GlobalVariable.BillingID = Convert.ToInt32(txt_BllingID.Text);
                                 DialogResult result = MessageBox.Show("Are you sure you want to add ₱ " + _Payment + " payment \r \n To Mr/Ms." + GlobalVariable.PatientName + " ?"
@@ -1073,7 +1074,10 @@ namespace _846DentalClinicManagementSystem
             
         }
 
-     
+        private void General_tab_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
    

@@ -28,7 +28,8 @@ namespace _846DentalClinicManagementSystem
        
 
         int SelectedDentistID = 0, AppNo = 0;
-        String LName, MName, FName, StartTime, EndTime, refTime, AppDate,Note = "",AppStatus ="",contactNo;
+        string LName, MName, FName, StartTime, EndTime, refTime, AppDate,Note = "",AppStatus ="",contactNo;
+        string DateChecker1,DateChecker2;
         ArrayList RemovedTreatment = new ArrayList();
 
         public AddAppointment()
@@ -160,10 +161,11 @@ namespace _846DentalClinicManagementSystem
                                 {
                                   
 
-                                    if (string.IsNullOrEmpty(AppDate) == false)
+                                    if (string.IsNullOrEmpty(AppDate) == false || DateChecker1 == DateChecker2)
                                     {
+                                        AppDate = DP_date.Value.ToString("M/d/yyyy");
 
-                                        if((string.IsNullOrEmpty(contactNo) == false) && isContactValid && contactNo.Length == 11)
+                                        if ((string.IsNullOrEmpty(contactNo) == false) && isContactValid && contactNo.Length == 11)
                                         {
                                             var main = Application.OpenForms.OfType<MainForm>().First();
                                             if (GlobalVariable.isAddAppointment == true && GlobalVariable.isEditAppointment == false)
@@ -436,6 +438,7 @@ namespace _846DentalClinicManagementSystem
             DentistDD.selectedIndex = SelectedDentistID;
 
             string dateTime = DateTime.Parse(dt1.Rows[0][5].ToString()).ToString("M/d/yyyy hh:mm:ss tt");
+            DateChecker1 = dateTime;
             DP_date.Value = DateTime.ParseExact(dateTime, "M/d/yyyy hh:mm:ss tt", System.Globalization.CultureInfo.CurrentCulture);
 
             for (int i = 0; i < TimeDD.Items.Length; i++)
@@ -627,6 +630,7 @@ namespace _846DentalClinicManagementSystem
 
         private void DP_date_onValueChanged(object sender, EventArgs e)
         {
+            DateChecker2 = DP_date.Value.ToString("M/d/yyyy hh:mm:ss tt");
             Checktime();
         }
 
@@ -1068,7 +1072,7 @@ namespace _846DentalClinicManagementSystem
             sqlcon.Open();
             try
             {
-               if (string.IsNullOrEmpty(cmd.ExecuteScalar().ToString())) { return false; }
+               if (cmd.ExecuteScalar() == null) { return false; }
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
             sqlcon.Close();

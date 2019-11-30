@@ -248,7 +248,7 @@
             this.txt_Age.BorderColor = System.Drawing.Color.SeaGreen;
             this.txt_Age.Enabled = false;
             this.txt_Age.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Age.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.txt_Age.ForeColor = System.Drawing.SystemColors.Menu;
             this.txt_Age.Location = new System.Drawing.Point(395, 322);
             this.txt_Age.Multiline = true;
             this.txt_Age.Name = "txt_Age";
@@ -271,7 +271,7 @@
             this.txt_address.BackColor = System.Drawing.Color.SeaGreen;
             this.txt_address.BorderColor = System.Drawing.Color.SeaGreen;
             this.txt_address.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_address.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.txt_address.ForeColor = System.Drawing.SystemColors.Menu;
             this.txt_address.Location = new System.Drawing.Point(512, 321);
             this.txt_address.Multiline = true;
             this.txt_address.Name = "txt_address";

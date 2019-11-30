@@ -462,7 +462,7 @@ namespace _846DentalClinicManagementSystem
 
                 Label timeLabel = new Label();
                 timeLabel.Font = new Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                timeLabel.Location = new Point(50, horizontalY - 10);
+                timeLabel.Location = new Point(50, horizontalY - 15);
                 timeLabel.Text = time.ToString("hh:mm tt");
                 this.AppTimePanel.Controls.Add(timeLabel);
                 time = time.AddMinutes(30);
@@ -486,7 +486,8 @@ namespace _846DentalClinicManagementSystem
 
             if (WeekSwitch.Value == false)
             {
-         
+                TimePanel_Footer.Visible = false;
+                AppTimePanel.Size = new Size(184, 463);
                 for (int i = 0; i < 3; i++)
                 {
                     Panel verticalPanel = new Panel();
@@ -503,7 +504,8 @@ namespace _846DentalClinicManagementSystem
             }
             else
             {
-
+                TimePanel_Footer.Visible = true;
+                AppTimePanel.Size = new Size(184, 450);
                 Appointment_Panel.Controls.Clear();
                 AppointmentHeader_Panel.Controls.Clear();
                 AppointmentHeader_Panel.AutoScrollPosition = new Point(0, 0);
@@ -521,7 +523,7 @@ namespace _846DentalClinicManagementSystem
 
 
                 Panel panel = new Panel();
-                panel.Size = new Size(2100, 45);
+                panel.Size = new Size(2150, 45);
                 panel.BackColor = Color.Salmon;
                 panel.Margin = new Padding(0);
                 panel.Location = new Point(0, 0);
@@ -564,9 +566,10 @@ namespace _846DentalClinicManagementSystem
                 for (int i = 0; i < 14; i++)
                 {
                     Panel aira = new Panel();
+                    aira.Location = new Point(loc, 45);
                     aira.Size = new Size(161, 20);
                     aira.Margin = new Padding(0);
-                    aira.Location = new Point(loc, 45);
+                    
                     if (i % 2 == 0)
                     {
                         aira.BackColor = Color.PaleTurquoise;
@@ -575,8 +578,12 @@ namespace _846DentalClinicManagementSystem
                     {
                         aira.BackColor = Color.Pink;
                     }
-                    if (i == 13) { aira.Size = new Size(150, 20); }
-                   
+                    if(i == 12) aira.Size = new Size(176, 20);
+                    if (i == 13)
+                    {
+                        aira.Location = new Point(loc + 15, 45);
+                       
+                    }
 
                     loc += 150;
                     this.AppointmentHeader_Panel.Controls.Add(aira);

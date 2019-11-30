@@ -100,6 +100,7 @@ namespace _846DentalClinicManagementSystem
                 txt_LName.Text = dt.Rows[0][1].ToString();
                 txt_FName.Text = dt.Rows[0][2].ToString();
                 txt_MName.Text = dt.Rows[0][3].ToString();
+                txt_ContactNo.Text = dt.Rows[0][4].ToString();
             }
             catch(Exception ex) { Console.WriteLine(ex.Message); }
         }
