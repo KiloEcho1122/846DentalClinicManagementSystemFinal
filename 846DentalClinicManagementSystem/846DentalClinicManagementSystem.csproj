@@ -242,6 +242,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Bunifu_UI_v1.52\Bunifu_UI_v1.52.dll" />
     <Content Include="Data\ISADDATABASE.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
