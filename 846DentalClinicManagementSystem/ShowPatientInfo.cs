@@ -78,11 +78,19 @@ namespace _846DentalClinicManagementSystem
         Pen p2 = new Pen(new SolidBrush(Color.Blue), 2);
         Pen p3 = new Pen(new SolidBrush(Color.Red), 2);
 
-        //Solid Brush or Fill Color
+        //Solid Brush or Fill Color 
+        SolidBrush TeethBrushColor = null;
+
+
         SolidBrush red = new SolidBrush(Color.FromArgb(239, 45, 45));
         SolidBrush white = new SolidBrush(Color.White);
         SolidBrush blue = new SolidBrush(Color.FromArgb(51, 01, 247));
 
+        //Teeth Legend Icon
+        Image TeethLegend;
+
+        //Teeth String Status
+        string TeethStatus = null;
 
         // Draw Check in the teeth
         Point[] check = { new Point(0, 18), new Point(8, 30), new Point(30, 0), new Point(8, 23) };
@@ -96,13 +104,19 @@ namespace _846DentalClinicManagementSystem
 
         ArrayList TeethArray = new ArrayList();
 
-        String[] TopTeethColor = new String[32];
-        String[] BottomTeethColor = new string[32];
-        String[] LeftTeethColor = new String[32];
-        String[] RightTeethColor = new string[32];
-        String[] CenterTeethColor = new String[32];
-        String[] Checked = new string[32];
-        String[] ex = new string[32];
+        string[] TopTeethColor = new string[52];
+        string[] BottomTeethColor = new string[52];
+        string[] LeftTeethColor = new string[52];
+        string[] RightTeethColor = new string[52];
+        string[] CenterTeethColor = new string[52];
+        //string[] OK = new string[52];
+        //string[] Missing = new string[52];
+        //string[] RF = new string[52];
+        //string[] Implant = new string[52];
+        //string[] Impacted = new string[52];
+          String[] Checked = new string[52];
+         String[] ex = new String[52];
+
 
         private void ShowPatientInfo_Load(object sender, EventArgs e)
         {
@@ -115,15 +129,22 @@ namespace _846DentalClinicManagementSystem
 
         private void SetDefaultTeethColor()
         {
-            for (int i = 0; i < 32; i++)
+            for (int i = 0; i < 52; i++)
             {
-                TopTeethColor[i] = "White";
-                BottomTeethColor[i] = "White";
-                LeftTeethColor[i] = "White";
-                RightTeethColor[i] = "White";
-                CenterTeethColor[i] = "White";
-                Checked[i] = "false";
-                ex[i] = "false";
+                TopTeethColor[i] = "OK";
+                BottomTeethColor[i] = "OK";
+                LeftTeethColor[i] = "OK";
+                RightTeethColor[i] = "OK";
+                CenterTeethColor[i] = "OK";
+                //OK[i] = "true";
+                //Missing[i] = "false";
+                //RF[i] = "false";
+                //Implant[i] = "false";
+                //Impacted[i] = "false";
+
+
+              //  Checked[i] = "false";
+             //ex[i] = "false";
 
             }
         }
@@ -201,221 +222,447 @@ namespace _846DentalClinicManagementSystem
 
         }
 
-        // Function to fill teeth by parts
-        private void FillTeeth(Panel TeethPanel, MouseEventArgs e, object teethLetter, int index)
+
+        //LEGEND -------------------------------------------------------------------------------------------
+        private void btn_Ok_Click(object sender, EventArgs e)
         {
+            TeethBrushColor = new SolidBrush(Color.White);
+            TeethLegend = global::_846DentalClinicManagementSystem.Properties.Resources.check_mark;
+            TeethStatus = "OK";
+        }
 
+        private void btn_Missing_Click(object sender, EventArgs e)
+        {
+            TeethBrushColor = new SolidBrush(Color.White);
+            TeethLegend = global::_846DentalClinicManagementSystem.Properties.Resources.M;
+            TeethStatus = "Missing";
+        }
+
+        private void btn_RF_Click(object sender, EventArgs e)
+        {
+            TeethBrushColor = new SolidBrush(Color.White);
+            TeethLegend = global::_846DentalClinicManagementSystem.Properties.Resources.RF;
+            TeethStatus = "RF";
+        }
+
+        private void btn_Implant_Click(object sender, EventArgs e)
+        {
+            TeethBrushColor = new SolidBrush(Color.White);
+            TeethLegend = global::_846DentalClinicManagementSystem.Properties.Resources.icons8_dental_implant_50;
+            TeethStatus = "Implant";
+        }
+
+        private void btn_Impacted_Click(object sender, EventArgs e)
+        {
+            TeethBrushColor = new SolidBrush(Color.White);
+            TeethLegend = global::_846DentalClinicManagementSystem.Properties.Resources.IMP;
+            TeethStatus = "Impacted";
+        }
+
+        private void btn_Caries_Click(object sender, EventArgs e)
+        {
+            TeethBrushColor = new SolidBrush(Color.FromArgb(237, 28, 36));
+            TeethLegend = null;
+            TeethStatus = "Caries";
+        }
+
+        private void btn_Composite_Click(object sender, EventArgs e)
+        {
+            TeethBrushColor = new SolidBrush(Color.FromArgb(64, 0, 128));
+            TeethLegend = null;
+            TeethStatus = "Composite";
+        }
+
+        private void btn_Amalgram_Click(object sender, EventArgs e)
+        {
+            TeethBrushColor = new SolidBrush(Color.FromArgb(127, 127, 127));
+            TeethLegend = null;
+            TeethStatus = "Amalgram";
+        }
+
+        private void btn_Recurrent_Click(object sender, EventArgs e)
+        {
+            TeethBrushColor = new SolidBrush(Color.FromArgb(255, 128, 64));
+            TeethLegend = null;
+            TeethStatus = "Recurrent";
+        }
+
+        private void btn_PFM_Click(object sender, EventArgs e)
+        {
+            TeethBrushColor = new SolidBrush(Color.FromArgb(207, 181, 59));
+            TeethLegend = global::_846DentalClinicManagementSystem.Properties.Resources.pfm;
+            TeethStatus = "PFM";
+        }
+
+        private void btn_CER_Click(object sender, EventArgs e)
+        {
+            TeethBrushColor = new SolidBrush(Color.FromArgb(240, 230, 120));
+            TeethLegend = global::_846DentalClinicManagementSystem.Properties.Resources.cer;
+            TeethStatus = "CER";
+        }
+
+        private void btn_GC_Click(object sender, EventArgs e)
+        {
+            TeethBrushColor = new SolidBrush(Color.FromArgb(255, 215, 0));
+            TeethLegend = global::_846DentalClinicManagementSystem.Properties.Resources.gc;
+            TeethStatus = "GC";
+
+        }
+
+        private void btn_MC_Click(object sender, EventArgs e)
+        {
+            TeethBrushColor = new SolidBrush(Color.FromArgb(195, 195, 195));
+            TeethLegend = global::_846DentalClinicManagementSystem.Properties.Resources.mc;
+            TeethStatus = "MC";
+        }
+
+        private void btn_CERIO_Click(object sender, EventArgs e)
+        {
+            TeethBrushColor = new SolidBrush(Color.FromArgb(240, 230, 120));
+            TeethLegend = global::_846DentalClinicManagementSystem.Properties.Resources.CERIO;
+            TeethStatus = "CERIO";
+        }
+
+        private void btn_GIO_Click(object sender, EventArgs e)
+        {
+            TeethBrushColor = new SolidBrush(Color.FromArgb(255, 215, 0));
+            TeethLegend = global::_846DentalClinicManagementSystem.Properties.Resources.GIO;
+            TeethStatus = "GIO";
+        }
+
+        private void btn_MIO_Click(object sender, EventArgs e)
+        {
+            TeethBrushColor = new SolidBrush(Color.FromArgb(195, 195, 195));
+            TeethLegend = global::_846DentalClinicManagementSystem.Properties.Resources.MIO;
+            TeethStatus = "MIO";
+        }
+
+        //---------------------------------------------------------------------------------------------------
+
+        // Function to fill teeth by parts
+        private void FillTeeth(Panel TeethPanel, MouseEventArgs e, int index)
+        {
             Graphics gs = TeethPanel.CreateGraphics();
-            switch (teethLetter)
+            PictureBox icon = new PictureBox();
+            icon = IconNumber(index);
+
+
+            if (string.IsNullOrEmpty(TeethStatus) == false)
             {
-                case MouseButtons.Left:
-
-                    if (Checked[index] == "false" && ex[index] == "false")
-                    {
-                        if (this.TopRectangle.Contains(e.Location))
-                        {
-
-                            if (TopTeethColor[index] == "White")
-                            {
-                                gs.FillPolygon(red, TopPolygonFill);
-                                TopTeethColor[index] = "Red";
-                            }
-                            else if (TopTeethColor[index] == "Red")
-                            {
-                                gs.FillPolygon(blue, TopPolygonFill);
-                                TopTeethColor[index] = "Blue";
-                            }
-                            else if (TopTeethColor[index] == "Blue")
-                            {
-                                gs.FillPolygon(white, TopPolygonFill);
-                                TopTeethColor[index] = "White";
-                            }
-                        }
-                        else if (this.BottomRectangle.Contains(e.Location))
-                        {
-
-                            if (BottomTeethColor[index] == "White")
-                            {
-                                gs.FillPolygon(red, BottomPolygonFill);
-                                BottomTeethColor[index] = "Red";
-                            }
-                            else if (BottomTeethColor[index] == "Red")
-                            {
-                                gs.FillPolygon(blue, BottomPolygonFill);
-                                BottomTeethColor[index] = "Blue";
-                            }
-                            else if (BottomTeethColor[index] == "Blue")
-                            {
-                                gs.FillPolygon(white, BottomPolygonFill);
-                                BottomTeethColor[index] = "White";
-                            }
-
-                        }
-                        else if (this.LeftRectangle.Contains(e.Location))
-                        {
-                            if (LeftTeethColor[index] == "White")
-                            {
-                                gs.FillPolygon(red, LeftPolygonFill);
-                                LeftTeethColor[index] = "Red";
-                            }
-                            else if (LeftTeethColor[index] == "Red")
-                            {
-                                gs.FillPolygon(blue, LeftPolygonFill);
-                                LeftTeethColor[index] = "Blue";
-                            }
-                            else if (LeftTeethColor[index] == "Blue")
-                            {
-                                gs.FillPolygon(white, LeftPolygonFill);
-                                LeftTeethColor[index] = "White";
-                            }
-
-                        }
-                        else if (this.RightRectangle.Contains(e.Location))
-                        {
-
-                            if (RightTeethColor[index] == "White")
-                            {
-                                gs.FillPolygon(red, RightPolygonFill);
-                                RightTeethColor[index] = "Red";
-                            }
-                            else if (RightTeethColor[index] == "Red")
-                            {
-                                gs.FillPolygon(blue, RightPolygonFill);
-                                RightTeethColor[index] = "Blue";
-                            }
-                            else if (RightTeethColor[index] == "Blue")
-                            {
-                                gs.FillPolygon(white, RightPolygonFill);
-                                RightTeethColor[index] = "White";
-                            }
-
-                        }
-                        else if (this.InsideRectangle.Contains(e.Location))
-                        {
-                            if (CenterTeethColor[index] == "White")
-                            {
-                                gs.FillRectangle(red, InsideRectangleFill);
-                                CenterTeethColor[index] = "Red";
-                            }
-                            else if (CenterTeethColor[index] == "Red")
-                            {
-                                gs.FillRectangle(blue, InsideRectangleFill);
-                                CenterTeethColor[index] = "Blue";
-                            }
-                            else if (CenterTeethColor[index] == "Blue")
-                            {
-                                gs.FillRectangle(white, InsideRectangleFill);
-                                CenterTeethColor[index] = "White";
-                            }
-
-                        }
-                    }
-
-                    break;
-                case MouseButtons.Right:
-
-                    TopTeethColor[index] = "White";
-                    BottomTeethColor[index] = "White";
-                    LeftTeethColor[index] = "White";
-                    RightTeethColor[index] = "White";
-                    CenterTeethColor[index] = "White";
-
-                    if (Checked[index] == "false" && ex[index] == "false")
-                    {
-
-                        TeethPanel.Invalidate();
-                        TeethPanel.Update();
-                        gs.DrawPolygon(p2, check);
-                        gs.FillPolygon(blue, check);
-                        Checked[index] = "true";
-
-                    }
-                    else if (Checked[index] == "true" && ex[index] == "false")
-                    {
-
-                        TeethPanel.Invalidate();
-                        TeethPanel.Update();
-                        gs.DrawPolygon(p3, ekis1);
-                        gs.DrawPolygon(p3, ekis2);
-                        gs.FillPolygon(red, ekis1);
-                        gs.FillPolygon(red, ekis2);
-                        ex[index] = "true";
-                        Checked[index] = "false";
-
-                    }
-                    else if (Checked[index] == "false" && ex[index] == "true")
-                    {
-
-                        TeethPanel.Invalidate();
-                        TeethPanel.Update();
-                        TeethPanel.Refresh();
-                        ex[index] = "false";
-                    }
 
 
-                    break;
+                if (this.TopRectangle.Contains(e.Location))
+                {
+                    gs.FillPolygon(TeethBrushColor, TopPolygonFill);
+                    TopTeethColor[index] = TeethStatus;
+                }
+                else if (this.BottomRectangle.Contains(e.Location))
+                {
+                    gs.FillPolygon(TeethBrushColor, BottomPolygonFill);
+                    BottomTeethColor[index] = TeethStatus;
+                }
+                else if (this.LeftRectangle.Contains(e.Location))
+                {
+                    gs.FillPolygon(TeethBrushColor, LeftPolygonFill);
+                    LeftTeethColor[index] = TeethStatus;
+                }
+                else if (this.RightRectangle.Contains(e.Location))
+                {
+                    gs.FillPolygon(TeethBrushColor, RightPolygonFill);
+                    RightTeethColor[index] = TeethStatus;
+                }
+                else if (this.InsideRectangle.Contains(e.Location))
+                {
+                    gs.FillRectangle(TeethBrushColor, InsideRectangleFill);
+                    CenterTeethColor[index] = TeethStatus;
+                }
+
+                // if ever na merong ibang operation sa ibang part ng teeth
+                // iooverwrite nya kasi one operation lang pwede per teeth
+                if (TopTeethColor[index] != TeethStatus && TopTeethColor[index] != "OK")
+                {
+                    gs.FillPolygon(TeethBrushColor, TopPolygonFill);
+                    TopTeethColor[index] = TeethStatus;
+                }
+                if (BottomTeethColor[index] != TeethStatus && TopTeethColor[index] != "OK")
+                {
+                    gs.FillPolygon(TeethBrushColor, BottomPolygonFill);
+                    BottomTeethColor[index] = TeethStatus;
+                }
+                if (LeftTeethColor[index] != TeethStatus && TopTeethColor[index] != "OK")
+                {
+                    gs.FillPolygon(TeethBrushColor, LeftPolygonFill);
+                    LeftTeethColor[index] = TeethStatus;
+                }
+                if (RightTeethColor[index] != TeethStatus && TopTeethColor[index] != "OK")
+                {
+                    gs.FillPolygon(TeethBrushColor, RightPolygonFill);
+                    RightTeethColor[index] = TeethStatus;
+                }
+                if (CenterTeethColor[index] != TeethStatus && TopTeethColor[index] != "OK")
+                {
+                    gs.FillRectangle(TeethBrushColor, InsideRectangleFill);
+                    CenterTeethColor[index] = TeethStatus;
+                }
+
+                icon.Image = TeethLegend;
+
             }
+            else
+            {
+                MessageBox.Show("Please Pick Operation !");
+            }
+
             if (!(TeethArray.Contains(index)))
             {
                 TeethArray.Add(index);
             }
+
+
+            //if (Checked[index] == "false" && ex[index] == "false")
+            //        {
+            //            if (this.TopRectangle.Contains(e.Location))
+            //            {
+
+            //                if (TopTeethColor[index] == "White")
+            //                {
+            //                    gs.FillPolygon(red, TopPolygonFill);
+            //                    TopTeethColor[index] = "Red";
+            //                }
+            //                else if (TopTeethColor[index] == "Red")
+            //                {
+            //                    gs.FillPolygon(blue, TopPolygonFill);
+            //                    TopTeethColor[index] = "Blue";
+            //                }
+            //                else if (TopTeethColor[index] == "Blue")
+            //                {
+            //                    gs.FillPolygon(white, TopPolygonFill);
+            //                    TopTeethColor[index] = "White";
+            //                }
+            //            }
+            //            else if (this.BottomRectangle.Contains(e.Location))
+            //            {
+
+            //                if (BottomTeethColor[index] == "White")
+            //                {
+            //                    gs.FillPolygon(red, BottomPolygonFill);
+            //                    BottomTeethColor[index] = "Red";
+            //                }
+            //                else if (BottomTeethColor[index] == "Red")
+            //                {
+            //                    gs.FillPolygon(blue, BottomPolygonFill);
+            //                    BottomTeethColor[index] = "Blue";
+            //                }
+            //                else if (BottomTeethColor[index] == "Blue")
+            //                {
+            //                    gs.FillPolygon(white, BottomPolygonFill);
+            //                    BottomTeethColor[index] = "White";
+            //                }
+
+            //            }
+            //            else if (this.LeftRectangle.Contains(e.Location))
+            //            {
+            //                if (LeftTeethColor[index] == "White")
+            //                {
+            //                    gs.FillPolygon(red, LeftPolygonFill);
+            //                    LeftTeethColor[index] = "Red";
+            //                }
+            //                else if (LeftTeethColor[index] == "Red")
+            //                {
+            //                    gs.FillPolygon(blue, LeftPolygonFill);
+            //                    LeftTeethColor[index] = "Blue";
+            //                }
+            //                else if (LeftTeethColor[index] == "Blue")
+            //                {
+            //                    gs.FillPolygon(white, LeftPolygonFill);
+            //                    LeftTeethColor[index] = "White";
+            //                }
+
+            //            }
+            //            else if (this.RightRectangle.Contains(e.Location))
+            //            {
+
+            //                if (RightTeethColor[index] == "White")
+            //                {
+            //                    gs.FillPolygon(red, RightPolygonFill);
+            //                    RightTeethColor[index] = "Red";
+            //                }
+            //                else if (RightTeethColor[index] == "Red")
+            //                {
+            //                    gs.FillPolygon(blue, RightPolygonFill);
+            //                    RightTeethColor[index] = "Blue";
+            //                }
+            //                else if (RightTeethColor[index] == "Blue")
+            //                {
+            //                    gs.FillPolygon(white, RightPolygonFill);
+            //                    RightTeethColor[index] = "White";
+            //                }
+
+            //            }
+            //            else if (this.InsideRectangle.Contains(e.Location))
+            //            {
+            //                if (CenterTeethColor[index] == "White")
+            //                {
+            //                    gs.FillRectangle(red, InsideRectangleFill);
+            //                    CenterTeethColor[index] = "Red";
+            //                }
+            //                else if (CenterTeethColor[index] == "Red")
+            //                {
+            //                    gs.FillRectangle(blue, InsideRectangleFill);
+            //                    CenterTeethColor[index] = "Blue";
+            //                }
+            //                else if (CenterTeethColor[index] == "Blue")
+            //                {
+            //                    gs.FillRectangle(white, InsideRectangleFill);
+            //                    CenterTeethColor[index] = "White";
+            //                }
+
+            //            }
+            //        }
+
+    
+
+            //        TopTeethColor[index] = "White";
+            //        BottomTeethColor[index] = "White";
+            //        LeftTeethColor[index] = "White";
+            //        RightTeethColor[index] = "White";
+            //        CenterTeethColor[index] = "White";
+
+            //        if (Checked[index] == "false" && ex[index] == "false")
+            //        {
+
+            //            TeethPanel.Invalidate();
+            //            TeethPanel.Update();
+            //            gs.DrawPolygon(p2, check);
+            //            gs.FillPolygon(blue, check);
+            //            Checked[index] = "true";
+
+            //        }
+            //        else if (Checked[index] == "true" && ex[index] == "false")
+            //        {
+
+            //            TeethPanel.Invalidate();
+            //            TeethPanel.Update();
+            //            gs.DrawPolygon(p3, ekis1);
+            //            gs.DrawPolygon(p3, ekis2);
+            //            gs.FillPolygon(red, ekis1);
+            //            gs.FillPolygon(red, ekis2);
+            //            ex[index] = "true";
+            //            Checked[index] = "false";
+
+            //        }
+            //        else if (Checked[index] == "false" && ex[index] == "true")
+            //        {
+
+            //            TeethPanel.Invalidate();
+            //            TeethPanel.Update();
+            //            TeethPanel.Refresh();
+            //            ex[index] = "false";
+            //        }
+
+
+     
+           
+
         }
         // Mouse Click event to call FillTeeth Function
-        private void TeethPanel1_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel1, e, e.Button, 0);
-        private void TeethPanel2_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel2, e, e.Button, 1);
-        private void TeethPanel3_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel3, e, e.Button, 2);
-        private void TeethPanel4_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel4, e, e.Button, 3);
-        private void TeethPanel5_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel5, e, e.Button, 4);
-        private void TeethPanel6_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel6, e, e.Button, 5);
-        private void TeethPanel7_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel7, e, e.Button, 6);
-        private void TeethPanel8_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel8, e, e.Button, 7);
-        private void TeethPanel9_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel9, e, e.Button, 8);
-        private void TeethPanel10_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel10, e, e.Button, 9);
-        private void TeethPanel11_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel11, e, e.Button, 10);
-        private void TeethPanel12_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel12, e, e.Button, 11);
-        private void TeethPanel13_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel13, e, e.Button, 12);
-        private void TeethPanel14_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel14, e, e.Button, 13);
-        private void TeethPanel15_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel15, e, e.Button, 14);
-        private void TeethPanel16_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel16, e, e.Button, 15);
-        private void TeethPanel17_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel17, e, e.Button, 16);
-        private void TeethPanel18_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel18, e, e.Button, 17);
-        private void TeethPanel19_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel19, e, e.Button, 18);
-        private void TeethPanel20_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel20, e, e.Button, 19);
-        private void TeethPanel21_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel21, e, e.Button, 20);
-        private void TeethPanel22_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel22, e, e.Button, 21);
-        private void TeethPanel23_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel23, e, e.Button, 22);
-        private void TeethPanel24_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel24, e, e.Button, 23);
-        private void TeethPanel25_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel25, e, e.Button, 24);
-        private void TeethPanel26_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel26, e, e.Button, 25);
-        private void TeethPanel27_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel27, e, e.Button, 26);
-        private void TeethPanel28_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel28, e, e.Button, 27);
-        private void TeethPanel29_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel29, e, e.Button, 28);
-        private void TeethPanel30_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel30, e, e.Button, 29);
-        private void TeethPanel31_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel31, e, e.Button, 30);
-        private void TeethPanel32_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel32, e, e.Button, 31);
+        private void TeethPanel1_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel1, e,  0);
+        private void TeethPanel2_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel2, e,  1);
+        private void TeethPanel3_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel3, e,  2);
+        private void TeethPanel4_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel4, e,  3);
+        private void TeethPanel5_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel5, e,  4);
+        private void TeethPanel6_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel6, e,  5);
+        private void TeethPanel7_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel7, e, 6);
+        private void TeethPanel8_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel8, e,  7);
+        private void TeethPanel9_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel9, e,8);
+        private void TeethPanel10_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel10, e,  9);
+        private void TeethPanel11_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel11, e,  10);
+        private void TeethPanel12_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel12, e,  11);
+        private void TeethPanel13_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel13, e,  12);
+        private void TeethPanel14_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel14, e,  13);
+        private void TeethPanel15_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel15, e, 14);
+        private void TeethPanel16_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel16, e, 15);
+        private void TeethPanel17_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel17, e,16);
+        private void TeethPanel18_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel18, e, 17);
+        private void TeethPanel19_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel19, e, 18);
+        private void TeethPanel20_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel20, e, 19);
+        private void TeethPanel21_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel21, e,  20);
+        private void TeethPanel22_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel22, e, 21);
+        private void TeethPanel23_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel23, e, 22);
+        private void TeethPanel24_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel24, e, 23);
+        private void TeethPanel25_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel25, e, 24);
+        private void TeethPanel26_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel26, e, 25);
+        private void TeethPanel27_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel27, e,26);
+        private void TeethPanel28_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel28, e,27);
+        private void TeethPanel29_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel29, e, 28);
+        private void TeethPanel30_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel30, e,29);
+        private void TeethPanel31_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel31, e,30);
+        private void TeethPanel32_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel32, e, 31);
+        private void TeethPanel33_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel33, e, 32);
+        private void TeethPanel34_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel34, e, 33);
+        private void TeethPanel35_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel35, e, 34);
+        private void TeethPanel36_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel36, e,  35);
+        private void TeethPanel37_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel37, e,  36);
+        private void TeethPanel38_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel38, e,  37);
+        private void TeethPanel39_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel39, e,  38);
+        private void TeethPanel40_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel40, e, 39);
+        private void TeethPanel41_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel41, e,  40);
+        private void TeethPanel42_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel42, e,  41);
+        private void TeethPanel43_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel43, e,  42);
+        private void TeethPanel44_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel44, e,  43);
+        private void TeethPanel45_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel45, e, 44);
+        private void TeethPanel46_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel46, e,  45);
+        private void TeethPanel47_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel47, e,  46);
+        private void TeethPanel48_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel48, e, 47);
+        private void TeethPanel49_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel49, e, 48);
+        private void TeethPanel50_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel50, e, 49);
+        private void TeethPanel51_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel51, e, 50);
+        private void TeethPanel52_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel52, e, 51);
 
-
-
+        //return Teethpanel
         private Panel PanelNumber(int teethNumber)
         {
-            // Console.WriteLine(teethNumber);
             teethNumber++;
             string PanelName = "TeethPanel" + teethNumber;
 
             foreach (Control panelControl in panel1.Controls)
             {
-
-                if (panelControl.Name == PanelName)
+                if(panelControl is Panel)
                 {
-                    return (Panel)panelControl;
+                    if (panelControl.Name == PanelName)
+                    {
+                        return (Panel)panelControl;
+                    }
+
                 }
             }
-
           
             return null;
 
         }
 
+        //return icon number
+        private PictureBox IconNumber(int iconNumber)
+        {
+            iconNumber++;
+            string iconName = "icon" + iconNumber;
+
+            foreach (Control icon in panel1.Controls)
+            {
+                if (icon is PictureBox)
+                {
+                    if (icon.Name == iconName)
+                    {
+                        return (PictureBox)icon;
+                    }
+
+                }
+            }
+
+            return null;
+        }
+
+        //insert teeth status to database
         private void insertTeethStatus(int TeethNum)
         {
             int TeethIDCount = 0;
@@ -1193,6 +1440,8 @@ namespace _846DentalClinicManagementSystem
 
 
         }
+
+
     }
 
    
