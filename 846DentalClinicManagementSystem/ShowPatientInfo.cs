@@ -81,6 +81,9 @@ namespace _846DentalClinicManagementSystem
         //Solid Brush or Fill Color 
         SolidBrush TeethBrushColor = null;
 
+        //
+        Boolean reSize = false;
+
 
         SolidBrush red = new SolidBrush(Color.FromArgb(239, 45, 45));
         SolidBrush white = new SolidBrush(Color.White);
@@ -229,6 +232,7 @@ namespace _846DentalClinicManagementSystem
             TeethBrushColor = new SolidBrush(Color.White);
             TeethLegend = global::_846DentalClinicManagementSystem.Properties.Resources.check_mark;
             TeethStatus = "OK";
+            reSize = false;
         }
 
         private void btn_Missing_Click(object sender, EventArgs e)
@@ -236,6 +240,7 @@ namespace _846DentalClinicManagementSystem
             TeethBrushColor = new SolidBrush(Color.White);
             TeethLegend = global::_846DentalClinicManagementSystem.Properties.Resources.M;
             TeethStatus = "Missing";
+            reSize = false;
         }
 
         private void btn_RF_Click(object sender, EventArgs e)
@@ -243,6 +248,7 @@ namespace _846DentalClinicManagementSystem
             TeethBrushColor = new SolidBrush(Color.White);
             TeethLegend = global::_846DentalClinicManagementSystem.Properties.Resources.RF;
             TeethStatus = "RF";
+            reSize = false;
         }
 
         private void btn_Implant_Click(object sender, EventArgs e)
@@ -250,6 +256,7 @@ namespace _846DentalClinicManagementSystem
             TeethBrushColor = new SolidBrush(Color.White);
             TeethLegend = global::_846DentalClinicManagementSystem.Properties.Resources.icons8_dental_implant_50;
             TeethStatus = "Implant";
+            reSize = false;
         }
 
         private void btn_Impacted_Click(object sender, EventArgs e)
@@ -257,6 +264,7 @@ namespace _846DentalClinicManagementSystem
             TeethBrushColor = new SolidBrush(Color.White);
             TeethLegend = global::_846DentalClinicManagementSystem.Properties.Resources.IMP;
             TeethStatus = "Impacted";
+            reSize = false;
         }
 
         private void btn_Caries_Click(object sender, EventArgs e)
@@ -264,6 +272,7 @@ namespace _846DentalClinicManagementSystem
             TeethBrushColor = new SolidBrush(Color.FromArgb(237, 28, 36));
             TeethLegend = null;
             TeethStatus = "Caries";
+            reSize = false;
         }
 
         private void btn_Composite_Click(object sender, EventArgs e)
@@ -271,6 +280,7 @@ namespace _846DentalClinicManagementSystem
             TeethBrushColor = new SolidBrush(Color.FromArgb(64, 0, 128));
             TeethLegend = null;
             TeethStatus = "Composite";
+            reSize = false;
         }
 
         private void btn_Amalgram_Click(object sender, EventArgs e)
@@ -278,6 +288,7 @@ namespace _846DentalClinicManagementSystem
             TeethBrushColor = new SolidBrush(Color.FromArgb(127, 127, 127));
             TeethLegend = null;
             TeethStatus = "Amalgram";
+            reSize = false;
         }
 
         private void btn_Recurrent_Click(object sender, EventArgs e)
@@ -285,6 +296,7 @@ namespace _846DentalClinicManagementSystem
             TeethBrushColor = new SolidBrush(Color.FromArgb(255, 128, 64));
             TeethLegend = null;
             TeethStatus = "Recurrent";
+            reSize = false;
         }
 
         private void btn_PFM_Click(object sender, EventArgs e)
@@ -292,6 +304,7 @@ namespace _846DentalClinicManagementSystem
             TeethBrushColor = new SolidBrush(Color.FromArgb(207, 181, 59));
             TeethLegend = global::_846DentalClinicManagementSystem.Properties.Resources.pfm;
             TeethStatus = "PFM";
+            reSize = true;
         }
 
         private void btn_CER_Click(object sender, EventArgs e)
@@ -299,6 +312,7 @@ namespace _846DentalClinicManagementSystem
             TeethBrushColor = new SolidBrush(Color.FromArgb(240, 230, 120));
             TeethLegend = global::_846DentalClinicManagementSystem.Properties.Resources.cer;
             TeethStatus = "CER";
+            reSize = true;
         }
 
         private void btn_GC_Click(object sender, EventArgs e)
@@ -306,6 +320,7 @@ namespace _846DentalClinicManagementSystem
             TeethBrushColor = new SolidBrush(Color.FromArgb(255, 215, 0));
             TeethLegend = global::_846DentalClinicManagementSystem.Properties.Resources.gc;
             TeethStatus = "GC";
+            reSize = true;
 
         }
 
@@ -314,6 +329,7 @@ namespace _846DentalClinicManagementSystem
             TeethBrushColor = new SolidBrush(Color.FromArgb(195, 195, 195));
             TeethLegend = global::_846DentalClinicManagementSystem.Properties.Resources.mc;
             TeethStatus = "MC";
+            reSize = true;
         }
 
         private void btn_CERIO_Click(object sender, EventArgs e)
@@ -321,6 +337,7 @@ namespace _846DentalClinicManagementSystem
             TeethBrushColor = new SolidBrush(Color.FromArgb(240, 230, 120));
             TeethLegend = global::_846DentalClinicManagementSystem.Properties.Resources.CERIO;
             TeethStatus = "CERIO";
+            reSize = true;
         }
 
         private void btn_GIO_Click(object sender, EventArgs e)
@@ -328,6 +345,7 @@ namespace _846DentalClinicManagementSystem
             TeethBrushColor = new SolidBrush(Color.FromArgb(255, 215, 0));
             TeethLegend = global::_846DentalClinicManagementSystem.Properties.Resources.GIO;
             TeethStatus = "GIO";
+            reSize = true;
         }
 
         private void btn_MIO_Click(object sender, EventArgs e)
@@ -335,6 +353,7 @@ namespace _846DentalClinicManagementSystem
             TeethBrushColor = new SolidBrush(Color.FromArgb(195, 195, 195));
             TeethLegend = global::_846DentalClinicManagementSystem.Properties.Resources.MIO;
             TeethStatus = "MIO";
+            reSize = true;
         }
 
         //---------------------------------------------------------------------------------------------------
@@ -406,6 +425,17 @@ namespace _846DentalClinicManagementSystem
                 }
 
                 icon.Image = TeethLegend;
+                if (reSize)
+                {
+                    icon.Size = new Size(33,16);
+                    icon.Left = TeethPanel.Left;
+                 //   icon.Top = TeethPanel.Top
+                }
+                else
+                {
+                    icon.Size = new Size(20, 16);
+                    icon.Left = TeethPanel.Left + 7;
+                }
 
             }
             else
