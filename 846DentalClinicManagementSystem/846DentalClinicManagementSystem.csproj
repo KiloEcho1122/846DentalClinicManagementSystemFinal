@@ -210,6 +210,9 @@
       <DependentUpon>ISADDATABASEFINAL.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\icons8-save-50.png" />
+    <None Include="Resources\icons8-save-100.png" />
+    <None Include="Resources\icons8-save-64.png" />
     <None Include="Resources\MIO.PNG" />
     <None Include="Resources\GIO.PNG" />
     <None Include="Resources\mc.PNG" />

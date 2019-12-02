@@ -20,6 +20,15 @@ namespace _846DentalClinicManagementSystem
             InitializeComponent();
         }
 
+        private void ShowPatientInfo_Load(object sender, EventArgs e)
+        {
+            lbl_PatientName.Text = GlobalVariable.PatientName;
+            Payment_Panel.Visible = false;
+            ShowBilling();
+            Billing_DataGrid.Width = 922;
+
+        }
+
         private void btn_closePatientInfo_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -45,7 +54,8 @@ namespace _846DentalClinicManagementSystem
             }
             else if (PatientInfoTAB.SelectedIndex == 3)
             {
-                LoadNotes();
+                //DrawStickyNotes();
+                //LoadNotes();
             }
         }
 
@@ -81,14 +91,10 @@ namespace _846DentalClinicManagementSystem
 
         //Solid Brush or Fill Color 
         SolidBrush TeethBrushColor = null;
+        SolidBrush white = new SolidBrush(Color.White);
 
         //
         Boolean reSize = false;
-
-
-        SolidBrush red = new SolidBrush(Color.FromArgb(239, 45, 45));
-        SolidBrush white = new SolidBrush(Color.White);
-        SolidBrush blue = new SolidBrush(Color.FromArgb(51, 01, 247));
 
         //Teeth Legend Icon
         Image TeethLegend;
@@ -96,38 +102,22 @@ namespace _846DentalClinicManagementSystem
         //Teeth String Status
         string TeethStatus = null;
 
-        // Draw Check in the teeth
-        Point[] check = { new Point(0, 18), new Point(8, 30), new Point(30, 0), new Point(8, 23) };
-
-        //Draw X in the Teeth
-        Point[] ekis1 = { new Point(3, 0), new Point(30, 27), new Point(27, 30), new Point(0, 3) };
-        Point[] ekis2 = { new Point(27, 0), new Point(30, 3), new Point(3, 30), new Point(0, 27) };
-
-
+        //Global Varible
         int PatientID = GlobalVariable.PatientID;
 
+        //Array
         ArrayList TeethArray = new ArrayList();
+        SolidBrush[] ToothColorBrush = new SolidBrush[16];
+        Image[] ToothImage = new Image[16];
 
+        //Teeth Parts Array
         string[] TopTeethColor = new string[52];
         string[] BottomTeethColor = new string[52];
         string[] LeftTeethColor = new string[52];
         string[] RightTeethColor = new string[52];
         string[] CenterTeethColor = new string[52];
         string[] TeethOperation = new string[16];
-        SolidBrush[] ToothColorBrush = new SolidBrush[16];
-        Image[] ToothImage = new Image[16];
-
-
-
-        private void ShowPatientInfo_Load(object sender, EventArgs e)
-        {
-            lbl_PatientName.Text = GlobalVariable.PatientName;
-            Payment_Panel.Visible = false;
-            ShowBilling();
-            Billing_DataGrid.Width = 922;
-           
-        }
-
+        
         private void SetDefaultTeethColor()
         {
             for (int i = 0; i < 52; i++)
@@ -269,6 +259,151 @@ namespace _846DentalClinicManagementSystem
         }
 
 
+        // Mouse Click event to call FillTeeth Function
+        private void TeethPanel1_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel1, e, 0);
+        private void TeethPanel2_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel2, e, 1);
+        private void TeethPanel3_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel3, e, 2);
+        private void TeethPanel4_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel4, e, 3);
+        private void TeethPanel5_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel5, e, 4);
+        private void TeethPanel6_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel6, e, 5);
+        private void TeethPanel7_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel7, e, 6);
+        private void TeethPanel8_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel8, e, 7);
+        private void TeethPanel9_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel9, e, 8);
+        private void TeethPanel10_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel10, e, 9);
+        private void TeethPanel11_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel11, e, 10);
+        private void TeethPanel12_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel12, e, 11);
+        private void TeethPanel13_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel13, e, 12);
+        private void TeethPanel14_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel14, e, 13);
+        private void TeethPanel15_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel15, e, 14);
+        private void TeethPanel16_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel16, e, 15);
+        private void TeethPanel17_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel17, e, 16);
+        private void TeethPanel18_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel18, e, 17);
+        private void TeethPanel19_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel19, e, 18);
+        private void TeethPanel20_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel20, e, 19);
+        private void TeethPanel21_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel21, e, 20);
+        private void TeethPanel22_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel22, e, 21);
+        private void TeethPanel23_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel23, e, 22);
+        private void TeethPanel24_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel24, e, 23);
+        private void TeethPanel25_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel25, e, 24);
+        private void TeethPanel26_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel26, e, 25);
+        private void TeethPanel27_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel27, e, 26);
+        private void TeethPanel28_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel28, e, 27);
+        private void TeethPanel29_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel29, e, 28);
+        private void TeethPanel30_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel30, e, 29);
+        private void TeethPanel31_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel31, e, 30);
+        private void TeethPanel32_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel32, e, 31);
+        private void TeethPanel33_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel33, e, 32);
+        private void TeethPanel34_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel34, e, 33);
+        private void TeethPanel35_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel35, e, 34);
+        private void TeethPanel36_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel36, e, 35);
+        private void TeethPanel37_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel37, e, 36);
+        private void TeethPanel38_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel38, e, 37);
+        private void TeethPanel39_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel39, e, 38);
+        private void TeethPanel40_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel40, e, 39);
+        private void TeethPanel41_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel41, e, 40);
+        private void TeethPanel42_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel42, e, 41);
+        private void TeethPanel43_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel43, e, 42);
+        private void TeethPanel44_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel44, e, 43);
+        private void TeethPanel45_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel45, e, 44);
+        private void TeethPanel46_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel46, e, 45);
+        private void TeethPanel47_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel47, e, 46);
+        private void TeethPanel48_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel48, e, 47);
+        private void TeethPanel49_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel49, e, 48);
+        private void TeethPanel50_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel50, e, 49);
+        private void TeethPanel51_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel51, e, 50);
+        private void TeethPanel52_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel52, e, 51);
+
+
+        // Function to fill teeth by parts
+        private void FillTeeth(Panel TeethPanel, MouseEventArgs e, int index)
+        {
+            Graphics gs = TeethPanel.CreateGraphics();
+            PictureBox icon = new PictureBox();
+            icon = IconNumber(index);
+
+
+            if (string.IsNullOrEmpty(TeethStatus) == false)
+            {
+
+                if (this.TopRectangle.Contains(e.Location))
+                {
+                    gs.FillPolygon(TeethBrushColor, TopPolygonFill);
+                    TopTeethColor[index] = TeethStatus;
+                }
+                else if (this.BottomRectangle.Contains(e.Location))
+                {
+                    gs.FillPolygon(TeethBrushColor, BottomPolygonFill);
+                    BottomTeethColor[index] = TeethStatus;
+                }
+                else if (this.LeftRectangle.Contains(e.Location))
+                {
+                    gs.FillPolygon(TeethBrushColor, LeftPolygonFill);
+                    LeftTeethColor[index] = TeethStatus;
+                }
+                else if (this.RightRectangle.Contains(e.Location))
+                {
+                    gs.FillPolygon(TeethBrushColor, RightPolygonFill);
+                    RightTeethColor[index] = TeethStatus;
+                }
+                else if (this.InsideRectangle.Contains(e.Location))
+                {
+                    gs.FillRectangle(TeethBrushColor, InsideRectangleFill);
+                    CenterTeethColor[index] = TeethStatus;
+                }
+
+                // if ever na merong ibang operation sa ibang part ng teeth
+                // iooverwrite nya kasi one operation lang pwede per teeth
+                if (TopTeethColor[index] != TeethStatus)
+                {
+                    gs.FillPolygon(white, TopPolygonFill);
+                    TopTeethColor[index] = TeethOperation[0];
+                }
+                if (BottomTeethColor[index] != TeethStatus)
+                {
+                    gs.FillPolygon(white, BottomPolygonFill);
+                    BottomTeethColor[index] = TeethOperation[0];
+                }
+                if (LeftTeethColor[index] != TeethStatus)
+                {
+                    gs.FillPolygon(white, LeftPolygonFill);
+                    LeftTeethColor[index] = TeethOperation[0];
+                }
+                if (RightTeethColor[index] != TeethStatus)
+                {
+                    gs.FillPolygon(white, RightPolygonFill);
+                    RightTeethColor[index] = TeethOperation[0];
+                }
+                if (CenterTeethColor[index] != TeethStatus)
+                {
+                    gs.FillRectangle(white, InsideRectangleFill);
+                    CenterTeethColor[index] = TeethOperation[0];
+                }
+
+                icon.Image = TeethLegend;
+                if (reSize)
+                {
+                    icon.Size = new Size(33, 16);
+                    icon.Left = TeethPanel.Left;
+
+                }
+                else
+                {
+                    icon.Size = new Size(20, 16);
+                    icon.Left = TeethPanel.Left + 7;
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Please Pick Operation !");
+            }
+
+            if (!(TeethArray.Contains(index)))
+            {
+                TeethArray.Add(index);
+            }
+        }
+
         //LEGEND -------------------------------------------------------------------------------------------
         private void btn_Ok_Click(object sender, EventArgs e)
         {
@@ -401,150 +536,6 @@ namespace _846DentalClinicManagementSystem
 
         //---------------------------------------------------------------------------------------------------
 
-        // Function to fill teeth by parts
-        private void FillTeeth(Panel TeethPanel, MouseEventArgs e, int index)
-        {
-            Graphics gs = TeethPanel.CreateGraphics();
-            PictureBox icon = new PictureBox();
-            icon = IconNumber(index);
-
-
-            if (string.IsNullOrEmpty(TeethStatus) == false)
-            {
-
-                if (this.TopRectangle.Contains(e.Location))
-                {
-                    gs.FillPolygon(TeethBrushColor, TopPolygonFill);
-                    TopTeethColor[index] = TeethStatus;
-                }
-                else if (this.BottomRectangle.Contains(e.Location))
-                {
-                    gs.FillPolygon(TeethBrushColor, BottomPolygonFill);
-                    BottomTeethColor[index] = TeethStatus;
-                }
-                else if (this.LeftRectangle.Contains(e.Location))
-                {
-                    gs.FillPolygon(TeethBrushColor, LeftPolygonFill);
-                    LeftTeethColor[index] = TeethStatus;
-                }
-                else if (this.RightRectangle.Contains(e.Location))
-                {
-                    gs.FillPolygon(TeethBrushColor, RightPolygonFill);
-                    RightTeethColor[index] = TeethStatus;
-                }
-                else if (this.InsideRectangle.Contains(e.Location))
-                {
-                    gs.FillRectangle(TeethBrushColor, InsideRectangleFill);
-                    CenterTeethColor[index] = TeethStatus;
-                }
-
-                // if ever na merong ibang operation sa ibang part ng teeth
-                // iooverwrite nya kasi one operation lang pwede per teeth
-                if (TopTeethColor[index] != TeethStatus)
-                {
-                    gs.FillPolygon(white, TopPolygonFill);
-                    TopTeethColor[index] = TeethOperation[0];
-                }
-                if (BottomTeethColor[index] != TeethStatus)
-                {
-                    gs.FillPolygon(white, BottomPolygonFill);
-                    BottomTeethColor[index] = TeethOperation[0];
-                }
-                if (LeftTeethColor[index] != TeethStatus )
-                {
-                    gs.FillPolygon(white, LeftPolygonFill);
-                    LeftTeethColor[index] = TeethOperation[0];
-                }
-                if (RightTeethColor[index] != TeethStatus)
-                {
-                    gs.FillPolygon(white, RightPolygonFill);
-                    RightTeethColor[index] = TeethOperation[0];
-                }
-                if (CenterTeethColor[index] != TeethStatus)
-                {
-                    gs.FillRectangle(white, InsideRectangleFill);
-                    CenterTeethColor[index] = TeethOperation[0];
-                }
-
-                icon.Image = TeethLegend;
-                if (reSize)
-                {
-                    icon.Size = new Size(33,16);
-                    icon.Left = TeethPanel.Left;
-
-                }
-                else
-                {
-                    icon.Size = new Size(20, 16);
-                    icon.Left = TeethPanel.Left + 7;
-                }
-
-            }
-            else
-            {
-                MessageBox.Show("Please Pick Operation !");
-            }
-
-            if (!(TeethArray.Contains(index)))
-            {
-                TeethArray.Add(index);
-            }
-        }
-
-
-        // Mouse Click event to call FillTeeth Function
-        private void TeethPanel1_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel1, e,  0);
-        private void TeethPanel2_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel2, e,  1);
-        private void TeethPanel3_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel3, e,  2);
-        private void TeethPanel4_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel4, e,  3);
-        private void TeethPanel5_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel5, e,  4);
-        private void TeethPanel6_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel6, e,  5);
-        private void TeethPanel7_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel7, e, 6);
-        private void TeethPanel8_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel8, e,  7);
-        private void TeethPanel9_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel9, e,8);
-        private void TeethPanel10_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel10, e,  9);
-        private void TeethPanel11_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel11, e,  10);
-        private void TeethPanel12_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel12, e,  11);
-        private void TeethPanel13_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel13, e,  12);
-        private void TeethPanel14_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel14, e,  13);
-        private void TeethPanel15_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel15, e, 14);
-        private void TeethPanel16_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel16, e, 15);
-        private void TeethPanel17_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel17, e,16);
-        private void TeethPanel18_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel18, e, 17);
-        private void TeethPanel19_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel19, e, 18);
-        private void TeethPanel20_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel20, e, 19);
-        private void TeethPanel21_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel21, e,  20);
-        private void TeethPanel22_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel22, e, 21);
-        private void TeethPanel23_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel23, e, 22);
-        private void TeethPanel24_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel24, e, 23);
-        private void TeethPanel25_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel25, e, 24);
-        private void TeethPanel26_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel26, e, 25);
-        private void TeethPanel27_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel27, e,26);
-        private void TeethPanel28_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel28, e,27);
-        private void TeethPanel29_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel29, e, 28);
-        private void TeethPanel30_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel30, e,29);
-        private void TeethPanel31_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel31, e,30);
-        private void TeethPanel32_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel32, e, 31);
-        private void TeethPanel33_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel33, e, 32);
-        private void TeethPanel34_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel34, e, 33);
-        private void TeethPanel35_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel35, e, 34);
-        private void TeethPanel36_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel36, e,  35);
-        private void TeethPanel37_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel37, e,  36);
-        private void TeethPanel38_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel38, e,  37);
-        private void TeethPanel39_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel39, e,  38);
-        private void TeethPanel40_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel40, e, 39);
-        private void TeethPanel41_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel41, e,  40);
-        private void TeethPanel42_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel42, e,  41);
-        private void TeethPanel43_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel43, e,  42);
-        private void TeethPanel44_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel44, e,  43);
-        private void TeethPanel45_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel45, e, 44);
-        private void TeethPanel46_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel46, e,  45);
-        private void TeethPanel47_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel47, e,  46);
-        private void TeethPanel48_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel48, e, 47);
-        private void TeethPanel49_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel49, e, 48);
-        private void TeethPanel50_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel50, e, 49);
-        private void TeethPanel51_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel51, e, 50);
-        private void TeethPanel52_MouseClick(object sender, MouseEventArgs e) => FillTeeth(TeethPanel52, e, 51);
 
         //return Teethpanel
         private Panel PanelNumber(int teethNumber)
@@ -655,10 +646,6 @@ namespace _846DentalClinicManagementSystem
         private int CheckPatientTeethEntry(int teethNum)
         {
             int ret = 0;
-            //SqlCommand cmd = new SqlCommand(
-            //    "SELECT CASE WHEN EXISTS ( SELECT Teethnumber FROM Teeth INNER JOIN [Patient-Teeth] " +
-            //    "ON TeethID = TeethID_fk WHERE PatientID_fk = @patientID AND TeethNumber = @teethnum) " +
-            //    "THEN CAST (1 AS BIT) ELSE CAST(0 AS BIT) END " ,sqlcon);
             SqlCommand cmd = new SqlCommand(
                 "SELECT TeethID FROM Teeth " +
                 "INNER JOIN[PatientTeeth] ON TeethID = TeethID_fk " +
@@ -867,32 +854,34 @@ namespace _846DentalClinicManagementSystem
 
         private void btn_RefreshChart_Click(object sender, EventArgs e)
         {
-            // DisableTeethPanel();
-
+  
             RefreshTeethPanel();
             SetDefaultTeethColor();
             RetrievePatientTeethStatus();
             TeethArray.Clear();
 
         }
+
+
  //----------------------------------------------------------------------------------------------------------------------------------
  // Notes
         private void btn_SaveNotes_Click_1(object sender, EventArgs e)
         {
-            String PatientNote = txt_PatientNote.Text.Trim();
-            String DateToday = DateTime.Today.ToString("M/d/yyyy");
+            //String PatientNote = txt_PatientNote.Text.Trim();
+            //String DateToday = DateTime.Today.ToString("M/d/yyyy");
 
-            if (NoteIsEdit == true)
-            {
-                UpdateNote(PatientNote, DateToday);
-            }
-            else
-            {
-                InsertNote(PatientNote, DateToday);
-            }
-            txt_PatientNote.Clear();
-            LoadNotes();
-            NoteIsEdit = false;
+            //if (NoteIsEdit == true)
+            //{
+            //    UpdateNote(PatientNote, DateToday);
+            //}
+            //else
+            //{
+            //    InsertNote(PatientNote, DateToday);
+            //}
+            //txt_PatientNote.Clear();
+            //LoadNotes();
+            //NoteIsEdit = false;
+            DrawStickyNotes();
         }
 
         private void UpdateNote(String PatientNote, String DateToday)
@@ -975,6 +964,77 @@ namespace _846DentalClinicManagementSystem
 
 
         }
+
+
+        //Experimental ------------------------
+        int zz = 0;
+            private void DrawStickyNotes()
+        {
+            zz = zz + 1;
+                Panel panel = new Panel();
+                panel.BackColor = System.Drawing.Color.LemonChiffon;
+                panel.Location = new System.Drawing.Point(0, 0);
+                panel.Name = "NotePanel" + zz;
+                panel.Size = new System.Drawing.Size(275, 184);
+                this.NotesLayoutPanel.Controls.Add(panel);
+                this.NotesLayoutPanel.Controls.SetChildIndex(panel, 0);
+             
+            Panel header = new Panel();
+                header.BackColor = System.Drawing.Color.Khaki;
+                header.Dock = System.Windows.Forms.DockStyle.Top;
+                header.Location = new System.Drawing.Point(0, 0);
+                header.Name = "NoteHeaderPanel";
+                header.Size = new System.Drawing.Size(282, 27);
+                panel.Controls.Add(header);
+
+                Label delete = new Label();
+                delete.AutoSize = true;
+                delete.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                delete.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+                delete.Location = new System.Drawing.Point(258, 1);
+                delete.Name = "NoteDelete";
+                delete.Size = new System.Drawing.Size(18, 23);
+                delete.Text = "x";
+                header.Controls.Add(delete);
+
+                PictureBox Save = new PictureBox();
+                Save.Image = global::_846DentalClinicManagementSystem.Properties.Resources.icons8_save_100;
+                Save.Location = new System.Drawing.Point(5, 1);
+                Save.Name = "NoteSaveIcon";
+                Save.Size = new System.Drawing.Size(23, 23);
+                Save.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+                header.Controls.Add(Save);
+
+                TextBox Note = new TextBox();
+                Note.BackColor = System.Drawing.Color.LemonChiffon;
+                Note.BorderStyle = System.Windows.Forms.BorderStyle.None;
+                Note.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                Note.ForeColor = System.Drawing.SystemColors.InfoText;
+                Note.Location = new System.Drawing.Point(7, 33);
+                Note.Multiline = true;
+                Note.Name = "txt_Note";
+                Note.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+                Note.Size = new System.Drawing.Size(272, 122);
+                Note.Text = "Enter your notes here ";
+                panel.Controls.Add(Note);
+
+                Label date = new Label();
+                date.AutoSize = true;
+                date.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                date.ForeColor = System.Drawing.Color.DarkGray;
+                date.Location = new System.Drawing.Point(4, 161);
+                date.Name = "lbl_NoteDate";
+                date.Size = new System.Drawing.Size(135, 15);
+                date.Text = DateTime.Now.ToString("MMM. dd yyyy hh:mm tt");
+                panel.Controls.Add(date);
+          
+
+
+        }
+
+
+
+        //----------------------------------------
 
         //-------------------------------------------------------------------------------------------------------------------------------
         //Treatment History
