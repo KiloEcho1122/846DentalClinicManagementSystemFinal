@@ -55,7 +55,8 @@ namespace _846DentalClinicManagementSystem
             else if (PatientInfoTAB.SelectedIndex == 3)
             {
                 //DrawStickyNotes();
-                //LoadNotes();
+               NotesLayoutPanel.Controls.Clear();
+               LoadNotes();
             }
         }
 
@@ -863,33 +864,119 @@ namespace _846DentalClinicManagementSystem
         }
 
 
- //----------------------------------------------------------------------------------------------------------------------------------
- // Notes
-        private void btn_SaveNotes_Click_1(object sender, EventArgs e)
+        //----------------------------------------------------------------------------------------------------------------------------------
+        // Notes
+        private void btn_AddNotes_Click(object sender, EventArgs e)
         {
-            //String PatientNote = txt_PatientNote.Text.Trim();
-            //String DateToday = DateTime.Today.ToString("M/d/yyyy");
-
-            //if (NoteIsEdit == true)
-            //{
-            //    UpdateNote(PatientNote, DateToday);
-            //}
-            //else
-            //{
-            //    InsertNote(PatientNote, DateToday);
-            //}
-            //txt_PatientNote.Clear();
-            //LoadNotes();
-            //NoteIsEdit = false;
-            DrawStickyNotes();
+            string id = getNextNoteID().ToString();
+            DrawStickyNotes(id, "Enter your notes here ...", DateTime.Now.ToString("MMM. d yyyy hh:mm tt"));
         }
 
-        private void UpdateNote(String PatientNote, String DateToday)
+        private int getNextNoteID()
         {
-            int NoteID = (int)(NoteDD.SelectedRows[0].Cells[0].Value);
-            
-            if (string.IsNullOrWhiteSpace(PatientNote) == false && NoteID > 0 )
+            int id = 0;
+            SqlCommand cmd = new SqlCommand(
+                "SELECT NotesID FROM Notes ORDER BY NotesID DESC", sqlcon);
+            sqlcon.Open();
+            try
             {
+                if (cmd.ExecuteScalar() != null)
+                {
+                    id = (int)cmd.ExecuteScalar() + 1;
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            sqlcon.Close();
+            return id;
+        }
+
+        private void Savenotes(string id)
+        {
+            string txt ="", date = "";
+           foreach(Control control in NotesLayoutPanel.Controls)
+            {
+                if (control.Name == id)
+                {
+                    foreach(Control control2 in control.Controls)
+                    {
+                        if (control2.Name == "txt_Note")
+                        {
+                            txt = control2.Text;
+                            if (txt == "Enter your notes here ...") txt = "";
+                        }
+                    }
+                    if (CheckExistingNote(id))
+                    {
+                        UpdateNote(id, txt, DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt"));
+                        
+                    }
+                    else
+                    {
+                        InsertNote(txt, DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt"));
+                    }
+                }
+            }
+
+        }
+
+        private Boolean CheckExistingNote(string id)
+        {
+            Boolean exist = false;
+            SqlCommand cmd = new SqlCommand(
+                "SELECT NotesID FROM Notes WHERE NotesID = @NotesID", sqlcon);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@NotesID", id);
+            sqlcon.Open();
+            try
+            {
+                if (cmd.ExecuteScalar() != null)
+                {
+                    exist = true;
+                }
+
+            }catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            sqlcon.Close();
+            return exist;
+        }
+
+        private void Deletenotes(string id)
+        {
+            SqlCommand cmd = new SqlCommand(
+                "DELETE FROM Notes WHERE NotesID = @NoteID", sqlcon);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@NoteID", id);
+            sqlcon.Open();
+            try
+            {
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            sqlcon.Close();
+
+            foreach (Control control in NotesLayoutPanel.Controls)
+            {
+                if (control.Name == id)
+                {
+                    var index = NotesLayoutPanel.Controls.IndexOf(control);
+                    this.NotesLayoutPanel.Controls.RemoveAt(index);
+
+                }
+            }
+        }
+
+        private void UpdateNote(string id,string PatientNote, string DateToday)
+        {
                 SqlCommand cmd = new SqlCommand(
                     "UPDATE [Notes] SET Note = @Note, NoteDate = @Date, PatientID_fk = @PatientID " +
                     "WHERE NotesID = @NoteID", sqlcon);
@@ -897,7 +984,7 @@ namespace _846DentalClinicManagementSystem
                 cmd.Parameters.AddWithValue("@Note", PatientNote);
                 cmd.Parameters.AddWithValue("@Date", DateToday);
                 cmd.Parameters.AddWithValue("@PatientID", PatientID);
-                cmd.Parameters.AddWithValue("@NoteID", NoteID);
+                cmd.Parameters.AddWithValue("@NoteID", id);
 
                 sqlcon.Open();
                 try
@@ -906,13 +993,12 @@ namespace _846DentalClinicManagementSystem
                     MessageBox.Show("Note Updated Successfully");
                 }catch(Exception ex) { Console.WriteLine(ex.Message); }
                 sqlcon.Close();
-            }
+           
         }
         
-        private void InsertNote(String PatientNote,String DateToday)
+        private void InsertNote(string PatientNote,string DateToday)
         {
-            if (string.IsNullOrWhiteSpace(PatientNote) == false)
-            {
+
                 SqlCommand cmd = new SqlCommand(
                     "INSERT INTO [Notes] (Note,NoteDate,PatientID_fk) VALUES (@Note,@Date,@PatientID)", sqlcon);
                 cmd.Parameters.Clear();
@@ -928,7 +1014,7 @@ namespace _846DentalClinicManagementSystem
 
                 }catch(Exception ex) { Console.WriteLine(ex.Message); }
                 sqlcon.Close();
-            }
+            
         }
 
 
@@ -937,7 +1023,7 @@ namespace _846DentalClinicManagementSystem
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable dt = new DataTable();
             SqlCommand cmd = new SqlCommand(
-                "SELECT NotesID AS ID,NoteDate AS Date,Note FROM Notes WHERE PatientID_fk = @PatientID", sqlcon);
+                "SELECT NotesID,NoteDate,Note FROM Notes WHERE PatientID_fk = @PatientID", sqlcon);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@PatientID", PatientID);
             adapter.SelectCommand = cmd;
@@ -945,41 +1031,39 @@ namespace _846DentalClinicManagementSystem
             try
             {
                 adapter.Fill(dt);
-                NoteDD.DataSource = dt;
+                //NoteDD.DataSource = dt;
+                //NoteDD.Columns[0].Width = 50;
+                //NoteDD.Columns[1].Width = 80;
+                //NoteDD.Columns[1].DefaultCellStyle.Format = "M/d/yyyy";
 
-                NoteDD.Columns[0].Width = 50;
-                NoteDD.Columns[1].Width = 80;
-
-                NoteDD.Columns[1].DefaultCellStyle.Format = "M/d/yyyy";
-
-
+                foreach (DataRow row in dt.Rows)
+                {
+                    string id = row[0].ToString();
+                    string dateTime = DateTime.Parse(row[1].ToString()).ToString("MMM. d yyyy hh:mm tt");
+                    string note = row[2].ToString();
+                    DrawStickyNotes(id, note, dateTime);
+                }
             }
             catch(Exception ex) { Console.WriteLine(ex.Message); }
         }
 
-        private void NoteDD_CellContentDoubleClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            NoteIsEdit = true;
-            txt_PatientNote.Text = NoteDD.SelectedRows[0].Cells[2].Value.ToString();
-
-
-        }
+  
 
 
         //Experimental ------------------------
-        int zz = 0;
-            private void DrawStickyNotes()
+       
+            private void DrawStickyNotes(string id, string note, string dateTime)
         {
-            zz = zz + 1;
+            
                 Panel panel = new Panel();
                 panel.BackColor = System.Drawing.Color.LemonChiffon;
                 panel.Location = new System.Drawing.Point(0, 0);
-                panel.Name = "NotePanel" + zz;
+                panel.Name = id;
                 panel.Size = new System.Drawing.Size(275, 184);
                 this.NotesLayoutPanel.Controls.Add(panel);
                 this.NotesLayoutPanel.Controls.SetChildIndex(panel, 0);
              
-            Panel header = new Panel();
+                Panel header = new Panel();
                 header.BackColor = System.Drawing.Color.Khaki;
                 header.Dock = System.Windows.Forms.DockStyle.Top;
                 header.Location = new System.Drawing.Point(0, 0);
@@ -992,31 +1076,55 @@ namespace _846DentalClinicManagementSystem
                 delete.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 delete.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
                 delete.Location = new System.Drawing.Point(258, 1);
-                delete.Name = "NoteDelete";
+                delete.Name = "NoteDelete" + id;
                 delete.Size = new System.Drawing.Size(18, 23);
                 delete.Text = "x";
+                delete.Click += (sender, e) =>
+                {
+                    // Int32.TryParse(Save.Name, out int appid);
+                    Deletenotes(id);
+                };
                 header.Controls.Add(delete);
 
                 PictureBox Save = new PictureBox();
                 Save.Image = global::_846DentalClinicManagementSystem.Properties.Resources.icons8_save_100;
                 Save.Location = new System.Drawing.Point(5, 1);
-                Save.Name = "NoteSaveIcon";
+                Save.Name = "SaveNote";
                 Save.Size = new System.Drawing.Size(23, 23);
                 Save.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+                Save.Click += (sender, e) =>
+                {
+                   // Int32.TryParse(Save.Name, out int appid);
+                    Savenotes(id);
+                };
                 header.Controls.Add(Save);
 
                 TextBox Note = new TextBox();
                 Note.BackColor = System.Drawing.Color.LemonChiffon;
                 Note.BorderStyle = System.Windows.Forms.BorderStyle.None;
                 Note.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                Note.ForeColor = System.Drawing.SystemColors.InfoText;
+                Note.ForeColor = System.Drawing.Color.Silver;
                 Note.Location = new System.Drawing.Point(7, 33);
                 Note.Multiline = true;
                 Note.Name = "txt_Note";
                 Note.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
                 Note.Size = new System.Drawing.Size(272, 122);
-                Note.Text = "Enter your notes here ";
-                panel.Controls.Add(Note);
+                Note.Text = note;
+                if (Note.Text == "Enter your notes here ...")
+                 {
+                    Note.ForeColor = System.Drawing.Color.Silver;
+                }
+                else
+                {
+                    Note.ForeColor = System.Drawing.SystemColors.InfoText;
+            }
+                Note.Click += (sender, e) =>
+                {
+                    Note.ForeColor = System.Drawing.SystemColors.InfoText;
+                    if (Note.Text == "Enter your notes here ...") Note.Text = "";
+
+                };
+            panel.Controls.Add(Note);
 
                 Label date = new Label();
                 date.AutoSize = true;
@@ -1025,7 +1133,7 @@ namespace _846DentalClinicManagementSystem
                 date.Location = new System.Drawing.Point(4, 161);
                 date.Name = "lbl_NoteDate";
                 date.Size = new System.Drawing.Size(135, 15);
-                date.Text = DateTime.Now.ToString("MMM. dd yyyy hh:mm tt");
+                date.Text = dateTime;
                 panel.Controls.Add(date);
           
 
@@ -1418,7 +1526,7 @@ namespace _846DentalClinicManagementSystem
 
         }
 
-
+      
     }
 
    
