@@ -518,10 +518,10 @@
             this.btn_CancelPayment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_CancelPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_CancelPayment.ForeColor = System.Drawing.Color.White;
-            this.btn_CancelPayment.Location = new System.Drawing.Point(748, 526);
+            this.btn_CancelPayment.Location = new System.Drawing.Point(795, 552);
             this.btn_CancelPayment.Margin = new System.Windows.Forms.Padding(0);
             this.btn_CancelPayment.Name = "btn_CancelPayment";
-            this.btn_CancelPayment.Size = new System.Drawing.Size(193, 42);
+            this.btn_CancelPayment.Size = new System.Drawing.Size(146, 35);
             this.btn_CancelPayment.TabIndex = 67;
             this.btn_CancelPayment.Text = "Cancel Payment";
             this.btn_CancelPayment.UseVisualStyleBackColor = false;
@@ -559,7 +559,7 @@
             this.PaymentHistory_DataGrid.ReadOnly = true;
             this.PaymentHistory_DataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.PaymentHistory_DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.PaymentHistory_DataGrid.Size = new System.Drawing.Size(715, 187);
+            this.PaymentHistory_DataGrid.Size = new System.Drawing.Size(922, 165);
             this.PaymentHistory_DataGrid.TabIndex = 60;
             // 
             // panel10

@@ -47,7 +47,6 @@ namespace _846DentalClinicManagementSystem
             HomePanel.Visible = false;
             PatientsPanel.Visible = false;
             AccountingPanel.Visible = false;
-            ReminderPanel.Visible = false;
             SchedulerPanel.Visible = false;
         }
 
@@ -69,25 +68,41 @@ namespace _846DentalClinicManagementSystem
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            timer1.Enabled = true;
+            Loadusername();
             HidePanels();
             HomePanel.Visible = true;
             playVideo();
             iniatializeTimeArray();
             setTimelabel();
             DrawAppointmentTable();
-            
             SearchAppByDate_DP.Value = DateTime.Now;
             PatientPanelSearch("");
-            //c1 = this;
             setAutoScrollfalse();
+        }
+
+        private void Loadusername()
+        {
+            SqlCommand cmd = new SqlCommand(
+                "SELECT CONCAT(FName, ' ', LName) FROM Login WHERE LoginID = @LoginID", sqlcon);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@LoginID", GlobalVariable.LoginID);
+            sqlcon.Open();
+            try
+            {
+                if (cmd.ExecuteScalar() != null) lbl_userName.Text = cmd.ExecuteScalar().ToString();
+
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            sqlcon.Close();
+           
         }
 
         //Main Panel Start
 
-        private void bunifuCustomLabel1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void btn_Home_Click(object sender, EventArgs e)
         {
@@ -116,11 +131,7 @@ namespace _846DentalClinicManagementSystem
             AccountingPanel.Visible = true;
         }
 
-        private void btn_Reminder_Click(object sender, EventArgs e)
-        {
-            HidePanels();
-            ReminderPanel.Visible = true;
-        }
+       
 
         // Main Panel End -----------------------------------------------------------------------------------------------------------
 
@@ -790,6 +801,22 @@ namespace _846DentalClinicManagementSystem
                 }
             }
             
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lbl_DateTimeNow.Text = System.DateTime.Now.ToString("dddd, MMM. dd yyyy hh:mm tt");
+        }
+
+        private void btn_Logout_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to Logout ?","Logout",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                FormLogin formLogin = new FormLogin();
+                formLogin.Show();
+                this.Hide();
+            }
         }
 
         private void SchedulerPanel_Paint(object sender, PaintEventArgs e)

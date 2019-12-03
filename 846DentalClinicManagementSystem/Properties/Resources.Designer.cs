@@ -193,6 +193,26 @@ namespace _846DentalClinicManagementSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap download1 {
+            get {
+                object obj = ResourceManager.GetObject("download1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dr {
+            get {
+                object obj = ResourceManager.GetObject("dr", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gc {
             get {
                 object obj = ResourceManager.GetObject("gc", resourceCulture);
@@ -413,6 +433,16 @@ namespace _846DentalClinicManagementSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Password {
+            get {
+                object obj = ResourceManager.GetObject("Password", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Pencil {
             get {
                 object obj = ResourceManager.GetObject("Pencil", resourceCulture);
@@ -506,6 +536,27 @@ namespace _846DentalClinicManagementSystem.Properties {
         internal static System.Drawing.Bitmap success {
             get {
                 object obj = ResourceManager.GetObject("success", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap User {
+            get {
+                object obj = ResourceManager.GetObject("User", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_icon_male_hipster_avatar_vector_flat_design_user_icon_male_with_beard_icon_hipster_flat_clipart_vector_csp51923152 {
+            get {
+                object obj = ResourceManager.GetObject("user-icon-male-hipster-avatar-vector-flat-design-user-icon-male-with-beard-icon-h" +
+                        "ipster-flat-clipart-vector_csp51923152", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
