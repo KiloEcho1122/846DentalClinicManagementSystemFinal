@@ -848,12 +848,13 @@ namespace _846DentalClinicManagementSystem
 
         }
 
-
-        private void SchedulerPanel_Paint(object sender, PaintEventArgs e)
+        private void btn_AddExpenses_Click(object sender, EventArgs e)
         {
-
+            AddExpensescs addExpensescs = new AddExpensescs();
+            addExpensescs.Show();
         }
 
+       
         
 
 

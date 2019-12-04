@@ -87,6 +87,12 @@
     <Compile Include="AddEditPatientRecord.Designer.cs">
       <DependentUpon>AddEditPatientRecord.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddExpensescs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddExpensescs.Designer.cs">
+      <DependentUpon>AddExpensescs.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddEditPatientRecord.resx">
       <DependentUpon>AddEditPatientRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddExpensescs.resx">
+      <DependentUpon>AddExpensescs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
