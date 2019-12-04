@@ -719,8 +719,8 @@ namespace _846DentalClinicManagementSystem
             DataTable dt = new DataTable();
             SqlCommand cmd = new SqlCommand(
                 "SELECT PatientID AS ID, CONCAT(PatientLName, ', ',PatientFName , ' ', PatientMName) AS Name , " +
-                "PatientGender AS Gender, PatientAge AS Age, PatientBirthday AS Birthday,PatientAddress AS Address " +
-                "FROM [Patient] WHERE PatientFullName LIKE @search ORDER BY PatientLName ASC", sqlcon);
+                "PatientGender AS Gender, PatientAge AS Age, PatientBirthday AS Birthday,PatientAddress AS Address," +
+                "PatientContact As Contact FROM [Patient] WHERE PatientFullName LIKE @search ORDER BY PatientLName ASC", sqlcon);
 
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@search", "%" + search + "%");
@@ -733,6 +733,8 @@ namespace _846DentalClinicManagementSystem
                 Patient_DataGrid.DataSource = dt;
                 Patient_DataGrid.Columns[0].Width = 40;
                 Patient_DataGrid.Columns[1].Width = 200;
+                Patient_DataGrid.Columns[2].Width = 70;
+                Patient_DataGrid.Columns[3].Width = 40;
                 Patient_DataGrid.Columns[5].Width = 250;
 
                 // dateformat

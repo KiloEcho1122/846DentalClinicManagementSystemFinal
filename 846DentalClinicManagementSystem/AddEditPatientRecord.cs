@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 using System.Globalization;
 using System.IO;
+using System.Collections;
 
 namespace _846DentalClinicManagementSystem
 {
@@ -27,7 +28,8 @@ namespace _846DentalClinicManagementSystem
         String LName, FName, MName, Gender, Address, Birthday, ContactNo;
         long age ;
         int PatientID;
-     
+        ArrayList ExistingApp = new ArrayList();
+
         private void btn_close_Click(object sender, EventArgs e)
         {
 
@@ -196,6 +198,8 @@ namespace _846DentalClinicManagementSystem
                                         if (GlobalVariable.isEditPatient == true && GlobalVariable.isAddPatient == false)
                                         {
                                             UpdatePatientRecordToDB();
+                                            CheckExistingApp_Patient();
+                                            MessageBox.Show("Record Updated Successfully");
                                             main.PatientPanelSearch("");
                                             GlobalVariable.isEditPatient = false;
                                             this.Hide();
@@ -272,11 +276,66 @@ namespace _846DentalClinicManagementSystem
             try
             {
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Record Updated Successfully");
+               
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
 
             sqlcon.Close();
+
+        }
+
+        //Check whether patient has an existing appointment record
+        private void CheckExistingApp_Patient()
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand(
+                "SELECT AppointmentID_fk FROM PatientTreatment WHERE PatientID_fk = @PatientID",sqlcon);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@PatientID", GlobalVariable.PatientID);
+            adapter.SelectCommand = cmd;
+            try
+            {
+                adapter.Fill(dt);
+                foreach(DataRow AppID in dt.Rows)
+                {
+                    UpdateAppInfoOnPatientUpdate((int)AppID[0]);
+                }
+
+            }catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+           
+        }
+    
+        
+
+        //Updates the info of patient in appointment if the patient info in patient table is updated
+        private void UpdateAppInfoOnPatientUpdate(int AppID)
+        {
+           
+                SqlCommand cmd = new SqlCommand(
+               "UPDATE [Appointment] SET Appointment_LName = @LName, Appointment_FName = @FName, Appointment_MName = @MName," +
+               "Appointment_Contact = @contact WHERE AppointmentID = @AppointmentID ", sqlcon);
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@LName", LName);
+                cmd.Parameters.AddWithValue("@FName", FName);
+                cmd.Parameters.AddWithValue("@MName", MName);
+                cmd.Parameters.AddWithValue("@contact", ContactNo);
+                cmd.Parameters.AddWithValue("@AppointmentID", AppID);
+
+                sqlcon.Open();
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                  
+                }
+                catch (Exception ex) { Console.WriteLine(ex.Message); }
+
+                sqlcon.Close();
+           
 
         }
 

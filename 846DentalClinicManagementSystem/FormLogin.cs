@@ -82,6 +82,7 @@ namespace _846DentalClinicManagementSystem
 
         private void btn_Login_KeyDown(object sender, KeyEventArgs e)
         {
+            
             if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true;
@@ -93,6 +94,16 @@ namespace _846DentalClinicManagementSystem
         private void label5_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void txtPassword_OnValueChanged(object sender, EventArgs e)
+        {
+            if (!txtPassword.isPassword)
+            {
+                txtPassword.isPassword = true;
+            }
+            
+            
         }
     }
 }
