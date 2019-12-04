@@ -141,4 +141,12 @@
   <metadata name="bunifuElipse1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="textBox1.Text" xml:space="preserve">
+    <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sagittis semper ligula, eu imperdiet mi molestie sit amet. Donec elementum hendrerit mattis. Cras faucibus, lectus rutrum rutrum placerat, enim neque posuere dui, et euismod purus quam in nunc. Curabitur convallis porta pretium. Donec ac urna vitae tortor consequat consectetur a sit amet quam. Fusce scelerisque at ante nec faucibus. In sodales orci vehicula nulla placerat, id egestas enim tempor. Fusce sed turpis rhoncus, efficitur felis accumsan, consequat purus. Etiam finibus sollicitudin eros ut egestas. Vivamus euismod eleifend velit, ut semper libero auctor a. Integer erat lorem, laoreet ac mollis nec, mattis at ligula. Etiam maximus nibh mi. Etiam sollicitudin lectus sed eros posuere accumsan.
+
+Curabitur non dapibus enim, id dapibus dui. Phasellus varius maximus dui iaculis placerat. Sed facilisis enim eget elit vulputate accumsan eu at magna. Nulla facilisi. Quisque eleifend leo id facilisis aliquet. Praesent malesuada a quam sed iaculis. Sed mollis leo sed libero sagittis placerat. Aenean volutpat quam at sem suscipit malesuada. Nam dolor libero, sagittis at diam nec, rhoncus faucibus odio. Mauris iaculis convallis nulla, nec sollicitudin nunc suscipit ut.
+
+Nulla ultricies pharetra diam, volutpat malesuada nisi molestie sit amet. Ut auctor ultricies diam at convallis. Morbi pellentesque neque non justo egestas ornare. Sed malesuada faucibus laoreet. Aenean commodo porta arcu, et porta augue euismod interdum. Praesent fringilla dolor ac neque fringilla feugiat. Proin gravida tincidunt mollis. Fusce eu arcu maximus, euismod felis at, semper neque. Duis porta molestie nulla. Nunc auctor, libero vel consectetur gravida, diam quam vulputate velit, vitae vehicula ante urna at leo. In varius fringilla est. Praesent id lacus vitae est ullamcorper placerat. Praesent egestas ligula ac dolor condimentum pellentesque. Morbi blandit in urna in tincidunt. Vivamus tempus luctus rutrum. Integer pharetra justo vitae turpis iaculis, sit amet pulvinar purus bibendum.
+</value>
+  </data>
 </root>

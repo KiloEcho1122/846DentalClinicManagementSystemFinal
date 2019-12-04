@@ -22,25 +22,9 @@ namespace _846DentalClinicManagementSystem
 
         }
         
-        //static String LocalDbSource = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=";
-        //static String LocalDBFile = projectDirectory + @"\846DentalClinicDB.mdf";
-        //static String connString = LocalDbSource + LocalDBFile + ";Integrated Security=True";
         SqlConnection sqlcon = new SqlConnection(GlobalVariable.connString);
         List<Panel> Panels = new List<Panel>();
         string[,] timeArray = new string[19,2];
-
-
-
-        //public static MainForm c1;
-        //public int AppointmentID =0,PatientID = 0;
-        //public String PatientName;
-
-
-        //public Boolean isEditAppointment { get; set; }
-        //public Boolean isAddAppointment { get; set; }
-        //public Boolean isEditPatient { get; set; }
-        //public Boolean isAddPatient { get; set; }
-        //public Boolean isAppointmentPatientExist { get; set; }
 
         private void HidePanels()
         {
@@ -104,6 +88,23 @@ namespace _846DentalClinicManagementSystem
         //Main Panel Start
 
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lbl_DateTimeNow.Text = System.DateTime.Now.ToString("dddd, MMM. dd yyyy hh:mm tt");
+        }
+
+        private void btn_Logout_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to Logout ?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                FormLogin formLogin = new FormLogin();
+                formLogin.Show();
+                this.Hide();
+            }
+        }
+
+
         private void btn_Home_Click(object sender, EventArgs e)
         {
             HidePanels();
@@ -129,6 +130,7 @@ namespace _846DentalClinicManagementSystem
         {
             HidePanels();
             AccountingPanel.Visible = true;
+            LoadMonthlyProfit();
         }
 
        
@@ -803,21 +805,47 @@ namespace _846DentalClinicManagementSystem
             
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+       
+
+        //-------------------------------------------------------------------------------------------------
+        // Inventory
+        private void bunifuDatepicker1_onValueChanged(object sender, EventArgs e)
         {
-            lbl_DateTimeNow.Text = System.DateTime.Now.ToString("dddd, MMM. dd yyyy hh:mm tt");
+            LoadMonthlyProfit();
         }
 
-        private void btn_Logout_Click(object sender, EventArgs e)
+        private void LoadMonthlyProfit()
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to Logout ?","Logout",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+
+            DateTime date = Inventory_DatePicker.Value;
+            var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
+            var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddSeconds(-1);
+
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand(
+                "SELECT b.BillingDate As Date, a.TreatmentType As Treatment, a.TreatmentPrice AS Amount " +
+                "FROM AppointmentTreatment a INNER JOIN Billing b ON a.AppointmentID_fk = b.AppointmentID_fk " +
+                "WHERE b.BillingDate BETWEEN @date AND @date2  AND b.BillingBalance = 0 ORDER BY b.BillingDate ASC ", sqlcon);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@date", firstDayOfMonth.ToShortDateString());
+            cmd.Parameters.AddWithValue("@date2", lastDayOfMonth.ToShortDateString());
+
+            adapter.SelectCommand = cmd;
+            try
             {
-                FormLogin formLogin = new FormLogin();
-                formLogin.Show();
-                this.Hide();
+                adapter.Fill(dt);
+                Profit_DG.DataSource = dt;
+                Profit_DG.Columns[0].DefaultCellStyle.Format = "MMMM d, yyyy";
+
             }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
         }
+
 
         private void SchedulerPanel_Paint(object sender, PaintEventArgs e)
         {
