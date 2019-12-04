@@ -46,6 +46,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).BeginInit();
@@ -55,6 +56,7 @@
             // Panel1
             // 
             this.Panel1.BackColor = System.Drawing.Color.White;
+            this.Panel1.Controls.Add(this.label7);
             this.Panel1.Controls.Add(this.PictureBox3);
             this.Panel1.Controls.Add(this.Label1);
             this.Panel1.Controls.Add(this.PictureBox2);
@@ -244,7 +246,7 @@
             this.label5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label5.Font = new System.Drawing.Font("Segoe MDL2 Assets", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label5.Location = new System.Drawing.Point(772, -2);
+            this.label5.Location = new System.Drawing.Point(762, 1);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(22, 24);
             this.label5.TabIndex = 10;
@@ -262,7 +264,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(447, 296);
+            this.textBox1.Size = new System.Drawing.Size(448, 296);
             this.textBox1.TabIndex = 11;
             this.textBox1.Text = resources.GetString("textBox1.Text");
             // 
@@ -277,6 +279,18 @@
             this.label6.Size = new System.Drawing.Size(76, 20);
             this.label6.TabIndex = 12;
             this.label6.Text = "About Us";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label7.Location = new System.Drawing.Point(3, 422);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(202, 15);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Copyright © 2019 Team Badang.Ltd";
             // 
             // FormLogin
             // 
@@ -325,5 +339,6 @@
         internal System.Windows.Forms.Label label5;
         internal System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox1;
+        internal System.Windows.Forms.Label label7;
     }
 }

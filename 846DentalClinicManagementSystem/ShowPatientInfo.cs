@@ -319,8 +319,8 @@ namespace _846DentalClinicManagementSystem
         private void FillTeeth(Panel TeethPanel, MouseEventArgs e, int index)
         {
             Graphics gs = TeethPanel.CreateGraphics();
-            PictureBox icon = new PictureBox();
-            icon = IconNumber(index);
+            
+           
 
 
             if (string.IsNullOrEmpty(TeethStatus) == false)
@@ -330,26 +330,31 @@ namespace _846DentalClinicManagementSystem
                 {
                     gs.FillPolygon(TeethBrushColor, TopPolygonFill);
                     TopTeethColor[index] = TeethStatus;
+                    DrawIconOnClick(index, TeethPanel.Left);
                 }
                 else if (this.BottomRectangle.Contains(e.Location))
                 {
                     gs.FillPolygon(TeethBrushColor, BottomPolygonFill);
                     BottomTeethColor[index] = TeethStatus;
+                    DrawIconOnClick(index, TeethPanel.Left);
                 }
                 else if (this.LeftRectangle.Contains(e.Location))
                 {
                     gs.FillPolygon(TeethBrushColor, LeftPolygonFill);
                     LeftTeethColor[index] = TeethStatus;
+                    DrawIconOnClick(index, TeethPanel.Left);
                 }
                 else if (this.RightRectangle.Contains(e.Location))
                 {
                     gs.FillPolygon(TeethBrushColor, RightPolygonFill);
                     RightTeethColor[index] = TeethStatus;
+                    DrawIconOnClick(index, TeethPanel.Left);
                 }
                 else if (this.InsideRectangle.Contains(e.Location))
                 {
                     gs.FillRectangle(TeethBrushColor, InsideRectangleFill);
                     CenterTeethColor[index] = TeethStatus;
+                    DrawIconOnClick(index, TeethPanel.Left);
                 }
 
                 // if ever na merong ibang operation sa ibang part ng teeth
@@ -380,18 +385,6 @@ namespace _846DentalClinicManagementSystem
                     CenterTeethColor[index] = TeethOperation[0];
                 }
 
-                icon.Image = TeethLegend;
-                if (reSize)
-                {
-                    icon.Size = new Size(33, 16);
-                    icon.Left = TeethPanel.Left;
-
-                }
-                else
-                {
-                    icon.Size = new Size(20, 16);
-                    icon.Left = TeethPanel.Left + 7;
-                }
 
             }
             else
@@ -404,6 +397,25 @@ namespace _846DentalClinicManagementSystem
                 TeethArray.Add(index);
             }
         }
+
+        private void DrawIconOnClick(int index,int left)
+        {
+            PictureBox icon = new PictureBox();
+            icon = IconNumber(index);
+            icon.Image = TeethLegend;
+            if (reSize)
+            {
+                icon.Size = new Size(33, 16);
+                icon.Left = left;
+
+            }
+            else
+            {
+                icon.Size = new Size(20, 16);
+                icon.Left = left + 7;
+            }
+        }
+
 
         //LEGEND -------------------------------------------------------------------------------------------
         private void btn_Ok_Click(object sender, EventArgs e)
