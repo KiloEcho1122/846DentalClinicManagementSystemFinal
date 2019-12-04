@@ -25,6 +25,7 @@ namespace _846DentalClinicManagementSystem
         private void LoginProgressbar_Load(object sender, EventArgs e)
         {
             this.timer1.Start();
+    
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -36,14 +37,12 @@ namespace _846DentalClinicManagementSystem
             lbl_percent.Text = (progressBar1.Value + "%");
             if (progressBar1.Value == 100)
             {
+                
                 label1.Text = "Loading Complete....";
                 timer1.Stop();
-                
-                 MainForm objFrmMain = new MainForm();
+                MainForm objFrmMain = new MainForm();
                 objFrmMain.Show();
                 this.Hide();
-                 
-                
                 
             }
         }

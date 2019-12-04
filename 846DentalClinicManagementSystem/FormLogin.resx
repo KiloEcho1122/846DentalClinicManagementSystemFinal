@@ -117,36 +117,48 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btn_Login.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAK8AAAAuCAYAAABefkkIAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAM+SURBVHhe7ZzNaxNBGMb9FwQ/mzZpm6ZYD6IH68EiKuhF
-        8KAgoghCD+KhUCgoFDwJIggWC1UUEY8itttsqmhpFfwooi1KFakNghYEK4hFEIsIr/tMdkOSTtykkmQG
-        ngd+5JDJbg4/hpl5Z2aFMIylobyMtaG8jLWhvIy1obyMtaG8jLVZtrw/0rMy098nr071yPjuHYrBtSsJ
-        CSXwZbLrpLy7cF6+Tb70rSovZcn7a35evTDV1iJuPCpO3SrtnyOkFO74n25rTNyWqDzvPC7f30z7toWn
-        JHl/LyzI697TkvReELyQkErgJmJKYnSUYQmVF126m2gUJ7Ze+zJCKgE6yo+3b/kW6vNPeWevDMiIN0TQ
-        PZyQSpNqbVRzqmIpKu9Ud5f6se6hhFSLZLxBJo4d8a3Mj1bemUsXvW47pn0YIdVm2BuyojMtzBJ5vz57
-        IqmNHCoQs8AooHAMnCcvZnipDc3aHxNSa+Am6gtB8uSd6ukWJ8K1W2Iujw/s923Nkffn3CdxOUEjhoOC
-        RlCRy8qLhWFdY0JMA6VlJCsvynO6hoSYRrIpoqq+Sl5VRfO6Y11DQkwD+2rmnMGMvNNnemUoslrbkBAT
-        wTBXyTtx9BA33BCrGO1oz8jLvbjENrAtV8mr+5IQ01HyPti2RfslIaaC1TElL6oWugaEmAjmZ/e3bs7I
-        i6M9nLARm3i0b09G3s/3RtTxC10jQkzDia6T9NXLGXn/LC7ymA+xhmRzvdqLo+RF0A3rGhJiEsF4F8nK
-        +2V8jCViYjxuvEHS168pZ7PyIlx1ICaT2+siefLiwgdO3IipwE0sLgTJkxd5e+6suDx8SQzDaayTFyc6
-        fUszWSIv8vTwQRmqX6N9CCG14OHeXWpVLDdaedFobGcHBSZGMLq9XW0+L4xWXgQCowfm/Q2kVmCogB5X
-        Jy5SVN4guIAkleDBTFJdMDnDGLdwqJCbUHkRXESCzb9ciSCVZrgpovbq5q4qFEtJ8gbBA+9ualPluaTX
-        peNl3NBD/hfc84xzaZD2/UC/b1t4ypI3COrKH27eUCVlLBrr/hAhYaAjxCke3LCfexNOqVmWvAxjQigv
-        Y20oL2NtKC9jbSgvY2lE/gIdeHOZN4iu5gAAAABJRU5ErkJggg==
-</value>
-  </data>
   <metadata name="bunifuElipse1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <data name="textBox1.Text" xml:space="preserve">
-    <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sagittis semper ligula, eu imperdiet mi molestie sit amet. Donec elementum hendrerit mattis. Cras faucibus, lectus rutrum rutrum placerat, enim neque posuere dui, et euismod purus quam in nunc. Curabitur convallis porta pretium. Donec ac urna vitae tortor consequat consectetur a sit amet quam. Fusce scelerisque at ante nec faucibus. In sodales orci vehicula nulla placerat, id egestas enim tempor. Fusce sed turpis rhoncus, efficitur felis accumsan, consequat purus. Etiam finibus sollicitudin eros ut egestas. Vivamus euismod eleifend velit, ut semper libero auctor a. Integer erat lorem, laoreet ac mollis nec, mattis at ligula. Etiam maximus nibh mi. Etiam sollicitudin lectus sed eros posuere accumsan.
+    <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum viverra dolor ut pellentesque. Integer nulla magna, pulvinar eu urna eget, bibendum fringilla nisl. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi porttitor pellentesque ligula. Aliquam velit elit, molestie et pretium ac, cursus tristique ex. Phasellus justo nisl, euismod vitae sapien sed, dapibus pharetra massa. Morbi in nibh leo. Quisque laoreet egestas tortor. In hac habitasse platea dictumst. Cras quis pharetra nisi. Aliquam sed ligula feugiat massa hendrerit feugiat nec sed ante. Proin nulla turpis, mollis viverra tortor sit amet, iaculis interdum leo. Duis eu sapien eget tellus pharetra congue a malesuada est. Vestibulum vestibulum tincidunt leo, non efficitur sem venenatis non. Fusce at nulla ut nulla feugiat egestas ultricies quis dolor. Aenean semper tellus quis facilisis pretium.
 
-Curabitur non dapibus enim, id dapibus dui. Phasellus varius maximus dui iaculis placerat. Sed facilisis enim eget elit vulputate accumsan eu at magna. Nulla facilisi. Quisque eleifend leo id facilisis aliquet. Praesent malesuada a quam sed iaculis. Sed mollis leo sed libero sagittis placerat. Aenean volutpat quam at sem suscipit malesuada. Nam dolor libero, sagittis at diam nec, rhoncus faucibus odio. Mauris iaculis convallis nulla, nec sollicitudin nunc suscipit ut.
+Praesent velit lorem, euismod a suscipit at, molestie sit amet nisl. Sed sollicitudin venenatis lectus eget hendrerit. Aenean eu egestas orci, sed vehicula nulla. Donec facilisis tortor eu est maximus ullamcorper. Pellentesque eget dapibus tortor. Donec eu sapien a mi ultrices rutrum. Phasellus magna arcu, consequat eget felis sed, consequat auctor dui. Cras dictum nunc eget urna varius, vitae viverra odio faucibus. Curabitur ultrices, diam ut ultrices euismod, sapien justo fringilla nunc, quis tincidunt sapien turpis a orci.
 
-Nulla ultricies pharetra diam, volutpat malesuada nisi molestie sit amet. Ut auctor ultricies diam at convallis. Morbi pellentesque neque non justo egestas ornare. Sed malesuada faucibus laoreet. Aenean commodo porta arcu, et porta augue euismod interdum. Praesent fringilla dolor ac neque fringilla feugiat. Proin gravida tincidunt mollis. Fusce eu arcu maximus, euismod felis at, semper neque. Duis porta molestie nulla. Nunc auctor, libero vel consectetur gravida, diam quam vulputate velit, vitae vehicula ante urna at leo. In varius fringilla est. Praesent id lacus vitae est ullamcorper placerat. Praesent egestas ligula ac dolor condimentum pellentesque. Morbi blandit in urna in tincidunt. Vivamus tempus luctus rutrum. Integer pharetra justo vitae turpis iaculis, sit amet pulvinar purus bibendum.
+Proin hendrerit nisl eget lectus imperdiet, ut sodales lorem auctor. Aenean sit amet rhoncus nulla, id aliquam lacus. Morbi pellentesque imperdiet ultrices. Cras imperdiet purus tellus, non pharetra ante accumsan at. Vivamus dapibus consequat odio, eget pretium urna. Nunc mollis turpis quis ex gravida tempor. Vestibulum ullamcorper nec nulla et maximus. Mauris leo quam, bibendum et mauris ac, eleifend aliquam sem. Praesent rutrum tempus turpis ut rhoncus. Phasellus ac nibh justo. Integer sollicitudin egestas turpis sed congue. Morbi mauris velit, bibendum pharetra dolor quis, porttitor tincidunt dui. Donec arcu ante, tincidunt vel dignissim at, porta ac nibh. Pellentesque ornare ante elit, et viverra metus faucibus vel. Duis tincidunt urna aliquam ex tincidunt pretium. Vivamus posuere vehicula eros ac rhoncus.
+
+Suspendisse fringilla tortor quis mauris iaculis, sit amet vestibulum velit posuere. Praesent vitae tempor nisl, et luctus odio. Praesent tempor et quam in volutpat. Praesent ullamcorper ex in risus bibendum, non vehicula metus laoreet. Donec porttitor rhoncus dolor, eget placerat tortor venenatis nec. Aenean consequat ultricies dolor vitae sodales. Duis et pulvinar ipsum, ac facilisis eros. Cras volutpat imperdiet tortor ut consectetur. Cras maximus convallis tortor porta aliquam. Pellentesque a feugiat metus. Nam dictum dui erat, eu euismod velit semper id. Etiam feugiat tortor sit amet euismod eleifend.
+
+Aenean congue luctus molestie. Donec volutpat risus urna, a condimentum velit viverra nec. Aenean sollicitudin risus justo, vulputate malesuada dolor porta ut. In ac elit faucibus, accumsan elit ut, venenatis nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse potenti. In vel turpis vel sem vulputate suscipit in ac lorem. Phasellus consequat turpis nec ipsum convallis, ut porttitor turpis eleifend. Morbi et purus id diam fermentum bibendum. Maecenas posuere fermentum vehicula. Proin molestie dui et eros vestibulum sagittis. Donec et sapien dictum, interdum justo a, interdum odio.
+
+Morbi orci ligula, tempus ut sem vitae, dignissim sagittis orci. Aliquam a magna et libero ultrices eleifend. Sed eget ex a massa hendrerit pellentesque. Cras porttitor venenatis neque ac molestie. Curabitur elit odio, iaculis sit amet malesuada a, tincidunt eget est. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean porta convallis eros, sit amet consectetur purus molestie ut. Aliquam erat volutpat. In non lacinia tortor. Proin malesuada lacus non laoreet interdum. Vestibulum ut lacinia metus.
+
+Aenean sit amet porttitor nisi, at mattis enim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Curabitur convallis rhoncus congue. Aenean blandit ante quis ultrices eleifend. Sed finibus ullamcorper varius. Aliquam tortor leo, efficitur sit amet neque id, egestas aliquam ipsum. Cras fermentum fermentum urna, vel ultrices nunc tristique eget. Cras vel condimentum purus. Maecenas sit amet egestas magna, cursus sagittis metus.
+
+Nam quis lorem sit amet ligula porttitor interdum non at tortor. Mauris in dui et magna eleifend fringilla. Donec at purus sit amet est imperdiet bibendum in sagittis massa. Praesent a pharetra lorem. Vivamus interdum nunc a consectetur consectetur. Fusce sed feugiat ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus elementum rutrum mi id luctus. In euismod tristique tellus et lobortis.
+
+Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam imperdiet tortor in nisi accumsan commodo. Morbi aliquam consectetur augue. Aliquam consectetur pulvinar lacinia. Mauris urna sem, commodo a leo at, vulputate posuere lectus. Curabitur sagittis elementum diam, eget ullamcorper orci pretium id. Duis ultrices convallis tempor. Cras cursus mauris nec enim tincidunt faucibus.
+
+Duis facilisis urna vel nisi finibus viverra. Fusce convallis laoreet ultricies. Pellentesque vitae varius mauris, sit amet congue libero. Aliquam erat volutpat. Integer eu augue non felis viverra laoreet condimentum ut arcu. Etiam tempus dignissim lectus, vitae sollicitudin nisl bibendum quis. Donec aliquam laoreet congue. Pellentesque pretium eros neque, auctor posuere nisi sodales id.</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btn_Login.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAK8AAAAuCAYAAABefkkIAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMPSURBVHhe7dzNaxNBGMdx/wVRbJKmeWkVKlihRSkIeiii
+        ouih4CtF8SAoqFRbitJLERHEgx7Egx70ogc1k41JutHUNv/Z4z7PumGTPDFpJekM/A4feug26eHLMLsz
+        O3sajQYBuAjxgrMQLzgL8YKzEC84C/GCs3Yc7+8vn8l/9JCqC9epNDsjCiN7AXqKeqlcmSf//j3a+PBe
+        bayXbcW76XnyheZglkwuRSa5T/3nAPrx/e9PMz5KJp+iyqULtPHpo9qepq94t6pVqt5aCIIdbX4hwCAU
+        82mJmAdKrcW4nvHykG7G01QYG1G/DGAQeKCsPVtTm4z8M15/+TEVgymC9uEAg1YMBk2+p9LaZF3jrVy7
+        LH+sfSjAsJhcksrnz6qNqvH6iw9k2NY+DGDYTDBl5cG0vdOOeOvv3pI5hKkC2IVnAe1z4JZ4+Q6vOJFR
+        /xhgt3GbvL6gxlu5cZVMCs9uwV4/5k51xrv57SuZPG7QwG68oBGtyDXj5QfD2sUAtuGl5ZZ4eXlOuxDA
+        NiabkFVfiTdcRcOjMXBDMZeiny+eh/Gu375JhdR+9UIAG/E0V+ItnzuNDTfgFG/mSBgv9uKCa3hbrsSr
+        /RLAdhKvd/Sw+ksAW/HTMYmXVy20CwBsxPdn3tRkGC+/2oMbNnBJ6eRsGO+vVy/l9QvtIgDrpA9QbWUp
+        jHerXsdrPuAMk03KXhyJl/EwrF0IYJNovsvNNuOtv3kdvmjZdjGATfjIBf/JSmu8DE8dwGbxUbcjXj7w
+        ATduYCtukx8uqPGy9bt3yOSxwwwsM5agyvzFllY74mXlM3PYZQZWKZ04Jk/F4p2q8fJFpePTCBis4E1P
+        yebz9k7VeBkHzCMwzm+AXRNMFWTEVcJlXeON8AEkuImDYZMD94I5bvtUIa5nvIwPIuHNv4gYBs1kErJX
+        N/5UoZu+4o3IHojJCVmeM5lwORkbeuB/8TnPct5zEK2/tKi2p9lWvBFeV66tPpUlZX5orP1DAL3wQMhv
+        8fAJ+/GTcPq1o3gBbIB4wVmIF5yFeMFZiBcc1aA/X6n2chmGjI8AAAAASUVORK5CYII=
 </value>
   </data>
 </root>

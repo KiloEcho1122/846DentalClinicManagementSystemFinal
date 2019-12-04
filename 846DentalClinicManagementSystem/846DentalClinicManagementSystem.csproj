@@ -201,6 +201,8 @@
       <DependentUpon>ISADDATABASEFINAL.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\dr-removebg-preview.png" />
+    <None Include="Resources\iconfinder_icon-118-lock-rounded_314696.png" />
     <None Include="Resources\dr.png" />
     <None Include="Resources\user-icon-male-hipster-avatar-vector-flat-design-user-icon-male-with-beard-icon-hipster-flat-clipart-vector_csp51923152.jpg" />
     <None Include="Resources\Password.png" />

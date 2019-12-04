@@ -213,6 +213,16 @@ namespace _846DentalClinicManagementSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap dr_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("dr-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gc {
             get {
                 object obj = ResourceManager.GetObject("gc", resourceCulture);
@@ -276,6 +286,16 @@ namespace _846DentalClinicManagementSystem.Properties {
         internal static System.Drawing.Bitmap gray {
             get {
                 object obj = ResourceManager.GetObject("gray", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconfinder_icon_118_lock_rounded_314696 {
+            get {
+                object obj = ResourceManager.GetObject("iconfinder_icon-118-lock-rounded_314696", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
