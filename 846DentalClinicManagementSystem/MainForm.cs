@@ -830,8 +830,8 @@ namespace _846DentalClinicManagementSystem
                 "FROM AppointmentTreatment a INNER JOIN Billing b ON a.AppointmentID_fk = b.AppointmentID_fk " +
                 "WHERE b.BillingDate BETWEEN @date AND @date2  AND b.BillingBalance = 0 ORDER BY b.BillingDate ASC ", sqlcon);
             cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@date", firstDayOfMonth.ToShortDateString());
-            cmd.Parameters.AddWithValue("@date2", lastDayOfMonth.ToShortDateString());
+            cmd.Parameters.AddWithValue("@date", firstDayOfMonth.ToString());
+            cmd.Parameters.AddWithValue("@date2", lastDayOfMonth.ToString());
 
             adapter.SelectCommand = cmd;
             try
