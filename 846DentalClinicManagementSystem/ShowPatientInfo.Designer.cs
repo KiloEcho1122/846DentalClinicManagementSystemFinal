@@ -753,6 +753,7 @@
             this.Billing_DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Billing_DataGrid.Size = new System.Drawing.Size(715, 224);
             this.Billing_DataGrid.TabIndex = 54;
+            this.Billing_DataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Billing_DataGrid_CellClick);
             this.Billing_DataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Billing_DataGrid_CellContentClick);
             // 
             // panel4

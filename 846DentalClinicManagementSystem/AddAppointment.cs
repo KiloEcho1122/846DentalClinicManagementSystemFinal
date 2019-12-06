@@ -653,7 +653,7 @@ namespace _846DentalClinicManagementSystem
 
         private void txt_PatientSearch_Leave(object sender, EventArgs e)
         {
-            AppSearch_DataGrid.Visible = false;
+           // AppSearch_DataGrid.Visible = false;
         }
 
         private void Treatment_CB_KeyDown(object sender, KeyEventArgs e)
@@ -729,30 +729,30 @@ namespace _846DentalClinicManagementSystem
 
         private void AppSearch_DataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (AppSearch_DataGrid.SelectedRows.Count > 0) // make sure user select at least 1 row 
-            {
-                string ID = AppSearch_DataGrid.SelectedRows[0].Cells[0].Value + string.Empty;
+            //if (AppSearch_DataGrid.SelectedRows.Count > 0) // make sure user select at least 1 row 
+            //{
+            //    string ID = AppSearch_DataGrid.SelectedRows[0].Cells[0].Value + string.Empty;
 
-                SqlDataAdapter adapter = new SqlDataAdapter();
-                DataTable dt = new DataTable();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Patient WHERE PatientID = @ID", sqlcon);
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@ID", ID);
-                adapter.SelectCommand = cmd;
+            //    SqlDataAdapter adapter = new SqlDataAdapter();
+            //    DataTable dt = new DataTable();
+            //    SqlCommand cmd = new SqlCommand("SELECT * FROM Patient WHERE PatientID = @ID", sqlcon);
+            //    cmd.Parameters.Clear();
+            //    cmd.Parameters.AddWithValue("@ID", ID);
+            //    adapter.SelectCommand = cmd;
 
-                try
-                {
-                    adapter.Fill(dt);
-                    txt_LName.Text = dt.Rows[0][1].ToString();
-                    txt_FName.Text = dt.Rows[0][2].ToString();
-                    txt_MName.Text = dt.Rows[0][3].ToString();
-                    txt_ContactNo.Text = dt.Rows[0][4].ToString();
+            //    try
+            //    {
+            //        adapter.Fill(dt);
+            //        txt_LName.Text = dt.Rows[0][1].ToString();
+            //        txt_FName.Text = dt.Rows[0][2].ToString();
+            //        txt_MName.Text = dt.Rows[0][3].ToString();
+            //        txt_ContactNo.Text = dt.Rows[0][4].ToString();
 
-                }
-                catch (Exception ex) { Console.WriteLine(ex.Message); }
+            //    }
+            //    catch (Exception ex) { Console.WriteLine(ex.Message); }
 
 
-            }
+            //}
         }
 
         
@@ -785,6 +785,47 @@ namespace _846DentalClinicManagementSystem
             }
             catch (Exception ex) { Console.WriteLine(ex.Message + AppDate); }
 
+        }
+
+        private void AppSearch_DataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (AppSearch_DataGrid.SelectedRows.Count > 0) // make sure user select at least 1 row 
+                {
+                    string ID = AppSearch_DataGrid.SelectedRows[0].Cells[0].Value + string.Empty;
+
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    DataTable dt = new DataTable();
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM Patient WHERE PatientID = @ID", sqlcon);
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@ID", ID);
+                    adapter.SelectCommand = cmd;
+
+                    try
+                    {
+                        adapter.Fill(dt);
+                        txt_LName.Text = dt.Rows[0][1].ToString();
+                        txt_FName.Text = dt.Rows[0][2].ToString();
+                        txt_MName.Text = dt.Rows[0][3].ToString();
+                        txt_ContactNo.Text = dt.Rows[0][4].ToString();
+
+                    }
+                    catch (Exception ex) { Console.WriteLine(ex.Message); }
+
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private void txt_LName_TextChanged(object sender, EventArgs e)
+        {
+            AppSearch_DataGrid.Visible = false;
         }
 
         private void statusSwitch_Click(object sender, EventArgs e)

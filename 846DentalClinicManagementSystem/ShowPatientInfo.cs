@@ -1362,9 +1362,9 @@ namespace _846DentalClinicManagementSystem
 
         private void Billing_DataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            txt_BllingID.Text = Billing_DataGrid.SelectedRows[0].Cells[0].Value.ToString();
-            GlobalVariable.BillingID = (int)(Billing_DataGrid.SelectedRows[0].Cells[0].Value);
-            ShowPaymentHistory();
+            //txt_BllingID.Text = Billing_DataGrid.SelectedRows[0].Cells[0].Value.ToString();
+            //GlobalVariable.BillingID = (int)(Billing_DataGrid.SelectedRows[0].Cells[0].Value);
+            //ShowPaymentHistory();
         }
 
         private void btn_add_Click(object sender, EventArgs e)
@@ -1538,7 +1538,20 @@ namespace _846DentalClinicManagementSystem
 
         }
 
-      
+        private void Billing_DataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                txt_BllingID.Text = Billing_DataGrid.SelectedRows[0].Cells[0].Value.ToString();
+                GlobalVariable.BillingID = (int)(Billing_DataGrid.SelectedRows[0].Cells[0].Value);
+                ShowPaymentHistory();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            
+        }
     }
 
    

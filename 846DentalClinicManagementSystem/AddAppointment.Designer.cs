@@ -68,8 +68,8 @@
             this.lblContact = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txt_ContactNo = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -205,6 +205,7 @@
             this.AppSearch_DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.AppSearch_DataGrid.Size = new System.Drawing.Size(723, 65);
             this.AppSearch_DataGrid.TabIndex = 6;
+            this.AppSearch_DataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AppSearch_DataGrid_CellClick);
             this.AppSearch_DataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AppSearch_DataGrid_CellContentClick);
             // 
             // DentistDD
@@ -215,6 +216,7 @@
             this.DentistDD.ForeColor = System.Drawing.Color.White;
             this.DentistDD.Items = new string[0];
             this.DentistDD.Location = new System.Drawing.Point(37, 286);
+            this.DentistDD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.DentistDD.Name = "DentistDD";
             this.DentistDD.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
             this.DentistDD.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
@@ -248,6 +250,7 @@
         "04:30 PM",
         "05:00 PM"};
             this.TimeDD.Location = new System.Drawing.Point(415, 286);
+            this.TimeDD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TimeDD.Name = "TimeDD";
             this.TimeDD.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
             this.TimeDD.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
@@ -458,6 +461,7 @@
             this.txt_LName.Name = "txt_LName";
             this.txt_LName.Size = new System.Drawing.Size(164, 35);
             this.txt_LName.TabIndex = 2;
+            this.txt_LName.TextChanged += new System.EventHandler(this.txt_LName_TextChanged);
             // 
             // txt_FName
             // 
@@ -652,15 +656,6 @@
             this.panel1.Size = new System.Drawing.Size(151, 13);
             this.panel1.TabIndex = 38;
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Location = new System.Drawing.Point(153, 24);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(21, 11);
-            this.panel2.TabIndex = 39;
-            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
@@ -669,6 +664,15 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(173, 4);
             this.panel4.TabIndex = 41;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Location = new System.Drawing.Point(153, 24);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(21, 11);
+            this.panel2.TabIndex = 39;
             // 
             // panel5
             // 

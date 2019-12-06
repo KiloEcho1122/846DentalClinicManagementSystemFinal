@@ -131,6 +131,8 @@ namespace _846DentalClinicManagementSystem
             HidePanels();
             AccountingPanel.Visible = true;
             LoadMonthlyProfit();
+            LoadMonthlyExpenses();
+            LoadGrossProfit();
         }
 
        
@@ -755,7 +757,7 @@ namespace _846DentalClinicManagementSystem
 
         private void Patient_DataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            GlobalVariable.PatientID = Convert.ToInt32 (Patient_DataGrid.SelectedRows[0].Cells[0].Value);
+            //GlobalVariable.PatientID = Convert.ToInt32 (Patient_DataGrid.SelectedRows[0].Cells[0].Value);
         }
 
         private void btn_AddPatient_Click(object sender, EventArgs e)
@@ -787,7 +789,32 @@ namespace _846DentalClinicManagementSystem
 
         private void Patient_DataGrid_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            ShowPatientDetails();
+            //ShowPatientDetails();
+        }
+
+        private void Patient_DataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                GlobalVariable.PatientID = Convert.ToInt32(Patient_DataGrid.SelectedRows[0].Cells[0].Value);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private void Patient_DataGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                ShowPatientDetails();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
         }
 
 
@@ -814,6 +841,8 @@ namespace _846DentalClinicManagementSystem
         private void bunifuDatepicker1_onValueChanged(object sender, EventArgs e)
         {
             LoadMonthlyProfit();
+            LoadMonthlyExpenses();
+            LoadGrossProfit();
         }
 
         private void LoadMonthlyProfit()
@@ -839,6 +868,8 @@ namespace _846DentalClinicManagementSystem
                 adapter.Fill(dt);
                 Profit_DG.DataSource = dt;
                 Profit_DG.Columns[0].DefaultCellStyle.Format = "MMMM d, yyyy";
+                Profit_DG.Columns[2].Width = 100;
+
 
             }
             catch(Exception e)
@@ -847,6 +878,81 @@ namespace _846DentalClinicManagementSystem
             }
 
         }
+        private float LoadNetProfit(DateTime firstDayOfMonth, DateTime lastDayOfMonth)
+        {
+            float output = 0;
+            foreach (DataGridViewRow row in Profit_DG.Rows)
+            {
+                float.TryParse(row.Cells[2].Value.ToString(), out float amt);
+                output += amt;
+            }
+
+            return output;
+        }
+
+        private float LoadNetExpense(DateTime firstDayOfMonth, DateTime lastDayOfMonth)
+        {
+            float output = 0;
+            foreach(DataGridViewRow row in displayExpenseDG.Rows)
+            {
+                float.TryParse(row.Cells[3].Value.ToString(), out float amt);
+                output += amt;
+            }
+           
+            return output;
+        }
+
+        public void LoadGrossProfit()
+        {
+            DateTime date = Inventory_DatePicker.Value;
+            var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
+            var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddSeconds(-1);
+            float netProfit = LoadNetProfit(firstDayOfMonth, lastDayOfMonth);
+            float netExpense = LoadNetExpense(firstDayOfMonth, lastDayOfMonth);
+            float grossProfit = netProfit - netExpense;
+
+            lbl_netProfit.Text = netProfit.ToString();
+            lbl_netExpense.Text = netExpense.ToString();
+            lbl_GrossProfit.Text = grossProfit.ToString();
+
+        }
+
+
+        public void LoadMonthlyExpenses()
+        {
+            DateTime date = Inventory_DatePicker.Value;
+            var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
+            var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddSeconds(-1);
+
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand(
+                "SELECT ExpenseID As Id, ExpenseDate As Date, ExpenseName As Expense,ExpenseAmt AS Amount" +
+                " FROM Expense WHERE ExpenseDate BETWEEN @date AND @date2 ORDER BY ExpenseDate ASC ", sqlcon);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@date", firstDayOfMonth.ToString());
+            cmd.Parameters.AddWithValue("@date2", lastDayOfMonth.ToString());
+
+            adapter.SelectCommand = cmd;
+            try
+            {
+                adapter.Fill(dt);
+                displayExpenseDG.DataSource = dt;
+                displayExpenseDG.Columns[1].DefaultCellStyle.Format = "MMMM d, yyyy";
+                displayExpenseDG.Columns[0].Width = 40;
+                displayExpenseDG.Columns[1].Width = 130;
+                displayExpenseDG.Columns[2].Width = 200;
+                displayExpenseDG.Columns[3].Width = 100;
+                
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+
 
         private void btn_AddExpenses_Click(object sender, EventArgs e)
         {
