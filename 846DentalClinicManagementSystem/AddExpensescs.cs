@@ -88,7 +88,6 @@ namespace _846DentalClinicManagementSystem
             }
         }
 
-
         private void btn_SaveExpenses_Click(object sender, EventArgs e)
         {
             ExpenseDG.EndEdit();
@@ -186,6 +185,9 @@ namespace _846DentalClinicManagementSystem
 
         }
 
-       
+        private void btn_AddRows_Click(object sender, EventArgs e)
+        {
+            ExpenseDG.Rows.Add();
+        }
     }
 }
