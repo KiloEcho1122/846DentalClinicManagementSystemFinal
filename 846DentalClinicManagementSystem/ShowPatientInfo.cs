@@ -1567,16 +1567,23 @@ namespace _846DentalClinicManagementSystem
             Bitmap bmp = new Bitmap(rect.Width, rect.Height, PixelFormat.Format32bppArgb);
             Graphics g = Graphics.FromImage(bmp);
             g.CopyFromScreen(rect.Left, rect.Top, 0, 0, bmp.Size, CopyPixelOperation.SourceCopy);
-         
-            
+            Image image = bmp;
+
             //  MessageBox.Show(top.ToString() + "   " + left.ToString());
             // var date = DateTime.Now.ToString("MMddyyHmmss");
-            bmp.Save(@"C:\Users\Mike\Pictures\DentalChart.png", ImageFormat.Jpeg);
+
+
+            String workingDirectory = Environment.CurrentDirectory;
+            String projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
+            String chart = projectDirectory + @"\DentalChart2.bmp";
+
+            bmp.Save(chart, ImageFormat.Bmp);
 
             btn_SaveChart.Visible = true;
             btn_RefreshChart.Visible = true;
             btn_print.Visible = true;
 
+            
             DataTable dt = new DataTable();
             dt.Columns.Add("PatientName");
             dt.Columns.Add("PatientAge");
@@ -1589,8 +1596,9 @@ namespace _846DentalClinicManagementSystem
             dt.Columns.Add("Treatment");
             dt.Columns.Add("Picture");
 
-            dt.Rows.Add("Michael Mendiola","22", "M", "186 Dr. Pilapil St. San Miguel Pasig City",
-               "Maranan, Esperanza G.", "20776", "Gingivitis", "Removal of tissues", "Deep Scaling");
+
+            dt.Rows.Add("Michael Mendiola", "22", "M", "186 Dr. Pilapil St. San Miguel Pasig City",
+            "Maranan, Esperanza G.", "20776", "Gingivitis", "Removal of tissues", "Deep Scaling", chart);
 
             CrystalDecisions.CrystalReports.Engine.ReportDocument report = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
             report = new CrystalReport1();
