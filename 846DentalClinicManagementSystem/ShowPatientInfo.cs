@@ -1561,50 +1561,24 @@ namespace _846DentalClinicManagementSystem
             btn_RefreshChart.Visible = false;
             btn_print.Visible = false;
 
+            this.Show();
             int left = this.DesktopLocation.X + panel6.Location.X + PatientInfoTAB.Location.X;
             int top = this.DesktopLocation.Y + panel6.Location.Y + PatientInfoTAB.Location.Y + 25;
-            Rectangle rect = new Rectangle(left, top, panel6.Width + panel1.Width - 7, panel6.Size.Height);
+            Rectangle rect = new Rectangle(left, top, panel6.Width + panel1.Width - 7, panel6.Size.Height + 2);
             Bitmap bmp = new Bitmap(rect.Width, rect.Height, PixelFormat.Format32bppArgb);
             Graphics g = Graphics.FromImage(bmp);
             g.CopyFromScreen(rect.Left, rect.Top, 0, 0, bmp.Size, CopyPixelOperation.SourceCopy);
-            Image image = bmp;
-
-
-            String workingDirectory = Environment.CurrentDirectory;
-            String projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
-            String chart = projectDirectory + @"\DentalChart2.bmp";
-
-            bmp.Save(chart, ImageFormat.Bmp);
+ 
+           
+            bmp.Save(GlobalVariable.chartImagePath, ImageFormat.Bmp);
 
             btn_SaveChart.Visible = true;
             btn_RefreshChart.Visible = true;
             btn_print.Visible = true;
 
             
-            DataTable dt = new DataTable();
-            dt.Columns.Add("PatientName");
-            dt.Columns.Add("PatientAge");
-            dt.Columns.Add("PatientSex");
-            dt.Columns.Add("PatientAddress");
-            dt.Columns.Add("DentistName");
-            dt.Columns.Add("LicenseNo");
-            dt.Columns.Add("Diagnosis");
-            dt.Columns.Add("Findings");
-            dt.Columns.Add("Treatment");
-            dt.Columns.Add("Picture");
-
-
-            dt.Rows.Add("Michael Mendiola", "22", "M", "186 Dr. Pilapil St. San Miguel Pasig City",
-            "Maranan, Esperanza G.", "20776", "Gingivitis", "Removal of tissues", "Deep Scaling", chart);
-
-            CrystalDecisions.CrystalReports.Engine.ReportDocument report = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
-            report = new CrystalReport1();
-            report.SetDataSource(dt);
-            Certificate certificate = new Certificate();
-            certificate.crystalReportViewer1.ReportSource = report;
-            certificate.ShowDialog();
-            certificate.Dispose();
-
+            AddDiagnosis addDiagnosis = new AddDiagnosis();
+            addDiagnosis.Show();
 
         }
         //-Experimental ------------------------------------
