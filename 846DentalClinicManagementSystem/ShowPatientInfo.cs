@@ -1569,9 +1569,6 @@ namespace _846DentalClinicManagementSystem
             g.CopyFromScreen(rect.Left, rect.Top, 0, 0, bmp.Size, CopyPixelOperation.SourceCopy);
             Image image = bmp;
 
-            //  MessageBox.Show(top.ToString() + "   " + left.ToString());
-            // var date = DateTime.Now.ToString("MMddyyHmmss");
-
 
             String workingDirectory = Environment.CurrentDirectory;
             String projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;

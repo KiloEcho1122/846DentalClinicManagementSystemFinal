@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,9 +12,14 @@ namespace _846DentalClinicManagementSystem
 {
     class GlobalVariable
     {
-        public static string connString => ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+       // public static string connString => ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
-      //  public static SqlConnection sqlcon = new SqlConnection(connString);
+        //  public static SqlConnection sqlcon = new SqlConnection(connString);
+        private static string workingDirectory = Environment.CurrentDirectory;
+        private static string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
+        private static string chart = projectDirectory + @"\Data\ISADDATABASEFINAL.mdf";
+
+        public static string connString = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=" + chart + ";Integrated Security = True";
 
         public static int AppointmentID { get; set; }
         
