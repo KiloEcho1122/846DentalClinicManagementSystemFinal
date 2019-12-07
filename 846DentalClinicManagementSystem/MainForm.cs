@@ -952,12 +952,31 @@ namespace _846DentalClinicManagementSystem
             }
         }
 
-
+        private void displayExpenseDG_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+         
+            GlobalVariable.ExpenseId = Convert.ToInt32(displayExpenseDG.SelectedRows[0].Cells[0].Value);
+            if(GlobalVariable.isEditExpense == false)
+            {
+                if (GlobalVariable.ExpenseId > 0)
+                {
+                    GlobalVariable.isEditExpense = true;
+                    AddExpensescs addExpensescs = new AddExpensescs();
+                    addExpensescs.Show();
+                }
+            }
+           
+        }
 
         private void btn_AddExpenses_Click(object sender, EventArgs e)
         {
-            AddExpensescs addExpensescs = new AddExpensescs();
-            addExpensescs.Show();
+            if (GlobalVariable.isAddExpense == false)
+            {
+                GlobalVariable.isAddExpense = true;
+                AddExpensescs addExpensescs = new AddExpensescs();
+                addExpensescs.Show();
+            }
+            
         }
 
        

@@ -30,7 +30,39 @@ namespace _846DentalClinicManagementSystem
 
         private void AddExpensescs_Load(object sender, EventArgs e)
         {
+            if(GlobalVariable.isAddExpense == false && GlobalVariable.isEditExpense == true)
+            {
+                editExpenseView();
+            }
 
+        }
+
+        private void editExpenseView()
+        {
+            btn_AddRows.Visible = false;
+            btn_DeleteExpense.Visible = false;
+            txt_formHeader.Text = "Edit Expense";
+
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand(
+                "SELECT ExpenseDate,ExpenseName,ExpenseAmt" +
+                " FROM Expense WHERE ExpenseID = @ExpenseID", sqlcon);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@ExpenseID", GlobalVariable.ExpenseId);
+            adapter.SelectCommand = cmd;
+            try
+            {
+                adapter.Fill(dt);
+                ExpenseDG.Rows.Add();
+                ExpenseDG.Rows[0].Cells[0].Value = dt.Rows[0][0];
+                ExpenseDG.Rows[0].Cells[1].Value = dt.Rows[0][1];
+                ExpenseDG.Rows[0].Cells[2].Value = dt.Rows[0][2];
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
         private void dtp_TextChange(object sender, EventArgs e)
@@ -67,7 +99,10 @@ namespace _846DentalClinicManagementSystem
 
         private void label1_Click(object sender, EventArgs e)
         {
+            GlobalVariable.isAddExpense = false;
+            GlobalVariable.isEditExpense = false;
             this.Hide();
+          
         }
 
         
@@ -87,10 +122,8 @@ namespace _846DentalClinicManagementSystem
                
             }
         }
-
-        private void btn_SaveExpenses_Click(object sender, EventArgs e)
+        private void AddExpenseSave()
         {
-            ExpenseDG.EndEdit();
             if (IsValidCellValues())
             {
                 foreach (DataGridViewRow row in ExpenseDG.Rows)
@@ -107,11 +140,13 @@ namespace _846DentalClinicManagementSystem
                     cmd.Parameters.AddWithValue("@expense", exp);
                     cmd.Parameters.AddWithValue("@amt", amount);
 
+
                     sqlcon.Open();
                     try
                     {
                         cmd.ExecuteNonQuery();
-                    }catch(Exception ex)
+                    }
+                    catch (Exception ex)
                     {
                         Console.WriteLine(ex.Message);
                     }
@@ -119,12 +154,66 @@ namespace _846DentalClinicManagementSystem
                     sqlcon.Close();
 
                 }
-                MessageBox.Show("Expenses Added Successfully");
-                var main = Application.OpenForms.OfType<MainForm>().First();
-                main.LoadMonthlyExpenses();
-                main.LoadGrossProfit();
-                this.Hide();
             }
+        }
+
+        private void EditExpenseSave()
+        {
+            if (IsValidCellValues())
+            {
+                foreach (DataGridViewRow row in ExpenseDG.Rows)
+                {
+                    string date = row.Cells[0].Value.ToString();
+                    string exp = row.Cells[1].Value.ToString();
+                    float.TryParse(row.Cells[2].Value.ToString(), out float amount);
+
+                    SqlCommand cmd = new SqlCommand(
+                        "UPDATE Expense SET ExpenseDate = @date,ExpenseName = @expense, " +
+                        "ExpenseAmt = @amt WHERE ExpenseId = @ExpenseID", sqlcon);
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@date", date);
+                    cmd.Parameters.AddWithValue("@expense", exp);
+                    cmd.Parameters.AddWithValue("@amt", amount);
+                    cmd.Parameters.AddWithValue("@ExpenseID", GlobalVariable.ExpenseId);
+
+                    sqlcon.Open();
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+
+                    sqlcon.Close();
+
+                }
+            }
+        }
+
+        private void btn_SaveExpenses_Click(object sender, EventArgs e)
+        {
+            ExpenseDG.EndEdit();
+
+            if (GlobalVariable.isAddExpense == true && GlobalVariable.isEditExpense == false)
+            {
+                AddExpenseSave();
+                MessageBox.Show("Expenses Added Successfully");
+            }
+            else if (GlobalVariable.isAddExpense == false && GlobalVariable.isEditExpense == true)
+            {
+                EditExpenseSave();
+                MessageBox.Show("Expenses Updated Successfully");
+            }
+
+            var main = Application.OpenForms.OfType<MainForm>().First();
+            main.LoadMonthlyExpenses();
+            main.LoadGrossProfit();
+            GlobalVariable.isAddExpense = false;
+            GlobalVariable.isEditExpense = false;
+            this.Hide();
+            
         }
 
        

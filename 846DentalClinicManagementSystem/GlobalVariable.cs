@@ -37,7 +37,13 @@ namespace _846DentalClinicManagementSystem
 
         public static MainForm Main { get; set; }
 
-       // public static string Username { get; set; }
+        public static int ExpenseId { get; set; }
+
+        public static Boolean isEditExpense { get; set; }
+
+        public static Boolean isAddExpense { get; set; }
+
+        // public static string Username { get; set; }
 
         public static Boolean isBillingStatementExist { get; set; }
 
