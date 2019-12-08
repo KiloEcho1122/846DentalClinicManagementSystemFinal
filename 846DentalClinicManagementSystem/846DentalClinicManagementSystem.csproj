@@ -112,10 +112,22 @@
     <Compile Include="Certificate.Designer.cs">
       <DependentUpon>Certificate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Certificate2cs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Certificate2cs.Designer.cs">
+      <DependentUpon>Certificate2cs.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrystalReport1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReport2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport2.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DataSet1.cs">
@@ -176,9 +188,16 @@
     <EmbeddedResource Include="Certificate.resx">
       <DependentUpon>Certificate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Certificate2cs.resx">
+      <DependentUpon>Certificate2cs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport2.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>

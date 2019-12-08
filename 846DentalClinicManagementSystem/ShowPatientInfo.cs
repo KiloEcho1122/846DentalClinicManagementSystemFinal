@@ -1560,6 +1560,7 @@ namespace _846DentalClinicManagementSystem
             btn_SaveChart.Visible = false;
             btn_RefreshChart.Visible = false;
             btn_print.Visible = false;
+            btn_Print2.Visible = false;
 
             this.Show();
             int left = this.DesktopLocation.X + panel6.Location.X + PatientInfoTAB.Location.X;
@@ -1575,11 +1576,65 @@ namespace _846DentalClinicManagementSystem
             btn_SaveChart.Visible = true;
             btn_RefreshChart.Visible = true;
             btn_print.Visible = true;
+            btn_Print2.Visible = true;
 
-            
+
             AddDiagnosis addDiagnosis = new AddDiagnosis();
             addDiagnosis.Show();
 
+        }
+
+        private void btn_Print2_Click(object sender, EventArgs e)
+        {
+            DataSet1.dtDataDataTable dt1 = new DataSet1.dtDataDataTable();
+
+            DataTable PatientTable = new DataTable();
+            DataTable DentistTable = new DataTable();
+            SqlDataAdapter PatientAdapter = new SqlDataAdapter();
+            SqlDataAdapter DentistAdapter = new SqlDataAdapter();
+            SqlCommand PatientCmd = new SqlCommand(
+                "SELECT PatientFullName,PatientAge,PatientGender,PatientAddress FROM Patient WHERE PatientID = @PatientID", sqlcon);
+            PatientCmd.Parameters.Clear();
+            PatientCmd.Parameters.AddWithValue("@PatientID", GlobalVariable.PatientID);
+            SqlCommand DentistCmd = new SqlCommand(
+                "SELECT CONCAT(DentistLName,',',DentistFName, ' ', DentistMName), DentistLicenseNo," +
+                "CONCAT(DentistFName, ' ', DentistMName, ' ', DentistLName) FROM Dentist WHERE DentistID = @DentistID", sqlcon);
+            DentistCmd.Parameters.Clear();
+            DentistCmd.Parameters.AddWithValue("@DentistID", GlobalVariable.LoginID);
+            PatientAdapter.SelectCommand = PatientCmd;
+            DentistAdapter.SelectCommand = DentistCmd;
+
+            try
+            {
+                PatientAdapter.Fill(PatientTable);
+                DentistAdapter.Fill(DentistTable);
+
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+
+
+            dt1.Rows.Add(
+                PatientTable.Rows[0][0].ToString(),
+                PatientTable.Rows[0][1].ToString(),
+                PatientTable.Rows[0][2].ToString(),
+                PatientTable.Rows[0][3].ToString(),
+                DentistTable.Rows[0][2].ToString(),
+                //DentistTable.Rows[0][0].ToString(),
+                DentistTable.Rows[0][1].ToString()
+                // DentistTable.Rows[0][2].ToString()
+                );
+
+            //dt1.Rows.Add("Michael Mendiola", "22", "M", "186 Dr. Pilapil St. San Miguel Pasig City",
+            //"Maranan, Esperanza G.", "20776", "Gingivitis", "Removal of tissues", "Deep Scaling", GlobalVariable.chartImagePath);
+
+            DataTable dt = dt1;
+            CrystalDecisions.CrystalReports.Engine.ReportDocument report = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
+            report = new CrystalReport2();
+            report.SetDataSource(dt);
+            Certificate2cs certificate = new Certificate2cs();
+            certificate.crystalReportViewer1.ReportSource = report;
+            certificate.ShowDialog();
+            certificate.Dispose();
         }
         //-Experimental ------------------------------------
     }
