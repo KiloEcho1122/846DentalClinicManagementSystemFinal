@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Data.SqlClient;
-using System.Text.RegularExpressions;
+
 
 namespace _846DentalClinicManagementSystem
 {
@@ -834,10 +830,22 @@ namespace _846DentalClinicManagementSystem
             
         }
 
-       
+
 
         //-------------------------------------------------------------------------------------------------
         // Inventory
+
+
+        private void btn_AddExpenses_Click(object sender, EventArgs e)
+        {
+            if (GlobalVariable.isAddExpense == false)
+            {
+                GlobalVariable.isAddExpense = true;
+                AddExpensescs addExpensescs = new AddExpensescs();
+                addExpensescs.Show();
+            }
+
+        }
         private void bunifuDatepicker1_onValueChanged(object sender, EventArgs e)
         {
             LoadMonthlyProfit();
@@ -968,34 +976,89 @@ namespace _846DentalClinicManagementSystem
            
         }
 
-        private void btn_AddExpenses_Click(object sender, EventArgs e)
+        private void btn_Export2Excel_Click(object sender, EventArgs e)
         {
-            if (GlobalVariable.isAddExpense == false)
-            {
-                GlobalVariable.isAddExpense = true;
-                AddExpensescs addExpensescs = new AddExpensescs();
-                addExpensescs.Show();
-            }
-            
+            //Initiate Excel Variables
+            Microsoft.Office.Interop.Excel.Range CR;
+            Microsoft.Office.Interop.Excel.Application xlexcel;
+            Microsoft.Office.Interop.Excel.Workbook xlWorkBook;
+            Microsoft.Office.Interop.Excel.Worksheet xlWorkSheet;
+
+            //create new object of excel
+            xlexcel = new Microsoft.Office.Interop.Excel.Application();
+            xlexcel.Visible = true;
+
+            //Define variables
+            object misValue = System.Reflection.Missing.Value;
+            xlWorkBook = xlexcel.Workbooks.Add(misValue);
+            xlWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+            // set row 1 height
+            xlWorkSheet.Rows["1:1"].RowHeight = 36;
+
+            //format excel -- profit area
+            xlWorkSheet.Cells[1, 1].Formula = "Profit";
+            CR = xlWorkSheet.Range["A1:C1"];
+            CR.Select();
+            CR.MergeCells = true;
+            CR.Interior.ThemeColor = Microsoft.Office.Interop.Excel.XlThemeColor.xlThemeColorLight2;
+            CR.Font.Size = 16;
+            CR.Cells.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+
+            //format excel -- expense area
+            xlWorkSheet.Cells[1, 6].Formula = "Expense";
+            CR = xlWorkSheet.Range["F1:H1"];
+            CR.Select();
+            CR.MergeCells = true;
+            CR.Interior.ThemeColor = Microsoft.Office.Interop.Excel.XlThemeColor.xlThemeColorAccent2;
+            CR.Font.Size = 16;
+            CR.Cells.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+
+            //copy profit table to excel
+            copyAllProfitToClipboard();
+            CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[3, 1];
+            CR.Select();
+            xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+            //copy expense table to excel
+            copyAllExpenseToClibboard();
+            CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[3, 5];
+            CR.Select();
+            xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+
+            //delete ID column of expense
+            xlWorkSheet.Columns["E"].Delete();
+
+            //Format Column width
+            xlWorkSheet.Columns["A"].ColumnWidth = 11.71;
+            xlWorkSheet.Columns["B"].ColumnWidth = 26.57;
+            xlWorkSheet.Columns["C"].ColumnWidth = 13.57;
+            xlWorkSheet.Columns["E"].ColumnWidth = 11.71;
+            xlWorkSheet.Columns["F"].ColumnWidth = 26.57;
+            xlWorkSheet.Columns["G"].ColumnWidth = 13.57;
+
+            //align columns to center
+            xlWorkSheet.Columns["A:H"].Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;   
         }
 
-       
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
+        private void copyAllExpenseToClibboard()
+        {
+            displayExpenseDG.RowHeadersVisible = false;
+            displayExpenseDG.SelectAll();
+            DataObject dataObj = displayExpenseDG.GetClipboardContent();
+            if (dataObj != null)
+                Clipboard.SetDataObject(dataObj);
+            displayExpenseDG.ClearSelection();
+        }
+        private void copyAllProfitToClipboard()
+        {
+            Profit_DG.RowHeadersVisible = false;
+            Profit_DG.SelectAll();
+            DataObject dataObj = Profit_DG.GetClipboardContent();
+            if (dataObj != null)
+                Clipboard.SetDataObject(dataObj);
+            Profit_DG.ClearSelection();
+        }
 
         // Patient Panel End --------------------------------------------------------------------------------------------------------
 
