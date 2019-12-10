@@ -141,7 +141,7 @@ namespace _846DentalClinicManagementSystem
                     cmd.Parameters.AddWithValue("@amt", amount);
 
 
-                    sqlcon.Open();
+                    if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
                     try
                     {
                         cmd.ExecuteNonQuery();
@@ -176,7 +176,7 @@ namespace _846DentalClinicManagementSystem
                     cmd.Parameters.AddWithValue("@amt", amount);
                     cmd.Parameters.AddWithValue("@ExpenseID", GlobalVariable.ExpenseId);
 
-                    sqlcon.Open();
+                    if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
                     try
                     {
                         cmd.ExecuteNonQuery();

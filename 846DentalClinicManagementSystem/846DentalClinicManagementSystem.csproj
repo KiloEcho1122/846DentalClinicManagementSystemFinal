@@ -88,12 +88,6 @@
     <Compile Include="AddBilling.Designer.cs">
       <DependentUpon>AddBilling.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddBillingPart.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddBillingPart.Designer.cs">
-      <DependentUpon>AddBillingPart.cs</DependentUpon>
-    </Compile>
     <Compile Include="AddDiagnosis.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,9 +175,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddBilling.resx">
       <DependentUpon>AddBilling.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AddBillingPart.resx">
-      <DependentUpon>AddBillingPart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddDiagnosis.resx">
       <DependentUpon>AddDiagnosis.cs</DependentUpon>

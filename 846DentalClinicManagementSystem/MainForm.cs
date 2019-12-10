@@ -67,7 +67,7 @@ namespace _846DentalClinicManagementSystem
                 "SELECT CONCAT(FName, ' ', LName) FROM Login WHERE LoginID = @LoginID", sqlcon);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@LoginID", GlobalVariable.LoginID);
-            sqlcon.Open();
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
             try
             {
                 if (cmd.ExecuteScalar() != null) lbl_userName.Text = cmd.ExecuteScalar().ToString();

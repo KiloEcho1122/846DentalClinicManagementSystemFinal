@@ -34,7 +34,7 @@ namespace _846DentalClinicManagementSystem
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@username", txtUsername.Text.Trim());
             cmd.Parameters.AddWithValue("@pass", txtPassword.Text.Trim());
-            sqlcon.Open();
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
 
             try
             {

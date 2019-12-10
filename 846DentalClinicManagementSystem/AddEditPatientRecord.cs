@@ -144,7 +144,7 @@ namespace _846DentalClinicManagementSystem
         private void LoadID()
         {
             SqlCommand cmd = new SqlCommand("SELECT PatientID From Patient ORDER BY PatientID DESC", sqlcon);
-            sqlcon.Open();
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
             try
             {
                 int ID = Convert.ToInt32(cmd.ExecuteScalar()) + 1;
@@ -242,7 +242,7 @@ namespace _846DentalClinicManagementSystem
             cmd.Parameters.AddWithValue("@gender",Gender);
             cmd.Parameters.AddWithValue("@fullname",FName + " " + MName + " " + LName );
 
-            sqlcon.Open();
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
             try
             {
                 cmd.ExecuteNonQuery();
@@ -272,7 +272,7 @@ namespace _846DentalClinicManagementSystem
             cmd.Parameters.AddWithValue("@fullname", FName + " " + MName + " " + LName);
             cmd.Parameters.AddWithValue("@ID", PatientID);
 
-            sqlcon.Open();
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
             try
             {
                 cmd.ExecuteNonQuery();
@@ -326,8 +326,8 @@ namespace _846DentalClinicManagementSystem
                 cmd.Parameters.AddWithValue("@contact", ContactNo);
                 cmd.Parameters.AddWithValue("@AppointmentID", AppID);
 
-                sqlcon.Open();
-                try
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+            try
                 {
                     cmd.ExecuteNonQuery();
                   

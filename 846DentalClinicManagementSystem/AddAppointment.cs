@@ -399,7 +399,8 @@ namespace _846DentalClinicManagementSystem
             cmd2.Parameters.Clear();
             cmd2.Parameters.AddWithValue("@AppointmentID", AppNo);
 
-            sqlcon.Open();
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+
             try
             {
                 adapter1.Fill(dt1);
@@ -472,9 +473,9 @@ namespace _846DentalClinicManagementSystem
             cmd.Parameters.AddWithValue("@DentistID_fk", SelectedDentistID);
             cmd.Parameters.AddWithValue("@Note", Note);
             cmd.Parameters.AddWithValue("@AppointmentID", AppNo);
-   
 
-            sqlcon.Open();
+
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
             try
             {
                 cmd.ExecuteNonQuery();
@@ -519,7 +520,7 @@ namespace _846DentalClinicManagementSystem
             cmd.Parameters.AddWithValue("@DentistID_fk", SelectedDentistID);
             cmd.Parameters.AddWithValue("@Note", Note);
 
-            sqlcon.Open();
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
             try
             {
                 cmd.ExecuteNonQuery();
@@ -601,7 +602,7 @@ namespace _846DentalClinicManagementSystem
 
             adapter1.SelectCommand = cmd;
             adapter2.SelectCommand = cmd2;
-            sqlcon.Open();
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
             try
             {
                 adapter1.Fill(dt1);
@@ -638,7 +639,7 @@ namespace _846DentalClinicManagementSystem
         {
             SqlCommand cmd = new SqlCommand(
                  "SELECT AppointmentID FROM Appointment ORDER BY AppointmentID DESC", sqlcon);
-            sqlcon.Open();
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
             try
             {
                 AppNo = Convert.ToInt32(cmd.ExecuteScalar()) + 1;
@@ -686,7 +687,7 @@ namespace _846DentalClinicManagementSystem
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@appID", AppNo);
                     cmd.Parameters.AddWithValue("@TreatmentType", item);
-                    sqlcon.Open();
+                    if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
                     try
                     {
                         cmd.ExecuteNonQuery();
@@ -876,7 +877,7 @@ namespace _846DentalClinicManagementSystem
             cmd.Parameters.AddWithValue("@AppointmentID", AppNo);
             cmd.Parameters.AddWithValue("@Status", AppStatus);
 
-            sqlcon.Open();
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
             try
             {
                 cmd.ExecuteNonQuery();
@@ -898,7 +899,7 @@ namespace _846DentalClinicManagementSystem
             cmd.Parameters.AddWithValue("@AppointmentID", AppNo);
             cmd.Parameters.AddWithValue("@PatientID", GlobalVariable.PatientID);
 
-            sqlcon.Open();
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
             try
             {
                 cmd.ExecuteNonQuery();
@@ -1055,14 +1056,8 @@ namespace _846DentalClinicManagementSystem
                         GlobalVariable.isBillingStatementExist = true;
                     }
 
-                    AddBillingPart addBillingPart = new AddBillingPart();
-                    addBillingPart.Show();
-                    //AddBilling addBilling = new AddBilling();
-                    //addBilling.Show();
-
-
-
-
+                    AddBilling addBilling = new AddBilling();
+                    addBilling.Show();
 
                 }                                           
                 else
@@ -1093,7 +1088,7 @@ namespace _846DentalClinicManagementSystem
 
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@AppId", AppNo);
-            sqlcon.Open();
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
             try
             {   
                 object fetch = cmd.ExecuteScalar();
@@ -1118,7 +1113,7 @@ namespace _846DentalClinicManagementSystem
                 "SELECT AmountPay FROM Billing WHERE AppointmentID_fk = @appNo",sqlcon);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@appNo", AppNo);
-            sqlcon.Open();
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
             try
             {
                if (cmd.ExecuteScalar() == null) { return false; }

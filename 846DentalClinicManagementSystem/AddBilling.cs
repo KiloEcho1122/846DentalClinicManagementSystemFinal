@@ -50,7 +50,7 @@ namespace _846DentalClinicManagementSystem
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@appNo", GlobalVariable.AppointmentID);
 
-            sqlcon.Open();
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
             try
             {
                 object obj = cmd.ExecuteScalar();
@@ -79,7 +79,7 @@ namespace _846DentalClinicManagementSystem
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("appNo", GlobalVariable.AppointmentID);
             adapter.SelectCommand = cmd;
-            sqlcon.Open();
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
             try
             {
                 adapter.Fill(dt);
@@ -118,7 +118,7 @@ namespace _846DentalClinicManagementSystem
             lbl_Total.TabIndex = dt.Rows.Count + 2;
             btn_AddBilling.TabIndex = dt.Rows.Count + 4;
             TreatmentPrice = new float[dt.Rows.Count]; //initialize size of array
-            this.Location = new Point(1976, 380);
+         //   this.Location = new Point(1976, 380);
         }
 
         private void textBox_KeyDown(object sender, KeyEventArgs e)
@@ -263,7 +263,7 @@ namespace _846DentalClinicManagementSystem
             cmd.Parameters.AddWithValue("@appNo", GlobalVariable.AppointmentID);
             cmd.Parameters.AddWithValue("@TreatmentType", TreatmentType);
 
-            sqlcon.Open();
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
             try
             {
                 cmd.ExecuteNonQuery();
@@ -286,7 +286,7 @@ namespace _846DentalClinicManagementSystem
             cmd.Parameters.AddWithValue("@Balance", TotalAmount);
             cmd.Parameters.AddWithValue("@appNo", GlobalVariable.AppointmentID);
 
-            sqlcon.Open();
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
             try
             {
                 cmd.ExecuteNonQuery();
@@ -308,8 +308,8 @@ namespace _846DentalClinicManagementSystem
                 cmd.Parameters.AddWithValue("@PatientID", GlobalVariable.PatientID);
                 cmd.Parameters.AddWithValue("@appNo", GlobalVariable.AppointmentID);
 
-            sqlcon.Open();
-                try
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+            try
                 {
                     cmd.ExecuteNonQuery();
                 MessageBox.Show("Billing Statement Created!");

@@ -613,7 +613,7 @@ namespace _846DentalClinicManagementSystem
             SqlCommand cmd2 = new SqlCommand(
                 "SELECT TOP 1 * FROM [Teeth] ORDER BY TeethID DESC", sqlcon);
 
-            sqlcon.Open();
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
             try
             {
                 cmd.ExecuteNonQuery();
@@ -641,7 +641,7 @@ namespace _846DentalClinicManagementSystem
             cmd.Parameters.AddWithValue("@PatientID_fk", PatientID);
             cmd.Parameters.AddWithValue("@TeethID_fk", TeethID_fk);
 
-            sqlcon.Open();
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
             try
             {
                 cmd.ExecuteNonQuery();
@@ -668,7 +668,7 @@ namespace _846DentalClinicManagementSystem
             cmd.Parameters.AddWithValue("@patientID", PatientID);
             cmd.Parameters.AddWithValue("@teethnum", teethNum);
 
-            sqlcon.Open();
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
             try
             {
                 ret = (Convert.ToInt32(cmd.ExecuteScalar()));
@@ -700,7 +700,7 @@ namespace _846DentalClinicManagementSystem
             cmd.Parameters.AddWithValue("@TeethID", TeethID);
 
 
-            sqlcon.Open();
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
             try
             {
                 cmd.ExecuteNonQuery();
@@ -890,7 +890,7 @@ namespace _846DentalClinicManagementSystem
             int id = 0;
             SqlCommand cmd = new SqlCommand(
                 "SELECT NotesID FROM Notes ORDER BY NotesID DESC", sqlcon);
-            sqlcon.Open();
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
             try
             {
                 if (cmd.ExecuteScalar() != null)
@@ -943,7 +943,7 @@ namespace _846DentalClinicManagementSystem
                 "SELECT NotesID FROM Notes WHERE NotesID = @NotesID", sqlcon);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@NotesID", id);
-            sqlcon.Open();
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
             try
             {
                 if (cmd.ExecuteScalar() != null)
@@ -965,7 +965,7 @@ namespace _846DentalClinicManagementSystem
                 "DELETE FROM Notes WHERE NotesID = @NoteID", sqlcon);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@NoteID", id);
-            sqlcon.Open();
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
             try
             {
                 cmd.ExecuteNonQuery();
@@ -999,8 +999,8 @@ namespace _846DentalClinicManagementSystem
                 cmd.Parameters.AddWithValue("@PatientID", PatientID);
                 cmd.Parameters.AddWithValue("@NoteID", id);
 
-                sqlcon.Open();
-                try
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+            try
                 {
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Note Updated Successfully");
@@ -1019,8 +1019,8 @@ namespace _846DentalClinicManagementSystem
                 cmd.Parameters.AddWithValue("@Date", DateToday);
                 cmd.Parameters.AddWithValue("@PatientID", PatientID);
 
-                sqlcon.Open();
-                try
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+            try
                 {
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Note Added Successfully");
@@ -1322,7 +1322,7 @@ namespace _846DentalClinicManagementSystem
             cmd.Parameters.AddWithValue("@Amount", Amount);
             cmd.Parameters.AddWithValue("@LoginID", GlobalVariable.LoginID);
             cmd.Parameters.AddWithValue("@BillingID", GlobalVariable.BillingID);
-            sqlcon.Open();
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
             try
             {
                 cmd.ExecuteNonQuery();
@@ -1344,7 +1344,7 @@ namespace _846DentalClinicManagementSystem
 
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@BillingID", GlobalVariable.BillingID);
-            sqlcon.Open();
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
             try
             {
                 cmd.ExecuteNonQuery();
@@ -1404,15 +1404,15 @@ namespace _846DentalClinicManagementSystem
                 cmd.Parameters.AddWithValue("@LoginID", GlobalVariable.LoginID);
                 cmd.Parameters.AddWithValue("@PaymentID", (int)(PaymentHistory_DataGrid.SelectedRows[0].Cells[0].Value));
 
-                sqlcon.Open();
+                if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
                 try
                 {
                     cmd.ExecuteNonQuery();
                     UpdateBalanceAfterPayment();
                     ShowPaymentHistory();
-                    var ShowPatientInfo = Application.OpenForms.OfType<ShowPatientInfo>().First();
-                    if (paymentID.Count > 0) { ShowPatientInfo.UpdateBillingAfterPayment(); }
-                    ShowPatientInfo.ShowBilling();
+                  
+                    if (paymentID.Count > 0) { UpdateBillingAfterPayment(); }
+                    ShowBilling();
                     paymentID.Clear();
 
                 }
