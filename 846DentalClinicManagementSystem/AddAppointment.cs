@@ -1047,15 +1047,23 @@ namespace _846DentalClinicManagementSystem
                 {
                    
                     //  GlobalVariable.TreatmentID = SelectedTreatmentID;
-                    AddBilling addBilling = new AddBilling();
+                   
                     if (CheckifBillingStatementAlreadyExist())
                     {
                         MessageBox.Show("Billing Statement already Exist !", "Billing Statement"
                             , MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         GlobalVariable.isBillingStatementExist = true;
                     }
-                        addBilling.Show();
-                  
+
+                    AddBillingPart addBillingPart = new AddBillingPart();
+                    addBillingPart.Show();
+                    //AddBilling addBilling = new AddBilling();
+                    //addBilling.Show();
+
+
+
+
+
                 }                                           
                 else
                 {

@@ -22,6 +22,8 @@ namespace _846DentalClinicManagementSystem
             InitializeComponent();
         }
 
+       
+
         float[] TreatmentPrice;
         float TotalAmount = 0;
         List<TextBox> textboxes = new List<TextBox>();
@@ -29,6 +31,7 @@ namespace _846DentalClinicManagementSystem
 
         private void AddBilling_Load(object sender, EventArgs e)
         {
+           // InitializeComponent();
             if (GlobalVariable.isBillingStatementExist == true)
             {
                 txt_formHeader.Text = "Update Billing Statement";
@@ -62,6 +65,7 @@ namespace _846DentalClinicManagementSystem
   
         private void CreateControls()
         {
+
             int xPositionLabel = 20;
             int yPositionLabel = 88; //125
             int xPositonTextBox = 249;
@@ -96,9 +100,9 @@ namespace _846DentalClinicManagementSystem
                 textboxes.Add(textBox);
                 labels.Add(label);
                 this.Controls.Add(label);
-                this.Controls.Add(textBox);
                 textBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
                 textBox.KeyDown += new KeyEventHandler(this.textBox_KeyDown);
+                this.Controls.Add(textBox);
                 yPositionLabel += 37;
                 yPositionTextBox += 37;
                 if (GlobalVariable.isBillingStatementExist == true)
