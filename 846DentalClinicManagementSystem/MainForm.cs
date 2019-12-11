@@ -313,7 +313,7 @@ namespace _846DentalClinicManagementSystem
             else
             {
                  x = appointmentXlocation(date, dentID);
-                y += 50;
+              //  y += 50;
                 labelWidth = 110;
                 FlowPanelWidth = 148;
                 nameTextSize = 10.25F;

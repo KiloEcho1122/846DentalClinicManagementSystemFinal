@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -37,11 +42,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MenuPanel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_Accounting = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -49,6 +49,33 @@
             this.btn_Scheduler = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_Home = new Bunifu.Framework.UI.BunifuFlatButton();
             this.CenterPanel = new System.Windows.Forms.Panel();
+            this.HomePanel = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.bunifuCustomLabel9 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.PatientsPanel = new System.Windows.Forms.Panel();
+            this.btn_ShowDetails = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btn_AddPatient = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btn_EditPatient = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.Patient_DataGrid = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.btn_PatientSearch = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.txt_SearchPatient = new Bunifu.Framework.UI.BunifuTextbox();
             this.AccountingPanel = new System.Windows.Forms.Panel();
             this.btn_Export2Excel = new Bunifu.Framework.UI.BunifuFlatButton();
             this.lbl_GrossProfit = new System.Windows.Forms.Label();
@@ -87,30 +114,6 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.HomePanel = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
-            this.PatientsPanel = new System.Windows.Forms.Panel();
-            this.btn_ShowDetails = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btn_AddPatient = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btn_EditPatient = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.Patient_DataGrid = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.btn_PatientSearch = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.txt_SearchPatient = new Bunifu.Framework.UI.BunifuTextbox();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.TopPanel = new System.Windows.Forms.Panel();
             this.btn_Logout = new System.Windows.Forms.Button();
@@ -119,25 +122,12 @@
             this.lbl_userName = new System.Windows.Forms.Label();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.bunifuCustomLabel9 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.MenuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.CenterPanel.SuspendLayout();
-            this.AccountingPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.displayExpenseDG)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Profit_DG)).BeginInit();
-            this.TopPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            this.SchedulerPanel.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.AppointmentHeader_Panel.SuspendLayout();
-            this.panel27.SuspendLayout();
-            this.panel26.SuspendLayout();
-            this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.HomePanel.SuspendLayout();
+            this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel6.SuspendLayout();
@@ -152,10 +142,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.Patient_DataGrid)).BeginInit();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.AccountingPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.displayExpenseDG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Profit_DG)).BeginInit();
+            this.TopPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            this.SchedulerPanel.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.AppointmentHeader_Panel.SuspendLayout();
+            this.panel27.SuspendLayout();
+            this.panel26.SuspendLayout();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.TopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
-            this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // MenuPanel
@@ -339,6 +339,435 @@
             this.CenterPanel.Name = "CenterPanel";
             this.CenterPanel.Size = new System.Drawing.Size(1354, 670);
             this.CenterPanel.TabIndex = 4;
+            // 
+            // HomePanel
+            // 
+            this.HomePanel.BackColor = System.Drawing.Color.Gainsboro;
+            this.HomePanel.Controls.Add(this.panel10);
+            this.HomePanel.Controls.Add(this.panel5);
+            this.HomePanel.Controls.Add(this.panel3);
+            this.HomePanel.Controls.Add(this.panel1);
+            this.HomePanel.Controls.Add(this.axWindowsMediaPlayer1);
+            this.HomePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.HomePanel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HomePanel.Location = new System.Drawing.Point(0, 0);
+            this.HomePanel.Name = "HomePanel";
+            this.HomePanel.Size = new System.Drawing.Size(1354, 670);
+            this.HomePanel.TabIndex = 1;
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
+            this.panel10.Controls.Add(this.bunifuCustomLabel9);
+            this.panel10.Controls.Add(this.pictureBox8);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel10.Location = new System.Drawing.Point(0, 0);
+            this.panel10.Margin = new System.Windows.Forms.Padding(5);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(1354, 41);
+            this.panel10.TabIndex = 5;
+            // 
+            // bunifuCustomLabel9
+            // 
+            this.bunifuCustomLabel9.AutoSize = true;
+            this.bunifuCustomLabel9.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel9.ForeColor = System.Drawing.Color.Silver;
+            this.bunifuCustomLabel9.Location = new System.Drawing.Point(300, 9);
+            this.bunifuCustomLabel9.Name = "bunifuCustomLabel9";
+            this.bunifuCustomLabel9.Size = new System.Drawing.Size(113, 22);
+            this.bunifuCustomLabel9.TabIndex = 1;
+            this.bunifuCustomLabel9.Text = "Dashboard";
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackgroundImage = global::_846DentalClinicManagementSystem.Properties.Resources.btnscheduler__2_;
+            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox8.Location = new System.Drawing.Point(256, 6);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(32, 28);
+            this.pictureBox8.TabIndex = 0;
+            this.pictureBox8.TabStop = false;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel5.Controls.Add(this.pictureBox4);
+            this.panel5.Controls.Add(this.panel6);
+            this.panel5.Location = new System.Drawing.Point(277, 462);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(187, 156);
+            this.panel5.TabIndex = 4;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImage = global::_846DentalClinicManagementSystem.Properties.Resources.scheduler1;
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox4.Location = new System.Drawing.Point(41, 23);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(109, 77);
+            this.pictureBox4.TabIndex = 3;
+            this.pictureBox4.TabStop = false;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
+            this.panel6.Controls.Add(this.bunifuCustomLabel4);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel6.ForeColor = System.Drawing.Color.White;
+            this.panel6.Location = new System.Drawing.Point(0, 110);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(187, 46);
+            this.panel6.TabIndex = 0;
+            // 
+            // bunifuCustomLabel4
+            // 
+            this.bunifuCustomLabel4.AutoSize = true;
+            this.bunifuCustomLabel4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel4.Location = new System.Drawing.Point(12, 10);
+            this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
+            this.bunifuCustomLabel4.Size = new System.Drawing.Size(82, 17);
+            this.bunifuCustomLabel4.TabIndex = 5;
+            this.bunifuCustomLabel4.Text = "Patients :  27";
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel3.Controls.Add(this.pictureBox3);
+            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Location = new System.Drawing.Point(277, 274);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(187, 156);
+            this.panel3.TabIndex = 3;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = global::_846DentalClinicManagementSystem.Properties.Resources.scheduler1;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox3.Location = new System.Drawing.Point(44, 23);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(109, 77);
+            this.pictureBox3.TabIndex = 2;
+            this.pictureBox3.TabStop = false;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
+            this.panel4.Controls.Add(this.bunifuCustomLabel3);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel4.ForeColor = System.Drawing.Color.White;
+            this.panel4.Location = new System.Drawing.Point(0, 110);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(187, 46);
+            this.panel4.TabIndex = 0;
+            // 
+            // bunifuCustomLabel3
+            // 
+            this.bunifuCustomLabel3.AutoSize = true;
+            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel3.Location = new System.Drawing.Point(14, 10);
+            this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
+            this.bunifuCustomLabel3.Size = new System.Drawing.Size(108, 17);
+            this.bunifuCustomLabel3.TabIndex = 1;
+            this.bunifuCustomLabel3.Text = "Active Dentist :  2";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Location = new System.Drawing.Point(277, 85);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(187, 156);
+            this.panel1.TabIndex = 2;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::_846DentalClinicManagementSystem.Properties.Resources.scheduler1;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(36, 23);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(109, 77);
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
+            this.panel2.Controls.Add(this.bunifuCustomLabel2);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.ForeColor = System.Drawing.Color.White;
+            this.panel2.Location = new System.Drawing.Point(0, 110);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(187, 46);
+            this.panel2.TabIndex = 0;
+            // 
+            // bunifuCustomLabel2
+            // 
+            this.bunifuCustomLabel2.AutoSize = true;
+            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(16, 10);
+            this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
+            this.bunifuCustomLabel2.Size = new System.Drawing.Size(111, 17);
+            this.bunifuCustomLabel2.TabIndex = 0;
+            this.bunifuCustomLabel2.Text = "Appointments :  8";
+            // 
+            // axWindowsMediaPlayer1
+            // 
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(493, 86);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(835, 532);
+            this.axWindowsMediaPlayer1.TabIndex = 1;
+            // 
+            // PatientsPanel
+            // 
+            this.PatientsPanel.BackColor = System.Drawing.Color.Gainsboro;
+            this.PatientsPanel.Controls.Add(this.btn_ShowDetails);
+            this.PatientsPanel.Controls.Add(this.btn_AddPatient);
+            this.PatientsPanel.Controls.Add(this.btn_EditPatient);
+            this.PatientsPanel.Controls.Add(this.Patient_DataGrid);
+            this.PatientsPanel.Controls.Add(this.panel8);
+            this.PatientsPanel.Controls.Add(this.btn_PatientSearch);
+            this.PatientsPanel.Controls.Add(this.txt_SearchPatient);
+            this.PatientsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PatientsPanel.Location = new System.Drawing.Point(0, 0);
+            this.PatientsPanel.Name = "PatientsPanel";
+            this.PatientsPanel.Size = new System.Drawing.Size(1354, 670);
+            this.PatientsPanel.TabIndex = 2;
+            // 
+            // btn_ShowDetails
+            // 
+            this.btn_ShowDetails.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_ShowDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_ShowDetails.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_ShowDetails.BorderRadius = 0;
+            this.btn_ShowDetails.ButtonText = "Show Details";
+            this.btn_ShowDetails.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_ShowDetails.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_ShowDetails.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_ShowDetails.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_ShowDetails.Iconimage")));
+            this.btn_ShowDetails.Iconimage_right = null;
+            this.btn_ShowDetails.Iconimage_right_Selected = null;
+            this.btn_ShowDetails.Iconimage_Selected = null;
+            this.btn_ShowDetails.IconMarginLeft = 0;
+            this.btn_ShowDetails.IconMarginRight = 0;
+            this.btn_ShowDetails.IconRightVisible = true;
+            this.btn_ShowDetails.IconRightZoom = 0D;
+            this.btn_ShowDetails.IconVisible = true;
+            this.btn_ShowDetails.IconZoom = 90D;
+            this.btn_ShowDetails.IsTab = false;
+            this.btn_ShowDetails.Location = new System.Drawing.Point(789, 568);
+            this.btn_ShowDetails.Name = "btn_ShowDetails";
+            this.btn_ShowDetails.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_ShowDetails.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.btn_ShowDetails.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_ShowDetails.selected = false;
+            this.btn_ShowDetails.Size = new System.Drawing.Size(173, 56);
+            this.btn_ShowDetails.TabIndex = 10;
+            this.btn_ShowDetails.Text = "Show Details";
+            this.btn_ShowDetails.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_ShowDetails.Textcolor = System.Drawing.Color.White;
+            this.btn_ShowDetails.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ShowDetails.Click += new System.EventHandler(this.btn_ShowDetails_Click);
+            // 
+            // btn_AddPatient
+            // 
+            this.btn_AddPatient.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_AddPatient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_AddPatient.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_AddPatient.BorderRadius = 0;
+            this.btn_AddPatient.ButtonText = "Add";
+            this.btn_AddPatient.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_AddPatient.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_AddPatient.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_AddPatient.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_AddPatient.Iconimage")));
+            this.btn_AddPatient.Iconimage_right = null;
+            this.btn_AddPatient.Iconimage_right_Selected = null;
+            this.btn_AddPatient.Iconimage_Selected = null;
+            this.btn_AddPatient.IconMarginLeft = 0;
+            this.btn_AddPatient.IconMarginRight = 0;
+            this.btn_AddPatient.IconRightVisible = true;
+            this.btn_AddPatient.IconRightZoom = 0D;
+            this.btn_AddPatient.IconVisible = true;
+            this.btn_AddPatient.IconZoom = 90D;
+            this.btn_AddPatient.IsTab = false;
+            this.btn_AddPatient.Location = new System.Drawing.Point(1137, 568);
+            this.btn_AddPatient.Name = "btn_AddPatient";
+            this.btn_AddPatient.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_AddPatient.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.btn_AddPatient.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_AddPatient.selected = false;
+            this.btn_AddPatient.Size = new System.Drawing.Size(136, 56);
+            this.btn_AddPatient.TabIndex = 9;
+            this.btn_AddPatient.Text = "Add";
+            this.btn_AddPatient.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_AddPatient.Textcolor = System.Drawing.Color.White;
+            this.btn_AddPatient.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_AddPatient.Click += new System.EventHandler(this.btn_AddPatient_Click);
+            // 
+            // btn_EditPatient
+            // 
+            this.btn_EditPatient.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_EditPatient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_EditPatient.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_EditPatient.BorderRadius = 0;
+            this.btn_EditPatient.ButtonText = "Edit";
+            this.btn_EditPatient.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_EditPatient.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_EditPatient.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_EditPatient.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_EditPatient.Iconimage")));
+            this.btn_EditPatient.Iconimage_right = null;
+            this.btn_EditPatient.Iconimage_right_Selected = null;
+            this.btn_EditPatient.Iconimage_Selected = null;
+            this.btn_EditPatient.IconMarginLeft = 0;
+            this.btn_EditPatient.IconMarginRight = 0;
+            this.btn_EditPatient.IconRightVisible = true;
+            this.btn_EditPatient.IconRightZoom = 0D;
+            this.btn_EditPatient.IconVisible = true;
+            this.btn_EditPatient.IconZoom = 90D;
+            this.btn_EditPatient.IsTab = false;
+            this.btn_EditPatient.Location = new System.Drawing.Point(984, 568);
+            this.btn_EditPatient.Name = "btn_EditPatient";
+            this.btn_EditPatient.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_EditPatient.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.btn_EditPatient.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_EditPatient.selected = false;
+            this.btn_EditPatient.Size = new System.Drawing.Size(136, 56);
+            this.btn_EditPatient.TabIndex = 8;
+            this.btn_EditPatient.Text = "Edit";
+            this.btn_EditPatient.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_EditPatient.Textcolor = System.Drawing.Color.White;
+            this.btn_EditPatient.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_EditPatient.Click += new System.EventHandler(this.btn_EditPatient_Click);
+            // 
+            // Patient_DataGrid
+            // 
+            this.Patient_DataGrid.AllowUserToAddRows = false;
+            this.Patient_DataGrid.AllowUserToDeleteRows = false;
+            this.Patient_DataGrid.AllowUserToResizeColumns = false;
+            this.Patient_DataGrid.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Patient_DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.Patient_DataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Patient_DataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.Patient_DataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(85)))), ((int)(((byte)(120)))));
+            this.Patient_DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Patient_DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Patient_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.Patient_DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Patient_DataGrid.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Patient_DataGrid.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Patient_DataGrid.DoubleBuffered = true;
+            this.Patient_DataGrid.EnableHeadersVisualStyles = false;
+            this.Patient_DataGrid.HeaderBgColor = System.Drawing.Color.SeaGreen;
+            this.Patient_DataGrid.HeaderForeColor = System.Drawing.Color.White;
+            this.Patient_DataGrid.Location = new System.Drawing.Point(313, 173);
+            this.Patient_DataGrid.Name = "Patient_DataGrid";
+            this.Patient_DataGrid.ReadOnly = true;
+            this.Patient_DataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Patient_DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.Patient_DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Patient_DataGrid.Size = new System.Drawing.Size(960, 373);
+            this.Patient_DataGrid.TabIndex = 7;
+            this.Patient_DataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Patient_DataGrid_CellClick);
+            this.Patient_DataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Patient_DataGrid_CellContentClick);
+            this.Patient_DataGrid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Patient_DataGrid_CellContentDoubleClick);
+            this.Patient_DataGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Patient_DataGrid_CellDoubleClick);
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
+            this.panel8.Controls.Add(this.bunifuCustomLabel6);
+            this.panel8.Controls.Add(this.pictureBox6);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel8.Location = new System.Drawing.Point(0, 0);
+            this.panel8.Margin = new System.Windows.Forms.Padding(5);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(1354, 41);
+            this.panel8.TabIndex = 6;
+            // 
+            // bunifuCustomLabel6
+            // 
+            this.bunifuCustomLabel6.AutoSize = true;
+            this.bunifuCustomLabel6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel6.ForeColor = System.Drawing.Color.Silver;
+            this.bunifuCustomLabel6.Location = new System.Drawing.Point(300, 9);
+            this.bunifuCustomLabel6.Name = "bunifuCustomLabel6";
+            this.bunifuCustomLabel6.Size = new System.Drawing.Size(154, 22);
+            this.bunifuCustomLabel6.TabIndex = 1;
+            this.bunifuCustomLabel6.Text = "Patient Records";
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackgroundImage = global::_846DentalClinicManagementSystem.Properties.Resources.btnpatients;
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox6.Location = new System.Drawing.Point(256, 6);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(32, 28);
+            this.pictureBox6.TabIndex = 0;
+            this.pictureBox6.TabStop = false;
+            // 
+            // btn_PatientSearch
+            // 
+            this.btn_PatientSearch.ActiveBorderThickness = 1;
+            this.btn_PatientSearch.ActiveCornerRadius = 20;
+            this.btn_PatientSearch.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btn_PatientSearch.ActiveForecolor = System.Drawing.Color.Gainsboro;
+            this.btn_PatientSearch.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btn_PatientSearch.BackColor = System.Drawing.Color.Gainsboro;
+            this.btn_PatientSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_PatientSearch.BackgroundImage")));
+            this.btn_PatientSearch.ButtonText = "Search";
+            this.btn_PatientSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_PatientSearch.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_PatientSearch.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btn_PatientSearch.IdleBorderThickness = 1;
+            this.btn_PatientSearch.IdleCornerRadius = 20;
+            this.btn_PatientSearch.IdleFillColor = System.Drawing.Color.Gainsboro;
+            this.btn_PatientSearch.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btn_PatientSearch.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btn_PatientSearch.Location = new System.Drawing.Point(579, 78);
+            this.btn_PatientSearch.Margin = new System.Windows.Forms.Padding(5);
+            this.btn_PatientSearch.Name = "btn_PatientSearch";
+            this.btn_PatientSearch.Size = new System.Drawing.Size(94, 41);
+            this.btn_PatientSearch.TabIndex = 5;
+            this.btn_PatientSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_PatientSearch.Click += new System.EventHandler(this.btn_PatientSearch_Click);
+            // 
+            // txt_SearchPatient
+            // 
+            this.txt_SearchPatient.BackColor = System.Drawing.Color.Silver;
+            this.txt_SearchPatient.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txt_SearchPatient.BackgroundImage")));
+            this.txt_SearchPatient.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.txt_SearchPatient.ForeColor = System.Drawing.Color.SeaGreen;
+            this.txt_SearchPatient.Icon = ((System.Drawing.Image)(resources.GetObject("txt_SearchPatient.Icon")));
+            this.txt_SearchPatient.Location = new System.Drawing.Point(313, 81);
+            this.txt_SearchPatient.Name = "txt_SearchPatient";
+            this.txt_SearchPatient.Size = new System.Drawing.Size(250, 42);
+            this.txt_SearchPatient.TabIndex = 2;
+            this.txt_SearchPatient.text = "";
+            this.txt_SearchPatient.OnTextChange += new System.EventHandler(this.txt_SearchPatient_OnTextChange);
             // 
             // AccountingPanel
             // 
@@ -956,402 +1385,6 @@
             this.pictureBox5.TabIndex = 0;
             this.pictureBox5.TabStop = false;
             // 
-            // HomePanel
-            // 
-            this.HomePanel.BackColor = System.Drawing.Color.Gainsboro;
-            this.HomePanel.Controls.Add(this.panel10);
-            this.HomePanel.Controls.Add(this.panel5);
-            this.HomePanel.Controls.Add(this.panel3);
-            this.HomePanel.Controls.Add(this.panel1);
-            this.HomePanel.Controls.Add(this.axWindowsMediaPlayer1);
-            this.HomePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.HomePanel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HomePanel.Location = new System.Drawing.Point(0, 0);
-            this.HomePanel.Name = "HomePanel";
-            this.HomePanel.Size = new System.Drawing.Size(1354, 670);
-            this.HomePanel.TabIndex = 1;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel5.Controls.Add(this.pictureBox4);
-            this.panel5.Controls.Add(this.panel6);
-            this.panel5.Location = new System.Drawing.Point(277, 462);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(187, 156);
-            this.panel5.TabIndex = 4;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackgroundImage = global::_846DentalClinicManagementSystem.Properties.Resources.scheduler1;
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.Location = new System.Drawing.Point(41, 23);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(109, 77);
-            this.pictureBox4.TabIndex = 3;
-            this.pictureBox4.TabStop = false;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
-            this.panel6.Controls.Add(this.bunifuCustomLabel4);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.ForeColor = System.Drawing.Color.White;
-            this.panel6.Location = new System.Drawing.Point(0, 110);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(187, 46);
-            this.panel6.TabIndex = 0;
-            // 
-            // bunifuCustomLabel4
-            // 
-            this.bunifuCustomLabel4.AutoSize = true;
-            this.bunifuCustomLabel4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel4.Location = new System.Drawing.Point(12, 10);
-            this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
-            this.bunifuCustomLabel4.Size = new System.Drawing.Size(82, 17);
-            this.bunifuCustomLabel4.TabIndex = 5;
-            this.bunifuCustomLabel4.Text = "Patients :  27";
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel3.Controls.Add(this.pictureBox3);
-            this.panel3.Controls.Add(this.panel4);
-            this.panel3.Location = new System.Drawing.Point(277, 274);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(187, 156);
-            this.panel3.TabIndex = 3;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImage = global::_846DentalClinicManagementSystem.Properties.Resources.scheduler1;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(44, 23);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(109, 77);
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
-            this.panel4.Controls.Add(this.bunifuCustomLabel3);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.ForeColor = System.Drawing.Color.White;
-            this.panel4.Location = new System.Drawing.Point(0, 110);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(187, 46);
-            this.panel4.TabIndex = 0;
-            // 
-            // bunifuCustomLabel3
-            // 
-            this.bunifuCustomLabel3.AutoSize = true;
-            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel3.Location = new System.Drawing.Point(14, 10);
-            this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
-            this.bunifuCustomLabel3.Size = new System.Drawing.Size(108, 17);
-            this.bunifuCustomLabel3.TabIndex = 1;
-            this.bunifuCustomLabel3.Text = "Active Dentist :  2";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(277, 86);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(187, 156);
-            this.panel1.TabIndex = 2;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = global::_846DentalClinicManagementSystem.Properties.Resources.scheduler1;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(36, 23);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(109, 77);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
-            this.panel2.Controls.Add(this.bunifuCustomLabel2);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.ForeColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(0, 110);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(187, 46);
-            this.panel2.TabIndex = 0;
-            // 
-            // bunifuCustomLabel2
-            // 
-            this.bunifuCustomLabel2.AutoSize = true;
-            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(16, 10);
-            this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
-            this.bunifuCustomLabel2.Size = new System.Drawing.Size(111, 17);
-            this.bunifuCustomLabel2.TabIndex = 0;
-            this.bunifuCustomLabel2.Text = "Appointments :  8";
-            // 
-            // axWindowsMediaPlayer1
-            // 
-            this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(493, 86);
-            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
-            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(835, 532);
-            this.axWindowsMediaPlayer1.TabIndex = 1;
-            // 
-            // PatientsPanel
-            // 
-            this.PatientsPanel.BackColor = System.Drawing.Color.Gainsboro;
-            this.PatientsPanel.Controls.Add(this.btn_ShowDetails);
-            this.PatientsPanel.Controls.Add(this.btn_AddPatient);
-            this.PatientsPanel.Controls.Add(this.btn_EditPatient);
-            this.PatientsPanel.Controls.Add(this.Patient_DataGrid);
-            this.PatientsPanel.Controls.Add(this.panel8);
-            this.PatientsPanel.Controls.Add(this.btn_PatientSearch);
-            this.PatientsPanel.Controls.Add(this.txt_SearchPatient);
-            this.PatientsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PatientsPanel.Location = new System.Drawing.Point(0, 0);
-            this.PatientsPanel.Name = "PatientsPanel";
-            this.PatientsPanel.Size = new System.Drawing.Size(1354, 670);
-            this.PatientsPanel.TabIndex = 2;
-            // 
-            // btn_ShowDetails
-            // 
-            this.btn_ShowDetails.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_ShowDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_ShowDetails.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_ShowDetails.BorderRadius = 0;
-            this.btn_ShowDetails.ButtonText = "Show Details";
-            this.btn_ShowDetails.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_ShowDetails.DisabledColor = System.Drawing.Color.Gray;
-            this.btn_ShowDetails.Iconcolor = System.Drawing.Color.Transparent;
-            this.btn_ShowDetails.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_ShowDetails.Iconimage")));
-            this.btn_ShowDetails.Iconimage_right = null;
-            this.btn_ShowDetails.Iconimage_right_Selected = null;
-            this.btn_ShowDetails.Iconimage_Selected = null;
-            this.btn_ShowDetails.IconMarginLeft = 0;
-            this.btn_ShowDetails.IconMarginRight = 0;
-            this.btn_ShowDetails.IconRightVisible = true;
-            this.btn_ShowDetails.IconRightZoom = 0D;
-            this.btn_ShowDetails.IconVisible = true;
-            this.btn_ShowDetails.IconZoom = 90D;
-            this.btn_ShowDetails.IsTab = false;
-            this.btn_ShowDetails.Location = new System.Drawing.Point(789, 568);
-            this.btn_ShowDetails.Name = "btn_ShowDetails";
-            this.btn_ShowDetails.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_ShowDetails.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.btn_ShowDetails.OnHoverTextColor = System.Drawing.Color.White;
-            this.btn_ShowDetails.selected = false;
-            this.btn_ShowDetails.Size = new System.Drawing.Size(173, 56);
-            this.btn_ShowDetails.TabIndex = 10;
-            this.btn_ShowDetails.Text = "Show Details";
-            this.btn_ShowDetails.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_ShowDetails.Textcolor = System.Drawing.Color.White;
-            this.btn_ShowDetails.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ShowDetails.Click += new System.EventHandler(this.btn_ShowDetails_Click);
-            // 
-            // btn_AddPatient
-            // 
-            this.btn_AddPatient.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_AddPatient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_AddPatient.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_AddPatient.BorderRadius = 0;
-            this.btn_AddPatient.ButtonText = "Add";
-            this.btn_AddPatient.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_AddPatient.DisabledColor = System.Drawing.Color.Gray;
-            this.btn_AddPatient.Iconcolor = System.Drawing.Color.Transparent;
-            this.btn_AddPatient.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_AddPatient.Iconimage")));
-            this.btn_AddPatient.Iconimage_right = null;
-            this.btn_AddPatient.Iconimage_right_Selected = null;
-            this.btn_AddPatient.Iconimage_Selected = null;
-            this.btn_AddPatient.IconMarginLeft = 0;
-            this.btn_AddPatient.IconMarginRight = 0;
-            this.btn_AddPatient.IconRightVisible = true;
-            this.btn_AddPatient.IconRightZoom = 0D;
-            this.btn_AddPatient.IconVisible = true;
-            this.btn_AddPatient.IconZoom = 90D;
-            this.btn_AddPatient.IsTab = false;
-            this.btn_AddPatient.Location = new System.Drawing.Point(1137, 568);
-            this.btn_AddPatient.Name = "btn_AddPatient";
-            this.btn_AddPatient.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_AddPatient.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.btn_AddPatient.OnHoverTextColor = System.Drawing.Color.White;
-            this.btn_AddPatient.selected = false;
-            this.btn_AddPatient.Size = new System.Drawing.Size(136, 56);
-            this.btn_AddPatient.TabIndex = 9;
-            this.btn_AddPatient.Text = "Add";
-            this.btn_AddPatient.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_AddPatient.Textcolor = System.Drawing.Color.White;
-            this.btn_AddPatient.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_AddPatient.Click += new System.EventHandler(this.btn_AddPatient_Click);
-            // 
-            // btn_EditPatient
-            // 
-            this.btn_EditPatient.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_EditPatient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_EditPatient.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_EditPatient.BorderRadius = 0;
-            this.btn_EditPatient.ButtonText = "Edit";
-            this.btn_EditPatient.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_EditPatient.DisabledColor = System.Drawing.Color.Gray;
-            this.btn_EditPatient.Iconcolor = System.Drawing.Color.Transparent;
-            this.btn_EditPatient.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_EditPatient.Iconimage")));
-            this.btn_EditPatient.Iconimage_right = null;
-            this.btn_EditPatient.Iconimage_right_Selected = null;
-            this.btn_EditPatient.Iconimage_Selected = null;
-            this.btn_EditPatient.IconMarginLeft = 0;
-            this.btn_EditPatient.IconMarginRight = 0;
-            this.btn_EditPatient.IconRightVisible = true;
-            this.btn_EditPatient.IconRightZoom = 0D;
-            this.btn_EditPatient.IconVisible = true;
-            this.btn_EditPatient.IconZoom = 90D;
-            this.btn_EditPatient.IsTab = false;
-            this.btn_EditPatient.Location = new System.Drawing.Point(984, 568);
-            this.btn_EditPatient.Name = "btn_EditPatient";
-            this.btn_EditPatient.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_EditPatient.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.btn_EditPatient.OnHoverTextColor = System.Drawing.Color.White;
-            this.btn_EditPatient.selected = false;
-            this.btn_EditPatient.Size = new System.Drawing.Size(136, 56);
-            this.btn_EditPatient.TabIndex = 8;
-            this.btn_EditPatient.Text = "Edit";
-            this.btn_EditPatient.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_EditPatient.Textcolor = System.Drawing.Color.White;
-            this.btn_EditPatient.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_EditPatient.Click += new System.EventHandler(this.btn_EditPatient_Click);
-            // 
-            // Patient_DataGrid
-            // 
-            this.Patient_DataGrid.AllowUserToAddRows = false;
-            this.Patient_DataGrid.AllowUserToDeleteRows = false;
-            this.Patient_DataGrid.AllowUserToResizeColumns = false;
-            this.Patient_DataGrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Patient_DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.Patient_DataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.Patient_DataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.Patient_DataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(85)))), ((int)(((byte)(120)))));
-            this.Patient_DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Patient_DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Patient_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.Patient_DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Patient_DataGrid.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Patient_DataGrid.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Patient_DataGrid.DoubleBuffered = true;
-            this.Patient_DataGrid.EnableHeadersVisualStyles = false;
-            this.Patient_DataGrid.HeaderBgColor = System.Drawing.Color.SeaGreen;
-            this.Patient_DataGrid.HeaderForeColor = System.Drawing.Color.White;
-            this.Patient_DataGrid.Location = new System.Drawing.Point(313, 173);
-            this.Patient_DataGrid.Name = "Patient_DataGrid";
-            this.Patient_DataGrid.ReadOnly = true;
-            this.Patient_DataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Patient_DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.Patient_DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Patient_DataGrid.Size = new System.Drawing.Size(960, 373);
-            this.Patient_DataGrid.TabIndex = 7;
-            this.Patient_DataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Patient_DataGrid_CellClick);
-            this.Patient_DataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Patient_DataGrid_CellContentClick);
-            this.Patient_DataGrid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Patient_DataGrid_CellContentDoubleClick);
-            this.Patient_DataGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Patient_DataGrid_CellDoubleClick);
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
-            this.panel8.Controls.Add(this.bunifuCustomLabel6);
-            this.panel8.Controls.Add(this.pictureBox6);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(0, 0);
-            this.panel8.Margin = new System.Windows.Forms.Padding(5);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1354, 41);
-            this.panel8.TabIndex = 6;
-            // 
-            // bunifuCustomLabel6
-            // 
-            this.bunifuCustomLabel6.AutoSize = true;
-            this.bunifuCustomLabel6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel6.ForeColor = System.Drawing.Color.Silver;
-            this.bunifuCustomLabel6.Location = new System.Drawing.Point(300, 9);
-            this.bunifuCustomLabel6.Name = "bunifuCustomLabel6";
-            this.bunifuCustomLabel6.Size = new System.Drawing.Size(154, 22);
-            this.bunifuCustomLabel6.TabIndex = 1;
-            this.bunifuCustomLabel6.Text = "Patient Records";
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackgroundImage = global::_846DentalClinicManagementSystem.Properties.Resources.btnpatients;
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox6.Location = new System.Drawing.Point(256, 6);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(32, 28);
-            this.pictureBox6.TabIndex = 0;
-            this.pictureBox6.TabStop = false;
-            // 
-            // btn_PatientSearch
-            // 
-            this.btn_PatientSearch.ActiveBorderThickness = 1;
-            this.btn_PatientSearch.ActiveCornerRadius = 20;
-            this.btn_PatientSearch.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.btn_PatientSearch.ActiveForecolor = System.Drawing.Color.Gainsboro;
-            this.btn_PatientSearch.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.btn_PatientSearch.BackColor = System.Drawing.Color.Gainsboro;
-            this.btn_PatientSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_PatientSearch.BackgroundImage")));
-            this.btn_PatientSearch.ButtonText = "Search";
-            this.btn_PatientSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_PatientSearch.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_PatientSearch.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btn_PatientSearch.IdleBorderThickness = 1;
-            this.btn_PatientSearch.IdleCornerRadius = 20;
-            this.btn_PatientSearch.IdleFillColor = System.Drawing.Color.Gainsboro;
-            this.btn_PatientSearch.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.btn_PatientSearch.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btn_PatientSearch.Location = new System.Drawing.Point(579, 78);
-            this.btn_PatientSearch.Margin = new System.Windows.Forms.Padding(5);
-            this.btn_PatientSearch.Name = "btn_PatientSearch";
-            this.btn_PatientSearch.Size = new System.Drawing.Size(94, 41);
-            this.btn_PatientSearch.TabIndex = 5;
-            this.btn_PatientSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btn_PatientSearch.Click += new System.EventHandler(this.btn_PatientSearch_Click);
-            // 
-            // txt_SearchPatient
-            // 
-            this.txt_SearchPatient.BackColor = System.Drawing.Color.Silver;
-            this.txt_SearchPatient.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txt_SearchPatient.BackgroundImage")));
-            this.txt_SearchPatient.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.txt_SearchPatient.ForeColor = System.Drawing.Color.SeaGreen;
-            this.txt_SearchPatient.Icon = ((System.Drawing.Image)(resources.GetObject("txt_SearchPatient.Icon")));
-            this.txt_SearchPatient.Location = new System.Drawing.Point(313, 81);
-            this.txt_SearchPatient.Name = "txt_SearchPatient";
-            this.txt_SearchPatient.Size = new System.Drawing.Size(250, 42);
-            this.txt_SearchPatient.TabIndex = 2;
-            this.txt_SearchPatient.text = "";
-            this.txt_SearchPatient.OnTextChange += new System.EventHandler(this.txt_SearchPatient_OnTextChange);
-            // 
             // bunifuElipse1
             // 
             this.bunifuElipse1.ElipseRadius = 5;
@@ -1432,39 +1465,6 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
-            this.panel10.Controls.Add(this.bunifuCustomLabel9);
-            this.panel10.Controls.Add(this.pictureBox8);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel10.Location = new System.Drawing.Point(0, 0);
-            this.panel10.Margin = new System.Windows.Forms.Padding(5);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(1354, 41);
-            this.panel10.TabIndex = 5;
-            // 
-            // bunifuCustomLabel9
-            // 
-            this.bunifuCustomLabel9.AutoSize = true;
-            this.bunifuCustomLabel9.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel9.ForeColor = System.Drawing.Color.Silver;
-            this.bunifuCustomLabel9.Location = new System.Drawing.Point(300, 9);
-            this.bunifuCustomLabel9.Name = "bunifuCustomLabel9";
-            this.bunifuCustomLabel9.Size = new System.Drawing.Size(113, 22);
-            this.bunifuCustomLabel9.TabIndex = 1;
-            this.bunifuCustomLabel9.Text = "Dashboard";
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackgroundImage = global::_846DentalClinicManagementSystem.Properties.Resources.btnscheduler__2_;
-            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox8.Location = new System.Drawing.Point(256, 6);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(32, 28);
-            this.pictureBox8.TabIndex = 0;
-            this.pictureBox8.TabStop = false;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1481,6 +1481,28 @@
             this.MenuPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.CenterPanel.ResumeLayout(false);
+            this.HomePanel.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
+            this.PatientsPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Patient_DataGrid)).EndInit();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.AccountingPanel.ResumeLayout(false);
             this.AccountingPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.displayExpenseDG)).EndInit();
@@ -1500,31 +1522,9 @@
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            this.HomePanel.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
-            this.PatientsPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Patient_DataGrid)).EndInit();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.TopPanel.ResumeLayout(false);
             this.TopPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
 
         }
