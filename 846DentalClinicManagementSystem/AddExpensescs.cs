@@ -85,6 +85,7 @@ namespace _846DentalClinicManagementSystem
                         ExpenseDG.CurrentCell.Value = dtp.Text.ToString();
                         break;
                 }
+
             }
             catch (Exception ex)
             {
@@ -115,6 +116,12 @@ namespace _846DentalClinicManagementSystem
                 {
                     
                     ExpenseDG.Rows.RemoveAt(item.Index);
+                    dtp.Visible = false;
+                    //foreach(Control control in ExpenseDG.Controls)
+                    //{
+
+                    //    if(control.Location == e)
+                    //}
                 }catch(Exception ex)
                 {
                     Console.WriteLine(ex.Message);
