@@ -73,16 +73,23 @@ namespace _846DentalClinicManagementSystem
 
         private void ExpenseDG_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+          
             try
             {
                 switch (ExpenseDG.Columns[e.ColumnIndex].Name)
                 {
+             
                     case "Column1":
-                        _Rectangle = ExpenseDG.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
-                        dtp.Size = new Size(_Rectangle.Width, _Rectangle.Height);
-                        dtp.Location = new Point(_Rectangle.X, _Rectangle.Y);
-                        dtp.Visible = true;
-                        ExpenseDG.CurrentCell.Value = dtp.Text.ToString();
+                        // pra hindi maisama yung header
+                        if (e.RowIndex > -1)
+                        {
+                            _Rectangle = ExpenseDG.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
+                            dtp.Size = new Size(_Rectangle.Width, _Rectangle.Height);
+                            dtp.Location = new Point(_Rectangle.X, _Rectangle.Y);
+                            dtp.Visible = true;
+                            ExpenseDG.CurrentCell.Value = dtp.Text.ToString();
+                           
+                        }
                         break;
                 }
 

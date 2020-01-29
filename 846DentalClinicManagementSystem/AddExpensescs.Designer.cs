@@ -271,6 +271,7 @@
             this.Column1.FillWeight = 35.7868F;
             this.Column1.HeaderText = "Date";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             this.Column1.Width = 150;
             // 
             // Column2

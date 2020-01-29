@@ -438,7 +438,7 @@ namespace _846DentalClinicManagementSystem
                 {
                     GlobalVariable.isEditAppointment = true;
                     AddAppointment addAppointment = new AddAppointment();
-                    addAppointment.Show();
+                    addAppointment.ShowDialog();
                 }
             }
         }
@@ -449,7 +449,7 @@ namespace _846DentalClinicManagementSystem
             {
                 AddAppointment addAppointment = new AddAppointment();
                 GlobalVariable.isAddAppointment = true;
-                addAppointment.Show();
+                addAppointment.ShowDialog();
             }
         }
 
