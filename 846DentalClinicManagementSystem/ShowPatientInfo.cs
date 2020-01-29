@@ -21,6 +21,8 @@ namespace _846DentalClinicManagementSystem
             InitializeComponent();
         }
 
+        int LatestNoteID = 0;
+
         private void ShowPatientInfo_Load(object sender, EventArgs e)
         {
             lbl_PatientName.Text = GlobalVariable.PatientName;
@@ -58,6 +60,7 @@ namespace _846DentalClinicManagementSystem
                 //DrawStickyNotes();
                NotesLayoutPanel.Controls.Clear();
                LoadNotes();
+               LatestNoteID = getNextNoteID();
             }
         }
 
@@ -881,8 +884,11 @@ namespace _846DentalClinicManagementSystem
         // Notes
         private void btn_AddNotes_Click(object sender, EventArgs e)
         {
-            string id = getNextNoteID().ToString();
+            LatestNoteID++;
+            string id = LatestNoteID.ToString();
             DrawStickyNotes(id, "Enter your notes here ...", DateTime.Now.ToString("MMM. d yyyy hh:mm tt"));
+            MessageBox.Show(id.ToString());
+            /// may problem ditoo .. same id lang nakukuha nya kasi di pa naman sinesave
         }
 
         private int getNextNoteID()
@@ -895,7 +901,7 @@ namespace _846DentalClinicManagementSystem
             {
                 if (cmd.ExecuteScalar() != null)
                 {
-                    id = (int)cmd.ExecuteScalar() + 1;
+                    id = (int)cmd.ExecuteScalar();
                 }
 
             }
@@ -920,17 +926,23 @@ namespace _846DentalClinicManagementSystem
                         {
                             txt = control2.Text;
                             if (txt == "Enter your notes here ...") txt = "";
+
+                            if (CheckExistingNote(id))
+                            {
+                                UpdateNote(id, txt, DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt"));
+
+                            }
+                            else
+                            {
+                                InsertNote(txt, DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt"));
+                                
+                            }
+                            break;
+                            
                         }
+                      
                     }
-                    if (CheckExistingNote(id))
-                    {
-                        UpdateNote(id, txt, DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt"));
-                        
-                    }
-                    else
-                    {
-                        InsertNote(txt, DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt"));
-                    }
+                    
                 }
             }
 
