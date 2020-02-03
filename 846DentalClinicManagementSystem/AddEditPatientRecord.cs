@@ -176,7 +176,7 @@ namespace _846DentalClinicManagementSystem
                 {
                     if ((isMNameValid == true) && (string.IsNullOrEmpty(MName) == false))
                     {
-                        if ((string.IsNullOrEmpty(ContactNo) == false) && isContactValid && ContactNo.Length == 11)
+                        if ((string.IsNullOrEmpty(ContactNo) == false) && isContactValid && (ContactNo.Length == 11 || ContactNo.Length == 8 ))
                         {
 
                             if (string.IsNullOrEmpty(Gender) == false)

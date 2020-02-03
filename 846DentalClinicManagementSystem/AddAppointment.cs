@@ -1057,7 +1057,7 @@ namespace _846DentalClinicManagementSystem
                     }
 
                     AddBilling addBilling = new AddBilling();
-                    addBilling.Show();
+                    addBilling.ShowDialog();
 
                 }                                           
                 else

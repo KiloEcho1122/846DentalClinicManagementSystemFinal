@@ -14,13 +14,13 @@ namespace _846DentalClinicManagementSystem
         public MainForm()
         {
             InitializeComponent();
-            
+
 
         }
-        
+
         SqlConnection sqlcon = new SqlConnection(GlobalVariable.connString);
         List<Panel> Panels = new List<Panel>();
-        string[,] timeArray = new string[19,2];
+        string[,] timeArray = new string[19, 2];
 
         private void HidePanels()
         {
@@ -32,7 +32,7 @@ namespace _846DentalClinicManagementSystem
 
         private void playVideo()
         {
-         
+
             String workingDirectory = Environment.CurrentDirectory;
             String projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
             String videopath = projectDirectory + @"\Resources\846.mp4";
@@ -53,6 +53,10 @@ namespace _846DentalClinicManagementSystem
             HidePanels();
             HomePanel.Visible = true;
             playVideo();
+            AppointmentCountDashBoard();
+            DentistCountDashBoard();
+            PatientCountDashBoard();
+            UnpaidBillsCountDashBoard();
             iniatializeTimeArray();
             setTimelabel();
             DrawAppointmentTable();
@@ -73,12 +77,12 @@ namespace _846DentalClinicManagementSystem
                 if (cmd.ExecuteScalar() != null) lbl_userName.Text = cmd.ExecuteScalar().ToString();
 
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
             sqlcon.Close();
-           
+
         }
 
         //Main Panel Start
@@ -105,15 +109,19 @@ namespace _846DentalClinicManagementSystem
         {
             HidePanels();
             HomePanel.Visible = true;
-            
+            AppointmentCountDashBoard();
+            DentistCountDashBoard();
+            PatientCountDashBoard();
+            UnpaidBillsCountDashBoard();
+
         }
 
         private void btn_Scheduler_Click(object sender, EventArgs e)
         {
-            
+
             HidePanels();
             SchedulerPanel.Visible = true;
-            
+
         }
 
         private void btn_Patients_Click(object sender, EventArgs e)
@@ -131,7 +139,7 @@ namespace _846DentalClinicManagementSystem
             LoadGrossProfit();
         }
 
-       
+
 
         // Main Panel End -----------------------------------------------------------------------------------------------------------
 
@@ -193,17 +201,17 @@ namespace _846DentalClinicManagementSystem
                    "Appointment.Status, StartTime, AppointmentDate,Appointment_Contact FROM Appointment INNER JOIN[PatientTreatment] ON AppointmentID = AppointmentID_fk " +
                    "WHERE AppointmentDate BETWEEN @date AND @date2 ORDER BY AppointmentDate ASC";
 
-               
-                cmd  = new SqlCommand(query, sqlcon);
+
+                cmd = new SqlCommand(query, sqlcon);
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@date", date);
                 cmd.Parameters.AddWithValue("@date2", date2);
 
                 ControlsCount = 8;
             }
-            
-            
-           
+
+
+
             adapter.SelectCommand = cmd;
             try
             {
@@ -233,17 +241,17 @@ namespace _846DentalClinicManagementSystem
                     string appdate = row[6].ToString();
                     string contact = row[7].ToString();
 
-                    DrawAppointments(id, name, treatment, dentist_id, status, time, appdate,contact);
+                    DrawAppointments(id, name, treatment, dentist_id, status, time, appdate, contact);
                 }
 
                 DrawLines();
 
             }
-            catch(Exception ex) { Console.WriteLine(ex.Message); }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
 
         }
 
-        
+
 
         private int appointmentYlocation(string time)
         {
@@ -264,39 +272,39 @@ namespace _846DentalClinicManagementSystem
         {
             int loc = 0;
 
-           DateTime StartDate =  DateTime.ParseExact(date, "M/d/yyyy hh:mm:ss tt", System.Globalization.CultureInfo.CurrentCulture);
-           int b = (int)StartDate.DayOfWeek;
+            DateTime StartDate = DateTime.ParseExact(date, "M/d/yyyy hh:mm:ss tt", System.Globalization.CultureInfo.CurrentCulture);
+            int b = (int)StartDate.DayOfWeek;
 
 
             switch (b)
             {
                 case 0: loc = 11;
                     break;
-                case 1:  loc = 311;
+                case 1: loc = 311;
                     break;
                 case 2: loc = 611;
                     break;
-                case 3:  loc = 911;
+                case 3: loc = 911;
                     break;
                 case 4: loc = 1211;
-                    break; 
-                case 5:  loc = 1511;
                     break;
-                case 6:  loc = 1811;
+                case 5: loc = 1511;
+                    break;
+                case 6: loc = 1811;
                     break;
             }
             if (dentID == 2)
             {
-                loc += 150;   
+                loc += 150;
             }
 
             return loc;
         }
 
         bool isWeek = false;
-   
 
-        private void DrawAppointments(string id, string name, string treatment, int dentID, string status, string time, string date,string contact)
+
+        private void DrawAppointments(string id, string name, string treatment, int dentID, string status, string time, string date, string contact)
         {
             treatment = treatment.Replace(",", Environment.NewLine);
             Appointment_Panel.AutoScrollPosition = new Point(0, 0); // set the autoscroll to normal position
@@ -305,38 +313,38 @@ namespace _846DentalClinicManagementSystem
             int labelWidth = 260;
             int FlowPanelWidth = 298;
             Single nameTextSize = 12.25F, treatmentTextSize = 11.25F;
-     
+
             if (WeekSwitch.Value == false)
             {
-                 x = (dentID == 1) ? 11 : 311;  // get the x location
+                x = (dentID == 1) ? 11 : 311;  // get the x location
             }
             else
             {
-                 x = appointmentXlocation(date, dentID);
-              //  y += 50;
+                x = appointmentXlocation(date, dentID);
+                //  y += 50;
                 labelWidth = 110;
                 FlowPanelWidth = 148;
                 nameTextSize = 10.25F;
                 treatmentTextSize = 9.25F;
 
             }
-        
-         
+
+
             //clear list controls of panel
-           
+
             Appointment_Panel.AutoScrollPosition = new Point(0, 0);
             //
-          
-                FlowLayoutPanel appointment = new FlowLayoutPanel();
-               // appointment.Name = id.ToString();
-                appointment.Size = new Size(FlowPanelWidth, 98);
-                appointment.Location = new Point(x, y);
-                appointment.FlowDirection = FlowDirection.LeftToRight;
-                appointment.WrapContents = true;
+
+            FlowLayoutPanel appointment = new FlowLayoutPanel();
+            // appointment.Name = id.ToString();
+            appointment.Size = new Size(FlowPanelWidth, 98);
+            appointment.Location = new Point(x, y);
+            appointment.FlowDirection = FlowDirection.LeftToRight;
+            appointment.WrapContents = true;
             //  appointment.AutoScroll = true;
-                appointment.BackColor = Color.LightSeaGreen;
+            appointment.BackColor = Color.LightSeaGreen;
             if (dentID == 2) { appointment.BackColor = Color.FromArgb(217, 102, 135); }
-                this.Appointment_Panel.Controls.Add(appointment);
+            this.Appointment_Panel.Controls.Add(appointment);
 
             Label namee = new Label();
             new ToolTip().SetToolTip(namee, name);
@@ -356,7 +364,7 @@ namespace _846DentalClinicManagementSystem
             {
                 Int32.TryParse(pictureBox.Name, out int appid);
                 editApp(appid);
-                
+
 
 
             };
@@ -388,7 +396,7 @@ namespace _846DentalClinicManagementSystem
             appointment.Controls.Add(name1);
 
         }
-        int LastScrollPosX = 0, LastScrollPosY= 0;
+        int LastScrollPosX = 0, LastScrollPosY = 0;
         public void RefreshAppointmentView()
         {
             string date = SearchAppByDate_DP.Value.ToString("M/d/yyyy");
@@ -407,12 +415,12 @@ namespace _846DentalClinicManagementSystem
         public void ChangeStatusIcon(Boolean AppStatus) {
 
             foreach (Control control in Appointment_Panel.Controls) {
-                    foreach(Control s in control.Controls)
+                foreach (Control s in control.Controls)
                 {
                     if (s.Name == GlobalVariable.AppointmentID.ToString())
                     {
-                
-                      if (AppStatus == true)
+
+                        if (AppStatus == true)
                         {
 
                             ((PictureBox)s).Image = global::_846DentalClinicManagementSystem.Properties.Resources.success;
@@ -423,8 +431,8 @@ namespace _846DentalClinicManagementSystem
                         }
                     }
                 }
-                    
-                        }
+
+            }
 
         }
 
@@ -459,11 +467,11 @@ namespace _846DentalClinicManagementSystem
             {
                 GlobalVariable.isAddPatient = true;
                 AddEditPatientRecord addEditPatient = new AddEditPatientRecord();
-                addEditPatient.Show();
+                addEditPatient.ShowDialog();
             }
         }
 
-    private void setTimelabel()
+        private void setTimelabel()
         {
             int horizontalY = 60;
             DateTime time = new DateTime(2019, 10, 29, 9, 0, 0);
@@ -483,7 +491,7 @@ namespace _846DentalClinicManagementSystem
 
         private void DrawAppointmentTable()
         {
-        
+
             int verticalX = 10;
             int verticalY = 0;
             int vertx = verticalX;
@@ -511,7 +519,7 @@ namespace _846DentalClinicManagementSystem
 
                 }
                 isWeek = false;
-              
+
             }
             else
             {
@@ -540,7 +548,7 @@ namespace _846DentalClinicManagementSystem
                 panel.Location = new Point(0, 0);
                 this.AppointmentHeader_Panel.Controls.Add(panel);
 
-               
+
 
 
                 DateTime dateStart = SearchAppByDate_DP.Value;
@@ -552,14 +560,14 @@ namespace _846DentalClinicManagementSystem
                     dateStart = dateStart.AddDays(-(b));
 
                 }
-                
+
 
                 for (int i = 0; i < 7; i++)
                 {
 
                     Label label4 = new Label();
                     label4.Font = new Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                    label4.Location = new Point(vertx + 20, verticalY );
+                    label4.Location = new Point(vertx + 20, verticalY);
                     label4.Text = dateStart.ToString("ddd");
                     panel.Controls.Add(label4);
 
@@ -580,7 +588,7 @@ namespace _846DentalClinicManagementSystem
                     aira.Location = new Point(loc, 45);
                     aira.Size = new Size(161, 20);
                     aira.Margin = new Padding(0);
-                    
+
                     if (i % 2 == 0)
                     {
                         aira.BackColor = Color.PaleTurquoise;
@@ -589,11 +597,11 @@ namespace _846DentalClinicManagementSystem
                     {
                         aira.BackColor = Color.Pink;
                     }
-                    if(i == 12) aira.Size = new Size(176, 20);
+                    if (i == 12) aira.Size = new Size(176, 20);
                     if (i == 13)
                     {
                         aira.Location = new Point(loc + 15, 45);
-                       
+
                     }
 
                     loc += 150;
@@ -635,7 +643,7 @@ namespace _846DentalClinicManagementSystem
             AppTimePanel.AutoScroll = false;
 
         }
-        
+
         private void DrawLines()
         {
 
@@ -670,13 +678,13 @@ namespace _846DentalClinicManagementSystem
                 this.Appointment_Panel.Controls.Add(HorizontalPanel);
                 horizontalY += 50;
             }
-            
+
         }
 
 
         private void WeekSwitch_OnValueChange(object sender, EventArgs e)
         {
-            
+
             DrawAppointmentTable();
             AppointmentHeader_Panel.AutoScroll = false;
             ShowAppointment(SearchAppByDate_DP.Value.ToString("M/d/yyyy"));
@@ -686,12 +694,12 @@ namespace _846DentalClinicManagementSystem
 
         private void Appointment_Panel_Scroll(object sender, ScrollEventArgs e)
         {
-           
+
             AppTimePanel.AutoScrollPosition = new Point(0, Appointment_Panel.VerticalScroll.Value);
             AppointmentHeader_Panel.AutoScrollPosition = new Point(Appointment_Panel.HorizontalScroll.Value, 0);
-           
-           // Console.WriteLine("Horizontal = " + Appointment_Panel.HorizontalScroll.Value);
-           // Console.WriteLine("Vertical = " + Appointment_Panel.VerticalScroll.Value);
+
+            // Console.WriteLine("Horizontal = " + Appointment_Panel.HorizontalScroll.Value);
+            // Console.WriteLine("Vertical = " + Appointment_Panel.VerticalScroll.Value);
         }
         private void Appointment_Panel_MouseMove(object sender, MouseEventArgs e)
         {
@@ -709,10 +717,10 @@ namespace _846DentalClinicManagementSystem
             PatientPanelSearch(search);
         }
 
-      
+
         public void PatientPanelSearch(String search)
         {
-            
+
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable dt = new DataTable();
             SqlCommand cmd = new SqlCommand(
@@ -749,7 +757,7 @@ namespace _846DentalClinicManagementSystem
             PatientPanelSearch(search);
         }
 
-       
+
 
         private void Patient_DataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -762,9 +770,9 @@ namespace _846DentalClinicManagementSystem
             {
                 GlobalVariable.isAddPatient = true;
                 AddEditPatientRecord addEditPatient = new AddEditPatientRecord();
-                addEditPatient.Show();
+                addEditPatient.ShowDialog();
             }
-            
+
         }
 
 
@@ -775,7 +783,7 @@ namespace _846DentalClinicManagementSystem
             if (GlobalVariable.PatientID > 0)
             {
                 ShowPatientInfo showPatientInfo = new ShowPatientInfo();
-                showPatientInfo.Show();
+                showPatientInfo.ShowDialog();
             }
         }
         private void btn_ShowDetails_Click(object sender, EventArgs e)
@@ -823,11 +831,11 @@ namespace _846DentalClinicManagementSystem
 
                     GlobalVariable.isEditPatient = true;
                     AddEditPatientRecord addEditPatient = new AddEditPatientRecord();
-                    addEditPatient.Show();
+                    addEditPatient.ShowDialog();
 
                 }
             }
-            
+
         }
 
 
@@ -842,7 +850,7 @@ namespace _846DentalClinicManagementSystem
             {
                 GlobalVariable.isAddExpense = true;
                 AddExpensescs addExpensescs = new AddExpensescs();
-                addExpensescs.Show();
+                addExpensescs.ShowDialog();
             }
 
         }
@@ -880,7 +888,7 @@ namespace _846DentalClinicManagementSystem
 
 
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
@@ -901,12 +909,12 @@ namespace _846DentalClinicManagementSystem
         private float LoadNetExpense(DateTime firstDayOfMonth, DateTime lastDayOfMonth)
         {
             float output = 0;
-            foreach(DataGridViewRow row in displayExpenseDG.Rows)
+            foreach (DataGridViewRow row in displayExpenseDG.Rows)
             {
                 float.TryParse(row.Cells[3].Value.ToString(), out float amt);
                 output += amt;
             }
-           
+
             return output;
         }
 
@@ -951,7 +959,7 @@ namespace _846DentalClinicManagementSystem
                 displayExpenseDG.Columns[1].Width = 130;
                 displayExpenseDG.Columns[2].Width = 200;
                 displayExpenseDG.Columns[3].Width = 100;
-                
+
 
             }
             catch (Exception e)
@@ -962,9 +970,9 @@ namespace _846DentalClinicManagementSystem
 
         private void displayExpenseDG_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-         
+
             GlobalVariable.ExpenseId = Convert.ToInt32(displayExpenseDG.SelectedRows[0].Cells[0].Value);
-            if(GlobalVariable.isEditExpense == false)
+            if (GlobalVariable.isEditExpense == false)
             {
                 if (GlobalVariable.ExpenseId > 0)
                 {
@@ -973,7 +981,7 @@ namespace _846DentalClinicManagementSystem
                     addExpensescs.Show();
                 }
             }
-           
+
         }
 
         private void btn_Export2Excel_Click(object sender, EventArgs e)
@@ -1037,10 +1045,10 @@ namespace _846DentalClinicManagementSystem
             xlWorkSheet.Columns["G"].ColumnWidth = 13.57;
 
             //align columns to center
-            xlWorkSheet.Columns["A:H"].Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;   
+            xlWorkSheet.Columns["A:H"].Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
         }
 
- 
+
         private void copyAllExpenseToClibboard()
         {
             displayExpenseDG.RowHeadersVisible = false;
@@ -1062,6 +1070,113 @@ namespace _846DentalClinicManagementSystem
 
         // Patient Panel End --------------------------------------------------------------------------------------------------------
 
+        // DashBoard Panel Start -----------------------------------------------------------------------------------------------------
 
+        private void AppointmentCountDashBoard()
+        {
+            string CurrentDate = DateTime.Now.ToShortDateString();
+            SqlCommand cmd = new SqlCommand(
+                "SELECT COUNT(*) FROM Appointment WHERE AppointmentDate = @AppDate AND Status = 'PENDING' ", sqlcon);
+            cmd.Parameters.AddWithValue("@AppDate", CurrentDate);
+
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+
+            try
+            {
+
+               object count =  cmd.ExecuteScalar();
+                if (count != null)
+                {
+                    lbl_AppointmentCountDashboard.Text = "Appointments : " + count.ToString();
+                }
+
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            sqlcon.Close();
+        }
+
+        private void PatientCountDashBoard()
+        {
+            SqlCommand cmd = new SqlCommand(
+                "SELECT COUNT(*) FROM Patient", sqlcon);
+         
+
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+
+            try
+            {
+
+                object count = cmd.ExecuteScalar();
+                if (count != null)
+                {
+                    lbl_PatientCountDashboard.Text = "Active Patients : " + count.ToString();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            sqlcon.Close();
+        }
+
+        private void DentistCountDashBoard()
+        {
+            SqlCommand cmd = new SqlCommand(
+                "SELECT COUNT(*) FROM Dentist", sqlcon);
+
+
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+
+            try
+            {
+
+                object count = cmd.ExecuteScalar();
+                if (count != null)
+                {
+                    lbl_DentistCountDashboard.Text = "Active Dentists : " + count.ToString();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            sqlcon.Close();
+        }
+
+        private void UnpaidBillsCountDashBoard()
+        {
+            SqlCommand cmd = new SqlCommand(
+                "SELECT COUNT(*) FROM Billing WHERE BillingBalance > 0", sqlcon);
+
+
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+
+            try
+            {
+
+                object count = cmd.ExecuteScalar();
+                if (count != null)
+                {
+                    lbl_UnpaidBillsCountDashboard.Text = "Unpaid Bills : " + count.ToString();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            sqlcon.Close();
+        }
+
+
+        // DashBoard Panel End --------------------------------------------------------------------------------------------------------
     }
 }

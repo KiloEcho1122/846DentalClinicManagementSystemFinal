@@ -42,13 +42,13 @@
             this.btn_print = new System.Windows.Forms.Button();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.TreatmentDropDownPanel = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.Treatment_CB = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.Treatment_CB = new System.Windows.Forms.ComboBox();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.TopPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.TreatmentDropDownPanel.SuspendLayout();
@@ -215,14 +215,13 @@
             this.TreatmentDropDownPanel.Size = new System.Drawing.Size(304, 35);
             this.TreatmentDropDownPanel.TabIndex = 89;
             // 
-            // panel5
+            // panel7
             // 
-            this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Location = new System.Drawing.Point(283, 24);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(21, 11);
-            this.panel5.TabIndex = 41;
+            this.panel7.BackColor = System.Drawing.Color.White;
+            this.panel7.Location = new System.Drawing.Point(2, 19);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(2, 15);
+            this.panel7.TabIndex = 42;
             // 
             // panel1
             // 
@@ -242,13 +241,23 @@
             this.panel4.Size = new System.Drawing.Size(285, 3);
             this.panel4.TabIndex = 41;
             // 
-            // panel7
+            // panel2
             // 
-            this.panel7.BackColor = System.Drawing.Color.White;
-            this.panel7.Location = new System.Drawing.Point(2, 19);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(2, 15);
-            this.panel7.TabIndex = 42;
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Location = new System.Drawing.Point(153, 24);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(21, 11);
+            this.panel2.TabIndex = 39;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Location = new System.Drawing.Point(1, 21);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(4, 14);
+            this.panel3.TabIndex = 40;
             // 
             // Treatment_CB
             // 
@@ -269,23 +278,14 @@
             this.Treatment_CB.TabIndex = 30;
             this.Treatment_CB.Text = "Select Treatment";
             // 
-            // panel2
+            // panel5
             // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Location = new System.Drawing.Point(153, 24);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(21, 11);
-            this.panel2.TabIndex = 39;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Location = new System.Drawing.Point(1, 21);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(4, 14);
-            this.panel3.TabIndex = 40;
+            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Location = new System.Drawing.Point(283, 24);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(21, 11);
+            this.panel5.TabIndex = 41;
             // 
             // AddDiagnosis
             // 
@@ -300,7 +300,7 @@
             this.Controls.Add(this.bunifuCustomLabel1);
             this.Controls.Add(this.btn_print);
             this.Controls.Add(this.TopPanel2);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddDiagnosis";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddDiagnosis";
