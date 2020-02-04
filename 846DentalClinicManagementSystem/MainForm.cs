@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
 using System.Data.SqlClient;
-
+using System.Collections;
 
 namespace _846DentalClinicManagementSystem
 {
@@ -14,12 +14,14 @@ namespace _846DentalClinicManagementSystem
         public MainForm()
         {
             InitializeComponent();
-
+            
 
         }
 
         SqlConnection sqlcon = new SqlConnection(GlobalVariable.connString);
         List<Panel> Panels = new List<Panel>();
+        ArrayList DentistArray = new ArrayList();
+        ArrayList DentistIDArray = new ArrayList();
         string[,] timeArray = new string[19, 2];
 
         private void HidePanels()
@@ -28,6 +30,7 @@ namespace _846DentalClinicManagementSystem
             PatientsPanel.Visible = false;
             AccountingPanel.Visible = false;
             SchedulerPanel.Visible = false;
+            Dentist_Panel.Visible = false;
         }
 
         private void playVideo()
@@ -59,10 +62,12 @@ namespace _846DentalClinicManagementSystem
             UnpaidBillsCountDashBoard();
             iniatializeTimeArray();
             setTimelabel();
-            DrawAppointmentTable();
+           DrawAppointmentTable();
             SearchAppByDate_DP.Value = DateTime.Now;
             PatientPanelSearch("");
-            setAutoScrollfalse();
+            DentistPanelSearch("");
+           setAutoScrollfalse();
+
         }
 
         private void Loadusername()
@@ -118,9 +123,11 @@ namespace _846DentalClinicManagementSystem
 
         private void btn_Scheduler_Click(object sender, EventArgs e)
         {
-
+            DrawAppointmentTable();
+            SearchAppByDate_DP.Value = DateTime.Now;
             HidePanels();
             SchedulerPanel.Visible = true;
+           
 
         }
 
@@ -137,6 +144,12 @@ namespace _846DentalClinicManagementSystem
             LoadMonthlyProfit();
             LoadMonthlyExpenses();
             LoadGrossProfit();
+        }
+
+        private void btn_Dentist_Click(object sender, EventArgs e)
+        {
+            HidePanels();
+            Dentist_Panel.Visible = true;
         }
 
 
@@ -180,7 +193,7 @@ namespace _846DentalClinicManagementSystem
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@date", date);
 
-                ControlsCount = 3;
+                ControlsCount = DentistArray.Count + 1;
 
             }
             else
@@ -273,30 +286,16 @@ namespace _846DentalClinicManagementSystem
             int loc = 0;
 
             DateTime StartDate = DateTime.ParseExact(date, "M/d/yyyy hh:mm:ss tt", System.Globalization.CultureInfo.CurrentCulture);
-            int b = (int)StartDate.DayOfWeek;
+            int b = (int)StartDate.DayOfWeek ;
 
-
-            switch (b)
+            for (int i = 0; i < DentistIDArray.Count; i++)
             {
-                case 0: loc = 11;
-                    break;
-                case 1: loc = 311;
-                    break;
-                case 2: loc = 611;
-                    break;
-                case 3: loc = 911;
-                    break;
-                case 4: loc = 1211;
-                    break;
-                case 5: loc = 1511;
-                    break;
-                case 6: loc = 1811;
-                    break;
+                if(dentID.ToString() == DentistIDArray[i].ToString())
+                {
+                    loc = ((150 * i) + 11) + (b * (150 * DentistIDArray.Count));
+                }
             }
-            if (dentID == 2)
-            {
-                loc += 150;
-            }
+   
 
             return loc;
         }
@@ -316,7 +315,14 @@ namespace _846DentalClinicManagementSystem
 
             if (WeekSwitch.Value == false)
             {
-                x = (dentID == 1) ? 11 : 311;  // get the x location
+                for (int i = 0; i < DentistIDArray.Count; i++)
+                {
+                    if (dentID.ToString() == DentistIDArray[i].ToString()) {
+
+                        x = (300 * i) + 11;
+                    }
+                }
+                // get the x location
             }
             else
             {
@@ -343,7 +349,7 @@ namespace _846DentalClinicManagementSystem
             appointment.WrapContents = true;
             //  appointment.AutoScroll = true;
             appointment.BackColor = Color.LightSeaGreen;
-            if (dentID == 2) { appointment.BackColor = Color.FromArgb(217, 102, 135); }
+            if (dentID % 2 == 0) { appointment.BackColor = Color.FromArgb(217, 102, 135); }
             this.Appointment_Panel.Controls.Add(appointment);
 
             Label namee = new Label();
@@ -396,6 +402,75 @@ namespace _846DentalClinicManagementSystem
             appointment.Controls.Add(name1);
 
         }
+
+        
+      
+        private void DentistToArray()
+        {
+            DentistArray.Clear();
+            DentistIDArray.Clear();
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand(
+                "SELECT DentistID,CONCAT(DentistFName , ' ', DentistLName)  FROM Dentist ORDER BY DentistID ASC", sqlcon);
+           
+            adapter.SelectCommand = cmd;
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+            try
+            {
+                adapter.Fill(dt);
+                foreach (DataRow row in dt.Rows)
+                {
+                    DentistIDArray.Add(row[0].ToString());
+                    DentistArray.Add(row[1].ToString());
+                    
+                }
+
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+            sqlcon.Close();
+        }
+
+        private void ShowDentistHeader()
+        {
+            DentistToArray();
+            int xStartPosition = 11;
+
+           for(int i = 0; i < DentistArray.Count; i++)
+            {
+                
+
+                Panel panel = new Panel();
+                panel.Location = new System.Drawing.Point(xStartPosition, 17);
+                panel.Margin = new System.Windows.Forms.Padding(0);
+                panel.Size = new System.Drawing.Size(302, 41);
+                if (i % 2 == 0)
+                {
+                    panel.BackColor = System.Drawing.Color.Pink;
+                }
+                else
+                {
+                    panel.BackColor = System.Drawing.Color.PaleTurquoise;
+                }
+                AppointmentHeader_Panel.Controls.Add(panel);
+
+
+                Label label = new Label();
+                label.AutoSize = true;
+                label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                label.Location = new System.Drawing.Point(59, 8);
+                label.Size = new System.Drawing.Size(172, 24);
+                label.Text = "Dr. " + DentistArray[i].ToString();
+                panel.Controls.Add(label);
+
+                xStartPosition += 300;
+            }
+ 
+
+
+
+        }
+
         int LastScrollPosX = 0, LastScrollPosY = 0;
         public void RefreshAppointmentView()
         {
@@ -491,23 +566,25 @@ namespace _846DentalClinicManagementSystem
 
         private void DrawAppointmentTable()
         {
-
+            int temp = 0;
             int verticalX = 10;
             int verticalY = 0;
             int vertx = verticalX;
+            TimePanel_Footer.Visible = false;
+            AppTimePanel.Size = new Size(184, 463);
             AppointmentHeader_Panel.Controls.Clear();
             Appointment_Panel.Controls.Clear();
             AppointmentHeader_Panel.AutoScrollPosition = new Point(0, 0);
-
-            this.AppointmentHeader_Panel.Controls.Add(this.panel27);
-            this.AppointmentHeader_Panel.Controls.Add(this.panel26);
+            ShowDentistHeader();
 
 
             if (WeekSwitch.Value == false)
             {
-                TimePanel_Footer.Visible = false;
-                AppTimePanel.Size = new Size(184, 463);
-                for (int i = 0; i < 3; i++)
+                
+                //AppointmentHeader_Panel.Controls.Add(this.panel26);
+                //AppointmentHeader_Panel.Controls.Add(this.panel27);
+
+                for (int i = 0; i < DentistArray.Count + 1; i++)
                 {
                     Panel verticalPanel = new Panel();
                     verticalPanel.Size = new Size(1, 960);
@@ -518,11 +595,13 @@ namespace _846DentalClinicManagementSystem
                     this.Appointment_Panel.Controls.Add(verticalPanel);
 
                 }
+               
                 isWeek = false;
 
             }
             else
             {
+            
                 TimePanel_Footer.Visible = true;
                 AppTimePanel.Size = new Size(184, 450);
                 Appointment_Panel.Controls.Clear();
@@ -536,13 +615,13 @@ namespace _846DentalClinicManagementSystem
                     verticalPanel.BackColor = Color.Silver;
                     verticalPanel.Margin = new Padding(0);
                     verticalPanel.Location = new Point(verticalX, verticalY);
-                    verticalX += 300;
+                    verticalX +=   (150 * DentistArray.Count);
                     this.Appointment_Panel.Controls.Add(verticalPanel);
                 }
 
 
                 Panel panel = new Panel();
-                panel.Size = new Size(2150, 45);
+                panel.Size = new Size(((DentistArray.Count * 150) * 7) + 10 , 45);
                 panel.BackColor = Color.Salmon;
                 panel.Margin = new Padding(0);
                 panel.Location = new Point(0, 0);
@@ -578,51 +657,80 @@ namespace _846DentalClinicManagementSystem
                     label.Text = dateStart.ToString("M/d");
                     panel.Controls.Add(label);
 
-                    vertx += 300;
+                    vertx += (150 * DentistArray.Count);
                     dateStart = dateStart.AddDays(1);
                 }
                 int loc = 0;
-                for (int i = 0; i < 14; i++)
+                for (int i = 0; i < (DentistArray.Count * 7); i++)
                 {
-                    Panel aira = new Panel();
-                    aira.Location = new Point(loc, 45);
-                    aira.Size = new Size(161, 20);
-                    aira.Margin = new Padding(0);
+
+                    Panel WeekDentistPanel = new Panel();
+                    WeekDentistPanel.Location = new Point(loc, 45);
+                    WeekDentistPanel.Size = new Size(161, 20);
+                    WeekDentistPanel.Margin = new Padding(0);
 
                     if (i % 2 == 0)
                     {
-                        aira.BackColor = Color.PaleTurquoise;
+                        WeekDentistPanel.BackColor = Color.PaleTurquoise;
                     }
                     else
                     {
-                        aira.BackColor = Color.Pink;
+                        WeekDentistPanel.BackColor = Color.Pink;
                     }
-                    if (i == 12) aira.Size = new Size(176, 20);
-                    if (i == 13)
-                    {
-                        aira.Location = new Point(loc + 15, 45);
 
-                    }
+                    // pra magreset sa index 0 if ever na lumagpas na si i
+
+
+                   
+
+                    //Panel aira = new Panel();
+                    //aira.Location = new Point(loc, 45);
+                    //aira.Size = new Size(161, 20);
+                    //aira.Margin = new Padding(0);
+
+                    //if (i % 2 == 0)
+                    //{
+                    //    aira.BackColor = Color.PaleTurquoise;
+                    //}
+                    //else
+                    //{
+                    //    aira.BackColor = Color.Pink;
+                    //}
+                    //if (i == 12) aira.Size = new Size(176, 20);
+                    //if (i == 13)
+                    //{
+                    //    aira.Location = new Point(loc + 15, 45);
+
+                    //}
 
                     loc += 150;
-                    this.AppointmentHeader_Panel.Controls.Add(aira);
+                    this.AppointmentHeader_Panel.Controls.Add(WeekDentistPanel);
 
-                    Label esther = new Label();
-                    esther.Font = new Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                    esther.Location = new Point(58, 0);
-
-                    if (i % 2 == 0)
+                    
+                    
+                    if (i % DentistArray.Count == 0)
                     {
-                        esther.Text = "Dr. Aira";
+                        temp = 0;
                     }
-                    else
-                    {
-                        esther.Text = "Dr. Esther";
-                        esther.Location = new Point(54, 0);
-                    }
-                    if (i == 13) { aira.Size = new Size(150, 20); }
+                    Label DentName = new Label();
+                    DentName.Font = new Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    DentName.Location = new Point(45, 0);
+                    DentName.Text = DentistArray[temp].ToString();
+                    WeekDentistPanel.Controls.Add(DentName);
+                    
+                    temp += 1;
+                    //if (i % 2 == 0)
+                    //{
+                    //    esther.Text = "Dr. Aira";
+                    //}
+                    //else
+                    //{
+                    //    esther.Text = "Dr. Esther";
+                    //    esther.Location = new Point(54, 0);
+                    //}
+                    //if (i == 13) { aira.Size = new Size(150, 20); }
 
-                    aira.Controls.Add(esther);
+                    //aira.Controls.Add(esther);
                 }
 
 
@@ -638,9 +746,11 @@ namespace _846DentalClinicManagementSystem
 
             AppTimePanel.VerticalScroll.Maximum = Appointment_Panel.VerticalScroll.Maximum;
             AppTimePanel.VerticalScroll.Minimum = Appointment_Panel.VerticalScroll.Minimum;
-            AppointmentHeader_Panel.HorizontalScroll.Maximum = Appointment_Panel.HorizontalScroll.Maximum;
-            AppointmentHeader_Panel.HorizontalScroll.Minimum = Appointment_Panel.HorizontalScroll.Minimum;
+           AppointmentHeader_Panel.HorizontalScroll.Maximum = Appointment_Panel.HorizontalScroll.Maximum;
+           AppointmentHeader_Panel.HorizontalScroll.Minimum = Appointment_Panel.HorizontalScroll.Minimum;
             AppTimePanel.AutoScroll = false;
+            WeekSwitch.Value = true;
+            WeekSwitch.Value = false;
 
         }
 
@@ -653,12 +763,12 @@ namespace _846DentalClinicManagementSystem
 
             if (WeekSwitch.Value == false)
             {
-                width = 610;
+                width = (DentistArray.Count * 300) + 10;
 
             }
             else
             {
-                width = 2110;
+                width = ((DentistArray.Count * 150) * 7) + 10;
             }
 
             Panel HorizontalPanel1 = new Panel();
@@ -684,11 +794,11 @@ namespace _846DentalClinicManagementSystem
 
         private void WeekSwitch_OnValueChange(object sender, EventArgs e)
         {
-
+            
             DrawAppointmentTable();
-            AppointmentHeader_Panel.AutoScroll = false;
             ShowAppointment(SearchAppByDate_DP.Value.ToString("M/d/yyyy"));
-
+            AppointmentHeader_Panel.AutoScroll = false;
+            
 
         }
 
@@ -840,8 +950,8 @@ namespace _846DentalClinicManagementSystem
 
 
 
-        //-------------------------------------------------------------------------------------------------
-        // Inventory
+        // Accounting Panel Start -------------------------------------------------------------------------------------------------
+
 
 
         private void btn_AddExpenses_Click(object sender, EventArgs e)
@@ -1068,7 +1178,7 @@ namespace _846DentalClinicManagementSystem
             Profit_DG.ClearSelection();
         }
 
-        // Patient Panel End --------------------------------------------------------------------------------------------------------
+        // Accounting Panel End --------------------------------------------------------------------------------------------------------
 
         // DashBoard Panel Start -----------------------------------------------------------------------------------------------------
 
@@ -1178,5 +1288,85 @@ namespace _846DentalClinicManagementSystem
 
 
         // DashBoard Panel End --------------------------------------------------------------------------------------------------------
+
+        //Dentist Panel Start
+
+
+        public void DentistPanelSearch(String search)
+        {
+
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand(
+                "SELECT DentistID AS ID, CONCAT(DentistLName, ', ',DentistFName , ' ', DentistMName) AS Name , " +
+                "DentistLicenseNo As LicenseNo FROM [Dentist] ORDER BY DentistLName ASC", sqlcon);
+
+
+            adapter.SelectCommand = cmd;
+            try
+            {
+                adapter.Fill(dt);
+
+                Dentist_DataGrid.DataSource = dt;
+                Dentist_DataGrid.Columns[0].Width = 40;
+
+
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+        }
+
+        private void btn_EditDentist_Click(object sender, EventArgs e)
+        {
+            if (GlobalVariable.isEditDentist == false)
+            {
+                if (GlobalVariable.DentID > 0)
+                {
+
+                    GlobalVariable.isEditDentist = true;
+                    AddEditDentist addEditDentist = new AddEditDentist();
+                    addEditDentist.ShowDialog();
+
+                }
+            }
+        }
+
+        private void Dentist_DataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                GlobalVariable.DentID = Convert.ToInt32(Dentist_DataGrid.SelectedRows[0].Cells[0].Value);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private void btn_AddDentist_Click(object sender, EventArgs e)
+        {
+            if (GlobalVariable.isAddDentist == false)
+            {
+                GlobalVariable.isAddDentist = true;
+                AddEditDentist addEditDentist = new AddEditDentist();
+                addEditDentist.ShowDialog();
+            }
+        }
+
+
+
+
+
+        // private void btn_PatientSearch_Click(object sender, EventArgs e)
+
+
+
+        
+        
+
+
+        //Dentist Panel End
     }
+
+
+
 }

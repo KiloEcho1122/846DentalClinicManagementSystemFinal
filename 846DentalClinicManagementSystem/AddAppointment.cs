@@ -175,6 +175,7 @@ namespace _846DentalClinicManagementSystem
                                                 main.SearchAppByDate_DP.Value = DP_date.Value;
                                                 this.Hide();
 
+                                               
                                             }
                                             if (GlobalVariable.isEditAppointment == true && GlobalVariable.isAddAppointment == false)
                                             {

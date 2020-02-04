@@ -29,6 +29,8 @@ namespace _846DentalClinicManagementSystem
         
         public static int PatientID { get; set; }
 
+        public static int DentID { get; set; }
+
         public static int TreatmentID { get; set; }
 
         public static int BillingID { get; set; }
@@ -40,6 +42,10 @@ namespace _846DentalClinicManagementSystem
         public static Boolean isEditPatient { get; set; }
 
         public static Boolean isAddPatient { get; set; }
+
+        public static Boolean isEditDentist { get; set; }
+
+        public static Boolean isAddDentist { get; set; }
 
         public static Boolean isAppointmentPatientExist { get; set; }
 

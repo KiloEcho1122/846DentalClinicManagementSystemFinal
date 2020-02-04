@@ -94,6 +94,12 @@
     <Compile Include="AddDiagnosis.Designer.cs">
       <DependentUpon>AddDiagnosis.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddEditDentist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditDentist.Designer.cs">
+      <DependentUpon>AddEditDentist.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddEditPatientRecord.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddDiagnosis.resx">
       <DependentUpon>AddDiagnosis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEditDentist.resx">
+      <DependentUpon>AddEditDentist.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddEditPatientRecord.resx">
       <DependentUpon>AddEditPatientRecord.cs</DependentUpon>
