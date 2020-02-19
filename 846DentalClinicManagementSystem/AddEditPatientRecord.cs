@@ -181,7 +181,7 @@ namespace _846DentalClinicManagementSystem
 
                             if (string.IsNullOrEmpty(Gender) == false)
                             {
-                                if ((string.IsNullOrEmpty(Birthday) == false) || (age < 2))
+                                if ((string.IsNullOrEmpty(Birthday) == false) && (age >= 2 && age <= 80))
                                 {
                                     if (string.IsNullOrEmpty(Address) == false)
                                     {

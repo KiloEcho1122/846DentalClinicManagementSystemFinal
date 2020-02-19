@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -41,11 +46,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MenuPanel = new System.Windows.Forms.Panel();
             this.btn_Dentist = new Bunifu.Framework.UI.BunifuFlatButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -54,6 +54,13 @@
             this.btn_Scheduler = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_Home = new Bunifu.Framework.UI.BunifuFlatButton();
             this.CenterPanel = new System.Windows.Forms.Panel();
+            this.Dentist_Panel = new System.Windows.Forms.Panel();
+            this.btn_AddEmployee = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btn_EditEmployee = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.Employee_DataGrid = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.PatientsPanel = new System.Windows.Forms.Panel();
             this.btn_ShowDetails = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_AddPatient = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -83,6 +90,7 @@
             this.txt_formHeader = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.SchedulerPanel = new System.Windows.Forms.Panel();
+            this.btn_AddException = new Bunifu.Framework.UI.BunifuFlatButton();
             this.AppTimePanel = new System.Windows.Forms.Panel();
             this.TimePanel_Footer = new System.Windows.Forms.Panel();
             this.panel19 = new System.Windows.Forms.Panel();
@@ -123,13 +131,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbl_AppointmentCountDashboard = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
-            this.Dentist_Panel = new System.Windows.Forms.Panel();
-            this.btn_AddDentist = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btn_EditDentist = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.Dentist_DataGrid = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.TopPanel = new System.Windows.Forms.Panel();
             this.btn_Logout = new System.Windows.Forms.Button();
@@ -142,6 +143,10 @@
             this.MenuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.CenterPanel.SuspendLayout();
+            this.Dentist_Panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Employee_DataGrid)).BeginInit();
+            this.panel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.PatientsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Patient_DataGrid)).BeginInit();
             this.panel8.SuspendLayout();
@@ -174,10 +179,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
-            this.Dentist_Panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Dentist_DataGrid)).BeginInit();
-            this.panel14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.TopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             this.SuspendLayout();
@@ -203,7 +204,7 @@
             this.btn_Dentist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(82)))), ((int)(((byte)(121)))));
             this.btn_Dentist.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_Dentist.BorderRadius = 0;
-            this.btn_Dentist.ButtonText = "     Dentists";
+            this.btn_Dentist.ButtonText = "     Dentists/Staff";
             this.btn_Dentist.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Dentist.DisabledColor = System.Drawing.Color.Gray;
             this.btn_Dentist.Iconcolor = System.Drawing.Color.Transparent;
@@ -227,7 +228,7 @@
             this.btn_Dentist.selected = false;
             this.btn_Dentist.Size = new System.Drawing.Size(246, 90);
             this.btn_Dentist.TabIndex = 28;
-            this.btn_Dentist.Text = "     Dentists";
+            this.btn_Dentist.Text = "     Dentists/Staff";
             this.btn_Dentist.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Dentist.Textcolor = System.Drawing.Color.Silver;
             this.btn_Dentist.TextFont = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -401,6 +402,173 @@
             this.CenterPanel.Name = "CenterPanel";
             this.CenterPanel.Size = new System.Drawing.Size(1354, 670);
             this.CenterPanel.TabIndex = 4;
+            // 
+            // Dentist_Panel
+            // 
+            this.Dentist_Panel.BackColor = System.Drawing.Color.Gainsboro;
+            this.Dentist_Panel.Controls.Add(this.btn_AddEmployee);
+            this.Dentist_Panel.Controls.Add(this.btn_EditEmployee);
+            this.Dentist_Panel.Controls.Add(this.Employee_DataGrid);
+            this.Dentist_Panel.Controls.Add(this.panel14);
+            this.Dentist_Panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Dentist_Panel.Location = new System.Drawing.Point(0, 0);
+            this.Dentist_Panel.Name = "Dentist_Panel";
+            this.Dentist_Panel.Size = new System.Drawing.Size(1354, 670);
+            this.Dentist_Panel.TabIndex = 11;
+            // 
+            // btn_AddEmployee
+            // 
+            this.btn_AddEmployee.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_AddEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_AddEmployee.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_AddEmployee.BorderRadius = 0;
+            this.btn_AddEmployee.ButtonText = "Add";
+            this.btn_AddEmployee.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_AddEmployee.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_AddEmployee.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_AddEmployee.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_AddEmployee.Iconimage")));
+            this.btn_AddEmployee.Iconimage_right = null;
+            this.btn_AddEmployee.Iconimage_right_Selected = null;
+            this.btn_AddEmployee.Iconimage_Selected = null;
+            this.btn_AddEmployee.IconMarginLeft = 0;
+            this.btn_AddEmployee.IconMarginRight = 0;
+            this.btn_AddEmployee.IconRightVisible = true;
+            this.btn_AddEmployee.IconRightZoom = 0D;
+            this.btn_AddEmployee.IconVisible = true;
+            this.btn_AddEmployee.IconZoom = 90D;
+            this.btn_AddEmployee.IsTab = false;
+            this.btn_AddEmployee.Location = new System.Drawing.Point(1137, 568);
+            this.btn_AddEmployee.Name = "btn_AddEmployee";
+            this.btn_AddEmployee.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_AddEmployee.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.btn_AddEmployee.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_AddEmployee.selected = false;
+            this.btn_AddEmployee.Size = new System.Drawing.Size(136, 56);
+            this.btn_AddEmployee.TabIndex = 9;
+            this.btn_AddEmployee.Text = "Add";
+            this.btn_AddEmployee.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_AddEmployee.Textcolor = System.Drawing.Color.White;
+            this.btn_AddEmployee.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_AddEmployee.Click += new System.EventHandler(this.btn_AddEmployee_Click);
+            // 
+            // btn_EditEmployee
+            // 
+            this.btn_EditEmployee.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_EditEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_EditEmployee.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_EditEmployee.BorderRadius = 0;
+            this.btn_EditEmployee.ButtonText = "Edit";
+            this.btn_EditEmployee.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_EditEmployee.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_EditEmployee.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_EditEmployee.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_EditEmployee.Iconimage")));
+            this.btn_EditEmployee.Iconimage_right = null;
+            this.btn_EditEmployee.Iconimage_right_Selected = null;
+            this.btn_EditEmployee.Iconimage_Selected = null;
+            this.btn_EditEmployee.IconMarginLeft = 0;
+            this.btn_EditEmployee.IconMarginRight = 0;
+            this.btn_EditEmployee.IconRightVisible = true;
+            this.btn_EditEmployee.IconRightZoom = 0D;
+            this.btn_EditEmployee.IconVisible = true;
+            this.btn_EditEmployee.IconZoom = 90D;
+            this.btn_EditEmployee.IsTab = false;
+            this.btn_EditEmployee.Location = new System.Drawing.Point(984, 568);
+            this.btn_EditEmployee.Name = "btn_EditEmployee";
+            this.btn_EditEmployee.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_EditEmployee.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.btn_EditEmployee.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_EditEmployee.selected = false;
+            this.btn_EditEmployee.Size = new System.Drawing.Size(136, 56);
+            this.btn_EditEmployee.TabIndex = 8;
+            this.btn_EditEmployee.Text = "Edit";
+            this.btn_EditEmployee.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_EditEmployee.Textcolor = System.Drawing.Color.White;
+            this.btn_EditEmployee.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_EditEmployee.Click += new System.EventHandler(this.btn_EditEmployee_Click);
+            // 
+            // Employee_DataGrid
+            // 
+            this.Employee_DataGrid.AllowUserToAddRows = false;
+            this.Employee_DataGrid.AllowUserToDeleteRows = false;
+            this.Employee_DataGrid.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Employee_DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.Employee_DataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.Employee_DataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.Employee_DataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(85)))), ((int)(((byte)(120)))));
+            this.Employee_DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Employee_DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Employee_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.Employee_DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Employee_DataGrid.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Employee_DataGrid.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Employee_DataGrid.DoubleBuffered = true;
+            this.Employee_DataGrid.EnableHeadersVisualStyles = false;
+            this.Employee_DataGrid.HeaderBgColor = System.Drawing.Color.SeaGreen;
+            this.Employee_DataGrid.HeaderForeColor = System.Drawing.Color.White;
+            this.Employee_DataGrid.Location = new System.Drawing.Point(313, 127);
+            this.Employee_DataGrid.Name = "Employee_DataGrid";
+            this.Employee_DataGrid.ReadOnly = true;
+            this.Employee_DataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Employee_DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.Employee_DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Employee_DataGrid.Size = new System.Drawing.Size(960, 373);
+            this.Employee_DataGrid.TabIndex = 7;
+            this.Employee_DataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Employee_DataGrid_CellClick);
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
+            this.panel14.Controls.Add(this.bunifuCustomLabel2);
+            this.panel14.Controls.Add(this.pictureBox10);
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel14.Location = new System.Drawing.Point(0, 0);
+            this.panel14.Margin = new System.Windows.Forms.Padding(5);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(1354, 41);
+            this.panel14.TabIndex = 6;
+            // 
+            // bunifuCustomLabel2
+            // 
+            this.bunifuCustomLabel2.AutoSize = true;
+            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.Silver;
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(300, 9);
+            this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
+            this.bunifuCustomLabel2.Size = new System.Drawing.Size(128, 22);
+            this.bunifuCustomLabel2.TabIndex = 1;
+            this.bunifuCustomLabel2.Text = "Dentists/Staff";
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.BackgroundImage = global::_846DentalClinicManagementSystem.Properties.Resources.btnpatients;
+            this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox10.Location = new System.Drawing.Point(256, 6);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(32, 28);
+            this.pictureBox10.TabIndex = 0;
+            this.pictureBox10.TabStop = false;
             // 
             // PatientsPanel
             // 
@@ -989,6 +1157,7 @@
             // SchedulerPanel
             // 
             this.SchedulerPanel.BackColor = System.Drawing.Color.Gainsboro;
+            this.SchedulerPanel.Controls.Add(this.btn_AddException);
             this.SchedulerPanel.Controls.Add(this.AppTimePanel);
             this.SchedulerPanel.Controls.Add(this.TimePanel_Footer);
             this.SchedulerPanel.Controls.Add(this.panel19);
@@ -1006,6 +1175,41 @@
             this.SchedulerPanel.Name = "SchedulerPanel";
             this.SchedulerPanel.Size = new System.Drawing.Size(1354, 670);
             this.SchedulerPanel.TabIndex = 0;
+            // 
+            // btn_AddException
+            // 
+            this.btn_AddException.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(107)))), ((int)(((byte)(255)))));
+            this.btn_AddException.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(82)))), ((int)(((byte)(121)))));
+            this.btn_AddException.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_AddException.BorderRadius = 0;
+            this.btn_AddException.ButtonText = "  Add Exception";
+            this.btn_AddException.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_AddException.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_AddException.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_AddException.Iconimage = global::_846DentalClinicManagementSystem.Properties.Resources.plus__1_;
+            this.btn_AddException.Iconimage_right = null;
+            this.btn_AddException.Iconimage_right_Selected = null;
+            this.btn_AddException.Iconimage_Selected = null;
+            this.btn_AddException.IconMarginLeft = 0;
+            this.btn_AddException.IconMarginRight = 0;
+            this.btn_AddException.IconRightVisible = true;
+            this.btn_AddException.IconRightZoom = 0D;
+            this.btn_AddException.IconVisible = true;
+            this.btn_AddException.IconZoom = 60D;
+            this.btn_AddException.IsTab = true;
+            this.btn_AddException.Location = new System.Drawing.Point(713, 51);
+            this.btn_AddException.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_AddException.Name = "btn_AddException";
+            this.btn_AddException.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(82)))), ((int)(((byte)(121)))));
+            this.btn_AddException.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(82)))), ((int)(((byte)(121)))));
+            this.btn_AddException.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(107)))), ((int)(((byte)(255)))));
+            this.btn_AddException.selected = false;
+            this.btn_AddException.Size = new System.Drawing.Size(181, 36);
+            this.btn_AddException.TabIndex = 86;
+            this.btn_AddException.Text = "  Add Exception";
+            this.btn_AddException.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_AddException.Textcolor = System.Drawing.Color.Silver;
+            this.btn_AddException.TextFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // AppTimePanel
             // 
@@ -1128,19 +1332,19 @@
             this.btn_AddPatient2.IconVisible = true;
             this.btn_AddPatient2.IconZoom = 60D;
             this.btn_AddPatient2.IsTab = true;
-            this.btn_AddPatient2.Location = new System.Drawing.Point(759, 53);
+            this.btn_AddPatient2.Location = new System.Drawing.Point(895, 51);
             this.btn_AddPatient2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_AddPatient2.Name = "btn_AddPatient2";
             this.btn_AddPatient2.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(82)))), ((int)(((byte)(121)))));
             this.btn_AddPatient2.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(82)))), ((int)(((byte)(121)))));
             this.btn_AddPatient2.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(107)))), ((int)(((byte)(255)))));
             this.btn_AddPatient2.selected = false;
-            this.btn_AddPatient2.Size = new System.Drawing.Size(241, 36);
+            this.btn_AddPatient2.Size = new System.Drawing.Size(181, 36);
             this.btn_AddPatient2.TabIndex = 80;
             this.btn_AddPatient2.Text = "  Add New Patient";
             this.btn_AddPatient2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_AddPatient2.Textcolor = System.Drawing.Color.Silver;
-            this.btn_AddPatient2.TextFont = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_AddPatient2.TextFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_AddPatient2.Click += new System.EventHandler(this.btn_AddPatient2_Click);
             // 
             // btn_CreateAppointment
@@ -1149,7 +1353,7 @@
             this.btn_CreateAppointment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(82)))), ((int)(((byte)(121)))));
             this.btn_CreateAppointment.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_CreateAppointment.BorderRadius = 0;
-            this.btn_CreateAppointment.ButtonText = "  Create Appointment";
+            this.btn_CreateAppointment.ButtonText = "Create Appointment";
             this.btn_CreateAppointment.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_CreateAppointment.DisabledColor = System.Drawing.Color.Gray;
             this.btn_CreateAppointment.Iconcolor = System.Drawing.Color.Transparent;
@@ -1164,19 +1368,19 @@
             this.btn_CreateAppointment.IconVisible = true;
             this.btn_CreateAppointment.IconZoom = 60D;
             this.btn_CreateAppointment.IsTab = true;
-            this.btn_CreateAppointment.Location = new System.Drawing.Point(1008, 51);
+            this.btn_CreateAppointment.Location = new System.Drawing.Point(1077, 51);
             this.btn_CreateAppointment.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_CreateAppointment.Name = "btn_CreateAppointment";
             this.btn_CreateAppointment.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(82)))), ((int)(((byte)(121)))));
             this.btn_CreateAppointment.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(82)))), ((int)(((byte)(121)))));
             this.btn_CreateAppointment.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(107)))), ((int)(((byte)(255)))));
             this.btn_CreateAppointment.selected = false;
-            this.btn_CreateAppointment.Size = new System.Drawing.Size(250, 36);
+            this.btn_CreateAppointment.Size = new System.Drawing.Size(181, 36);
             this.btn_CreateAppointment.TabIndex = 79;
-            this.btn_CreateAppointment.Text = "  Create Appointment";
+            this.btn_CreateAppointment.Text = "Create Appointment";
             this.btn_CreateAppointment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_CreateAppointment.Textcolor = System.Drawing.Color.Silver;
-            this.btn_CreateAppointment.TextFont = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_CreateAppointment.TextFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_CreateAppointment.Click += new System.EventHandler(this.btn_CreateAppointment_Click);
             // 
             // lbl_TotalAmt
@@ -1492,174 +1696,6 @@
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(835, 532);
             this.axWindowsMediaPlayer1.TabIndex = 1;
             // 
-            // Dentist_Panel
-            // 
-            this.Dentist_Panel.BackColor = System.Drawing.Color.Gainsboro;
-            this.Dentist_Panel.Controls.Add(this.btn_AddDentist);
-            this.Dentist_Panel.Controls.Add(this.btn_EditDentist);
-            this.Dentist_Panel.Controls.Add(this.Dentist_DataGrid);
-            this.Dentist_Panel.Controls.Add(this.panel14);
-            this.Dentist_Panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Dentist_Panel.Location = new System.Drawing.Point(0, 0);
-            this.Dentist_Panel.Name = "Dentist_Panel";
-            this.Dentist_Panel.Size = new System.Drawing.Size(1354, 670);
-            this.Dentist_Panel.TabIndex = 11;
-            // 
-            // btn_AddDentist
-            // 
-            this.btn_AddDentist.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_AddDentist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_AddDentist.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_AddDentist.BorderRadius = 0;
-            this.btn_AddDentist.ButtonText = "Add";
-            this.btn_AddDentist.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_AddDentist.DisabledColor = System.Drawing.Color.Gray;
-            this.btn_AddDentist.Iconcolor = System.Drawing.Color.Transparent;
-            this.btn_AddDentist.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_AddDentist.Iconimage")));
-            this.btn_AddDentist.Iconimage_right = null;
-            this.btn_AddDentist.Iconimage_right_Selected = null;
-            this.btn_AddDentist.Iconimage_Selected = null;
-            this.btn_AddDentist.IconMarginLeft = 0;
-            this.btn_AddDentist.IconMarginRight = 0;
-            this.btn_AddDentist.IconRightVisible = true;
-            this.btn_AddDentist.IconRightZoom = 0D;
-            this.btn_AddDentist.IconVisible = true;
-            this.btn_AddDentist.IconZoom = 90D;
-            this.btn_AddDentist.IsTab = false;
-            this.btn_AddDentist.Location = new System.Drawing.Point(1137, 568);
-            this.btn_AddDentist.Name = "btn_AddDentist";
-            this.btn_AddDentist.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_AddDentist.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.btn_AddDentist.OnHoverTextColor = System.Drawing.Color.White;
-            this.btn_AddDentist.selected = false;
-            this.btn_AddDentist.Size = new System.Drawing.Size(136, 56);
-            this.btn_AddDentist.TabIndex = 9;
-            this.btn_AddDentist.Text = "Add";
-            this.btn_AddDentist.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_AddDentist.Textcolor = System.Drawing.Color.White;
-            this.btn_AddDentist.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_AddDentist.Click += new System.EventHandler(this.btn_AddDentist_Click);
-            // 
-            // btn_EditDentist
-            // 
-            this.btn_EditDentist.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_EditDentist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_EditDentist.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_EditDentist.BorderRadius = 0;
-            this.btn_EditDentist.ButtonText = "Edit";
-            this.btn_EditDentist.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_EditDentist.DisabledColor = System.Drawing.Color.Gray;
-            this.btn_EditDentist.Iconcolor = System.Drawing.Color.Transparent;
-            this.btn_EditDentist.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_EditDentist.Iconimage")));
-            this.btn_EditDentist.Iconimage_right = null;
-            this.btn_EditDentist.Iconimage_right_Selected = null;
-            this.btn_EditDentist.Iconimage_Selected = null;
-            this.btn_EditDentist.IconMarginLeft = 0;
-            this.btn_EditDentist.IconMarginRight = 0;
-            this.btn_EditDentist.IconRightVisible = true;
-            this.btn_EditDentist.IconRightZoom = 0D;
-            this.btn_EditDentist.IconVisible = true;
-            this.btn_EditDentist.IconZoom = 90D;
-            this.btn_EditDentist.IsTab = false;
-            this.btn_EditDentist.Location = new System.Drawing.Point(984, 568);
-            this.btn_EditDentist.Name = "btn_EditDentist";
-            this.btn_EditDentist.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_EditDentist.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.btn_EditDentist.OnHoverTextColor = System.Drawing.Color.White;
-            this.btn_EditDentist.selected = false;
-            this.btn_EditDentist.Size = new System.Drawing.Size(136, 56);
-            this.btn_EditDentist.TabIndex = 8;
-            this.btn_EditDentist.Text = "Edit";
-            this.btn_EditDentist.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_EditDentist.Textcolor = System.Drawing.Color.White;
-            this.btn_EditDentist.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_EditDentist.Click += new System.EventHandler(this.btn_EditDentist_Click);
-            // 
-            // Dentist_DataGrid
-            // 
-            this.Dentist_DataGrid.AllowUserToAddRows = false;
-            this.Dentist_DataGrid.AllowUserToDeleteRows = false;
-            this.Dentist_DataGrid.AllowUserToResizeColumns = false;
-            this.Dentist_DataGrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Dentist_DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.Dentist_DataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.Dentist_DataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.Dentist_DataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(85)))), ((int)(((byte)(120)))));
-            this.Dentist_DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Dentist_DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Dentist_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.Dentist_DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dentist_DataGrid.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Dentist_DataGrid.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Dentist_DataGrid.DoubleBuffered = true;
-            this.Dentist_DataGrid.EnableHeadersVisualStyles = false;
-            this.Dentist_DataGrid.HeaderBgColor = System.Drawing.Color.SeaGreen;
-            this.Dentist_DataGrid.HeaderForeColor = System.Drawing.Color.White;
-            this.Dentist_DataGrid.Location = new System.Drawing.Point(313, 127);
-            this.Dentist_DataGrid.Name = "Dentist_DataGrid";
-            this.Dentist_DataGrid.ReadOnly = true;
-            this.Dentist_DataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Dentist_DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.Dentist_DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Dentist_DataGrid.Size = new System.Drawing.Size(960, 373);
-            this.Dentist_DataGrid.TabIndex = 7;
-            this.Dentist_DataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dentist_DataGrid_CellClick);
-            // 
-            // panel14
-            // 
-            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
-            this.panel14.Controls.Add(this.bunifuCustomLabel2);
-            this.panel14.Controls.Add(this.pictureBox10);
-            this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel14.Location = new System.Drawing.Point(0, 0);
-            this.panel14.Margin = new System.Windows.Forms.Padding(5);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(1354, 41);
-            this.panel14.TabIndex = 6;
-            // 
-            // bunifuCustomLabel2
-            // 
-            this.bunifuCustomLabel2.AutoSize = true;
-            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.Silver;
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(300, 9);
-            this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
-            this.bunifuCustomLabel2.Size = new System.Drawing.Size(79, 22);
-            this.bunifuCustomLabel2.TabIndex = 1;
-            this.bunifuCustomLabel2.Text = "Dentists";
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.BackgroundImage = global::_846DentalClinicManagementSystem.Properties.Resources.btnpatients;
-            this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox10.Location = new System.Drawing.Point(256, 6);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(32, 28);
-            this.pictureBox10.TabIndex = 0;
-            this.pictureBox10.TabStop = false;
-            // 
             // bunifuElipse1
             // 
             this.bunifuElipse1.ElipseRadius = 5;
@@ -1759,10 +1795,16 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "846 Dental Clinic";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.MenuPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.CenterPanel.ResumeLayout(false);
+            this.Dentist_Panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Employee_DataGrid)).EndInit();
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.PatientsPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Patient_DataGrid)).EndInit();
             this.panel8.ResumeLayout(false);
@@ -1808,11 +1850,6 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
-            this.Dentist_Panel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Dentist_DataGrid)).EndInit();
-            this.panel14.ResumeLayout(false);
-            this.panel14.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.TopPanel.ResumeLayout(false);
             this.TopPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
@@ -1904,9 +1941,9 @@
         private Bunifu.Framework.UI.BunifuCustomLabel lbl_DentistCountDashboard;
         private Bunifu.Framework.UI.BunifuFlatButton btn_Dentist;
         private System.Windows.Forms.Panel Dentist_Panel;
-        private Bunifu.Framework.UI.BunifuFlatButton btn_AddDentist;
-        private Bunifu.Framework.UI.BunifuFlatButton btn_EditDentist;
-        private Bunifu.Framework.UI.BunifuCustomDataGrid Dentist_DataGrid;
+        private Bunifu.Framework.UI.BunifuFlatButton btn_AddEmployee;
+        private Bunifu.Framework.UI.BunifuFlatButton btn_EditEmployee;
+        private Bunifu.Framework.UI.BunifuCustomDataGrid Employee_DataGrid;
         private System.Windows.Forms.Panel panel14;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
         private System.Windows.Forms.PictureBox pictureBox10;
@@ -1915,5 +1952,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel26;
         private System.Windows.Forms.Label label4;
+        private Bunifu.Framework.UI.BunifuFlatButton btn_AddException;
     }
 }

@@ -94,17 +94,23 @@
     <Compile Include="AddDiagnosis.Designer.cs">
       <DependentUpon>AddDiagnosis.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddEditDentist.cs">
+    <Compile Include="AddEditEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddEditDentist.Designer.cs">
-      <DependentUpon>AddEditDentist.cs</DependentUpon>
+    <Compile Include="AddEditEmployee.Designer.cs">
+      <DependentUpon>AddEditEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="AddEditPatientRecord.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddEditPatientRecord.Designer.cs">
       <DependentUpon>AddEditPatientRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddException.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddException.Designer.cs">
+      <DependentUpon>AddException.cs</DependentUpon>
     </Compile>
     <Compile Include="AddExpensescs.cs">
       <SubType>Form</SubType>
@@ -185,11 +191,14 @@
     <EmbeddedResource Include="AddDiagnosis.resx">
       <DependentUpon>AddDiagnosis.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddEditDentist.resx">
-      <DependentUpon>AddEditDentist.cs</DependentUpon>
+    <EmbeddedResource Include="AddEditEmployee.resx">
+      <DependentUpon>AddEditEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddEditPatientRecord.resx">
       <DependentUpon>AddEditPatientRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddException.resx">
+      <DependentUpon>AddException.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddExpensescs.resx">
       <DependentUpon>AddExpensescs.cs</DependentUpon>

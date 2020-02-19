@@ -431,13 +431,21 @@ namespace _846DentalClinicManagementSystem
             if(dt1.Rows[0][11].ToString() == "COMPLETED") { statusSwitch.Value = true; }
            
          //   SelectedTreatmentID = Convert.ToInt32(dt.Rows[0][8]) - 1;
-            SelectedDentistID= Convert.ToInt32(dt1.Rows[0][9]) - 1;
 
-            if (SelectedDentistID == -1) { SelectedDentistID = 0; }
-         //   if (SelectedTreatmentID == -1) { SelectedTreatmentID = 0; }
-         
-          //  TreatmentDD.selectedIndex = SelectedTreatmentID;
+
+
+            for(int i = 0; i < DentistDD.Items.Length; i++)
+            {
+                if (DentistID[i] == Convert.ToInt32(dt1.Rows[0][11])) 
+                {
+                    SelectedDentistID = i;
+                }
+            }
             DentistDD.selectedIndex = SelectedDentistID;
+
+            //   if (SelectedTreatmentID == -1) { SelectedTreatmentID = 0; }
+
+            //  TreatmentDD.selectedIndex = SelectedTreatmentID;
 
             string dateTime = DateTime.Parse(dt1.Rows[0][5].ToString()).ToString("M/d/yyyy hh:mm:ss tt");
             DateChecker1 = dateTime;
@@ -460,7 +468,7 @@ namespace _846DentalClinicManagementSystem
          
             SqlCommand cmd = new SqlCommand(
                 "UPDATE [Appointment] SET Appointment_LName = @LName, Appointment_FName = @FName, Appointment_MName = @MName, Appointment_Contact = @contact," +
-                "AppointmentDate = @Date, StartTime = @StartTime, EndTime = @EndTime ,RefTime = @RefTime, DentistID_fk = @DentistID_fk ," +
+                "AppointmentDate = @Date, StartTime = @StartTime, EndTime = @EndTime ,RefTime = @RefTime, EmployeeID_fk = @EmployeeID_fk ," +
                 "AppointmentNote = @Note WHERE AppointmentID = @AppointmentID ", sqlcon);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@LName", LName);
@@ -471,7 +479,7 @@ namespace _846DentalClinicManagementSystem
             cmd.Parameters.AddWithValue("@StartTime", StartTime);
             cmd.Parameters.AddWithValue("@EndTime", EndTime);
             cmd.Parameters.AddWithValue("@RefTime", refTime);
-            cmd.Parameters.AddWithValue("@DentistID_fk", SelectedDentistID);
+            cmd.Parameters.AddWithValue("@EmployeeID_fk", SelectedDentistID);
             cmd.Parameters.AddWithValue("@Note", Note);
             cmd.Parameters.AddWithValue("@AppointmentID", AppNo);
 
@@ -507,8 +515,8 @@ namespace _846DentalClinicManagementSystem
         {
 
             SqlCommand cmd = new SqlCommand(
-                "Insert Into [Appointment] (Appointment_LName,Appointment_FName,Appointment_MName,Appointment_Contact,AppointmentDate,StartTime,EndTime,RefTime,DentistID_fk,AppointmentNote) " +
-                "Values(@LName,@FName,@MName,@Contact,@Date,@StartTime,@EndTime,@RefTime,@DentistID_fk,@Note) ", sqlcon);
+                "Insert Into [Appointment] (Appointment_LName,Appointment_FName,Appointment_MName,Appointment_Contact,AppointmentDate,StartTime,EndTime,RefTime,EmployeeID_fk,AppointmentNote) " +
+                "Values(@LName,@FName,@MName,@Contact,@Date,@StartTime,@EndTime,@RefTime,@EmployeeID_fk,@Note) ", sqlcon);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@LName", LName);
             cmd.Parameters.AddWithValue("@FName", FName);
@@ -518,7 +526,7 @@ namespace _846DentalClinicManagementSystem
             cmd.Parameters.AddWithValue("@StartTime", StartTime);
             cmd.Parameters.AddWithValue("@EndTime", EndTime);
             cmd.Parameters.AddWithValue("@RefTime", refTime);
-            cmd.Parameters.AddWithValue("@DentistID_fk", SelectedDentistID);
+            cmd.Parameters.AddWithValue("@EmployeeID_fk", SelectedDentistID);
             cmd.Parameters.AddWithValue("@Note", Note);
 
             if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
@@ -586,6 +594,7 @@ namespace _846DentalClinicManagementSystem
         }
 
 
+        List<int> DentistID = new List<int>();
 
         private void LoadDropDownList()
         {
@@ -597,7 +606,7 @@ namespace _846DentalClinicManagementSystem
             SqlCommand cmd = new SqlCommand(
                    "SELECT TreatmentType FROM Treatment ORDER BY TreatmentID ASC", sqlcon);
             SqlCommand cmd2 = new SqlCommand(
-                  "SELECT CONCAT(DentistFName,' ',DentistMName, ' ', DentistLName) FROM Dentist ORDER BY DentistID ASC", sqlcon);
+                  "SELECT EmployeeId,CONCAT(FirstName, ' ', LastName) FROM Employee Where JobTitle = 'Dentist' ORDER BY EmployeeID ASC", sqlcon);
             SqlCommand cmd3 = new SqlCommand(
                   "SELECT AppointmentID FROM Appointment ORDER BY AppointmentID DESC", sqlcon);
 
@@ -617,7 +626,8 @@ namespace _846DentalClinicManagementSystem
 
                 foreach (DataRow row in dt2.Rows)
                 {
-                    this.DentistDD.AddItem(row[0].ToString());
+                    DentistID.Add((int)row[0]);
+                    this.DentistDD.AddItem(row[1].ToString());
                 }
 
             }
@@ -761,7 +771,9 @@ namespace _846DentalClinicManagementSystem
 
         private void DentistDD_onItemSelected(object sender, EventArgs e)
         {
-            SelectedDentistID = DentistDD.selectedIndex + 1;
+
+            SelectedDentistID = DentistID[DentistDD.selectedIndex];
+   
         }
 
         private void AppointmentDatePick()
@@ -986,11 +998,11 @@ namespace _846DentalClinicManagementSystem
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable dt = new DataTable();
             SqlCommand cmd = new SqlCommand(
-                   "SELECT StartTime,EndTime FROM Appointment WHERE DentistID_fk = @DentistID_fk AND " + "" +
+                   "SELECT StartTime,EndTime FROM Appointment WHERE EmployeeID_fk = @EmployeeID_fk AND " + "" +
                    "AppointmentDate =@date AND NOT AppointmentID = @AppID", sqlcon);
 
             cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@DentistID_fk", SelectedDentistID);
+            cmd.Parameters.AddWithValue("@EmployeeID_fk", SelectedDentistID);
             cmd.Parameters.AddWithValue("@date", date);
             cmd.Parameters.AddWithValue("@AppID", AppNo);
             adapter.SelectCommand = cmd;

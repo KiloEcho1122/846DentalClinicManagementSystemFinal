@@ -168,12 +168,12 @@
             // 
             this.txt_PatientNo.BackColor = System.Drawing.Color.SeaGreen;
             this.txt_PatientNo.BorderColor = System.Drawing.Color.SeaGreen;
-            this.txt_PatientNo.Enabled = false;
             this.txt_PatientNo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_PatientNo.ForeColor = System.Drawing.Color.Black;
             this.txt_PatientNo.Location = new System.Drawing.Point(352, 111);
             this.txt_PatientNo.Multiline = true;
             this.txt_PatientNo.Name = "txt_PatientNo";
+            this.txt_PatientNo.ReadOnly = true;
             this.txt_PatientNo.Size = new System.Drawing.Size(164, 35);
             this.txt_PatientNo.TabIndex = 32;
             this.txt_PatientNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -246,12 +246,12 @@
             // 
             this.txt_Age.BackColor = System.Drawing.Color.SeaGreen;
             this.txt_Age.BorderColor = System.Drawing.Color.SeaGreen;
-            this.txt_Age.Enabled = false;
             this.txt_Age.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Age.ForeColor = System.Drawing.SystemColors.Menu;
             this.txt_Age.Location = new System.Drawing.Point(395, 322);
             this.txt_Age.Multiline = true;
             this.txt_Age.Name = "txt_Age";
+            this.txt_Age.ReadOnly = true;
             this.txt_Age.Size = new System.Drawing.Size(93, 35);
             this.txt_Age.TabIndex = 37;
             // 

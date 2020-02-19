@@ -66,10 +66,10 @@ namespace _846DentalClinicManagementSystem
             PatientCmd.Parameters.Clear();
             PatientCmd.Parameters.AddWithValue("@PatientID", GlobalVariable.PatientID);
             SqlCommand DentistCmd = new SqlCommand(
-                "SELECT CONCAT(DentistLName,',',DentistFName, ' ', DentistMName), DentistLicenseNo," +
-                "CONCAT(DentistFName, ' ', DentistMName, ' ', DentistLName) FROM Dentist WHERE DentistID = @DentistID", sqlcon);
+                "SELECT CONCAT(LastName,',',FirstName, ' ', MiddleName), LicenseNo," +
+                "CONCAT(FirstName, ' ', MiddleName, ' ', LastName) FROM Employee WHERE EmployeeID = @EmployeeID AND JobTitle = 'Dentist' ", sqlcon);
             DentistCmd.Parameters.Clear();
-            DentistCmd.Parameters.AddWithValue("@DentistID", GlobalVariable.LoginID);
+            DentistCmd.Parameters.AddWithValue("@EmployeeID", GlobalVariable.EmployeeID);
             PatientAdapter.SelectCommand = PatientCmd;
             DentistAdapter.SelectCommand = DentistCmd;
 

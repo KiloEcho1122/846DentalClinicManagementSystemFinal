@@ -29,7 +29,7 @@ namespace _846DentalClinicManagementSystem
         
         public static int PatientID { get; set; }
 
-        public static int DentID { get; set; }
+        public static int EmpID { get; set; }
 
         public static int TreatmentID { get; set; }
 
@@ -43,9 +43,9 @@ namespace _846DentalClinicManagementSystem
 
         public static Boolean isAddPatient { get; set; }
 
-        public static Boolean isEditDentist { get; set; }
+        public static Boolean isEditEmployee { get; set; }
 
-        public static Boolean isAddDentist { get; set; }
+        public static Boolean isAddEmployee { get; set; }
 
         public static Boolean isAppointmentPatientExist { get; set; }
 
@@ -63,7 +63,7 @@ namespace _846DentalClinicManagementSystem
 
         public static Boolean isBillingStatementExist { get; set; }
 
-        public static int LoginID { get; set; }
+        public static int EmployeeID { get; set; }
 
        // private static int s = 1;
 

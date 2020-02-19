@@ -65,7 +65,7 @@ namespace _846DentalClinicManagementSystem
            DrawAppointmentTable();
             SearchAppByDate_DP.Value = DateTime.Now;
             PatientPanelSearch("");
-            DentistPanelSearch("");
+            DisplayEmployeeDataGrid("");
            setAutoScrollfalse();
 
         }
@@ -73,22 +73,22 @@ namespace _846DentalClinicManagementSystem
         private void Loadusername()
         {
             SqlCommand cmd = new SqlCommand(
-                "SELECT CONCAT(FName, ' ', LName) FROM Login WHERE LoginID = @LoginID", sqlcon);
+                "SELECT CONCAT(FirstName, ' ', LastName) FROM Employee e INNER JOIN [Login] l ON " +
+                "e.EmployeeID = l.EmployeeID_fk WHERE l.EmployeeId_fk = @EmployeeID", sqlcon);
             cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@LoginID", GlobalVariable.LoginID);
+            cmd.Parameters.AddWithValue("@EmployeeID", GlobalVariable.EmployeeID);
             if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
             try
             {
                 if (cmd.ExecuteScalar() != null) lbl_userName.Text = cmd.ExecuteScalar().ToString();
-
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
             sqlcon.Close();
-
         }
+       
 
         //Main Panel Start
 
@@ -182,11 +182,11 @@ namespace _846DentalClinicManagementSystem
 
             if (WeekSwitch.Value == false)
             {
-                query = "SELECT	Appointment.AppointmentID AS No, " +
-                   "CONCAT(Appointment_LName, ', ',Appointment_FName , ' ', Appointment_MName) AS Patient_Name, " +
-                   "DentistID_fk,Treatment," +
-                   "Appointment.Status, StartTime, AppointmentDate,Appointment_Contact FROM Appointment INNER JOIN[PatientTreatment] ON AppointmentID = AppointmentID_fk " +
-                   "WHERE AppointmentDate = @date ORDER BY RefTime ASC";
+               
+                query = "SELECT a.AppointmentID AS No, CONCAT(a.Appointment_LName, ', ', a.Appointment_FName, ' ', a.Appointment_MName) AS Patient_Name, " +
+                "a.EmployeeID_fk,p.Treatment,a.Status, a.StartTime, a.AppointmentDate,a.Appointment_Contact FROM Appointment a INNER JOIN[PatientTreatment] p " +
+                "ON AppointmentID = AppointmentID_fk INNER JOIN[Employee] e ON e.EmployeeId = a.EmployeeID_fk " +
+                "WHERE AppointmentDate = @date AND e.JobTitle = 'Dentist' ORDER BY RefTime ASC";
 
 
                 cmd = new SqlCommand(query, sqlcon);
@@ -208,11 +208,10 @@ namespace _846DentalClinicManagementSystem
                 betweenDate = betweenDate.AddDays(6);
                 date2 = betweenDate.ToShortDateString();
 
-                query = "SELECT	Appointment.AppointmentID AS No, " +
-                   "CONCAT(Appointment_LName, ', ',Appointment_FName , ' ', Appointment_MName) AS Patient_Name, " +
-                   "DentistID_fk,Treatment," +
-                   "Appointment.Status, StartTime, AppointmentDate,Appointment_Contact FROM Appointment INNER JOIN[PatientTreatment] ON AppointmentID = AppointmentID_fk " +
-                   "WHERE AppointmentDate BETWEEN @date AND @date2 ORDER BY AppointmentDate ASC";
+                query = "SELECT a.AppointmentID AS No, CONCAT(a.Appointment_LName, ', ', a.Appointment_FName, ' ', a.Appointment_MName) AS Patient_Name, " +
+               "a.EmployeeID_fk,p.Treatment,a.Status, a.StartTime, a.AppointmentDate,a.Appointment_Contact FROM Appointment a INNER JOIN[PatientTreatment] p " +
+               "ON AppointmentID = AppointmentID_fk INNER JOIN[Employee] e ON e.EmployeeId = a.EmployeeID_fk " +
+               "WHERE e.JobTitle = 'Dentist' AND AppointmentDate BETWEEN @date AND @date2 ORDER BY RefTime ASC";
 
 
                 cmd = new SqlCommand(query, sqlcon);
@@ -247,8 +246,8 @@ namespace _846DentalClinicManagementSystem
                 {
                     string id = row[0].ToString();
                     string name = row[1].ToString();
-                    string treatment = row[3].ToString();
                     int dentist_id = (int)(row[2]);
+                    string treatment = row[3].ToString();
                     string status = row[4].ToString();
                     string time = row[5].ToString();
                     string appdate = row[6].ToString();
@@ -412,7 +411,7 @@ namespace _846DentalClinicManagementSystem
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable dt = new DataTable();
             SqlCommand cmd = new SqlCommand(
-                "SELECT DentistID,CONCAT(DentistFName , ' ', DentistLName)  FROM Dentist ORDER BY DentistID ASC", sqlcon);
+                "SELECT EmployeeID,CONCAT(FirstName , ' ', Lastname)  FROM Employee Where JobTitle = 'Dentist' ORDER BY EmployeeID ASC", sqlcon);
            
             adapter.SelectCommand = cmd;
             if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
@@ -715,7 +714,7 @@ namespace _846DentalClinicManagementSystem
                     Label DentName = new Label();
                     DentName.Font = new Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     DentName.Location = new Point(45, 0);
-                    DentName.Text = DentistArray[temp].ToString();
+                    DentName.Text = "Dr." + DentistArray[temp].ToString();
                     WeekDentistPanel.Controls.Add(DentName);
                     
                     temp += 1;
@@ -1237,7 +1236,7 @@ namespace _846DentalClinicManagementSystem
         private void DentistCountDashBoard()
         {
             SqlCommand cmd = new SqlCommand(
-                "SELECT COUNT(*) FROM Dentist", sqlcon);
+                "SELECT COUNT(*) FROM Employee Where JobTitle = 'Dentist' ", sqlcon);
 
 
             if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
@@ -1292,63 +1291,72 @@ namespace _846DentalClinicManagementSystem
         //Dentist Panel Start
 
 
-        public void DentistPanelSearch(String search)
+        public void DisplayEmployeeDataGrid(String search)
         {
 
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable dt = new DataTable();
             SqlCommand cmd = new SqlCommand(
-                "SELECT DentistID AS ID, CONCAT(DentistLName, ', ',DentistFName , ' ', DentistMName) AS Name , " +
-                "DentistLicenseNo As LicenseNo FROM [Dentist] ORDER BY DentistLName ASC", sqlcon);
+                "SELECT * From Employee Order By LastName", sqlcon);
 
 
             adapter.SelectCommand = cmd;
             try
             {
                 adapter.Fill(dt);
-
-                Dentist_DataGrid.DataSource = dt;
-                Dentist_DataGrid.Columns[0].Width = 40;
+               
+                Employee_DataGrid.DataSource = dt;
+                Employee_DataGrid.Columns[0].HeaderText = "Id";
+                Employee_DataGrid.Columns[1].HeaderText = "Permission";
+                Employee_DataGrid.Columns[2].HeaderText = "Last Name";
+                Employee_DataGrid.Columns[3].HeaderText = "First Name";
+                Employee_DataGrid.Columns[4].HeaderText = "Middle Name";
+                Employee_DataGrid.Columns[8].HeaderText = "Email";
+                Employee_DataGrid.Columns[9].HeaderText = "Contact";
+                Employee_DataGrid.Columns[10].HeaderText = "Address";
+                Employee_DataGrid.Columns[11].HeaderText = "Position";
+                Employee_DataGrid.Columns[12].HeaderText = "License No";
 
 
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
         }
 
-        private void btn_EditDentist_Click(object sender, EventArgs e)
+
+        private void btn_AddEmployee_Click(object sender, EventArgs e)
         {
-            if (GlobalVariable.isEditDentist == false)
+            if (GlobalVariable.isAddEmployee == false)
             {
-                if (GlobalVariable.DentID > 0)
+                GlobalVariable.isAddEmployee = true;
+                AddEditEmployee addEditDentist = new AddEditEmployee();
+                addEditDentist.ShowDialog();
+            }
+        }
+
+        private void btn_EditEmployee_Click(object sender, EventArgs e)
+        {
+            if (GlobalVariable.isEditEmployee == false)
+            {
+                if (GlobalVariable.EmpID > 0)
                 {
 
-                    GlobalVariable.isEditDentist = true;
-                    AddEditDentist addEditDentist = new AddEditDentist();
-                    addEditDentist.ShowDialog();
+                    GlobalVariable.isEditEmployee = true;
+                    AddEditEmployee AddEditEmployee = new AddEditEmployee();
+                    AddEditEmployee.ShowDialog();
 
                 }
             }
         }
 
-        private void Dentist_DataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void Employee_DataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
-                GlobalVariable.DentID = Convert.ToInt32(Dentist_DataGrid.SelectedRows[0].Cells[0].Value);
+                GlobalVariable.EmpID = Convert.ToInt32(Employee_DataGrid.SelectedRows[0].Cells[0].Value);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-            }
-        }
-
-        private void btn_AddDentist_Click(object sender, EventArgs e)
-        {
-            if (GlobalVariable.isAddDentist == false)
-            {
-                GlobalVariable.isAddDentist = true;
-                AddEditDentist addEditDentist = new AddEditDentist();
-                addEditDentist.ShowDialog();
             }
         }
 

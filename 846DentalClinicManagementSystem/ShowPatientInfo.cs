@@ -1178,9 +1178,9 @@ namespace _846DentalClinicManagementSystem
             DataTable dt = new DataTable();
             SqlCommand cmd = new SqlCommand(
                 "SELECT a.AppointmentID,a.AppointmentDate As Date,CONCAT(a.StartTime, ' - ', a.EndTime) AS Time, " +
-                "p.Treatment,CONCAT(d.DentistFName, ' ', d.DentistLName) AS Dentist, a.Status " +
+                "p.Treatment,CONCAT(e.FirstName, ' ', e.LastName) AS Dentist, a.Status " +
                 "FROM Appointment a INNER JOIN PatientTreatment p ON a.AppointmentID = p.AppointmentID_fk " +
-                "INNER JOIN Dentist d ON a.DentistID_fk = d.DentistID  WHERE p.PatientID_fk = @PatientID AND a.Status = 'COMPLETED'", sqlcon);
+                "INNER JOIN Employee e ON a.EmployeeID_fk = e.EmployeeId WHERE p.PatientID_fk = @PatientID AND a.Status = 'COMPLETED'", sqlcon);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@PatientID", PatientID);
             adapter.SelectCommand = cmd;
@@ -1328,11 +1328,11 @@ namespace _846DentalClinicManagementSystem
             SqlCommand cmd = new SqlCommand(
                 "INSERT INTO [Payment] (PaymentAmount,PaymentBalance,LoginID_fk,BillingID_fk) " +
                 "VALUES (@Amount,(SELECT BillingBalance FROM Billing WHERE BillingID = @BillingID) - @Amount " +
-                ",@LoginID,@BillingID)",sqlcon);
+                ",@EmployeeID,@BillingID)",sqlcon);
 
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@Amount", Amount);
-            cmd.Parameters.AddWithValue("@LoginID", GlobalVariable.LoginID);
+            cmd.Parameters.AddWithValue("@EmployeeID", GlobalVariable.EmployeeID);
             cmd.Parameters.AddWithValue("@BillingID", GlobalVariable.BillingID);
             if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
             try
@@ -1410,10 +1410,10 @@ namespace _846DentalClinicManagementSystem
             {
 
                 SqlCommand cmd = new SqlCommand(
-                "UPDATE Payment SET Status = 'Canceled', LoginID_fk = @LoginID WHERE PaymentID = @PaymentID", sqlcon);
+                "UPDATE Payment SET Status = 'Canceled', EmployeeID_fk = @EmployeeID WHERE PaymentID = @PaymentID", sqlcon);
 
                 cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@LoginID", GlobalVariable.LoginID);
+                cmd.Parameters.AddWithValue("@EmployeeID", GlobalVariable.EmployeeID);
                 cmd.Parameters.AddWithValue("@PaymentID", (int)(PaymentHistory_DataGrid.SelectedRows[0].Cells[0].Value));
 
                 if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
@@ -1440,8 +1440,8 @@ namespace _846DentalClinicManagementSystem
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable dt = new DataTable();
             SqlCommand cmd = new SqlCommand(
-                "SELECT PaymentID,PaymentDate,PaymentAmount,PaymentBalance,CONCAT(l.FName, ' ', l.LName) AS UpdatedBy,Status " +
-                "FROM Payment p INNER JOIN Login l ON p.LoginID_fk = l.LoginID WHERE BillingID_fk = @BillingID", sqlcon);
+                "SELECT PaymentID,PaymentDate,PaymentAmount,PaymentBalance,CONCAT(e.FirstName, ' ', e.LastName) AS UpdatedBy,Status " +
+                "FROM Payment p INNER JOIN Employee e ON p.EmployeeID_fk = e.EmployeeID WHERE BillingID_fk = @BillingID", sqlcon);
 
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@BillingID", GlobalVariable.BillingID);
@@ -1609,10 +1609,10 @@ namespace _846DentalClinicManagementSystem
             PatientCmd.Parameters.Clear();
             PatientCmd.Parameters.AddWithValue("@PatientID", GlobalVariable.PatientID);
             SqlCommand DentistCmd = new SqlCommand(
-                "SELECT CONCAT(DentistLName,',',DentistFName, ' ', DentistMName), DentistLicenseNo," +
-                "CONCAT(DentistFName, ' ', DentistMName, ' ', DentistLName) FROM Dentist WHERE DentistID = @DentistID", sqlcon);
+                "SELECT CONCAT(LastName,',',FirstName, ' ', MiddleName), LicenseNo," +
+                "CONCAT(FirstName, ' ', MiddleName, ' ', LastName) FROM Employee WHERE EmployeeID = @EmployeeID AND JobTitle ='Dentist' " , sqlcon);
             DentistCmd.Parameters.Clear();
-            DentistCmd.Parameters.AddWithValue("@DentistID", GlobalVariable.LoginID);
+            DentistCmd.Parameters.AddWithValue("@EmployeeID", GlobalVariable.EmployeeID);
             PatientAdapter.SelectCommand = PatientCmd;
             DentistAdapter.SelectCommand = DentistCmd;
 
