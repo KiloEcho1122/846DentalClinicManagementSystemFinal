@@ -426,17 +426,18 @@ namespace _846DentalClinicManagementSystem
             txt_FName.Text = dt1.Rows[0][2].ToString();
             txt_MName.Text = dt1.Rows[0][3].ToString();
             txt_ContactNo.Text = dt1.Rows[0][4].ToString();
-            txt_Note.Text = dt1.Rows[0][10].ToString();
+            txt_Note.Text = dt1.Rows[0][9].ToString();
 
-            if(dt1.Rows[0][11].ToString() == "COMPLETED") { statusSwitch.Value = true; }
+            if(dt1.Rows[0][10].ToString() == "COMPLETED") { statusSwitch.Value = true; }
            
          //   SelectedTreatmentID = Convert.ToInt32(dt.Rows[0][8]) - 1;
 
 
-
-            for(int i = 0; i < DentistDD.Items.Length; i++)
+           
+            for (int i = 0; i <DentistID.Count; i++)
             {
-                if (DentistID[i] == Convert.ToInt32(dt1.Rows[0][11])) 
+
+                if (DentistID[i] == Convert.ToInt32(dt1.Rows[0][11]))
                 {
                     SelectedDentistID = i;
                 }
@@ -1012,27 +1013,46 @@ namespace _846DentalClinicManagementSystem
             try
             {
                 adapter.Fill(dt);
-                String StartTime, EndTime;
 
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-
-                    StartTime = dt.Rows[i][0].ToString();
-                    EndTime = dt.Rows[i][1].ToString();
-
-
-                    DateTime timeStartB = DateTime.ParseExact(StartTime, "hh:mm tt", System.Globalization.CultureInfo.CurrentCulture);
-                    DateTime timeEndB = DateTime.ParseExact(EndTime, "hh:mm tt", System.Globalization.CultureInfo.CurrentCulture);
-
-                    if (isOverlapDates(timeStartA, timeEndA, timeStartB, timeEndB) == true)
-                    {
-                        return true;
-                        
-                    }
-                }
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
- 
+
+            SqlCommand cmd2 = new SqlCommand(
+                 "SELECT StartTime,EndTime FROM AppointmentException WHERE EmployeeID_fk = @EmployeeID_fk AND " + "" +
+                 "Date =@date", sqlcon);
+            cmd2.Parameters.Clear();
+            cmd2.Parameters.AddWithValue("@EmployeeID_fk", SelectedDentistID);
+            cmd2.Parameters.AddWithValue("@date", date);
+            adapter.SelectCommand = cmd2;
+
+            //Console.WriteLine(SelectedDentistID + "   " + date);
+            //AND NOT AppointmentID = @AppID
+            try
+            {
+                adapter.Fill(dt);
+
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+
+            String StartTime, EndTime;
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+
+                StartTime = dt.Rows[i][0].ToString();
+                EndTime = dt.Rows[i][1].ToString();
+
+
+                DateTime timeStartB = DateTime.ParseExact(StartTime, "hh:mm tt", System.Globalization.CultureInfo.CurrentCulture);
+                DateTime timeEndB = DateTime.ParseExact(EndTime, "hh:mm tt", System.Globalization.CultureInfo.CurrentCulture);
+
+                if (isOverlapDates(timeStartA, timeEndA, timeStartB, timeEndB) == true)
+                {
+                    return true;
+
+                }
+            }
+
             return false;
         }
 

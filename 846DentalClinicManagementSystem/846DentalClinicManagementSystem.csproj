@@ -330,6 +330,7 @@
       <DependentUpon>ISADDATABASEFINAL.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\edit.png" />
     <None Include="Resources\dr-removebg-preview.png" />
     <None Include="Resources\iconfinder_icon-118-lock-rounded_314696.png" />
     <None Include="Resources\dr.png" />

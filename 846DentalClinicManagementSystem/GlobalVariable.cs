@@ -35,6 +35,12 @@ namespace _846DentalClinicManagementSystem
 
         public static int BillingID { get; set; }
 
+        public static int AppExceptionID { get; set; }
+
+        public static Boolean isEditAppException { get; set; }
+
+        public static Boolean isAddAppException { get; set; }
+
         public static Boolean isEditAppointment { get; set; }
 
         public static Boolean isAddAppointment { get; set; }

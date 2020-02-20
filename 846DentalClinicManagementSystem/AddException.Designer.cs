@@ -31,21 +31,22 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddException));
             this.TopPanel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.txt_formHeader = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.DP_date = new Bunifu.Framework.UI.BunifuDatepicker();
-            this.TimeDD = new Bunifu.Framework.UI.BunifuDropdown();
+            this.StartTimeDD = new Bunifu.Framework.UI.BunifuDropdown();
             this.DentistDD = new Bunifu.Framework.UI.BunifuDropdown();
             this.txt_Note = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuDropdown1 = new Bunifu.Framework.UI.BunifuDropdown();
+            this.EndTimeDD = new Bunifu.Framework.UI.BunifuDropdown();
             this.btn_close = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_add = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.TopPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
@@ -53,6 +54,7 @@
             // TopPanel2
             // 
             this.TopPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
+            this.TopPanel2.Controls.Add(this.label1);
             this.TopPanel2.Controls.Add(this.txt_formHeader);
             this.TopPanel2.Controls.Add(this.pictureBox5);
             this.TopPanel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -60,6 +62,19 @@
             this.TopPanel2.Name = "TopPanel2";
             this.TopPanel2.Size = new System.Drawing.Size(508, 45);
             this.TopPanel2.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(480, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(16, 16);
+            this.label1.TabIndex = 63;
+            this.label1.Text = "X";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txt_formHeader
             // 
@@ -71,16 +86,6 @@
             this.txt_formHeader.Size = new System.Drawing.Size(146, 22);
             this.txt_formHeader.TabIndex = 3;
             this.txt_formHeader.Text = "Add Exception";
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackgroundImage = global::_846DentalClinicManagementSystem.Properties.Resources.btnscheduler__2_;
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Location = new System.Drawing.Point(9, 7);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(32, 28);
-            this.pictureBox5.TabIndex = 2;
-            this.pictureBox5.TabStop = false;
             // 
             // bunifuElipse1
             // 
@@ -132,14 +137,15 @@
             this.DP_date.Size = new System.Drawing.Size(193, 53);
             this.DP_date.TabIndex = 40;
             this.DP_date.Value = new System.DateTime(2019, 10, 8, 0, 17, 0, 47);
+            this.DP_date.onValueChanged += new System.EventHandler(this.DP_date_onValueChanged);
             // 
-            // TimeDD
+            // StartTimeDD
             // 
-            this.TimeDD.BackColor = System.Drawing.Color.Transparent;
-            this.TimeDD.BorderRadius = 3;
-            this.TimeDD.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TimeDD.ForeColor = System.Drawing.Color.White;
-            this.TimeDD.Items = new string[] {
+            this.StartTimeDD.BackColor = System.Drawing.Color.Transparent;
+            this.StartTimeDD.BorderRadius = 3;
+            this.StartTimeDD.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartTimeDD.ForeColor = System.Drawing.Color.White;
+            this.StartTimeDD.Items = new string[] {
         "09:00 AM",
         "09:30 AM",
         "10:00 AM",
@@ -156,15 +162,17 @@
         "03:30 PM",
         "04:00 PM",
         "04:30 PM",
-        "05:00 PM"};
-            this.TimeDD.Location = new System.Drawing.Point(37, 170);
-            this.TimeDD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.TimeDD.Name = "TimeDD";
-            this.TimeDD.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.TimeDD.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.TimeDD.selectedIndex = -1;
-            this.TimeDD.Size = new System.Drawing.Size(193, 53);
-            this.TimeDD.TabIndex = 39;
+        "05:00 PM",
+        "06:00 PM"};
+            this.StartTimeDD.Location = new System.Drawing.Point(37, 170);
+            this.StartTimeDD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.StartTimeDD.Name = "StartTimeDD";
+            this.StartTimeDD.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.StartTimeDD.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.StartTimeDD.selectedIndex = -1;
+            this.StartTimeDD.Size = new System.Drawing.Size(193, 53);
+            this.StartTimeDD.TabIndex = 39;
+            this.StartTimeDD.onItemSelected += new System.EventHandler(this.StartTimeDD_onItemSelected);
             // 
             // DentistDD
             // 
@@ -181,6 +189,7 @@
             this.DentistDD.selectedIndex = -1;
             this.DentistDD.Size = new System.Drawing.Size(193, 53);
             this.DentistDD.TabIndex = 38;
+            this.DentistDD.onItemSelected += new System.EventHandler(this.DentistDD_onItemSelected);
             // 
             // txt_Note
             // 
@@ -216,13 +225,13 @@
             this.bunifuCustomLabel1.TabIndex = 47;
             this.bunifuCustomLabel1.Text = "End Time";
             // 
-            // bunifuDropdown1
+            // EndTimeDD
             // 
-            this.bunifuDropdown1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuDropdown1.BorderRadius = 3;
-            this.bunifuDropdown1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuDropdown1.ForeColor = System.Drawing.Color.White;
-            this.bunifuDropdown1.Items = new string[] {
+            this.EndTimeDD.BackColor = System.Drawing.Color.Transparent;
+            this.EndTimeDD.BorderRadius = 3;
+            this.EndTimeDD.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EndTimeDD.ForeColor = System.Drawing.Color.White;
+            this.EndTimeDD.Items = new string[] {
         "09:00 AM",
         "09:30 AM",
         "10:00 AM",
@@ -239,15 +248,17 @@
         "03:30 PM",
         "04:00 PM",
         "04:30 PM",
-        "05:00 PM"};
-            this.bunifuDropdown1.Location = new System.Drawing.Point(37, 254);
-            this.bunifuDropdown1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.bunifuDropdown1.Name = "bunifuDropdown1";
-            this.bunifuDropdown1.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.bunifuDropdown1.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.bunifuDropdown1.selectedIndex = -1;
-            this.bunifuDropdown1.Size = new System.Drawing.Size(193, 53);
-            this.bunifuDropdown1.TabIndex = 46;
+        "05:00 PM",
+        "06:00 PM"};
+            this.EndTimeDD.Location = new System.Drawing.Point(37, 254);
+            this.EndTimeDD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.EndTimeDD.Name = "EndTimeDD";
+            this.EndTimeDD.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.EndTimeDD.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.EndTimeDD.selectedIndex = -1;
+            this.EndTimeDD.Size = new System.Drawing.Size(193, 53);
+            this.EndTimeDD.TabIndex = 46;
+            this.EndTimeDD.onItemSelected += new System.EventHandler(this.EndTimeDD_onItemSelected);
             // 
             // btn_close
             // 
@@ -316,6 +327,17 @@
             this.btn_add.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_add.Textcolor = System.Drawing.Color.White;
             this.btn_add.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackgroundImage = global::_846DentalClinicManagementSystem.Properties.Resources.btnscheduler__2_;
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox5.Location = new System.Drawing.Point(9, 7);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(32, 28);
+            this.pictureBox5.TabIndex = 2;
+            this.pictureBox5.TabStop = false;
             // 
             // AddException
             // 
@@ -325,18 +347,19 @@
             this.Controls.Add(this.btn_close);
             this.Controls.Add(this.btn_add);
             this.Controls.Add(this.bunifuCustomLabel1);
-            this.Controls.Add(this.bunifuDropdown1);
+            this.Controls.Add(this.EndTimeDD);
             this.Controls.Add(this.txt_Note);
             this.Controls.Add(this.bunifuCustomLabel7);
             this.Controls.Add(this.bunifuCustomLabel6);
             this.Controls.Add(this.bunifuCustomLabel4);
             this.Controls.Add(this.bunifuCustomLabel3);
             this.Controls.Add(this.DP_date);
-            this.Controls.Add(this.TimeDD);
+            this.Controls.Add(this.StartTimeDD);
             this.Controls.Add(this.DentistDD);
             this.Controls.Add(this.TopPanel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddException";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AddException";
             this.TopPanel2.ResumeLayout(false);
             this.TopPanel2.PerformLayout();
@@ -356,13 +379,14 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel4;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
         private Bunifu.Framework.UI.BunifuDatepicker DP_date;
-        private Bunifu.Framework.UI.BunifuDropdown TimeDD;
+        private Bunifu.Framework.UI.BunifuDropdown StartTimeDD;
         private Bunifu.Framework.UI.BunifuDropdown DentistDD;
         private WindowsFormsControlLibrary1.BunifuCustomTextbox txt_Note;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel7;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
-        private Bunifu.Framework.UI.BunifuDropdown bunifuDropdown1;
+        private Bunifu.Framework.UI.BunifuDropdown EndTimeDD;
         private Bunifu.Framework.UI.BunifuFlatButton btn_close;
         private Bunifu.Framework.UI.BunifuFlatButton btn_add;
+        private System.Windows.Forms.Label label1;
     }
 }

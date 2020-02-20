@@ -169,7 +169,7 @@ namespace _846DentalClinicManagementSystem
             bool isFNameValid = Regex.IsMatch(FName, @"^[a-zA-Z\x20]*?$");
             bool isMNameValid = Regex.IsMatch(MName, @"^[a-zA-Z\x20]*?$");
             bool isLicenseNoValid = Regex.IsMatch(LicenseNo, @"^[0-9]+$");
-            bool isContactValid = Regex.IsMatch(LicenseNo, @"^[0-9]+$");
+            bool isContactValid = Regex.IsMatch(ContactNo, @"^[0-9]+$");
 
           
 
@@ -196,7 +196,7 @@ namespace _846DentalClinicManagementSystem
                                             {
                                                 if (string.IsNullOrEmpty(Position) == false)
                                                 {
-                                                    if ((string.IsNullOrEmpty(LicenseNo) == false) && isLicenseNoValid)
+                                                    if (((string.IsNullOrEmpty(LicenseNo) == false) && isLicenseNoValid) || Position == "Staff")
                                                     {
 
                                                         var main = Application.OpenForms.OfType<MainForm>().First();
