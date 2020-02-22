@@ -12,7 +12,7 @@ namespace _846DentalClinicManagementSystem
 {
     class GlobalVariable
     {
-       // public static string connString => ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        public static string connString => ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
         //  public static SqlConnection sqlcon = new SqlConnection(connString);
         private static string workingDirectory = Environment.CurrentDirectory;
@@ -21,7 +21,7 @@ namespace _846DentalClinicManagementSystem
 
         private static string chart = projectDirectory + @"\Data\ISADDATABASEFINAL.mdf";
 
-        public static string connString = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=" + chart + ";Integrated Security = True";
+     //   public static string connString = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=" + chart + ";Integrated Security = True";
 
         public static string chartImagePath = projectDirectory + @"\Resources\DentalChart2.bmp";
 
