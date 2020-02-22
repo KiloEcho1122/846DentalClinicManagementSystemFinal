@@ -1596,7 +1596,7 @@ namespace _846DentalClinicManagementSystem
                             popup.ContentFont = new System.Drawing.Font("Segoe UI", 11.25F);
                             popup.ContentPadding = new Padding(10);
                             popup.ContentText = row[1].ToString() + "\n" + row[2].ToString() + "\n" + row[3].ToString() + "\n" + "Dr. " + row[4].ToString();
-                            popup.Delay = 60000;
+                            popup.Delay = 120000;
                             popup.AnimationInterval = 20;
                             popup.Popup();
                         });
