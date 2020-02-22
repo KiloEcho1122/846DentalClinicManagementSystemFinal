@@ -393,6 +393,16 @@ namespace _846DentalClinicManagementSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap info_icon {
+            get {
+                object obj = ResourceManager.GetObject("info icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap lightyellow {
             get {
                 object obj = ResourceManager.GetObject("lightyellow", resourceCulture);

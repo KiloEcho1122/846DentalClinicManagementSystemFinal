@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Data.SqlClient;
 using System.Collections;
+using Tulpep.NotificationWindow;
 
 namespace _846DentalClinicManagementSystem
 {
@@ -31,6 +32,8 @@ namespace _846DentalClinicManagementSystem
             AccountingPanel.Visible = false;
             SchedulerPanel.Visible = false;
             Dentist_Panel.Visible = false;
+            AppointmentHistory_Panel.Visible = false;
+            ActivityLog_Panel.Visible = false; 
         }
 
         private void playVideo()
@@ -52,6 +55,7 @@ namespace _846DentalClinicManagementSystem
         private void MainForm_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
+            NotificationTimer.Enabled = true;
             Loadusername();
             HidePanels();
             HomePanel.Visible = true;
@@ -152,9 +156,51 @@ namespace _846DentalClinicManagementSystem
             Dentist_Panel.Visible = true;
         }
 
+        private void btn_viewAppHistory_Click(object sender, EventArgs e)
+        {
+            HidePanels();
+            AppointmentHistory_Panel.Visible = true;
+            LoadAppHistory();
+        }
+
 
 
         // Main Panel End -----------------------------------------------------------------------------------------------------------
+
+        //App Historu Panel Start
+
+        private void LoadAppHistory()
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand("SELECT a.AppointmentID AS ID, CONCAT(a.Appointment_LName, ',', a.Appointment_FName, ' ', a.Appointment_MName) AS Patient," +
+            "a.AppointmentDate AS Date, CONCAT(a.StartTime, ' - ', a.EndTime) AS Time, CONCAT(e.FirstName, ' ', e.LastName) AS Dentist," +
+            "a.Status FROM Appointment a INNER JOIN Employee e ON a.EmployeeID_fk = e.EmployeeId WHERE NOT a.Status = 'PENDING' ORDER BY a.AppointmentDate DESC",sqlcon);
+            adapter.SelectCommand = cmd;
+            try
+            {
+                adapter.Fill(dt);
+                AppHistory_DataGrid.DataSource = dt;
+                AppHistory_DataGrid.Columns[0].Width = 70;
+                AppHistory_DataGrid.Columns[1].Width = 200;
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+         
+        }
+
+        private void btn_Back_Click(object sender, EventArgs e)
+        {
+            HidePanels();
+            SchedulerPanel.Visible = true;
+        }
+
+        //App History Panel End
+
+
+
 
         //Scheduler Panel Start  ----------------------------------------------------------------------------------------------------
 
@@ -1492,8 +1538,75 @@ namespace _846DentalClinicManagementSystem
                 }
             }
         }
+       
 
-        
+        private DataTable NotifDataTable(DateTime Apptime1, DateTime Apptime2)
+        {
+     
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand("SELECT a.AppointmentID, CONCAT(a.Appointment_LName,',',a.Appointment_FName, ' ',a.Appointment_MName ), " +
+                                            "a.Appointment_Contact ,CONCAT(a.StartTime,' - ', a.EndTime), CONCAT(e.FirstName,' ' ,e.LastName) " +
+                                            "FROM Appointment a INNER JOIN Employee e ON a.EmployeeID_fk = e.EmployeeId WHERE a.Status ='PENDING' AND " +
+                                            "a.AppointmentDate = @date AND  RefTime BETWEEN @time1 AND @time2 ORDER BY a.RefTime ASC", sqlcon);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@date", System.DateTime.Now.ToShortDateString());
+            cmd.Parameters.AddWithValue("@time1", Apptime1.ToString("HH:mm:ss"));
+            cmd.Parameters.AddWithValue("@time2", Apptime2.ToString("HH:mm:ss"));
+            adapter.SelectCommand = cmd;
+            try
+            {
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return dt;
+        }
+
+        List<int> NotifID = new List<int>();
+
+        private void NotificationTimer_Tick(object sender, EventArgs e)
+        {
+            DateTime Apptime1 = System.DateTime.Now;
+            DateTime Apptime2 = Apptime1.AddMinutes(30);
+            DataTable dt =  NotifDataTable(Apptime1, Apptime2);
+
+            if(dt.Rows.Count > 0)
+            {
+                foreach (DataRow row in dt.Rows)
+                {
+                    if (!(NotifID.Contains((int)row[0])))
+                    {
+                        NotifID.Add((int)row[0]);
+                        this.Invoke((MethodInvoker)delegate
+                        {
+                            PopupNotifier popup = new PopupNotifier();
+                            popup.Size = new Size(300, 180);
+                            popup.Image = Properties.Resources.info_icon;
+                            popup.ImageSize = new Size(30, 30);
+                            popup.ImagePadding = new Padding(5);
+                            popup.HeaderHeight = 20;
+                            popup.HeaderColor = Color.Orange;
+                            popup.TitlePadding = new Padding(5);
+                            popup.TitleFont = new System.Drawing.Font("Segoe UI", 13.25F);
+                            popup.TitleText = " Appointment Notification";
+                            popup.ContentFont = new System.Drawing.Font("Segoe UI", 11.25F);
+                            popup.ContentPadding = new Padding(10);
+                            popup.ContentText = row[1].ToString() + "\n" + row[2].ToString() + "\n" + row[3].ToString() + "\n" + "Dr. " + row[4].ToString();
+                            popup.Delay = 60000;
+                            popup.AnimationInterval = 20;
+                            popup.Popup();
+                        });
+                    }
+
+                   
+                }
+            }
+
+        }
 
         private void Employee_DataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {

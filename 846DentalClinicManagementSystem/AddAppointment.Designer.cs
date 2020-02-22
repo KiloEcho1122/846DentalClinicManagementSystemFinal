@@ -36,9 +36,6 @@
             this.TopPanel2 = new System.Windows.Forms.Panel();
             this.lbl_Close = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txt_formHeader = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.txt_PatientSearch = new Bunifu.Framework.UI.BunifuTextbox();
-            this.btn_PatientSearch = new Bunifu.Framework.UI.BunifuThinButton2();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.AppSearch_DataGrid = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.DentistDD = new Bunifu.Framework.UI.BunifuDropdown();
@@ -50,8 +47,6 @@
             this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txt_Note = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
-            this.btn_add = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btn_CancelApp = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuCustomLabel8 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel9 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -60,11 +55,8 @@
             this.txt_FName = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.txt_MName = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.lbl_AppNo = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.btn_CreateBilling = new Bunifu.Framework.UI.BunifuFlatButton();
             this.Treatment_CB = new System.Windows.Forms.ComboBox();
             this.TreatmentList = new System.Windows.Forms.ListBox();
-            this.btn_RemoveItem = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.statusSwitch = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblContact = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txt_ContactNo = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
@@ -75,11 +67,19 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.TreatmentDropDownPanel = new System.Windows.Forms.Panel();
+            this.statusSwitch = new Bunifu.Framework.UI.BunifuiOSSwitch();
+            this.btn_RemoveItem = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btn_CreateBilling = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btn_CancelApp = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btn_add = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btn_PatientSearch = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.txt_PatientSearch = new Bunifu.Framework.UI.BunifuTextbox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.TopPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AppSearch_DataGrid)).BeginInit();
             this.panel1.SuspendLayout();
             this.TreatmentDropDownPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -122,57 +122,6 @@
             this.txt_formHeader.Size = new System.Drawing.Size(233, 22);
             this.txt_formHeader.TabIndex = 3;
             this.txt_formHeader.Text = "Add New Appointments";
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackgroundImage = global::_846DentalClinicManagementSystem.Properties.Resources.btnscheduler__2_;
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Location = new System.Drawing.Point(9, 7);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(32, 28);
-            this.pictureBox5.TabIndex = 2;
-            this.pictureBox5.TabStop = false;
-            // 
-            // txt_PatientSearch
-            // 
-            this.txt_PatientSearch.BackColor = System.Drawing.Color.Silver;
-            this.txt_PatientSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txt_PatientSearch.BackgroundImage")));
-            this.txt_PatientSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.txt_PatientSearch.ForeColor = System.Drawing.Color.SeaGreen;
-            this.txt_PatientSearch.Icon = ((System.Drawing.Image)(resources.GetObject("txt_PatientSearch.Icon")));
-            this.txt_PatientSearch.Location = new System.Drawing.Point(34, 68);
-            this.txt_PatientSearch.Name = "txt_PatientSearch";
-            this.txt_PatientSearch.Size = new System.Drawing.Size(267, 36);
-            this.txt_PatientSearch.TabIndex = 0;
-            this.txt_PatientSearch.text = "";
-            this.txt_PatientSearch.OnTextChange += new System.EventHandler(this.txt_PatientSearch_OnTextChange);
-            this.txt_PatientSearch.Leave += new System.EventHandler(this.txt_PatientSearch_Leave);
-            // 
-            // btn_PatientSearch
-            // 
-            this.btn_PatientSearch.ActiveBorderThickness = 1;
-            this.btn_PatientSearch.ActiveCornerRadius = 20;
-            this.btn_PatientSearch.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.btn_PatientSearch.ActiveForecolor = System.Drawing.Color.White;
-            this.btn_PatientSearch.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.btn_PatientSearch.BackColor = System.Drawing.SystemColors.Control;
-            this.btn_PatientSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_PatientSearch.BackgroundImage")));
-            this.btn_PatientSearch.ButtonText = "Search";
-            this.btn_PatientSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_PatientSearch.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_PatientSearch.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btn_PatientSearch.IdleBorderThickness = 1;
-            this.btn_PatientSearch.IdleCornerRadius = 20;
-            this.btn_PatientSearch.IdleFillColor = System.Drawing.Color.White;
-            this.btn_PatientSearch.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.btn_PatientSearch.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btn_PatientSearch.Location = new System.Drawing.Point(309, 63);
-            this.btn_PatientSearch.Margin = new System.Windows.Forms.Padding(5);
-            this.btn_PatientSearch.Name = "btn_PatientSearch";
-            this.btn_PatientSearch.Size = new System.Drawing.Size(94, 41);
-            this.btn_PatientSearch.TabIndex = 1;
-            this.btn_PatientSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btn_PatientSearch.Click += new System.EventHandler(this.btn_PatientSearch_Click);
             // 
             // bunifuCustomLabel1
             // 
@@ -355,77 +304,6 @@
             this.txt_Note.Size = new System.Drawing.Size(551, 35);
             this.txt_Note.TabIndex = 9;
             // 
-            // btn_add
-            // 
-            this.btn_add.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_add.BorderRadius = 0;
-            this.btn_add.ButtonText = "Add";
-            this.btn_add.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_add.DisabledColor = System.Drawing.Color.Gray;
-            this.btn_add.Iconcolor = System.Drawing.Color.Transparent;
-            this.btn_add.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_add.Iconimage")));
-            this.btn_add.Iconimage_right = null;
-            this.btn_add.Iconimage_right_Selected = null;
-            this.btn_add.Iconimage_Selected = null;
-            this.btn_add.IconMarginLeft = 0;
-            this.btn_add.IconMarginRight = 0;
-            this.btn_add.IconRightVisible = true;
-            this.btn_add.IconRightZoom = 0D;
-            this.btn_add.IconVisible = true;
-            this.btn_add.IconZoom = 90D;
-            this.btn_add.IsTab = false;
-            this.btn_add.Location = new System.Drawing.Point(665, 468);
-            this.btn_add.Name = "btn_add";
-            this.btn_add.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_add.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.btn_add.OnHoverTextColor = System.Drawing.Color.White;
-            this.btn_add.selected = false;
-            this.btn_add.Size = new System.Drawing.Size(97, 38);
-            this.btn_add.TabIndex = 11;
-            this.btn_add.Text = "Add";
-            this.btn_add.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_add.Textcolor = System.Drawing.Color.White;
-            this.btn_add.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
-            // 
-            // btn_CancelApp
-            // 
-            this.btn_CancelApp.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_CancelApp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_CancelApp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_CancelApp.BorderRadius = 0;
-            this.btn_CancelApp.ButtonText = "Cancel Appointment";
-            this.btn_CancelApp.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_CancelApp.DisabledColor = System.Drawing.Color.Gray;
-            this.btn_CancelApp.Iconcolor = System.Drawing.Color.Transparent;
-            this.btn_CancelApp.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_CancelApp.Iconimage")));
-            this.btn_CancelApp.Iconimage_right = null;
-            this.btn_CancelApp.Iconimage_right_Selected = null;
-            this.btn_CancelApp.Iconimage_Selected = null;
-            this.btn_CancelApp.IconMarginLeft = 0;
-            this.btn_CancelApp.IconMarginRight = 0;
-            this.btn_CancelApp.IconRightVisible = true;
-            this.btn_CancelApp.IconRightZoom = 0D;
-            this.btn_CancelApp.IconVisible = true;
-            this.btn_CancelApp.IconZoom = 90D;
-            this.btn_CancelApp.IsTab = false;
-            this.btn_CancelApp.Location = new System.Drawing.Point(513, 468);
-            this.btn_CancelApp.Name = "btn_CancelApp";
-            this.btn_CancelApp.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_CancelApp.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.btn_CancelApp.OnHoverTextColor = System.Drawing.Color.White;
-            this.btn_CancelApp.selected = false;
-            this.btn_CancelApp.Size = new System.Drawing.Size(146, 38);
-            this.btn_CancelApp.TabIndex = 10;
-            this.btn_CancelApp.Text = "Cancel Appointment";
-            this.btn_CancelApp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_CancelApp.Textcolor = System.Drawing.Color.White;
-            this.btn_CancelApp.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_CancelApp.Visible = false;
-            this.btn_CancelApp.Click += new System.EventHandler(this.btn_CancelApp_Click);
-            // 
             // bunifuDragControl1
             // 
             this.bunifuDragControl1.Fixed = true;
@@ -514,41 +392,6 @@
             this.lbl_AppNo.TabIndex = 27;
             this.lbl_AppNo.Text = "Appointment No.";
             // 
-            // btn_CreateBilling
-            // 
-            this.btn_CreateBilling.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_CreateBilling.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_CreateBilling.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_CreateBilling.BorderRadius = 0;
-            this.btn_CreateBilling.ButtonText = "Make Billing Statement";
-            this.btn_CreateBilling.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_CreateBilling.DisabledColor = System.Drawing.Color.Gray;
-            this.btn_CreateBilling.Iconcolor = System.Drawing.Color.Transparent;
-            this.btn_CreateBilling.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_CreateBilling.Iconimage")));
-            this.btn_CreateBilling.Iconimage_right = null;
-            this.btn_CreateBilling.Iconimage_right_Selected = null;
-            this.btn_CreateBilling.Iconimage_Selected = null;
-            this.btn_CreateBilling.IconMarginLeft = 0;
-            this.btn_CreateBilling.IconMarginRight = 0;
-            this.btn_CreateBilling.IconRightVisible = true;
-            this.btn_CreateBilling.IconRightZoom = 0D;
-            this.btn_CreateBilling.IconVisible = true;
-            this.btn_CreateBilling.IconZoom = 90D;
-            this.btn_CreateBilling.IsTab = false;
-            this.btn_CreateBilling.Location = new System.Drawing.Point(361, 468);
-            this.btn_CreateBilling.Name = "btn_CreateBilling";
-            this.btn_CreateBilling.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_CreateBilling.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.btn_CreateBilling.OnHoverTextColor = System.Drawing.Color.White;
-            this.btn_CreateBilling.selected = false;
-            this.btn_CreateBilling.Size = new System.Drawing.Size(146, 38);
-            this.btn_CreateBilling.TabIndex = 29;
-            this.btn_CreateBilling.Text = "Make Billing Statement";
-            this.btn_CreateBilling.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_CreateBilling.Textcolor = System.Drawing.Color.White;
-            this.btn_CreateBilling.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_CreateBilling.Click += new System.EventHandler(this.btn_CreateBilling_Click);
-            // 
             // Treatment_CB
             // 
             this.Treatment_CB.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -578,56 +421,6 @@
             this.TreatmentList.Name = "TreatmentList";
             this.TreatmentList.Size = new System.Drawing.Size(172, 56);
             this.TreatmentList.TabIndex = 31;
-            // 
-            // btn_RemoveItem
-            // 
-            this.btn_RemoveItem.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_RemoveItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_RemoveItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_RemoveItem.BorderRadius = 0;
-            this.btn_RemoveItem.ButtonText = "Remove";
-            this.btn_RemoveItem.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_RemoveItem.DisabledColor = System.Drawing.Color.Gray;
-            this.btn_RemoveItem.Iconcolor = System.Drawing.Color.Transparent;
-            this.btn_RemoveItem.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_RemoveItem.Iconimage")));
-            this.btn_RemoveItem.Iconimage_right = null;
-            this.btn_RemoveItem.Iconimage_right_Selected = null;
-            this.btn_RemoveItem.Iconimage_Selected = null;
-            this.btn_RemoveItem.IconMarginLeft = 0;
-            this.btn_RemoveItem.IconMarginRight = 0;
-            this.btn_RemoveItem.IconRightVisible = true;
-            this.btn_RemoveItem.IconRightZoom = 0D;
-            this.btn_RemoveItem.IconVisible = true;
-            this.btn_RemoveItem.IconZoom = 90D;
-            this.btn_RemoveItem.IsTab = false;
-            this.btn_RemoveItem.Location = new System.Drawing.Point(620, 347);
-            this.btn_RemoveItem.Name = "btn_RemoveItem";
-            this.btn_RemoveItem.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_RemoveItem.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.btn_RemoveItem.OnHoverTextColor = System.Drawing.Color.White;
-            this.btn_RemoveItem.selected = false;
-            this.btn_RemoveItem.Size = new System.Drawing.Size(111, 30);
-            this.btn_RemoveItem.TabIndex = 32;
-            this.btn_RemoveItem.Text = "Remove";
-            this.btn_RemoveItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_RemoveItem.Textcolor = System.Drawing.Color.White;
-            this.btn_RemoveItem.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_RemoveItem.Click += new System.EventHandler(this.btn_RemoveItem_Click);
-            // 
-            // statusSwitch
-            // 
-            this.statusSwitch.BackColor = System.Drawing.Color.Transparent;
-            this.statusSwitch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("statusSwitch.BackgroundImage")));
-            this.statusSwitch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.statusSwitch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.statusSwitch.Location = new System.Drawing.Point(131, 474);
-            this.statusSwitch.Name = "statusSwitch";
-            this.statusSwitch.OffColor = System.Drawing.Color.Gray;
-            this.statusSwitch.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
-            this.statusSwitch.Size = new System.Drawing.Size(43, 25);
-            this.statusSwitch.TabIndex = 34;
-            this.statusSwitch.Value = false;
-            this.statusSwitch.Click += new System.EventHandler(this.statusSwitch_Click);
             // 
             // bunifuCustomLabel5
             // 
@@ -728,6 +521,212 @@
             this.TreatmentDropDownPanel.Size = new System.Drawing.Size(178, 35);
             this.TreatmentDropDownPanel.TabIndex = 42;
             // 
+            // statusSwitch
+            // 
+            this.statusSwitch.BackColor = System.Drawing.Color.Transparent;
+            this.statusSwitch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("statusSwitch.BackgroundImage")));
+            this.statusSwitch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.statusSwitch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.statusSwitch.Location = new System.Drawing.Point(131, 474);
+            this.statusSwitch.Name = "statusSwitch";
+            this.statusSwitch.OffColor = System.Drawing.Color.Gray;
+            this.statusSwitch.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
+            this.statusSwitch.Size = new System.Drawing.Size(43, 25);
+            this.statusSwitch.TabIndex = 34;
+            this.statusSwitch.Value = false;
+            this.statusSwitch.Click += new System.EventHandler(this.statusSwitch_Click);
+            // 
+            // btn_RemoveItem
+            // 
+            this.btn_RemoveItem.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_RemoveItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_RemoveItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_RemoveItem.BorderRadius = 0;
+            this.btn_RemoveItem.ButtonText = "Remove";
+            this.btn_RemoveItem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_RemoveItem.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_RemoveItem.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_RemoveItem.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_RemoveItem.Iconimage")));
+            this.btn_RemoveItem.Iconimage_right = null;
+            this.btn_RemoveItem.Iconimage_right_Selected = null;
+            this.btn_RemoveItem.Iconimage_Selected = null;
+            this.btn_RemoveItem.IconMarginLeft = 0;
+            this.btn_RemoveItem.IconMarginRight = 0;
+            this.btn_RemoveItem.IconRightVisible = true;
+            this.btn_RemoveItem.IconRightZoom = 0D;
+            this.btn_RemoveItem.IconVisible = true;
+            this.btn_RemoveItem.IconZoom = 90D;
+            this.btn_RemoveItem.IsTab = false;
+            this.btn_RemoveItem.Location = new System.Drawing.Point(620, 347);
+            this.btn_RemoveItem.Name = "btn_RemoveItem";
+            this.btn_RemoveItem.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_RemoveItem.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.btn_RemoveItem.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_RemoveItem.selected = false;
+            this.btn_RemoveItem.Size = new System.Drawing.Size(111, 30);
+            this.btn_RemoveItem.TabIndex = 32;
+            this.btn_RemoveItem.Text = "Remove";
+            this.btn_RemoveItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_RemoveItem.Textcolor = System.Drawing.Color.White;
+            this.btn_RemoveItem.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_RemoveItem.Click += new System.EventHandler(this.btn_RemoveItem_Click);
+            // 
+            // btn_CreateBilling
+            // 
+            this.btn_CreateBilling.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_CreateBilling.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_CreateBilling.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_CreateBilling.BorderRadius = 0;
+            this.btn_CreateBilling.ButtonText = "Make Billing Statement";
+            this.btn_CreateBilling.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_CreateBilling.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_CreateBilling.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_CreateBilling.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_CreateBilling.Iconimage")));
+            this.btn_CreateBilling.Iconimage_right = null;
+            this.btn_CreateBilling.Iconimage_right_Selected = null;
+            this.btn_CreateBilling.Iconimage_Selected = null;
+            this.btn_CreateBilling.IconMarginLeft = 0;
+            this.btn_CreateBilling.IconMarginRight = 0;
+            this.btn_CreateBilling.IconRightVisible = true;
+            this.btn_CreateBilling.IconRightZoom = 0D;
+            this.btn_CreateBilling.IconVisible = true;
+            this.btn_CreateBilling.IconZoom = 90D;
+            this.btn_CreateBilling.IsTab = false;
+            this.btn_CreateBilling.Location = new System.Drawing.Point(361, 468);
+            this.btn_CreateBilling.Name = "btn_CreateBilling";
+            this.btn_CreateBilling.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_CreateBilling.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.btn_CreateBilling.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_CreateBilling.selected = false;
+            this.btn_CreateBilling.Size = new System.Drawing.Size(146, 38);
+            this.btn_CreateBilling.TabIndex = 29;
+            this.btn_CreateBilling.Text = "Make Billing Statement";
+            this.btn_CreateBilling.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_CreateBilling.Textcolor = System.Drawing.Color.White;
+            this.btn_CreateBilling.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_CreateBilling.Click += new System.EventHandler(this.btn_CreateBilling_Click);
+            // 
+            // btn_CancelApp
+            // 
+            this.btn_CancelApp.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_CancelApp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_CancelApp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_CancelApp.BorderRadius = 0;
+            this.btn_CancelApp.ButtonText = "Cancel Appointment";
+            this.btn_CancelApp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_CancelApp.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_CancelApp.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_CancelApp.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_CancelApp.Iconimage")));
+            this.btn_CancelApp.Iconimage_right = null;
+            this.btn_CancelApp.Iconimage_right_Selected = null;
+            this.btn_CancelApp.Iconimage_Selected = null;
+            this.btn_CancelApp.IconMarginLeft = 0;
+            this.btn_CancelApp.IconMarginRight = 0;
+            this.btn_CancelApp.IconRightVisible = true;
+            this.btn_CancelApp.IconRightZoom = 0D;
+            this.btn_CancelApp.IconVisible = true;
+            this.btn_CancelApp.IconZoom = 90D;
+            this.btn_CancelApp.IsTab = false;
+            this.btn_CancelApp.Location = new System.Drawing.Point(513, 468);
+            this.btn_CancelApp.Name = "btn_CancelApp";
+            this.btn_CancelApp.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_CancelApp.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.btn_CancelApp.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_CancelApp.selected = false;
+            this.btn_CancelApp.Size = new System.Drawing.Size(146, 38);
+            this.btn_CancelApp.TabIndex = 10;
+            this.btn_CancelApp.Text = "Cancel Appointment";
+            this.btn_CancelApp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_CancelApp.Textcolor = System.Drawing.Color.White;
+            this.btn_CancelApp.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_CancelApp.Visible = false;
+            // 
+            // btn_add
+            // 
+            this.btn_add.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_add.BorderRadius = 0;
+            this.btn_add.ButtonText = "Add";
+            this.btn_add.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_add.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_add.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_add.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_add.Iconimage")));
+            this.btn_add.Iconimage_right = null;
+            this.btn_add.Iconimage_right_Selected = null;
+            this.btn_add.Iconimage_Selected = null;
+            this.btn_add.IconMarginLeft = 0;
+            this.btn_add.IconMarginRight = 0;
+            this.btn_add.IconRightVisible = true;
+            this.btn_add.IconRightZoom = 0D;
+            this.btn_add.IconVisible = true;
+            this.btn_add.IconZoom = 90D;
+            this.btn_add.IsTab = false;
+            this.btn_add.Location = new System.Drawing.Point(665, 468);
+            this.btn_add.Name = "btn_add";
+            this.btn_add.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_add.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.btn_add.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_add.selected = false;
+            this.btn_add.Size = new System.Drawing.Size(97, 38);
+            this.btn_add.TabIndex = 11;
+            this.btn_add.Text = "Add";
+            this.btn_add.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_add.Textcolor = System.Drawing.Color.White;
+            this.btn_add.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
+            // 
+            // btn_PatientSearch
+            // 
+            this.btn_PatientSearch.ActiveBorderThickness = 1;
+            this.btn_PatientSearch.ActiveCornerRadius = 20;
+            this.btn_PatientSearch.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btn_PatientSearch.ActiveForecolor = System.Drawing.Color.White;
+            this.btn_PatientSearch.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btn_PatientSearch.BackColor = System.Drawing.SystemColors.Control;
+            this.btn_PatientSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_PatientSearch.BackgroundImage")));
+            this.btn_PatientSearch.ButtonText = "Search";
+            this.btn_PatientSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_PatientSearch.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_PatientSearch.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btn_PatientSearch.IdleBorderThickness = 1;
+            this.btn_PatientSearch.IdleCornerRadius = 20;
+            this.btn_PatientSearch.IdleFillColor = System.Drawing.Color.White;
+            this.btn_PatientSearch.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btn_PatientSearch.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btn_PatientSearch.Location = new System.Drawing.Point(309, 63);
+            this.btn_PatientSearch.Margin = new System.Windows.Forms.Padding(5);
+            this.btn_PatientSearch.Name = "btn_PatientSearch";
+            this.btn_PatientSearch.Size = new System.Drawing.Size(94, 41);
+            this.btn_PatientSearch.TabIndex = 1;
+            this.btn_PatientSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_PatientSearch.Click += new System.EventHandler(this.btn_PatientSearch_Click);
+            // 
+            // txt_PatientSearch
+            // 
+            this.txt_PatientSearch.BackColor = System.Drawing.Color.Silver;
+            this.txt_PatientSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txt_PatientSearch.BackgroundImage")));
+            this.txt_PatientSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.txt_PatientSearch.ForeColor = System.Drawing.Color.SeaGreen;
+            this.txt_PatientSearch.Icon = ((System.Drawing.Image)(resources.GetObject("txt_PatientSearch.Icon")));
+            this.txt_PatientSearch.Location = new System.Drawing.Point(34, 68);
+            this.txt_PatientSearch.Name = "txt_PatientSearch";
+            this.txt_PatientSearch.Size = new System.Drawing.Size(267, 36);
+            this.txt_PatientSearch.TabIndex = 0;
+            this.txt_PatientSearch.text = "";
+            this.txt_PatientSearch.OnTextChange += new System.EventHandler(this.txt_PatientSearch_OnTextChange);
+            this.txt_PatientSearch.Leave += new System.EventHandler(this.txt_PatientSearch_Leave);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackgroundImage = global::_846DentalClinicManagementSystem.Properties.Resources.btnscheduler__2_;
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox5.Location = new System.Drawing.Point(9, 7);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(32, 28);
+            this.pictureBox5.TabIndex = 2;
+            this.pictureBox5.TabStop = false;
+            // 
             // AddAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -771,10 +770,10 @@
             this.Load += new System.EventHandler(this.AddAppointment_Load);
             this.TopPanel2.ResumeLayout(false);
             this.TopPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AppSearch_DataGrid)).EndInit();
             this.panel1.ResumeLayout(false);
             this.TreatmentDropDownPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
