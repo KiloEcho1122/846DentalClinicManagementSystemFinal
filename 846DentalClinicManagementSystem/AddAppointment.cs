@@ -52,6 +52,7 @@ namespace _846DentalClinicManagementSystem
                 bunifuCustomLabel5.Visible = false;
                 statusSwitch.Visible = false;
                 this.Text = "Add Appointment";
+                btn_CreateBilling.Location = new Point(513, 468);
 
             }
             if (GlobalVariable.isEditAppointment == true && GlobalVariable.isAddAppointment ==false)
@@ -99,7 +100,7 @@ namespace _846DentalClinicManagementSystem
             txt_ContactNo.Top = 336;
             // //buttons
             btn_CreateBilling.Top = 413;
-            btn_close.Top = 413;
+            btn_CancelApp.Top = 413;
             btn_add.Top = 413;
             statusSwitch.Top = 419;
 
@@ -110,22 +111,14 @@ namespace _846DentalClinicManagementSystem
             AppSearch_DataGrid.Visible = false;
             bunifuCustomLabel1.Visible = false;
             btn_CreateBilling.Visible = true;
+            btn_CancelApp.Visible = true;
             btn_add.Text = "Update";
             txt_formHeader.Text = "Update Appointment";
             this.Text = "Update Appointment";
 
         }
 
-        private void btn_close_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            GlobalVariable.isEditAppointment = false;
-            GlobalVariable.isAddAppointment = false;
-           // var main = Application.OpenForms.OfType<MainForm>().First();
-            ////  main.ShowAppointment(DP_date.Value.ToShortDateString());
-            //  main.SearchAppByDate_DP.Value = DP_date.Value;
-          
-        }
+     
 
         private void btn_add_Click(object sender, EventArgs e)
         {
@@ -172,7 +165,15 @@ namespace _846DentalClinicManagementSystem
                                             {
                                                 insertAppointmentToDB();
                                                 GlobalVariable.isAddAppointment = false;
-                                                main.SearchAppByDate_DP.Value = DP_date.Value;
+                                                if(main.SearchAppByDate_DP.Value == DP_date.Value)
+                                                {
+                                                    main.RefreshAppointmentView();
+                                                }
+                                                else
+                                                {
+                                                    main.SearchAppByDate_DP.Value = DP_date.Value;
+                                                }
+                                               
                                                 this.Hide();
 
                                                
@@ -181,7 +182,14 @@ namespace _846DentalClinicManagementSystem
                                             {
                                                 updateAppointmentToDB();
                                                 GlobalVariable.isEditAppointment = false;
-                                                main.SearchAppByDate_DP.Value = DP_date.Value;
+                                                if (main.SearchAppByDate_DP.Value == DP_date.Value)
+                                                {
+                                                    main.RefreshAppointmentView();
+                                                }
+                                                else
+                                                {
+                                                    main.SearchAppByDate_DP.Value = DP_date.Value;
+                                                }
                                                 this.Hide();
 
                                             }
@@ -843,6 +851,79 @@ namespace _846DentalClinicManagementSystem
             AppSearch_DataGrid.Visible = false;
         }
 
+        private void lbl_Close_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            GlobalVariable.isEditAppointment = false;
+            GlobalVariable.isAddAppointment = false;
+        }
+
+        private void btn_CancelApp_Click(object sender, EventArgs e)
+        {
+            if (statusSwitch.Value == false ){
+                if (IsPaymentMade() == false)
+                {
+                    DialogResult result = MessageBox.Show("Are you sure you want to cancel appointment?", "Cancel Appointment", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
+                    {
+                        SqlCommand cmd = new SqlCommand("UPDATE [Appointment] SET Status='CANCELLED' Where AppointmentID = @id", sqlcon);
+                        cmd.Parameters.Clear();
+                        cmd.Parameters.AddWithValue("@id", AppNo);
+                        if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+
+                        try
+                        {
+                            cmd.ExecuteNonQuery();
+                            var main = Application.OpenForms.OfType<MainForm>().First();
+                            GlobalVariable.isEditAppointment = false;
+                            MessageBox.Show("Appointment Cancelled Successfully");
+                            if (main.SearchAppByDate_DP.Value == DP_date.Value)
+                            {
+                                main.RefreshAppointmentView();
+                            }
+                            else
+                            {
+                                main.SearchAppByDate_DP.Value = DP_date.Value;
+                            }
+                            this.Hide();
+
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
+
+                        sqlcon.Close();
+                    }
+                }
+                else { MessageBox.Show("Payment Already Made!", "Error", MessageBoxButtons.OK,MessageBoxIcon.Error); }
+            }
+            else { MessageBox.Show("Appointment Already Completed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+
+        }
+
+        private bool IsPaymentMade()
+        {
+            SqlCommand cmd = new SqlCommand("SELECT AmountPay FROM Billing WHERE AppointmentID_fk = @appID", sqlcon);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@appID",AppNo);
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+            try
+            {
+                object result = 0;
+                result=  cmd.ExecuteScalar();
+                if(Convert.ToInt32(result) > 0 )
+                {
+                    return true;
+                }
+
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+            sqlcon.Close();
+
+            return false;
+        }
+
         private void statusSwitch_Click(object sender, EventArgs e)
         {
             
@@ -1000,7 +1081,7 @@ namespace _846DentalClinicManagementSystem
             DataTable dt = new DataTable();
             SqlCommand cmd = new SqlCommand(
                    "SELECT StartTime,EndTime FROM Appointment WHERE EmployeeID_fk = @EmployeeID_fk AND " + "" +
-                   "AppointmentDate =@date AND NOT AppointmentID = @AppID", sqlcon);
+                   "AppointmentDate =@date AND NOT AppointmentID = @AppID AND NOT Status ='CANCELLED'", sqlcon);
 
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@EmployeeID_fk", SelectedDentistID);
@@ -1019,7 +1100,7 @@ namespace _846DentalClinicManagementSystem
 
             SqlCommand cmd2 = new SqlCommand(
                  "SELECT StartTime,EndTime FROM AppointmentException WHERE EmployeeID_fk = @EmployeeID_fk AND " + "" +
-                 "Date =@date", sqlcon);
+                 "Date =@date AND NOT Status ='CANCELLED'", sqlcon);
             cmd2.Parameters.Clear();
             cmd2.Parameters.AddWithValue("@EmployeeID_fk", SelectedDentistID);
             cmd2.Parameters.AddWithValue("@date", date);

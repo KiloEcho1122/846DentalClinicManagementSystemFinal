@@ -188,12 +188,12 @@ namespace _846DentalClinicManagementSystem
                 Appquery = "SELECT a.AppointmentID AS No, CONCAT(a.Appointment_LName, ', ', a.Appointment_FName, ' ', a.Appointment_MName) AS Patient_Name, " +
                 "a.EmployeeID_fk,p.Treatment,a.Status, a.StartTime, a.AppointmentDate,a.Appointment_Contact FROM Appointment a INNER JOIN[PatientTreatment] p " +
                 "ON AppointmentID = AppointmentID_fk INNER JOIN[Employee] e ON e.EmployeeId = a.EmployeeID_fk " +
-                "WHERE AppointmentDate = @date AND e.JobTitle = 'Dentist' ORDER BY RefTime ASC";
+                "WHERE AppointmentDate = @date AND e.JobTitle = 'Dentist' AND NOT Status ='CANCELLED' ORDER BY RefTime ASC";
                 cmd = new SqlCommand(Appquery, sqlcon);
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@date", date);
 
-                ApExceptquery = "SELECT * FROM [AppointmentException] WHERE Date = @date  ORDER BY RefTime ASC";
+                ApExceptquery = "SELECT * FROM [AppointmentException] WHERE Date = @date AND NOT Status ='CANCELLED' ORDER BY RefTime ASC";
                 cmd2 = new SqlCommand(ApExceptquery, sqlcon);
                 cmd2.Parameters.Clear();
                 cmd2.Parameters.AddWithValue("@date", date);
@@ -216,13 +216,13 @@ namespace _846DentalClinicManagementSystem
                 Appquery = "SELECT a.AppointmentID AS No, CONCAT(a.Appointment_LName, ', ', a.Appointment_FName, ' ', a.Appointment_MName) AS Patient_Name, " +
                "a.EmployeeID_fk,p.Treatment,a.Status, a.StartTime, a.AppointmentDate,a.Appointment_Contact FROM Appointment a INNER JOIN[PatientTreatment] p " +
                "ON AppointmentID = AppointmentID_fk INNER JOIN[Employee] e ON e.EmployeeId = a.EmployeeID_fk " +
-               "WHERE e.JobTitle = 'Dentist' AND AppointmentDate BETWEEN @date AND @date2 ORDER BY RefTime ASC";
+               "WHERE e.JobTitle = 'Dentist' AND NOT Status ='CANCELLED' AND AppointmentDate BETWEEN @date AND @date2 ORDER BY RefTime ASC";
                 cmd = new SqlCommand(Appquery, sqlcon);
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@date", date);
                 cmd.Parameters.AddWithValue("@date2", date2);
 
-                ApExceptquery = "SELECT * FROM [AppointmentException] WHERE Date BETWEEN @date AND @date2 ORDER BY RefTime ASC";
+                ApExceptquery = "SELECT * FROM [AppointmentException] WHERE Date BETWEEN @date AND @date2 AND NOT Status ='CANCELLED' ORDER BY RefTime ASC";
                 cmd2 = new SqlCommand(ApExceptquery, sqlcon);
                 cmd2.Parameters.Clear();
                 cmd2.Parameters.AddWithValue("@date", date);
@@ -330,9 +330,6 @@ namespace _846DentalClinicManagementSystem
 
             }
 
-           
-
-
 
             //clear list controls of panel
 
@@ -355,7 +352,7 @@ namespace _846DentalClinicManagementSystem
             this.Appointment_Panel.Controls.Add(appointment);
 
             Label namee = new Label();
-            namee.Text = "BAWAL APPOINTMENT";
+            namee.Text = "Not Available";
             namee.ForeColor = Color.White;
             namee.Size = new Size(labelWidth, 20);
             namee.Font = new Font("Microsoft Sans Serif", nameTextSize, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -590,6 +587,8 @@ namespace _846DentalClinicManagementSystem
         int LastScrollPosX = 0, LastScrollPosY = 0;
         public void RefreshAppointmentView()
         {
+            LastScrollPosX = Appointment_Panel.HorizontalScroll.Value;
+            LastScrollPosY = Appointment_Panel.VerticalScroll.Value;
             string date = SearchAppByDate_DP.Value.ToString("M/d/yyyy");
             if (isWeek) { DrawAppointmentTable(); }
             ShowAppointment(date);
@@ -598,8 +597,7 @@ namespace _846DentalClinicManagementSystem
 
         private void SearchAppByDate_DP_onValueChanged(object sender, EventArgs e)
         {
-            LastScrollPosX = Appointment_Panel.HorizontalScroll.Value;
-            LastScrollPosY = Appointment_Panel.VerticalScroll.Value;
+            
             RefreshAppointmentView();
         }
 
@@ -904,6 +902,7 @@ namespace _846DentalClinicManagementSystem
             int horizontalX = 0;
             int horizontalY = 60;
             int width;
+            Appointment_Panel.AutoScrollPosition = new Point(0, 0);
 
             if (WeekSwitch.Value == false)
             {

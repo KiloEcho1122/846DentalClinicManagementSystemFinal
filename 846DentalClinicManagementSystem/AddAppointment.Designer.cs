@@ -34,6 +34,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddAppointment));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.TopPanel2 = new System.Windows.Forms.Panel();
+            this.lbl_Close = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txt_formHeader = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.txt_PatientSearch = new Bunifu.Framework.UI.BunifuTextbox();
@@ -50,7 +51,7 @@
             this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txt_Note = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.btn_add = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btn_close = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btn_CancelApp = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuCustomLabel8 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel9 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -89,6 +90,7 @@
             // TopPanel2
             // 
             this.TopPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
+            this.TopPanel2.Controls.Add(this.lbl_Close);
             this.TopPanel2.Controls.Add(this.txt_formHeader);
             this.TopPanel2.Controls.Add(this.pictureBox5);
             this.TopPanel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -96,6 +98,19 @@
             this.TopPanel2.Name = "TopPanel2";
             this.TopPanel2.Size = new System.Drawing.Size(790, 45);
             this.TopPanel2.TabIndex = 0;
+            // 
+            // lbl_Close
+            // 
+            this.lbl_Close.AutoSize = true;
+            this.lbl_Close.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_Close.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Close.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lbl_Close.Location = new System.Drawing.Point(753, 7);
+            this.lbl_Close.Name = "lbl_Close";
+            this.lbl_Close.Size = new System.Drawing.Size(16, 17);
+            this.lbl_Close.TabIndex = 43;
+            this.lbl_Close.Text = "X";
+            this.lbl_Close.Click += new System.EventHandler(this.lbl_Close_Click);
             // 
             // txt_formHeader
             // 
@@ -375,40 +390,41 @@
             this.btn_add.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
-            // btn_close
+            // btn_CancelApp
             // 
-            this.btn_close.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_close.BorderRadius = 0;
-            this.btn_close.ButtonText = "Close";
-            this.btn_close.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_close.DisabledColor = System.Drawing.Color.Gray;
-            this.btn_close.Iconcolor = System.Drawing.Color.Transparent;
-            this.btn_close.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_close.Iconimage")));
-            this.btn_close.Iconimage_right = null;
-            this.btn_close.Iconimage_right_Selected = null;
-            this.btn_close.Iconimage_Selected = null;
-            this.btn_close.IconMarginLeft = 0;
-            this.btn_close.IconMarginRight = 0;
-            this.btn_close.IconRightVisible = true;
-            this.btn_close.IconRightZoom = 0D;
-            this.btn_close.IconVisible = true;
-            this.btn_close.IconZoom = 90D;
-            this.btn_close.IsTab = false;
-            this.btn_close.Location = new System.Drawing.Point(562, 468);
-            this.btn_close.Name = "btn_close";
-            this.btn_close.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_close.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.btn_close.OnHoverTextColor = System.Drawing.Color.White;
-            this.btn_close.selected = false;
-            this.btn_close.Size = new System.Drawing.Size(97, 38);
-            this.btn_close.TabIndex = 10;
-            this.btn_close.Text = "Close";
-            this.btn_close.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_close.Textcolor = System.Drawing.Color.White;
-            this.btn_close.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
+            this.btn_CancelApp.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_CancelApp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_CancelApp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_CancelApp.BorderRadius = 0;
+            this.btn_CancelApp.ButtonText = "Cancel Appointment";
+            this.btn_CancelApp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_CancelApp.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_CancelApp.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_CancelApp.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_CancelApp.Iconimage")));
+            this.btn_CancelApp.Iconimage_right = null;
+            this.btn_CancelApp.Iconimage_right_Selected = null;
+            this.btn_CancelApp.Iconimage_Selected = null;
+            this.btn_CancelApp.IconMarginLeft = 0;
+            this.btn_CancelApp.IconMarginRight = 0;
+            this.btn_CancelApp.IconRightVisible = true;
+            this.btn_CancelApp.IconRightZoom = 0D;
+            this.btn_CancelApp.IconVisible = true;
+            this.btn_CancelApp.IconZoom = 90D;
+            this.btn_CancelApp.IsTab = false;
+            this.btn_CancelApp.Location = new System.Drawing.Point(513, 468);
+            this.btn_CancelApp.Name = "btn_CancelApp";
+            this.btn_CancelApp.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_CancelApp.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.btn_CancelApp.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_CancelApp.selected = false;
+            this.btn_CancelApp.Size = new System.Drawing.Size(146, 38);
+            this.btn_CancelApp.TabIndex = 10;
+            this.btn_CancelApp.Text = "Cancel Appointment";
+            this.btn_CancelApp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_CancelApp.Textcolor = System.Drawing.Color.White;
+            this.btn_CancelApp.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_CancelApp.Visible = false;
+            this.btn_CancelApp.Click += new System.EventHandler(this.btn_CancelApp_Click);
             // 
             // bunifuDragControl1
             // 
@@ -519,13 +535,13 @@
             this.btn_CreateBilling.IconVisible = true;
             this.btn_CreateBilling.IconZoom = 90D;
             this.btn_CreateBilling.IsTab = false;
-            this.btn_CreateBilling.Location = new System.Drawing.Point(332, 468);
+            this.btn_CreateBilling.Location = new System.Drawing.Point(361, 468);
             this.btn_CreateBilling.Name = "btn_CreateBilling";
             this.btn_CreateBilling.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
             this.btn_CreateBilling.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
             this.btn_CreateBilling.OnHoverTextColor = System.Drawing.Color.White;
             this.btn_CreateBilling.selected = false;
-            this.btn_CreateBilling.Size = new System.Drawing.Size(215, 38);
+            this.btn_CreateBilling.Size = new System.Drawing.Size(146, 38);
             this.btn_CreateBilling.TabIndex = 29;
             this.btn_CreateBilling.Text = "Make Billing Statement";
             this.btn_CreateBilling.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -732,7 +748,7 @@
             this.Controls.Add(this.bunifuCustomLabel10);
             this.Controls.Add(this.bunifuCustomLabel9);
             this.Controls.Add(this.bunifuCustomLabel8);
-            this.Controls.Add(this.btn_close);
+            this.Controls.Add(this.btn_CancelApp);
             this.Controls.Add(this.btn_add);
             this.Controls.Add(this.txt_Note);
             this.Controls.Add(this.bunifuCustomLabel7);
@@ -783,7 +799,7 @@
         private Bunifu.Framework.UI.BunifuTextbox txt_PatientSearch;
         private Bunifu.Framework.UI.BunifuCustomLabel txt_formHeader;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private Bunifu.Framework.UI.BunifuFlatButton btn_close;
+        private Bunifu.Framework.UI.BunifuFlatButton btn_CancelApp;
         private Bunifu.Framework.UI.BunifuFlatButton btn_add;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private Bunifu.Framework.UI.BunifuCustomLabel lbl_AppNo;
@@ -808,5 +824,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel TreatmentDropDownPanel;
+        private Bunifu.Framework.UI.BunifuCustomLabel lbl_Close;
     }
 }

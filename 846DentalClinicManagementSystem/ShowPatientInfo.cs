@@ -1326,7 +1326,7 @@ namespace _846DentalClinicManagementSystem
            float.TryParse(txt_Amount.Text,out float Amount);
         
             SqlCommand cmd = new SqlCommand(
-                "INSERT INTO [Payment] (PaymentAmount,PaymentBalance,LoginID_fk,BillingID_fk) " +
+                "INSERT INTO [Payment] (PaymentAmount,PaymentBalance,EmployeeID_fk,BillingID_fk) " +
                 "VALUES (@Amount,(SELECT BillingBalance FROM Billing WHERE BillingID = @BillingID) - @Amount " +
                 ",@EmployeeID,@BillingID)",sqlcon);
 

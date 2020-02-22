@@ -33,6 +33,7 @@
             this.TopPanel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_formHeader = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -44,9 +45,8 @@
             this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.EndTimeDD = new Bunifu.Framework.UI.BunifuDropdown();
-            this.btn_close = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btn_cancelException = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_add = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.TopPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
@@ -86,6 +86,16 @@
             this.txt_formHeader.Size = new System.Drawing.Size(146, 22);
             this.txt_formHeader.TabIndex = 3;
             this.txt_formHeader.Text = "Add Exception";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackgroundImage = global::_846DentalClinicManagementSystem.Properties.Resources.btnscheduler__2_;
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox5.Location = new System.Drawing.Point(9, 7);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(32, 28);
+            this.pictureBox5.TabIndex = 2;
+            this.pictureBox5.TabStop = false;
             // 
             // bunifuElipse1
             // 
@@ -260,39 +270,41 @@
             this.EndTimeDD.TabIndex = 46;
             this.EndTimeDD.onItemSelected += new System.EventHandler(this.EndTimeDD_onItemSelected);
             // 
-            // btn_close
+            // btn_cancelException
             // 
-            this.btn_close.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_close.BorderRadius = 0;
-            this.btn_close.ButtonText = "Close";
-            this.btn_close.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_close.DisabledColor = System.Drawing.Color.Gray;
-            this.btn_close.Iconcolor = System.Drawing.Color.Transparent;
-            this.btn_close.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_close.Iconimage")));
-            this.btn_close.Iconimage_right = null;
-            this.btn_close.Iconimage_right_Selected = null;
-            this.btn_close.Iconimage_Selected = null;
-            this.btn_close.IconMarginLeft = 0;
-            this.btn_close.IconMarginRight = 0;
-            this.btn_close.IconRightVisible = true;
-            this.btn_close.IconRightZoom = 0D;
-            this.btn_close.IconVisible = true;
-            this.btn_close.IconZoom = 90D;
-            this.btn_close.IsTab = false;
-            this.btn_close.Location = new System.Drawing.Point(270, 336);
-            this.btn_close.Name = "btn_close";
-            this.btn_close.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_close.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.btn_close.OnHoverTextColor = System.Drawing.Color.White;
-            this.btn_close.selected = false;
-            this.btn_close.Size = new System.Drawing.Size(93, 38);
-            this.btn_close.TabIndex = 48;
-            this.btn_close.Text = "Close";
-            this.btn_close.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_close.Textcolor = System.Drawing.Color.White;
-            this.btn_close.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cancelException.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_cancelException.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_cancelException.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_cancelException.BorderRadius = 0;
+            this.btn_cancelException.ButtonText = "Cancel Exception";
+            this.btn_cancelException.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_cancelException.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_cancelException.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_cancelException.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_cancelException.Iconimage")));
+            this.btn_cancelException.Iconimage_right = null;
+            this.btn_cancelException.Iconimage_right_Selected = null;
+            this.btn_cancelException.Iconimage_Selected = null;
+            this.btn_cancelException.IconMarginLeft = 0;
+            this.btn_cancelException.IconMarginRight = 0;
+            this.btn_cancelException.IconRightVisible = true;
+            this.btn_cancelException.IconRightZoom = 0D;
+            this.btn_cancelException.IconVisible = true;
+            this.btn_cancelException.IconZoom = 90D;
+            this.btn_cancelException.IsTab = false;
+            this.btn_cancelException.Location = new System.Drawing.Point(174, 336);
+            this.btn_cancelException.Name = "btn_cancelException";
+            this.btn_cancelException.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_cancelException.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.btn_cancelException.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_cancelException.selected = false;
+            this.btn_cancelException.Size = new System.Drawing.Size(137, 38);
+            this.btn_cancelException.TabIndex = 48;
+            this.btn_cancelException.Text = "Cancel Exception";
+            this.btn_cancelException.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_cancelException.Textcolor = System.Drawing.Color.White;
+            this.btn_cancelException.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cancelException.Visible = false;
+            this.btn_cancelException.Click += new System.EventHandler(this.btn_cancelException_Click);
             // 
             // btn_add
             // 
@@ -315,13 +327,13 @@
             this.btn_add.IconVisible = true;
             this.btn_add.IconZoom = 90D;
             this.btn_add.IsTab = false;
-            this.btn_add.Location = new System.Drawing.Point(369, 336);
+            this.btn_add.Location = new System.Drawing.Point(326, 336);
             this.btn_add.Name = "btn_add";
             this.btn_add.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
             this.btn_add.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
             this.btn_add.OnHoverTextColor = System.Drawing.Color.White;
             this.btn_add.selected = false;
-            this.btn_add.Size = new System.Drawing.Size(94, 38);
+            this.btn_add.Size = new System.Drawing.Size(137, 38);
             this.btn_add.TabIndex = 49;
             this.btn_add.Text = "Add";
             this.btn_add.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -329,22 +341,12 @@
             this.btn_add.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackgroundImage = global::_846DentalClinicManagementSystem.Properties.Resources.btnscheduler__2_;
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Location = new System.Drawing.Point(9, 7);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(32, 28);
-            this.pictureBox5.TabIndex = 2;
-            this.pictureBox5.TabStop = false;
-            // 
             // AddException
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(508, 403);
-            this.Controls.Add(this.btn_close);
+            this.Controls.Add(this.btn_cancelException);
             this.Controls.Add(this.btn_add);
             this.Controls.Add(this.bunifuCustomLabel1);
             this.Controls.Add(this.EndTimeDD);
@@ -385,7 +387,7 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel7;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private Bunifu.Framework.UI.BunifuDropdown EndTimeDD;
-        private Bunifu.Framework.UI.BunifuFlatButton btn_close;
+        private Bunifu.Framework.UI.BunifuFlatButton btn_cancelException;
         private Bunifu.Framework.UI.BunifuFlatButton btn_add;
         private System.Windows.Forms.Label label1;
     }

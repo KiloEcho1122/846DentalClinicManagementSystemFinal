@@ -43,6 +43,7 @@ namespace _846DentalClinicManagementSystem
                 this.txt_formHeader.Text = "Edit Exception ";
                 btn_add.Text = "Update";
                 fiillFormforUpdate();
+                btn_cancelException.Visible = true;
 
             }
         }
@@ -153,7 +154,14 @@ namespace _846DentalClinicManagementSystem
                         {
                             InsertAppException();
                             GlobalVariable.isAddAppointment = false;
-                            main.SearchAppByDate_DP.Value = DP_date.Value;
+                            if (main.SearchAppByDate_DP.Value == DP_date.Value)
+                            {
+                                main.RefreshAppointmentView();
+                            }
+                            else
+                            {
+                                main.SearchAppByDate_DP.Value = DP_date.Value;
+                            }
                             this.Hide();
 
 
@@ -162,7 +170,14 @@ namespace _846DentalClinicManagementSystem
                         {
                             UpdateAppException();
                             GlobalVariable.isEditAppointment = false;
-                            main.SearchAppByDate_DP.Value = DP_date.Value;
+                            if (main.SearchAppByDate_DP.Value == DP_date.Value)
+                            {
+                                main.RefreshAppointmentView();
+                            }
+                            else
+                            {
+                                main.SearchAppByDate_DP.Value = DP_date.Value;
+                            }
                             this.Hide();
 
                         }
@@ -245,6 +260,47 @@ namespace _846DentalClinicManagementSystem
             GlobalVariable.isAddAppException = false;
         }
 
+        private void btn_cancelException_Click(object sender, EventArgs e)
+        {
+            var main = Application.OpenForms.OfType<MainForm>().First();
+            DialogResult result = MessageBox.Show("Are you sure you want to cancel exception?"
+                                   ,"Cancel Exception", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+
+                if (result == DialogResult.Yes)
+                {
+                    SqlCommand cmd = new SqlCommand("UPDATE [AppointmentException] SET Status='CANCELLED' Where AppExceptionID = @id",sqlcon);
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@id", AppExNo);
+                    if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+     
+                try
+                    {
+                        cmd.ExecuteNonQuery();
+                        GlobalVariable.isEditAppException = false;
+                        MessageBox.Show("Appointment Exception Cancelled Successfully");
+                    if (main.SearchAppByDate_DP.Value == DP_date.Value)
+                    {
+                        main.RefreshAppointmentView();
+                    }
+                    else
+                    {
+                        main.SearchAppByDate_DP.Value = DP_date.Value;
+                    }
+                    this.Hide();
+
+                }
+                catch(Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+
+                    sqlcon.Close();
+                }
+          //  main.Dispose();
+            
+    
+        }
+
         private void StartTimeDD_onItemSelected(object sender, EventArgs e)
         {
             
@@ -325,7 +381,7 @@ namespace _846DentalClinicManagementSystem
             DataTable dt = new DataTable();
             SqlCommand cmd = new SqlCommand(
                    "SELECT StartTime,EndTime FROM Appointment WHERE EmployeeID_fk = @EmployeeID_fk AND " + "" +
-                   "AppointmentDate =@date ", sqlcon);
+                   "AppointmentDate =@date AND NOT Status ='CANCELLED' ", sqlcon);
 
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@EmployeeID_fk", SelectedDentistID);
@@ -343,7 +399,7 @@ namespace _846DentalClinicManagementSystem
 
             SqlCommand cmd2 = new SqlCommand(
                   "SELECT StartTime,EndTime FROM AppointmentException WHERE EmployeeID_fk = @EmployeeID_fk AND " + "" +
-                  "Date =@date AND NOT AppExceptionID = @AppExceptionID", sqlcon);
+                  "Date =@date AND NOT AppExceptionID = @AppExceptionID AND NOT Status ='CANCELLED'", sqlcon);
             cmd2.Parameters.Clear();
             cmd2.Parameters.AddWithValue("@EmployeeID_fk", SelectedDentistID);
             cmd2.Parameters.AddWithValue("@date", date);
