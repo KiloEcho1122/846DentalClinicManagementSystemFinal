@@ -46,7 +46,7 @@ namespace _846DentalClinicManagementSystem
         TabPage CurrentTab = new TabPage();
         private void PatientInfoTAB_Click(object sender, EventArgs e)
         {
-            if (GlobalVariable.Permission == "Admin")
+            if (GlobalVariable.Permission == "Admin" || GlobalVariable.JobTitle == "Dentist")
             {
                 if (this.PatientInfoTAB.SelectedTab == tabPage2)
                 {
@@ -54,11 +54,13 @@ namespace _846DentalClinicManagementSystem
                     initializeTeethOperation();
                     TeethArray.Clear();
                     RetrievePatientTeethStatus();
+                    GlobalVariable.InsertActivityLog("Viewed Tooth Chart, Patient ID = " + GlobalVariable.PatientID, "View");
 
                 }
                 else if (this.PatientInfoTAB.SelectedTab == TreatmentHistory_TAB)
                 {
                     LoadTreatmentHistory();
+                    GlobalVariable.InsertActivityLog("Viewed Treatment History, Patient ID = " + GlobalVariable.PatientID, "View");
                 }
                 else if (this.PatientInfoTAB.SelectedTab == Notes_TAB)
                 {
@@ -66,6 +68,7 @@ namespace _846DentalClinicManagementSystem
                     NotesLayoutPanel.Controls.Clear();
                     LoadNotes();
                     LatestNoteID = getNextNoteID();
+                    GlobalVariable.InsertActivityLog("Viewed Dentist Notes, Patient ID = " + GlobalVariable.PatientID, "View");
                 }
 
             }
@@ -82,12 +85,15 @@ namespace _846DentalClinicManagementSystem
                 else if (this.PatientInfoTAB.SelectedTab == TreatmentHistory_TAB)
                 {
                     LoadTreatmentHistory();
+                    GlobalVariable.InsertActivityLog("Viewed Treatment History, Patient ID = " + GlobalVariable.PatientID, "View");
                 }
 
                 else if (this.PatientInfoTAB.SelectedTab == Notes_TAB)
                 {
-                    PatientInfoTAB.SelectedTab = PreviousTab;
-                    MessageBox.Show("Permission Denied !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    NotesLayoutPanel.Controls.Clear();
+                    LoadNotes();
+                    LatestNoteID = getNextNoteID();
+                    GlobalVariable.InsertActivityLog("Viewed Dentist Notes, Patient ID = " + GlobalVariable.PatientID, "View");
                 }
             }
 
@@ -882,7 +888,7 @@ namespace _846DentalClinicManagementSystem
                     //so imbis na insert update lang to prevent data replication
 
                     UpdatePatientTeeth(teethID, teeth);
-                    
+                    GlobalVariable.InsertActivityLog("Edited Tooth Chart, Patient ID = " + GlobalVariable.PatientID, "Edit");
                     //Console.WriteLine(Convert.ToInt32(cmd.ExecuteScalar()));
                 }
                 else
@@ -890,7 +896,8 @@ namespace _846DentalClinicManagementSystem
                     // means wala pang existing  status sa teethnumber ng patient
                     // so mag iinsert ng bago
                     insertTeethStatus(teeth);
-                   
+                    GlobalVariable.InsertActivityLog("Edited Tooth Chart, Patient ID = " + GlobalVariable.PatientID, "Edit");
+
                     //Console.WriteLine(Convert.ToInt32(cmd.ExecuteScalar()));
                 }
             }
@@ -913,11 +920,18 @@ namespace _846DentalClinicManagementSystem
         // Notes
         private void btn_AddNotes_Click(object sender, EventArgs e)
         {
-            LatestNoteID++;
-            string id = LatestNoteID.ToString();
-            DrawStickyNotes(id, "Enter your notes here ...", DateTime.Now.ToString("MMM. d yyyy hh:mm tt"));
-            MessageBox.Show(id.ToString());
-            /// may problem ditoo .. same id lang nakukuha nya kasi di pa naman sinesave
+            if (GlobalVariable.Permission == "Admin" || GlobalVariable.JobTitle == "Dentist")
+            {
+                LatestNoteID++;
+                string id = LatestNoteID.ToString();
+                DrawStickyNotes(id, "Enter your notes here ...", DateTime.Now.ToString("MMM. d yyyy hh:mm tt"));
+            }
+            else
+            {
+                MessageBox.Show("Permission Denied !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
+
         }
 
         private int getNextNoteID()
@@ -945,35 +959,45 @@ namespace _846DentalClinicManagementSystem
         private void Savenotes(string id)
         {
             string txt ="", date = "";
-           foreach(Control control in NotesLayoutPanel.Controls)
+
+            if (GlobalVariable.Permission == "Admin" || GlobalVariable.JobTitle == "Dentist")
             {
-                if (control.Name == id)
+                foreach (Control control in NotesLayoutPanel.Controls)
                 {
-                    foreach(Control control2 in control.Controls)
+                    if (control.Name == id)
                     {
-                        if (control2.Name == "txt_Note")
+                        foreach (Control control2 in control.Controls)
                         {
-                            txt = control2.Text;
-                            if (txt == "Enter your notes here ...") txt = "";
-
-                            if (CheckExistingNote(id))
+                            if (control2.Name == "txt_Note")
                             {
-                                UpdateNote(id, txt, DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt"));
+                                txt = control2.Text;
+                                if (txt == "Enter your notes here ...") txt = "";
+
+                                if (CheckExistingNote(id))
+                                {
+                                    UpdateNote(id, txt, DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt"));
+
+
+                                }
+                                else
+                                {
+                                    InsertNote(txt, DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt"));
+
+                                }
+                                break;
 
                             }
-                            else
-                            {
-                                InsertNote(txt, DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt"));
-                                
-                            }
-                            break;
-                            
+
                         }
-                      
+
                     }
-                    
                 }
             }
+            else
+            {
+                MessageBox.Show("Permission Denied !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
 
         }
 
@@ -1002,51 +1026,66 @@ namespace _846DentalClinicManagementSystem
 
         private void Deletenotes(string id)
         {
-            SqlCommand cmd = new SqlCommand(
+            if (GlobalVariable.Permission == "Admin" || GlobalVariable.JobTitle == "Dentist")
+            {
+
+                SqlCommand cmd = new SqlCommand(
                 "DELETE FROM Notes WHERE NotesID = @NoteID", sqlcon);
-            cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@NoteID", id);
-            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
-            try
-            {
-                cmd.ExecuteNonQuery();
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            sqlcon.Close();
-
-            foreach (Control control in NotesLayoutPanel.Controls)
-            {
-                if (control.Name == id)
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@NoteID", id);
+                if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+                try
                 {
-                    var index = NotesLayoutPanel.Controls.IndexOf(control);
-                    this.NotesLayoutPanel.Controls.RemoveAt(index);
-
+                    cmd.ExecuteNonQuery();
+                    GlobalVariable.InsertActivityLog("Deleted Note , Note ID = " + id + "Patient Id =  " + GlobalVariable.PatientID, "Delete");
                 }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+                sqlcon.Close();
+
+                foreach (Control control in NotesLayoutPanel.Controls)
+                {
+                    if (control.Name == id)
+                    {
+                        var index = NotesLayoutPanel.Controls.IndexOf(control);
+                        this.NotesLayoutPanel.Controls.RemoveAt(index);
+
+                    }
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Permission Denied !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void UpdateNote(string id,string PatientNote, string DateToday)
         {
+
+            
                 SqlCommand cmd = new SqlCommand(
-                    "UPDATE [Notes] SET Note = @Note, NoteDate = @Date, PatientID_fk = @PatientID " +
-                    "WHERE NotesID = @NoteID", sqlcon);
+                       "UPDATE [Notes] SET Note = @Note, NoteDate = @Date, PatientID_fk = @PatientID " +
+                       "WHERE NotesID = @NoteID", sqlcon);
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@Note", PatientNote);
                 cmd.Parameters.AddWithValue("@Date", DateToday);
                 cmd.Parameters.AddWithValue("@PatientID", PatientID);
                 cmd.Parameters.AddWithValue("@NoteID", id);
 
-            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
-            try
+                if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+                try
                 {
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Note Updated Successfully");
-                }catch(Exception ex) { Console.WriteLine(ex.Message); }
+                GlobalVariable.InsertActivityLog("Edited Note, Note ID = " + id + "Patient Id =  "+GlobalVariable.PatientID, "Edit");
+                MessageBox.Show("Note Updated Successfully");
+                }
+                catch (Exception ex) { Console.WriteLine(ex.Message); }
                 sqlcon.Close();
+            
+            
            
         }
         
@@ -1065,8 +1104,10 @@ namespace _846DentalClinicManagementSystem
                 {
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Note Added Successfully");
+                    GlobalVariable.InsertActivityLog("Added Note, Patient Id =  " + GlobalVariable.PatientID, "Add");
 
-                }catch(Exception ex) { Console.WriteLine(ex.Message); }
+            }
+            catch(Exception ex) { Console.WriteLine(ex.Message); }
                 sqlcon.Close();
             
         }
@@ -1335,6 +1376,7 @@ namespace _846DentalClinicManagementSystem
                                     MessageBox.Show("Payment added succesfully");
                                     ShowBilling();
                                     txt_Amount.Clear();
+                                   
                                     return;
                                 }
 
@@ -1370,7 +1412,7 @@ namespace _846DentalClinicManagementSystem
             try
             {
                 cmd.ExecuteNonQuery();
-               
+                GlobalVariable.InsertActivityLog("Added Payment on Billing ID = " + GlobalVariable.BillingID, "Add");
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
             sqlcon.Close();
@@ -1456,7 +1498,7 @@ namespace _846DentalClinicManagementSystem
                         cmd.ExecuteNonQuery();
                         UpdateBalanceAfterPayment();
                         ShowPaymentHistory();
-
+                        GlobalVariable.InsertActivityLog("Cancelled Payment on Billing ID = " + GlobalVariable.BillingID + " Payment ID = " + PaymentHistory_DataGrid.SelectedRows[0].Cells[0].Value.ToString(), "Cancel");
                         if (paymentID.Count > 0) { UpdateBillingAfterPayment(); }
                         ShowBilling();
                         paymentID.Clear();
@@ -1689,6 +1731,7 @@ namespace _846DentalClinicManagementSystem
             certificate.crystalReportViewer1.ReportSource = report;
             certificate.ShowDialog();
             certificate.Dispose();
+            GlobalVariable.InsertActivityLog("Printed Dental Certificate, Patient ID = " + GlobalVariable.PatientID, "Print");
         }
 
        

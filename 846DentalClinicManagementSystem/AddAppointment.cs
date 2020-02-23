@@ -174,7 +174,7 @@ namespace _846DentalClinicManagementSystem
                                                 {
                                                     main.SearchAppByDate_DP.Value = DP_date.Value;
                                                 }
-                                               
+                                                GlobalVariable.InsertActivityLog("Added Appointment, Appointment ID = " + AppNo, "Add");
                                                 this.Hide();
 
                                                
@@ -191,6 +191,7 @@ namespace _846DentalClinicManagementSystem
                                                 {
                                                     main.SearchAppByDate_DP.Value = DP_date.Value;
                                                 }
+                                                GlobalVariable.InsertActivityLog("Edited Appointment, Appointment ID = " + AppNo, "Edit");
                                                 this.Hide();
 
                                             }

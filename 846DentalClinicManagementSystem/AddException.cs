@@ -161,6 +161,7 @@ namespace _846DentalClinicManagementSystem
                             {
                                 main.SearchAppByDate_DP.Value = DP_date.Value;
                             }
+                            GlobalVariable.InsertActivityLog("Added Appointment Exception, Appointment Exception ID = " + AppExNo, "Add");
                             this.Hide();
 
 
@@ -177,6 +178,7 @@ namespace _846DentalClinicManagementSystem
                             {
                                 main.SearchAppByDate_DP.Value = DP_date.Value;
                             }
+                            GlobalVariable.InsertActivityLog("Added Appointment, Appointment Exception ID = " + AppExNo, "Edit");
                             this.Hide();
 
                         }

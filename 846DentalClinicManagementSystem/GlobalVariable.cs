@@ -7,6 +7,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Net;
 
 namespace _846DentalClinicManagementSystem
 {
@@ -15,13 +17,56 @@ namespace _846DentalClinicManagementSystem
         //public static string connString => ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
        // public static SqlConnection sqlcon = new SqlConnection(connString);
+
+         private static SqlConnection sqlcon = new SqlConnection(connString);
+
+        public static void InsertActivityLog(string Description,string method)
+        {
+            string ip = GetLocalIP();
+            SqlCommand cmd = new SqlCommand("INSERT INTO [ActivityLogs] (Description,User,Method,IP) VALUES(@desc,@user,@method,@ip)");
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@desc",Description);
+            cmd.Parameters.AddWithValue("@user", User_name);
+            cmd.Parameters.AddWithValue("@method", method);
+            cmd.Parameters.AddWithValue("@ip", ip);
+
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+            try
+            {
+                cmd.ExecuteNonQuery();
+
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message + Description);
+            }
+
+        }
+        
+        private static string GetLocalIP()
+        {
+            string ip = string.Empty;
+            try
+            {
+                string hostName = Dns.GetHostName();
+                ip = Dns.GetHostEntry(hostName).AddressList[1].ToString();
+
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return ip;
+           
+        }
+
         private static string workingDirectory = Environment.CurrentDirectory;
 
         private static string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
 
         private static string chart = projectDirectory + @"\Data\ISADDATABASEFINAL.mdf";
 
-       public static string connString = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=" + chart + ";Integrated Security = True";
+        public static string connString = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=" + chart + ";Integrated Security = True";
 
         public static string chartImagePath = projectDirectory + @"\Resources\DentalChart2.bmp";
 
@@ -72,6 +117,10 @@ namespace _846DentalClinicManagementSystem
         public static int EmployeeID { get; set; }
 
         public static string Permission { get; set; }
+
+        public static string JobTitle { get; set; }
+
+        public static string User_name { get; set; }
 
         // private static int s = 1;
 

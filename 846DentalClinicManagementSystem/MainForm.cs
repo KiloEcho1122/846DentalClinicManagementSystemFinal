@@ -37,6 +37,7 @@ namespace _846DentalClinicManagementSystem
             Dentist_Panel.Visible = false;
             AppointmentHistory_Panel.Visible = false;
             ActivityLog_Panel.Visible = false; 
+            
         }
 
         private void playVideo()
@@ -82,7 +83,7 @@ namespace _846DentalClinicManagementSystem
             DataTable dt = new DataTable();
             SqlDataAdapter adapter = new SqlDataAdapter();
             SqlCommand cmd = new SqlCommand(
-                "SELECT CONCAT(FirstName, ' ', LastName),Permission FROM Employee e INNER JOIN [Login] l ON " +
+                "SELECT CONCAT(FirstName, ' ', LastName),Permission,JobTitle FROM Employee e INNER JOIN [Login] l ON " +
                 "e.EmployeeID = l.EmployeeID_fk WHERE l.EmployeeId_fk = @EmployeeID", sqlcon);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@EmployeeID", GlobalVariable.EmployeeID);
@@ -95,7 +96,9 @@ namespace _846DentalClinicManagementSystem
                 foreach(DataRow row in dt.Rows)
                 { 
                     lbl_userName.Text = row[0].ToString();
+                    GlobalVariable.User_name = row[0].ToString();
                     GlobalVariable.Permission = row[1].ToString();
+                    GlobalVariable.JobTitle = row[2].ToString();
                 }
             }
             catch (Exception e)
@@ -143,6 +146,7 @@ namespace _846DentalClinicManagementSystem
             SearchAppByDate_DP.Value = DateTime.Now;
             HidePanels();
             SchedulerPanel.Visible = true;
+            GlobalVariable.InsertActivityLog("Viewed Appointment Tab", "View");
 
 
         }
@@ -151,6 +155,7 @@ namespace _846DentalClinicManagementSystem
         {
             HidePanels();
             PatientsPanel.Visible = true;
+            GlobalVariable.InsertActivityLog("Viewed Patients Tab","View");
         }
 
         private void btn_Accounting_Click(object sender, EventArgs e)
@@ -164,6 +169,8 @@ namespace _846DentalClinicManagementSystem
                 LoadMonthlyProfit();
                 LoadMonthlyExpenses();
                 LoadGrossProfit();
+                GlobalVariable.InsertActivityLog("Viewed Accounting Tab", "View");
+
             }
             else
             {
@@ -178,6 +185,7 @@ namespace _846DentalClinicManagementSystem
             {
                 HidePanels();
                 Dentist_Panel.Visible = true;
+                GlobalVariable.InsertActivityLog("Viewed Dentist/Employee Tab", "View");
             }
             else
             {
@@ -191,6 +199,7 @@ namespace _846DentalClinicManagementSystem
             HidePanels();
             AppointmentHistory_Panel.Visible = true;
             LoadAppHistory();
+            GlobalVariable.InsertActivityLog("Viewed Appointment History", "View");
         }
 
         private void btn_ActivityLogs_Click(object sender, EventArgs e)
@@ -199,6 +208,7 @@ namespace _846DentalClinicManagementSystem
             {
                 HidePanels();
                 ActivityLog_Panel.Visible = true;
+                GlobalVariable.InsertActivityLog("Viewed Activity logs Tab", "View");
             }
             else
             {
@@ -1123,6 +1133,7 @@ namespace _846DentalClinicManagementSystem
             if (GlobalVariable.PatientID > 0)
             {
                 ShowPatientInfo showPatientInfo = new ShowPatientInfo();
+                GlobalVariable.InsertActivityLog("Viewed Patient Details, Patient ID = " + GlobalVariable.PatientID, "View");
                 showPatientInfo.ShowDialog();
             }
         }
@@ -1384,9 +1395,10 @@ namespace _846DentalClinicManagementSystem
 
             //align columns to center
             xlWorkSheet.Columns["A:H"].Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+            GlobalVariable.InsertActivityLog("Exported Report to Excel", "Export");
         }
 
-
+ 
         private void copyAllExpenseToClibboard()
         {
             displayExpenseDG.RowHeadersVisible = false;
@@ -1688,6 +1700,7 @@ namespace _846DentalClinicManagementSystem
                     if(i == DentistIDArray.Count - 1)
                     {
                         MessageBox.Show("Mail Sent !", "Success", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                        GlobalVariable.InsertActivityLog("Send Emails To Dentists", "View");
                     }
                 }
 

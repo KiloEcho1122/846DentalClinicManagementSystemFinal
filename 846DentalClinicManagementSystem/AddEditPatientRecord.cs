@@ -193,6 +193,7 @@ namespace _846DentalClinicManagementSystem
                                             main.PatientPanelSearch("");
                                             GlobalVariable.isAddPatient = false;
                                             GlobalVariable.isAppointmentPatientExist = false;
+                                            GlobalVariable.InsertActivityLog("Added Patient, Patient ID = " + GlobalVariable.PatientID, "Add");
                                             this.Hide();
                                         }
                                         if (GlobalVariable.isEditPatient == true && GlobalVariable.isAddPatient == false)
@@ -202,6 +203,7 @@ namespace _846DentalClinicManagementSystem
                                             MessageBox.Show("Record Updated Successfully");
                                             main.PatientPanelSearch("");
                                             GlobalVariable.isEditPatient = false;
+                                            GlobalVariable.InsertActivityLog("Edited Patient, Patient ID = " + GlobalVariable.PatientID, "Edit");
                                             this.Hide();
 
                                         }

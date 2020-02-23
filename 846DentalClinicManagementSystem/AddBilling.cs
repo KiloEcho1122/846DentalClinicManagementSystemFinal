@@ -36,11 +36,53 @@ namespace _846DentalClinicManagementSystem
             {
                 txt_formHeader.Text = "Update Billing Statement";
                 btn_AddBilling.Text = "Update";
-
+                getAEditBillingID();
+            }
+            else
+            {
+                getAddBillingID()
             }
             CreateControls();
 
 
+        }
+
+        private void getAddBillingID()
+        {
+            SqlCommand cmd = new SqlCommand(
+                 "SELECT BillingID FROM Billing ORDER BY BillingID DESC", sqlcon);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@appid", GlobalVariable.AppointmentID);
+
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+            try
+            {
+                GlobalVariable.BillingID = Convert.ToInt32(cmd.ExecuteScalar()) + 1;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message + "or dito");
+            }
+            sqlcon.Close();
+        }
+
+        private void getAEditBillingID()
+        {
+            SqlCommand cmd = new SqlCommand(
+                 "SELECT BillingID FROM Billing WHERE AppointmentID_fk = @appid", sqlcon);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@appid", GlobalVariable.AppointmentID);
+
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+            try
+            {
+                GlobalVariable.BillingID = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message + "or dito");
+            }
+            sqlcon.Close();
         }
 
         private bool CheckPaymentMadeExist()
@@ -238,6 +280,7 @@ namespace _846DentalClinicManagementSystem
                         if (GlobalVariable.isBillingStatementExist)
                         {
                             UpdateBillingStatement();
+                            GlobalVariable.InsertActivityLog("Edited Billing Statement, Billing ID = " + GlobalVariable.BillingID, "Edit");
                         }
                         else
                         {
@@ -245,6 +288,7 @@ namespace _846DentalClinicManagementSystem
                         }
                         UpdatePatientTreatmentDB();
                         GlobalVariable.isBillingStatementExist = false;
+                        GlobalVariable.InsertActivityLog("Added Billing Statement, Billing ID = " + GlobalVariable.BillingID, "Add");
                         this.Hide();
 
                     }

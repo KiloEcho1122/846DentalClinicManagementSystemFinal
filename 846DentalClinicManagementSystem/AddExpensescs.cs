@@ -121,7 +121,8 @@ namespace _846DentalClinicManagementSystem
             {
                 try
                 {
-                    
+
+                    GlobalVariable.InsertActivityLog("Deleted Expense Expense ID = " + item.Cells[0].Value.ToString(), "Deleted");
                     ExpenseDG.Rows.RemoveAt(item.Index);
                     dtp.Visible = false;
 
@@ -155,6 +156,7 @@ namespace _846DentalClinicManagementSystem
                     try
                     {
                         cmd.ExecuteNonQuery();
+                        GlobalVariable.InsertActivityLog("Added Expense ", "Add");
                     }
                     catch (Exception ex)
                     {
@@ -190,6 +192,7 @@ namespace _846DentalClinicManagementSystem
                     try
                     {
                         cmd.ExecuteNonQuery();
+                        GlobalVariable.InsertActivityLog("Edited Expense, Expense ID =  "+ GlobalVariable.ExpenseId, "Edit");
                     }
                     catch (Exception ex)
                     {

@@ -117,6 +117,7 @@ namespace _846DentalClinicManagementSystem
                     if (Treatment_CB.Text != "Select Treatment")
                     {
                         InsertToDataTable();
+                        GlobalVariable.InsertActivityLog("Printed Dental Certificate, Patient ID = " + GlobalVariable.PatientID, "Print");
                         this.Hide();
                     }
                     else { MessageBox.Show("Invalid Treatment"); }
