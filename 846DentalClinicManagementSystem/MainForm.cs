@@ -8,6 +8,8 @@ using System.Data.SqlClient;
 using System.Collections;
 using Tulpep.NotificationWindow;
 using System.Globalization;
+using System.Web;
+using System.Net.Mail;
 
 namespace _846DentalClinicManagementSystem
 {
@@ -158,7 +160,7 @@ namespace _846DentalClinicManagementSystem
             Dentist_Panel.Visible = true;
         }
 
-        private void btn_viewAppHistory_Click(object sender, EventArgs e)
+        private void btn_ViewAppointmentHistory_Click(object sender, EventArgs e)
         {
             HidePanels();
             AppointmentHistory_Panel.Visible = true;
@@ -199,10 +201,8 @@ namespace _846DentalClinicManagementSystem
             SchedulerPanel.Visible = true;
         }
 
+
         //App History Panel End
-
-
-
 
         //Scheduler Panel Start  ----------------------------------------------------------------------------------------------------
 
@@ -1426,8 +1426,9 @@ namespace _846DentalClinicManagementSystem
 
         private void DentistCountDashBoard()
         {
+
             SqlCommand cmd = new SqlCommand(
-                "SELECT COUNT(*) FROM Employee Where JobTitle = 'Dentist' ", sqlcon);
+                 "SELECT COUNT(*) FROM Employee Where JobTitle = 'Dentist' ", sqlcon);
 
 
             if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
@@ -1446,7 +1447,6 @@ namespace _846DentalClinicManagementSystem
             {
                 Console.WriteLine(ex.Message);
             }
-
             sqlcon.Close();
         }
 
@@ -1606,6 +1606,91 @@ namespace _846DentalClinicManagementSystem
                 }
             }
 
+        }
+
+
+       
+
+        private void SendEmailToDentist()
+        {
+
+            string EmailSubject = "846 Dental Appointment for Tommorrow " + System.DateTime.Today.AddDays(1).ToShortDateString();
+            string DentalEmailAdd = "846dentalclinic@gmail.com";
+            string DentalEmailPass = "System2020";
+            string SmtpServer = "smtp.gmail.com";
+
+
+            try
+            {
+                for (int i = 0; i < DentistIDArray.Count; i++)
+                {
+                    string EmailBody = string.Empty;
+                    string DentistEmailAdd = string.Empty;
+                    DataTable dt = new DataTable();
+                    dt = getAppointmentForEmail(Convert.ToInt32(DentistIDArray[i]));
+
+                    if (dt.Rows.Count > 0)
+                    {
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            EmailBody += row[1].ToString() + " - " + row[0].ToString() + Environment.NewLine;
+                            DentistEmailAdd = row[2].ToString();
+                        }
+
+                        MailMessage mail = new MailMessage(DentalEmailAdd, DentistEmailAdd, EmailSubject, EmailBody);
+                        SmtpClient client = new SmtpClient(SmtpServer);
+                        client.Port = 587;
+                        client.UseDefaultCredentials = false;
+                        client.Credentials = new System.Net.NetworkCredential(DentalEmailAdd, DentalEmailPass);
+                        client.EnableSsl = true;
+                        client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                        client.Send(mail);
+                    }
+                    //Prompt Success MEssage on last email sent
+                    if(i == DentistIDArray.Count - 1)
+                    {
+                        MessageBox.Show("Mail Sent !", "Success", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                 MessageBox.Show("Email Not Send, Please Check your Internet or Email!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine(ex.Message);
+            }
+
+        }
+
+        private DataTable getAppointmentForEmail(int id)
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            SqlCommand cmd = new SqlCommand("SELECT CONCAT(a.Appointment_FName, ' ', a.Appointment_LName), CONCAT(a.StartTime,' - ',a.EndTime)," +
+                "e.EmailAdd FROM Employee e INNER JOIN Appointment a ON a.EmployeeID_fk = e.EmployeeId WHERE a.AppointmentDate =" +
+                " @date AND Status = 'PENDING' AND EmployeeID = @id ORDER BY RefTime ASC ", sqlcon);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@date", System.DateTime.Today.ToShortDateString());
+            cmd.Parameters.AddWithValue("@id", id);
+            adapter.SelectCommand = cmd;
+            try
+            {
+                adapter.Fill(dt);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return dt;
+        }
+
+  
+
+        private void btn_SendEmail_Click(object sender, EventArgs e)
+        {
+                SendEmailToDentist();
         }
 
         private void Employee_DataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
