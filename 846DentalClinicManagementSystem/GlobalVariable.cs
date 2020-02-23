@@ -71,7 +71,9 @@ namespace _846DentalClinicManagementSystem
 
         public static int EmployeeID { get; set; }
 
-       // private static int s = 1;
+        public static string Permission { get; set; }
+
+        // private static int s = 1;
 
 
 

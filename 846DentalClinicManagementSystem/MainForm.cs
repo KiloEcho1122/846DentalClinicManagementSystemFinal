@@ -79,15 +79,24 @@ namespace _846DentalClinicManagementSystem
 
         private void Loadusername()
         {
+            DataTable dt = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter();
             SqlCommand cmd = new SqlCommand(
-                "SELECT CONCAT(FirstName, ' ', LastName) FROM Employee e INNER JOIN [Login] l ON " +
+                "SELECT CONCAT(FirstName, ' ', LastName),Permission FROM Employee e INNER JOIN [Login] l ON " +
                 "e.EmployeeID = l.EmployeeID_fk WHERE l.EmployeeId_fk = @EmployeeID", sqlcon);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@EmployeeID", GlobalVariable.EmployeeID);
-            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+            adapter.SelectCommand = cmd;
+
             try
             {
-                if (cmd.ExecuteScalar() != null) lbl_userName.Text = cmd.ExecuteScalar().ToString();
+                adapter.Fill(dt);
+
+                foreach(DataRow row in dt.Rows)
+                { 
+                    lbl_userName.Text = row[0].ToString();
+                    GlobalVariable.Permission = row[1].ToString();
+                }
             }
             catch (Exception e)
             {
@@ -146,18 +155,35 @@ namespace _846DentalClinicManagementSystem
 
         private void btn_Accounting_Click(object sender, EventArgs e)
         {
-            HidePanels();
-            AccountingPanel.Visible = true;
-            Inventory_DatePicker.Value = System.DateTime.Today;
-            LoadMonthlyProfit();
-            LoadMonthlyExpenses();
-            LoadGrossProfit();
+
+            if (GlobalVariable.Permission == "Admin")
+            {
+                HidePanels();
+                AccountingPanel.Visible = true;
+                Inventory_DatePicker.Value = System.DateTime.Today;
+                LoadMonthlyProfit();
+                LoadMonthlyExpenses();
+                LoadGrossProfit();
+            }
+            else
+            {
+                MessageBox.Show("Permission Denied !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
         }
 
         private void btn_Dentist_Click(object sender, EventArgs e)
         {
-            HidePanels();
-            Dentist_Panel.Visible = true;
+            if(GlobalVariable.Permission == "Admin")
+            {
+                HidePanels();
+                Dentist_Panel.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("Permission Denied !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void btn_ViewAppointmentHistory_Click(object sender, EventArgs e)
@@ -167,6 +193,18 @@ namespace _846DentalClinicManagementSystem
             LoadAppHistory();
         }
 
+        private void btn_ActivityLogs_Click(object sender, EventArgs e)
+        {
+            if (GlobalVariable.Permission == "Admin")
+            {
+                HidePanels();
+                ActivityLog_Panel.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("Permission Denied !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
 
         // Main Panel End -----------------------------------------------------------------------------------------------------------
@@ -1693,6 +1731,7 @@ namespace _846DentalClinicManagementSystem
                 SendEmailToDentist();
         }
 
+       
         private void Employee_DataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try

@@ -37,31 +37,60 @@ namespace _846DentalClinicManagementSystem
             this.Hide();
         }
 
+        private void PatientInfoTAB_Deselected(object sender, TabControlEventArgs e)
+        {
+            PreviousTab = e.TabPage;
+        }
+
+        TabPage PreviousTab = new TabPage();
+        TabPage CurrentTab = new TabPage();
         private void PatientInfoTAB_Click(object sender, EventArgs e)
         {
-            if (PatientInfoTAB.SelectedIndex == 0)
+            if (GlobalVariable.Permission == "Admin")
             {
+                if (this.PatientInfoTAB.SelectedTab == tabPage2)
+                {
+                    SetDefaultTeethColor();
+                    initializeTeethOperation();
+                    TeethArray.Clear();
+                    RetrievePatientTeethStatus();
+
+                }
+                else if (this.PatientInfoTAB.SelectedTab == TreatmentHistory_TAB)
+                {
+                    LoadTreatmentHistory();
+                }
+                else if (this.PatientInfoTAB.SelectedTab == Notes_TAB)
+                {
+                   // DrawStickyNotes();
+                    NotesLayoutPanel.Controls.Clear();
+                    LoadNotes();
+                    LatestNoteID = getNextNoteID();
+                }
 
             }
-            else if (PatientInfoTAB.SelectedIndex == 1)
+            else
             {
-                SetDefaultTeethColor();
-                initializeTeethOperation();
-                TeethArray.Clear();
-                RetrievePatientTeethStatus();
-            }
-            else if (PatientInfoTAB.SelectedIndex == 2)
-            {
-                LoadTreatmentHistory();
+                if (this.PatientInfoTAB.SelectedTab == tabPage2)
+                {
+                    panel1.Visible = false;
+                    panel3.Visible = false;
+                    panel6.Visible = false;
+                    PatientInfoTAB.SelectedTab = PreviousTab;
+                    MessageBox.Show("Permission Denied !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (this.PatientInfoTAB.SelectedTab == TreatmentHistory_TAB)
+                {
+                    LoadTreatmentHistory();
+                }
 
+                else if (this.PatientInfoTAB.SelectedTab == Notes_TAB)
+                {
+                    PatientInfoTAB.SelectedTab = PreviousTab;
+                    MessageBox.Show("Permission Denied !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else if (PatientInfoTAB.SelectedIndex == 3)
-            {
-                //DrawStickyNotes();
-               NotesLayoutPanel.Controls.Clear();
-               LoadNotes();
-               LatestNoteID = getNextNoteID();
-            }
+
         }
 
         SqlConnection sqlcon = new SqlConnection(GlobalVariable.connString);
@@ -1409,31 +1438,40 @@ namespace _846DentalClinicManagementSystem
 
         private void btn_CancelPayment_Click(object sender, EventArgs e)
         {
-            if (PaymentHistory_DataGrid.SelectedRows.Count > 0)
+            if(GlobalVariable.Permission == "Admin")
             {
-
-                SqlCommand cmd = new SqlCommand(
-                "UPDATE Payment SET Status = 'Canceled', EmployeeID_fk = @EmployeeID WHERE PaymentID = @PaymentID", sqlcon);
-
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@EmployeeID", GlobalVariable.EmployeeID);
-                cmd.Parameters.AddWithValue("@PaymentID", (int)(PaymentHistory_DataGrid.SelectedRows[0].Cells[0].Value));
-
-                if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
-                try
+                if (PaymentHistory_DataGrid.SelectedRows.Count > 0)
                 {
-                    cmd.ExecuteNonQuery();
-                    UpdateBalanceAfterPayment();
-                    ShowPaymentHistory();
-                  
-                    if (paymentID.Count > 0) { UpdateBillingAfterPayment(); }
-                    ShowBilling();
-                    paymentID.Clear();
 
+                    SqlCommand cmd = new SqlCommand(
+                    "UPDATE Payment SET Status = 'Canceled', EmployeeID_fk = @EmployeeID WHERE PaymentID = @PaymentID", sqlcon);
+
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@EmployeeID", GlobalVariable.EmployeeID);
+                    cmd.Parameters.AddWithValue("@PaymentID", (int)(PaymentHistory_DataGrid.SelectedRows[0].Cells[0].Value));
+
+                    if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                        UpdateBalanceAfterPayment();
+                        ShowPaymentHistory();
+
+                        if (paymentID.Count > 0) { UpdateBillingAfterPayment(); }
+                        ShowBilling();
+                        paymentID.Clear();
+
+                    }
+                    catch (Exception ex) { Console.WriteLine(ex.Message); }
+                    sqlcon.Close();
                 }
-                catch (Exception ex) { Console.WriteLine(ex.Message); }
-                sqlcon.Close();
+
             }
+            else
+            {
+                MessageBox.Show("Permission Denied !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
 
@@ -1652,6 +1690,8 @@ namespace _846DentalClinicManagementSystem
             certificate.ShowDialog();
             certificate.Dispose();
         }
+
+       
         //-Experimental ------------------------------------
     }
 
