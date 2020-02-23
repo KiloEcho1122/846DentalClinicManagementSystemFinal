@@ -1243,6 +1243,9 @@ namespace _846DentalClinicManagementSystem
     
                 //dateformat
                 Billing_DataGrid.Columns[1].DefaultCellStyle.Format = "M/d/yyyy hh:mm tt";
+                Billing_DataGrid.Columns[3].DefaultCellStyle.Format = "N2";
+                Billing_DataGrid.Columns[4].DefaultCellStyle.Format = "N2";
+                Billing_DataGrid.Columns[5].DefaultCellStyle.Format = "N2";
                 Billing_DataGrid.Columns[6].DefaultCellStyle.Format = "M/d/yyyy hh:mm tt";
 
             }
@@ -1456,7 +1459,8 @@ namespace _846DentalClinicManagementSystem
                 PaymentHistory_DataGrid.Columns[2].HeaderText = "Payment";
                 PaymentHistory_DataGrid.Columns[3].HeaderText = "Balance after Payment";
                 PaymentHistory_DataGrid.Columns[4].HeaderText = "Updated By";
-
+                PaymentHistory_DataGrid.Columns[2].DefaultCellStyle.Format = "N2";
+                PaymentHistory_DataGrid.Columns[3].DefaultCellStyle.Format = "N2";
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
             if (PaymentHistory_DataGrid.Rows.Count > 0)

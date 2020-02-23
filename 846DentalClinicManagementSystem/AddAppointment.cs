@@ -158,7 +158,7 @@ namespace _846DentalClinicManagementSystem
                                     {
                                         AppDate = DP_date.Value.ToString("M/d/yyyy");
 
-                                        if ((string.IsNullOrEmpty(contactNo) == false) && isContactValid && contactNo.Length == 11)
+                                        if ((string.IsNullOrEmpty(contactNo) == false) && isContactValid && (contactNo.Length == 11 || contactNo.Length == 8))
                                         {
                                             var main = Application.OpenForms.OfType<MainForm>().First();
                                             if (GlobalVariable.isAddAppointment == true && GlobalVariable.isEditAppointment == false)

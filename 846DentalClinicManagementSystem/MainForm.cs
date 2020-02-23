@@ -7,6 +7,7 @@ using System.IO;
 using System.Data.SqlClient;
 using System.Collections;
 using Tulpep.NotificationWindow;
+using System.Globalization;
 
 namespace _846DentalClinicManagementSystem
 {
@@ -145,6 +146,7 @@ namespace _846DentalClinicManagementSystem
         {
             HidePanels();
             AccountingPanel.Visible = true;
+            Inventory_DatePicker.Value = System.DateTime.Today;
             LoadMonthlyProfit();
             LoadMonthlyExpenses();
             LoadGrossProfit();
@@ -1156,12 +1158,10 @@ namespace _846DentalClinicManagementSystem
         }
         private void bunifuDatepicker1_onValueChanged(object sender, EventArgs e)
         {
-            LoadMonthlyProfit();
-            LoadMonthlyExpenses();
-            LoadGrossProfit();
+             LoadGrossProfit();
         }
 
-        private void LoadMonthlyProfit()
+        private float LoadMonthlyProfit()
         {
 
             DateTime date = Inventory_DatePicker.Value;
@@ -1185,7 +1185,8 @@ namespace _846DentalClinicManagementSystem
                 Profit_DG.DataSource = dt;
                 Profit_DG.Columns[0].DefaultCellStyle.Format = "MMMM d, yyyy";
                 Profit_DG.Columns[2].Width = 100;
-
+                Profit_DG.Columns[2].DefaultCellStyle.Format = "N2";
+                Profit_DG.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
             }
             catch (Exception e)
@@ -1193,48 +1194,35 @@ namespace _846DentalClinicManagementSystem
                 Console.WriteLine(e.Message);
             }
 
-        }
-        private float LoadNetProfit(DateTime firstDayOfMonth, DateTime lastDayOfMonth)
-        {
             float output = 0;
-            foreach (DataGridViewRow row in Profit_DG.Rows)
+            foreach (DataRow row in dt.Rows)
             {
-                float.TryParse(row.Cells[2].Value.ToString(), out float amt);
+                float.TryParse(row[2].ToString(), out float amt);
                 output += amt;
             }
 
             return output;
+
         }
 
-        private float LoadNetExpense(DateTime firstDayOfMonth, DateTime lastDayOfMonth)
-        {
-            float output = 0;
-            foreach (DataGridViewRow row in displayExpenseDG.Rows)
-            {
-                float.TryParse(row.Cells[3].Value.ToString(), out float amt);
-                output += amt;
-            }
-
-            return output;
-        }
 
         public void LoadGrossProfit()
         {
             DateTime date = Inventory_DatePicker.Value;
             var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
             var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddSeconds(-1);
-            float netProfit = LoadNetProfit(firstDayOfMonth, lastDayOfMonth);
-            float netExpense = LoadNetExpense(firstDayOfMonth, lastDayOfMonth);
+            float netProfit = LoadMonthlyProfit();
+            float netExpense = LoadMonthlyExpenses();
             float grossProfit = netProfit - netExpense;
 
-            lbl_netProfit.Text = netProfit.ToString();
-            lbl_netExpense.Text = netExpense.ToString();
-            lbl_GrossProfit.Text = grossProfit.ToString();
+            lbl_netProfit.Text = "₱ " + netProfit.ToString("N2", CultureInfo.CurrentCulture);
+            lbl_netExpense.Text = "₱ " + netExpense.ToString("N2", CultureInfo.CurrentCulture);
+            lbl_GrossProfit.Text = "₱ " + grossProfit.ToString("N2", CultureInfo.CurrentCulture);
 
         }
 
 
-        public void LoadMonthlyExpenses()
+        public float LoadMonthlyExpenses()
         {
             DateTime date = Inventory_DatePicker.Value;
             var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
@@ -1259,6 +1247,8 @@ namespace _846DentalClinicManagementSystem
                 displayExpenseDG.Columns[1].Width = 130;
                 displayExpenseDG.Columns[2].Width = 200;
                 displayExpenseDG.Columns[3].Width = 100;
+                displayExpenseDG.Columns[3].DefaultCellStyle.Format = "N2";
+                displayExpenseDG.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
 
             }
@@ -1266,6 +1256,16 @@ namespace _846DentalClinicManagementSystem
             {
                 Console.WriteLine(e.Message);
             }
+
+
+            float output = 0;
+            foreach (DataRow row in dt.Rows)
+            {
+                float.TryParse(row[3].ToString(), out float amt);
+                output += amt;
+            }
+
+            return output;
         }
 
         private void displayExpenseDG_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

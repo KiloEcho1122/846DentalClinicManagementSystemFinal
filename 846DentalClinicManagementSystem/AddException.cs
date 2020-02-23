@@ -14,7 +14,6 @@ namespace _846DentalClinicManagementSystem
     public partial class AddException : Form
     {
         SqlConnection sqlcon = new SqlConnection(GlobalVariable.connString);
-        string DateChecker1, DateChecker2;
         string StartTime, EndTime, refTime, AppDateException,Reason;
         int SelectedDentistID = 0, AppExNo = 0;
         List<int> DentistID = new List<int>();
