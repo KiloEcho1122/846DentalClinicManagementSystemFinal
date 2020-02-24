@@ -40,7 +40,7 @@ namespace _846DentalClinicManagementSystem
             }
             else
             {
-                getAddBillingID()
+                getAddBillingID();
             }
             CreateControls();
 

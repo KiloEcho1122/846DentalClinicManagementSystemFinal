@@ -18,47 +18,7 @@ namespace _846DentalClinicManagementSystem
 
        // public static SqlConnection sqlcon = new SqlConnection(connString);
 
-         private static SqlConnection sqlcon = new SqlConnection(connString);
-
-        public static void InsertActivityLog(string Description,string method)
-        {
-            string ip = GetLocalIP();
-            SqlCommand cmd = new SqlCommand("INSERT INTO [ActivityLogs] (Description,User,Method,IP) VALUES(@desc,@user,@method,@ip)");
-            cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@desc",Description);
-            cmd.Parameters.AddWithValue("@user", User_name);
-            cmd.Parameters.AddWithValue("@method", method);
-            cmd.Parameters.AddWithValue("@ip", ip);
-
-            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
-            try
-            {
-                cmd.ExecuteNonQuery();
-
-            }catch(Exception ex)
-            {
-                Console.WriteLine(ex.Message + Description);
-            }
-
-        }
         
-        private static string GetLocalIP()
-        {
-            string ip = string.Empty;
-            try
-            {
-                string hostName = Dns.GetHostName();
-                ip = Dns.GetHostEntry(hostName).AddressList[1].ToString();
-
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
-            return ip;
-           
-        }
 
         private static string workingDirectory = Environment.CurrentDirectory;
 
@@ -121,6 +81,51 @@ namespace _846DentalClinicManagementSystem
         public static string JobTitle { get; set; }
 
         public static string User_name { get; set; }
+
+       
+
+        public static void InsertActivityLog(string Description, string method)
+        {
+            SqlConnection sqlcon = new SqlConnection(connString);
+            string ip = GetLocalIP();
+            SqlCommand cmd = new SqlCommand("Insert Into [ActivityLogs] (Description,User_Name,Method,IP) VALUES(@desc,@user,@method,@ip)", sqlcon);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@desc", Description);
+            cmd.Parameters.AddWithValue("@user", User_name);
+            cmd.Parameters.AddWithValue("@method", method);
+            cmd.Parameters.AddWithValue("@ip", ip);
+
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+            try
+            {
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message + Description);
+            }
+            sqlcon.Close();
+
+        }
+
+        private static string GetLocalIP()
+        {
+            string ip = string.Empty;
+            try
+            {
+                string hostName = Dns.GetHostName();
+                ip = Dns.GetHostEntry(hostName).AddressList[1].ToString();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return ip;
+
+        }
 
         // private static int s = 1;
 
