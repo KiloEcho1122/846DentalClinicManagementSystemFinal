@@ -1062,6 +1062,11 @@ namespace _846DentalClinicManagementSystem
 
         }
 
+        private void btn_RefreshApp_Click(object sender, EventArgs e)
+        {
+            RefreshAppointmentView();
+        }
+
 
         // Scheduler Panel End ---------------------------------------------------------------------------------------------------------
 
@@ -1865,6 +1870,8 @@ namespace _846DentalClinicManagementSystem
             }
             
         }
+
+      
 
         private void btn_restore_Click(object sender, EventArgs e)
         {
