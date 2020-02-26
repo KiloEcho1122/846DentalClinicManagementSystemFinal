@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle89 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle90 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle91 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle92 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddAppointment));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.TopPanel2 = new System.Windows.Forms.Panel();
@@ -156,21 +156,21 @@
             this.AppSearch_DataGrid.AllowUserToDeleteRows = false;
             this.AppSearch_DataGrid.AllowUserToResizeColumns = false;
             this.AppSearch_DataGrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.AppSearch_DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle89.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.AppSearch_DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle89;
             this.AppSearch_DataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.AppSearch_DataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.AppSearch_DataGrid.BackgroundColor = System.Drawing.SystemColors.Control;
             this.AppSearch_DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.AppSearch_DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AppSearch_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle90.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle90.BackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle90.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle90.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle90.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle90.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle90.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AppSearch_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle90;
             this.AppSearch_DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AppSearch_DataGrid.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AppSearch_DataGrid.DoubleBuffered = true;
@@ -182,17 +182,17 @@
             this.AppSearch_DataGrid.Name = "AppSearch_DataGrid";
             this.AppSearch_DataGrid.ReadOnly = true;
             this.AppSearch_DataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AppSearch_DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.AppSearch_DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle91.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle91.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle91.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle91.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle91.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            dataGridViewCellStyle91.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle91.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AppSearch_DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle91;
+            dataGridViewCellStyle92.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            dataGridViewCellStyle92.SelectionForeColor = System.Drawing.Color.Black;
+            this.AppSearch_DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle92;
             this.AppSearch_DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.AppSearch_DataGrid.Size = new System.Drawing.Size(723, 65);
             this.AppSearch_DataGrid.TabIndex = 6;
@@ -438,15 +438,15 @@
             this.Treatment_CB.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.Treatment_CB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Treatment_CB.DropDownHeight = 150;
-            this.Treatment_CB.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Treatment_CB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Treatment_CB.ForeColor = System.Drawing.Color.Black;
             this.Treatment_CB.FormattingEnabled = true;
             this.Treatment_CB.IntegralHeight = false;
-            this.Treatment_CB.ItemHeight = 14;
+            this.Treatment_CB.ItemHeight = 13;
             this.Treatment_CB.Location = new System.Drawing.Point(1, 0);
             this.Treatment_CB.MaxDropDownItems = 10;
             this.Treatment_CB.Name = "Treatment_CB";
-            this.Treatment_CB.Size = new System.Drawing.Size(173, 22);
+            this.Treatment_CB.Size = new System.Drawing.Size(173, 21);
             this.Treatment_CB.TabIndex = 30;
             this.Treatment_CB.Text = "Select Treatment";
             this.Treatment_CB.SelectedIndexChanged += new System.EventHandler(this.Treatment_CB_SelectedIndexChanged);
@@ -454,13 +454,12 @@
             // 
             // TreatmentList
             // 
-            this.TreatmentList.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TreatmentList.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TreatmentList.FormattingEnabled = true;
             this.TreatmentList.HorizontalScrollbar = true;
-            this.TreatmentList.ItemHeight = 14;
             this.TreatmentList.Location = new System.Drawing.Point(596, 283);
             this.TreatmentList.Name = "TreatmentList";
-            this.TreatmentList.Size = new System.Drawing.Size(172, 46);
+            this.TreatmentList.Size = new System.Drawing.Size(172, 43);
             this.TreatmentList.TabIndex = 31;
             this.TreatmentList.SelectedIndexChanged += new System.EventHandler(this.TreatmentList_SelectedIndexChanged);
             // 
@@ -505,7 +504,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.panel1.Controls.Add(this.panel4);
-            this.panel1.Location = new System.Drawing.Point(4, 25);
+            this.panel1.Location = new System.Drawing.Point(3, 20);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(151, 13);
             this.panel1.TabIndex = 38;
@@ -513,11 +512,11 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.BackColor = System.Drawing.Color.Black;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Location = new System.Drawing.Point(-2, 9);
+            this.panel4.Location = new System.Drawing.Point(0, 10);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(173, 4);
+            this.panel4.Size = new System.Drawing.Size(173, 1);
             this.panel4.TabIndex = 41;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
@@ -525,7 +524,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Location = new System.Drawing.Point(153, 24);
+            this.panel2.Location = new System.Drawing.Point(153, 20);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(21, 11);
             this.panel2.TabIndex = 39;
@@ -534,7 +533,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.Location = new System.Drawing.Point(155, 23);
+            this.panel5.Location = new System.Drawing.Point(154, 21);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(19, 11);
             this.panel5.TabIndex = 41;
@@ -543,7 +542,7 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.White;
-            this.panel7.Location = new System.Drawing.Point(2, 19);
+            this.panel7.Location = new System.Drawing.Point(2, 18);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(2, 15);
             this.panel7.TabIndex = 42;
@@ -553,7 +552,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Location = new System.Drawing.Point(1, 21);
+            this.panel3.Location = new System.Drawing.Point(1, 18);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(4, 14);
             this.panel3.TabIndex = 40;
@@ -561,12 +560,12 @@
             // 
             // TreatmentDropDownPanel
             // 
-            this.TreatmentDropDownPanel.Controls.Add(this.panel5);
+            this.TreatmentDropDownPanel.Controls.Add(this.Treatment_CB);
             this.TreatmentDropDownPanel.Controls.Add(this.panel1);
             this.TreatmentDropDownPanel.Controls.Add(this.panel7);
-            this.TreatmentDropDownPanel.Controls.Add(this.Treatment_CB);
-            this.TreatmentDropDownPanel.Controls.Add(this.panel2);
             this.TreatmentDropDownPanel.Controls.Add(this.panel3);
+            this.TreatmentDropDownPanel.Controls.Add(this.panel2);
+            this.TreatmentDropDownPanel.Controls.Add(this.panel5);
             this.TreatmentDropDownPanel.Location = new System.Drawing.Point(596, 208);
             this.TreatmentDropDownPanel.Name = "TreatmentDropDownPanel";
             this.TreatmentDropDownPanel.Size = new System.Drawing.Size(178, 35);
