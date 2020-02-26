@@ -186,7 +186,7 @@ namespace _846DentalClinicManagementSystem
                 bool isPaymentValid = Regex.IsMatch(txt.Text, @"^(\(?\+?[0-9]*\)?)?[0-9\(\)]*$");
                 if (isPaymentValid == true && string.IsNullOrWhiteSpace(txt.Text) == false)
                 {
-                    txt.BackColor = System.Drawing.Color.SeaGreen;
+                    txt.BackColor = System.Drawing.Color.Black;
                     TotalAmt += float.Parse(txt.Text);
 
                 }
@@ -218,7 +218,7 @@ namespace _846DentalClinicManagementSystem
         TextBox addTextBox(int i, int x, int y)
         {
             TextBox textbox = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
-            textbox.BackColor = System.Drawing.Color.SeaGreen;
+            textbox.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             //textbox.BorderColor = System.Drawing.Color.SeaGreen;
             textbox.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             textbox.ForeColor = System.Drawing.SystemColors.Menu;

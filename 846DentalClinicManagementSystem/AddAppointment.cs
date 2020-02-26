@@ -929,6 +929,151 @@ namespace _846DentalClinicManagementSystem
             return false;
         }
 
+        private void TopPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txt_formHeader_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuCustomLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuCustomLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuCustomLabel3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuCustomLabel4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuCustomLabel6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuCustomLabel7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_Note_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuCustomLabel8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuCustomLabel9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuCustomLabel10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_FName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_MName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_AppNo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TreatmentList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuCustomLabel5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblContact_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_ContactNo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void TreatmentDropDownPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void statusSwitch_OnValueChange(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_CancelApp_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
         private void statusSwitch_Click(object sender, EventArgs e)
         {
             

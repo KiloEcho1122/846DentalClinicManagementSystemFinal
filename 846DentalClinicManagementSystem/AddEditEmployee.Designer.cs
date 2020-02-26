@@ -66,7 +66,7 @@
             // 
             // txt_LicenseNo
             // 
-            this.txt_LicenseNo.BackColor = System.Drawing.Color.SeaGreen;
+            this.txt_LicenseNo.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.txt_LicenseNo.BorderColor = System.Drawing.Color.SeaGreen;
             this.txt_LicenseNo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_LicenseNo.ForeColor = System.Drawing.SystemColors.Menu;
@@ -89,7 +89,7 @@
             // 
             // txt_EmployeeNo
             // 
-            this.txt_EmployeeNo.BackColor = System.Drawing.Color.SeaGreen;
+            this.txt_EmployeeNo.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.txt_EmployeeNo.BorderColor = System.Drawing.Color.SeaGreen;
             this.txt_EmployeeNo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_EmployeeNo.ForeColor = System.Drawing.SystemColors.Menu;
@@ -146,7 +146,7 @@
             // 
             // txt_MName
             // 
-            this.txt_MName.BackColor = System.Drawing.Color.SeaGreen;
+            this.txt_MName.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.txt_MName.BorderColor = System.Drawing.Color.SeaGreen;
             this.txt_MName.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_MName.ForeColor = System.Drawing.SystemColors.Menu;
@@ -158,7 +158,7 @@
             // 
             // txt_FName
             // 
-            this.txt_FName.BackColor = System.Drawing.Color.SeaGreen;
+            this.txt_FName.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.txt_FName.BorderColor = System.Drawing.Color.SeaGreen;
             this.txt_FName.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_FName.ForeColor = System.Drawing.SystemColors.Menu;
@@ -170,7 +170,7 @@
             // 
             // txt_LName
             // 
-            this.txt_LName.BackColor = System.Drawing.Color.SeaGreen;
+            this.txt_LName.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.txt_LName.BorderColor = System.Drawing.Color.SeaGreen;
             this.txt_LName.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_LName.ForeColor = System.Drawing.SystemColors.Menu;
@@ -220,11 +220,11 @@
             // 
             // btn_close
             // 
-            this.btn_close.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_close.Activecolor = System.Drawing.Color.Gold;
+            this.btn_close.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.btn_close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_close.BorderRadius = 0;
-            this.btn_close.ButtonText = " Close";
+            this.btn_close.ButtonText = " CLOSE";
             this.btn_close.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_close.DisabledColor = System.Drawing.Color.Gray;
             this.btn_close.Iconcolor = System.Drawing.Color.Transparent;
@@ -241,25 +241,25 @@
             this.btn_close.IsTab = false;
             this.btn_close.Location = new System.Drawing.Point(460, 414);
             this.btn_close.Name = "btn_close";
-            this.btn_close.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_close.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.btn_close.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_close.Normalcolor = System.Drawing.Color.LightGoldenrodYellow;
+            this.btn_close.OnHovercolor = System.Drawing.Color.Gold;
+            this.btn_close.OnHoverTextColor = System.Drawing.Color.Black;
             this.btn_close.selected = false;
             this.btn_close.Size = new System.Drawing.Size(106, 35);
             this.btn_close.TabIndex = 14;
-            this.btn_close.Text = " Close";
+            this.btn_close.Text = " CLOSE";
             this.btn_close.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_close.Textcolor = System.Drawing.Color.White;
+            this.btn_close.Textcolor = System.Drawing.Color.Black;
             this.btn_close.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
             // btn_add
             // 
-            this.btn_add.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_add.Activecolor = System.Drawing.Color.Gold;
+            this.btn_add.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.btn_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_add.BorderRadius = 0;
-            this.btn_add.ButtonText = "  Add";
+            this.btn_add.ButtonText = "  ADD";
             this.btn_add.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_add.DisabledColor = System.Drawing.Color.Gray;
             this.btn_add.Iconcolor = System.Drawing.Color.Transparent;
@@ -276,21 +276,21 @@
             this.btn_add.IsTab = false;
             this.btn_add.Location = new System.Drawing.Point(572, 414);
             this.btn_add.Name = "btn_add";
-            this.btn_add.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_add.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.btn_add.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_add.Normalcolor = System.Drawing.Color.LightGoldenrodYellow;
+            this.btn_add.OnHovercolor = System.Drawing.Color.Gold;
+            this.btn_add.OnHoverTextColor = System.Drawing.Color.Black;
             this.btn_add.selected = false;
             this.btn_add.Size = new System.Drawing.Size(106, 35);
             this.btn_add.TabIndex = 13;
-            this.btn_add.Text = "  Add";
+            this.btn_add.Text = "  ADD";
             this.btn_add.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_add.Textcolor = System.Drawing.Color.White;
+            this.btn_add.Textcolor = System.Drawing.Color.Black;
             this.btn_add.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // txt_HomeAddress
             // 
-            this.txt_HomeAddress.BackColor = System.Drawing.Color.SeaGreen;
+            this.txt_HomeAddress.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.txt_HomeAddress.BorderColor = System.Drawing.Color.SeaGreen;
             this.txt_HomeAddress.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_HomeAddress.ForeColor = System.Drawing.SystemColors.Menu;
@@ -325,7 +325,7 @@
             // 
             // txt_Contact
             // 
-            this.txt_Contact.BackColor = System.Drawing.Color.SeaGreen;
+            this.txt_Contact.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.txt_Contact.BorderColor = System.Drawing.Color.SeaGreen;
             this.txt_Contact.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Contact.ForeColor = System.Drawing.SystemColors.Menu;
@@ -337,7 +337,7 @@
             // 
             // txt_EmailAdd
             // 
-            this.txt_EmailAdd.BackColor = System.Drawing.Color.SeaGreen;
+            this.txt_EmailAdd.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.txt_EmailAdd.BorderColor = System.Drawing.Color.SeaGreen;
             this.txt_EmailAdd.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_EmailAdd.ForeColor = System.Drawing.SystemColors.Menu;
@@ -391,8 +391,8 @@
         "Admin"};
             this.Permission_DD.Location = new System.Drawing.Point(149, 122);
             this.Permission_DD.Name = "Permission_DD";
-            this.Permission_DD.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.Permission_DD.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.Permission_DD.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
+            this.Permission_DD.onHoverColor = System.Drawing.Color.Teal;
             this.Permission_DD.selectedIndex = -1;
             this.Permission_DD.Size = new System.Drawing.Size(191, 40);
             this.Permission_DD.TabIndex = 2;
@@ -419,8 +419,8 @@
         "Female"};
             this.GenderDD.Location = new System.Drawing.Point(149, 339);
             this.GenderDD.Name = "GenderDD";
-            this.GenderDD.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.GenderDD.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.GenderDD.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
+            this.GenderDD.onHoverColor = System.Drawing.Color.Teal;
             this.GenderDD.selectedIndex = -1;
             this.GenderDD.Size = new System.Drawing.Size(191, 40);
             this.GenderDD.TabIndex = 6;
@@ -428,7 +428,7 @@
             // 
             // EmployeeBirthday_DP
             // 
-            this.EmployeeBirthday_DP.BackColor = System.Drawing.Color.SeaGreen;
+            this.EmployeeBirthday_DP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
             this.EmployeeBirthday_DP.BorderRadius = 0;
             this.EmployeeBirthday_DP.ForeColor = System.Drawing.Color.White;
             this.EmployeeBirthday_DP.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -450,8 +450,8 @@
         "Staff"};
             this.PositionDD.Location = new System.Drawing.Point(487, 277);
             this.PositionDD.Name = "PositionDD";
-            this.PositionDD.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.PositionDD.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.PositionDD.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
+            this.PositionDD.onHoverColor = System.Drawing.Color.Teal;
             this.PositionDD.selectedIndex = -1;
             this.PositionDD.Size = new System.Drawing.Size(191, 40);
             this.PositionDD.TabIndex = 11;

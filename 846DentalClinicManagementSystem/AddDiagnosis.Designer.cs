@@ -110,7 +110,7 @@
             // 
             this.txt_formHeader.AutoSize = true;
             this.txt_formHeader.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_formHeader.ForeColor = System.Drawing.Color.Silver;
+            this.txt_formHeader.ForeColor = System.Drawing.Color.White;
             this.txt_formHeader.Location = new System.Drawing.Point(53, 10);
             this.txt_formHeader.Name = "txt_formHeader";
             this.txt_formHeader.Size = new System.Drawing.Size(49, 22);
@@ -131,7 +131,7 @@
             // 
             // txt_Findings
             // 
-            this.txt_Findings.BackColor = System.Drawing.Color.SeaGreen;
+            this.txt_Findings.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.txt_Findings.BorderColor = System.Drawing.Color.SeaGreen;
             this.txt_Findings.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Findings.ForeColor = System.Drawing.SystemColors.Menu;
@@ -154,7 +154,7 @@
             // 
             // txt_Diagnosis
             // 
-            this.txt_Diagnosis.BackColor = System.Drawing.Color.SeaGreen;
+            this.txt_Diagnosis.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.txt_Diagnosis.BorderColor = System.Drawing.Color.SeaGreen;
             this.txt_Diagnosis.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Diagnosis.ForeColor = System.Drawing.SystemColors.Menu;
@@ -177,17 +177,17 @@
             // 
             // btn_print
             // 
-            this.btn_print.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn_print.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.btn_print.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_print.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_print.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_print.ForeColor = System.Drawing.Color.White;
+            this.btn_print.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_print.ForeColor = System.Drawing.Color.Black;
             this.btn_print.Location = new System.Drawing.Point(305, 201);
             this.btn_print.Margin = new System.Windows.Forms.Padding(0);
             this.btn_print.Name = "btn_print";
             this.btn_print.Size = new System.Drawing.Size(134, 33);
             this.btn_print.TabIndex = 84;
-            this.btn_print.Text = "Print";
+            this.btn_print.Text = "PRINT";
             this.btn_print.UseVisualStyleBackColor = false;
             this.btn_print.Click += new System.EventHandler(this.btn_print_Click);
             // 
@@ -225,7 +225,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.SeaGreen;
+            this.panel1.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Location = new System.Drawing.Point(4, 22);
             this.panel1.Name = "panel1";
@@ -263,7 +263,7 @@
             // 
             this.Treatment_CB.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.Treatment_CB.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.Treatment_CB.BackColor = System.Drawing.Color.SeaGreen;
+            this.Treatment_CB.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.Treatment_CB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Treatment_CB.DropDownHeight = 150;
             this.Treatment_CB.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

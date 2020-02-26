@@ -1924,6 +1924,11 @@ namespace _846DentalClinicManagementSystem
             }
         }
 
+        private void lbl_AppointmentCountDashboard_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void btn_restore_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Restore All Activity Logs ?", "Activity Logs", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

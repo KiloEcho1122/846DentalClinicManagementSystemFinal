@@ -89,7 +89,7 @@
             // 
             // pictureBox5
             // 
-            this.pictureBox5.BackgroundImage = global::_846DentalClinicManagementSystem.Properties.Resources.btnscheduler__2_;
+            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox5.Location = new System.Drawing.Point(9, 7);
             this.pictureBox5.Name = "pictureBox5";
@@ -137,7 +137,7 @@
             // 
             // DP_date
             // 
-            this.DP_date.BackColor = System.Drawing.Color.SeaGreen;
+            this.DP_date.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
             this.DP_date.BorderRadius = 0;
             this.DP_date.ForeColor = System.Drawing.Color.White;
             this.DP_date.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
@@ -151,7 +151,7 @@
             // 
             // StartTimeDD
             // 
-            this.StartTimeDD.BackColor = System.Drawing.Color.Transparent;
+            this.StartTimeDD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
             this.StartTimeDD.BorderRadius = 3;
             this.StartTimeDD.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StartTimeDD.ForeColor = System.Drawing.Color.White;
@@ -177,8 +177,8 @@
             this.StartTimeDD.Location = new System.Drawing.Point(37, 170);
             this.StartTimeDD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.StartTimeDD.Name = "StartTimeDD";
-            this.StartTimeDD.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.StartTimeDD.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.StartTimeDD.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
+            this.StartTimeDD.onHoverColor = System.Drawing.Color.Teal;
             this.StartTimeDD.selectedIndex = -1;
             this.StartTimeDD.Size = new System.Drawing.Size(193, 53);
             this.StartTimeDD.TabIndex = 39;
@@ -186,7 +186,7 @@
             // 
             // DentistDD
             // 
-            this.DentistDD.BackColor = System.Drawing.Color.Transparent;
+            this.DentistDD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
             this.DentistDD.BorderRadius = 3;
             this.DentistDD.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DentistDD.ForeColor = System.Drawing.Color.White;
@@ -194,8 +194,8 @@
             this.DentistDD.Location = new System.Drawing.Point(270, 84);
             this.DentistDD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.DentistDD.Name = "DentistDD";
-            this.DentistDD.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.DentistDD.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.DentistDD.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
+            this.DentistDD.onHoverColor = System.Drawing.Color.Teal;
             this.DentistDD.selectedIndex = -1;
             this.DentistDD.Size = new System.Drawing.Size(193, 53);
             this.DentistDD.TabIndex = 38;
@@ -203,7 +203,7 @@
             // 
             // txt_Note
             // 
-            this.txt_Note.BackColor = System.Drawing.Color.SeaGreen;
+            this.txt_Note.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.txt_Note.BorderColor = System.Drawing.Color.SeaGreen;
             this.txt_Note.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Note.ForeColor = System.Drawing.SystemColors.Menu;
@@ -263,8 +263,8 @@
             this.EndTimeDD.Location = new System.Drawing.Point(37, 254);
             this.EndTimeDD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.EndTimeDD.Name = "EndTimeDD";
-            this.EndTimeDD.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.EndTimeDD.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.EndTimeDD.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
+            this.EndTimeDD.onHoverColor = System.Drawing.Color.Teal;
             this.EndTimeDD.selectedIndex = -1;
             this.EndTimeDD.Size = new System.Drawing.Size(193, 53);
             this.EndTimeDD.TabIndex = 46;
@@ -272,8 +272,8 @@
             // 
             // btn_cancelException
             // 
-            this.btn_cancelException.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_cancelException.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_cancelException.Activecolor = System.Drawing.Color.Gold;
+            this.btn_cancelException.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.btn_cancelException.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_cancelException.BorderRadius = 0;
             this.btn_cancelException.ButtonText = "Cancel Exception";
@@ -293,23 +293,23 @@
             this.btn_cancelException.IsTab = false;
             this.btn_cancelException.Location = new System.Drawing.Point(174, 336);
             this.btn_cancelException.Name = "btn_cancelException";
-            this.btn_cancelException.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_cancelException.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.btn_cancelException.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_cancelException.Normalcolor = System.Drawing.Color.LightGoldenrodYellow;
+            this.btn_cancelException.OnHovercolor = System.Drawing.Color.Gold;
+            this.btn_cancelException.OnHoverTextColor = System.Drawing.Color.Black;
             this.btn_cancelException.selected = false;
             this.btn_cancelException.Size = new System.Drawing.Size(137, 38);
             this.btn_cancelException.TabIndex = 48;
             this.btn_cancelException.Text = "Cancel Exception";
             this.btn_cancelException.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_cancelException.Textcolor = System.Drawing.Color.White;
+            this.btn_cancelException.Textcolor = System.Drawing.Color.Black;
             this.btn_cancelException.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_cancelException.Visible = false;
             this.btn_cancelException.Click += new System.EventHandler(this.btn_cancelException_Click);
             // 
             // btn_add
             // 
-            this.btn_add.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_add.Activecolor = System.Drawing.Color.Gold;
+            this.btn_add.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.btn_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_add.BorderRadius = 0;
             this.btn_add.ButtonText = "Add";
@@ -329,15 +329,15 @@
             this.btn_add.IsTab = false;
             this.btn_add.Location = new System.Drawing.Point(326, 336);
             this.btn_add.Name = "btn_add";
-            this.btn_add.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btn_add.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.btn_add.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_add.Normalcolor = System.Drawing.Color.LightGoldenrodYellow;
+            this.btn_add.OnHovercolor = System.Drawing.Color.Gold;
+            this.btn_add.OnHoverTextColor = System.Drawing.Color.Black;
             this.btn_add.selected = false;
             this.btn_add.Size = new System.Drawing.Size(137, 38);
             this.btn_add.TabIndex = 49;
             this.btn_add.Text = "Add";
             this.btn_add.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_add.Textcolor = System.Drawing.Color.White;
+            this.btn_add.Textcolor = System.Drawing.Color.Black;
             this.btn_add.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
