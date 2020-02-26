@@ -782,8 +782,11 @@ namespace _846DentalClinicManagementSystem
 
         private void DentistDD_onItemSelected(object sender, EventArgs e)
         {
-
-            SelectedDentistID = DentistID[DentistDD.selectedIndex];
+            if (DentistDD.selectedIndex > -1) //error catch
+            {
+                SelectedDentistID = DentistID[DentistDD.selectedIndex];
+            }
+            
    
         }
 

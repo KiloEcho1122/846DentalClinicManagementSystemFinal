@@ -442,7 +442,7 @@ namespace _846DentalClinicManagementSystem
             appointment.WrapContents = true;
             //  appointment.AutoScroll = true;
             appointment.BackColor = Color.Maroon;
-            appointment.MouseMove += (sender, e) =>
+            appointment.MouseWheel += (sender, e) =>
             {
                 AppTimePanel.AutoScrollPosition = new Point(0, Appointment_Panel.VerticalScroll.Value);
             };
@@ -563,6 +563,10 @@ namespace _846DentalClinicManagementSystem
             //  appointment.AutoScroll = true;
             appointment.BackColor = Color.LightSeaGreen;
             if (dentID % 2 == 0) { appointment.BackColor = Color.FromArgb(217, 102, 135); }
+            appointment.MouseWheel += (sender, e) =>
+            {
+                AppTimePanel.AutoScrollPosition = new Point(0, Appointment_Panel.VerticalScroll.Value);
+            };
             this.Appointment_Panel.Controls.Add(appointment);
 
             Label namee = new Label();
