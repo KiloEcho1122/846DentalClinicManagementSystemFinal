@@ -119,13 +119,7 @@ namespace _846DentalClinicManagementSystem
 
         private void btn_Logout_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to Logout ?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                FormLogin formLogin = new FormLogin();
-                formLogin.Show();
-                this.Hide();
-            }
+           
         }
 
 
@@ -663,11 +657,11 @@ namespace _846DentalClinicManagementSystem
                 panel.Size = new System.Drawing.Size(302, 41);
                 if (i % 2 == 0)
                 {
-                    panel.BackColor = System.Drawing.Color.Pink;
+                    panel.BackColor = System.Drawing.Color.FromArgb(182, 214, 132);
                 }
                 else
                 {
-                    panel.BackColor = System.Drawing.Color.PaleTurquoise;
+                    panel.BackColor = System.Drawing.Color.OliveDrab;
                 }
                 AppointmentHeader_Panel.Controls.Add(panel);
 
@@ -679,6 +673,15 @@ namespace _846DentalClinicManagementSystem
                 label.Size = new System.Drawing.Size(172, 24);
                 label.Text = "Dr. " + DentistArray[i].ToString();
                 panel.Controls.Add(label);
+                if (i % 2 == 0)
+                {
+                    label.ForeColor = System.Drawing.Color.Black;
+                }
+                else
+                {
+                    label.ForeColor = System.Drawing.Color.White;
+                }
+
 
                 xStartPosition += 300;
             }
@@ -1452,7 +1455,7 @@ namespace _846DentalClinicManagementSystem
                 object count = cmd.ExecuteScalar();
                 if (count != null)
                 {
-                    lbl_AppointmentCountDashboard.Text = "Appointments : " + count.ToString();
+                    lbl_AppointmentCountDashboard.Text = "APPOINTMENTS : " + count.ToString();
                 }
 
             }
@@ -1478,7 +1481,7 @@ namespace _846DentalClinicManagementSystem
                 object count = cmd.ExecuteScalar();
                 if (count != null)
                 {
-                    lbl_PatientCountDashboard.Text = "Active Patients : " + count.ToString();
+                    lbl_PatientCountDashboard.Text = "ACTIVE PATIENTS : " + count.ToString();
                 }
 
             }
@@ -1505,7 +1508,7 @@ namespace _846DentalClinicManagementSystem
                 object count = cmd.ExecuteScalar();
                 if (count != null)
                 {
-                    lbl_DentistCountDashboard.Text = "Active Dentists : " + count.ToString();
+                    lbl_DentistCountDashboard.Text = "ACTIVE DENTISTS : " + count.ToString();
                 }
 
             }
@@ -1530,7 +1533,7 @@ namespace _846DentalClinicManagementSystem
                 object count = cmd.ExecuteScalar();
                 if (count != null)
                 {
-                    lbl_UnpaidBillsCountDashboard.Text = "Unpaid Bills : " + count.ToString();
+                    lbl_UnpaidBillsCountDashboard.Text = "UNPAID BILLS : " + count.ToString();
                 }
 
             }
@@ -1875,7 +1878,51 @@ namespace _846DentalClinicManagementSystem
             
         }
 
-      
+        private void Appointment_Panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void TopPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void SchedulerPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void AppTimePanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void MenuPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel20_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btn_Logout_Click_1(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to Logout ?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                FormLogin formLogin = new FormLogin();
+                formLogin.Show();
+                this.Hide();
+            }
+        }
 
         private void btn_restore_Click(object sender, EventArgs e)
         {
