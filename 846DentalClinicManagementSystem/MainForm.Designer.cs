@@ -842,7 +842,6 @@
             this.SchedulerPanel.Name = "SchedulerPanel";
             this.SchedulerPanel.Size = new System.Drawing.Size(1354, 670);
             this.SchedulerPanel.TabIndex = 0;
-            this.SchedulerPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.SchedulerPanel_Paint);
             // 
             // btn_RefreshApp
             // 
