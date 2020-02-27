@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowPatientInfo));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -42,6 +39,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowPatientInfo));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.TopPanel2 = new System.Windows.Forms.Panel();
             this.btn_closePatientInfo = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -51,27 +53,21 @@
             this.lbl_PatientName = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.PatientInfoTAB = new System.Windows.Forms.TabControl();
             this.General_tab = new System.Windows.Forms.TabPage();
-            this.btn_CancelPayment = new System.Windows.Forms.Button();
             this.PaymentHistory_DataGrid = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.panel10 = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel8 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.pictureBox77 = new System.Windows.Forms.PictureBox();
-            this.btn_AddPayment = new System.Windows.Forms.Button();
             this.Payment_Panel = new System.Windows.Forms.Panel();
-            this.btn_closePayment = new System.Windows.Forms.Button();
             this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txt_Amount = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txt_BllingID = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.btn_add = new System.Windows.Forms.Button();
             this.Billing_DataGrid = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.panel4 = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btn_Print2 = new System.Windows.Forms.Button();
-            this.btn_print = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -113,8 +109,6 @@
             this.btn_Missing = new System.Windows.Forms.Button();
             this.pictureBox58 = new System.Windows.Forms.PictureBox();
             this.btn_Ok = new System.Windows.Forms.Button();
-            this.btn_SaveChart = new System.Windows.Forms.Button();
-            this.btn_RefreshChart = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -291,7 +285,15 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.btn_AddNotes = new System.Windows.Forms.Button();
+            this.btn_PaymentClose = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btn_PaymentAdd = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btn_AddPay = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btn_PrintCert1 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btn_PrintCert2 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btn_ChartRefresh = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btn_ChartSave = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btn_NoteAdd = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btn_PaymentCancel = new Bunifu.Framework.UI.BunifuFlatButton();
             this.TopPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.PatientInfoTAB.SuspendLayout();
@@ -503,10 +505,10 @@
             // 
             // General_tab
             // 
-            this.General_tab.Controls.Add(this.btn_CancelPayment);
+            this.General_tab.Controls.Add(this.btn_PaymentCancel);
+            this.General_tab.Controls.Add(this.btn_AddPay);
             this.General_tab.Controls.Add(this.PaymentHistory_DataGrid);
             this.General_tab.Controls.Add(this.panel10);
-            this.General_tab.Controls.Add(this.btn_AddPayment);
             this.General_tab.Controls.Add(this.Payment_Panel);
             this.General_tab.Controls.Add(this.Billing_DataGrid);
             this.General_tab.Controls.Add(this.panel4);
@@ -519,52 +521,48 @@
             this.General_tab.UseVisualStyleBackColor = true;
             this.General_tab.Click += new System.EventHandler(this.General_tab_Click);
             // 
-            // btn_CancelPayment
-            // 
-            this.btn_CancelPayment.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.btn_CancelPayment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_CancelPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_CancelPayment.ForeColor = System.Drawing.Color.Black;
-            this.btn_CancelPayment.Location = new System.Drawing.Point(795, 552);
-            this.btn_CancelPayment.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_CancelPayment.Name = "btn_CancelPayment";
-            this.btn_CancelPayment.Size = new System.Drawing.Size(146, 35);
-            this.btn_CancelPayment.TabIndex = 67;
-            this.btn_CancelPayment.Text = "CANCEL PAYMENT";
-            this.btn_CancelPayment.UseVisualStyleBackColor = false;
-            this.btn_CancelPayment.Click += new System.EventHandler(this.btn_CancelPayment_Click);
-            // 
             // PaymentHistory_DataGrid
             // 
             this.PaymentHistory_DataGrid.AllowUserToAddRows = false;
             this.PaymentHistory_DataGrid.AllowUserToDeleteRows = false;
             this.PaymentHistory_DataGrid.AllowUserToResizeColumns = false;
             this.PaymentHistory_DataGrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.PaymentHistory_DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.PaymentHistory_DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle15;
             this.PaymentHistory_DataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.PaymentHistory_DataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.PaymentHistory_DataGrid.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.PaymentHistory_DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PaymentHistory_DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PaymentHistory_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PaymentHistory_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.PaymentHistory_DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PaymentHistory_DataGrid.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PaymentHistory_DataGrid.DoubleBuffered = true;
             this.PaymentHistory_DataGrid.EnableHeadersVisualStyles = false;
-            this.PaymentHistory_DataGrid.HeaderBgColor = System.Drawing.Color.SeaGreen;
-            this.PaymentHistory_DataGrid.HeaderForeColor = System.Drawing.Color.White;
+            this.PaymentHistory_DataGrid.HeaderBgColor = System.Drawing.Color.LemonChiffon;
+            this.PaymentHistory_DataGrid.HeaderForeColor = System.Drawing.Color.Black;
             this.PaymentHistory_DataGrid.Location = new System.Drawing.Point(19, 381);
             this.PaymentHistory_DataGrid.Name = "PaymentHistory_DataGrid";
             this.PaymentHistory_DataGrid.ReadOnly = true;
             this.PaymentHistory_DataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PaymentHistory_DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
+            this.PaymentHistory_DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle18;
             this.PaymentHistory_DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.PaymentHistory_DataGrid.Size = new System.Drawing.Size(922, 165);
             this.PaymentHistory_DataGrid.TabIndex = 60;
@@ -601,50 +599,20 @@
             this.pictureBox77.TabIndex = 2;
             this.pictureBox77.TabStop = false;
             // 
-            // btn_AddPayment
-            // 
-            this.btn_AddPayment.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.btn_AddPayment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_AddPayment.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_AddPayment.ForeColor = System.Drawing.Color.Black;
-            this.btn_AddPayment.Location = new System.Drawing.Point(748, 289);
-            this.btn_AddPayment.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_AddPayment.Name = "btn_AddPayment";
-            this.btn_AddPayment.Size = new System.Drawing.Size(193, 39);
-            this.btn_AddPayment.TabIndex = 56;
-            this.btn_AddPayment.Text = "ADD PAYMENT";
-            this.btn_AddPayment.UseVisualStyleBackColor = false;
-            this.btn_AddPayment.Click += new System.EventHandler(this.btn_AddPayment_Click);
-            // 
             // Payment_Panel
             // 
-            this.Payment_Panel.BackColor = System.Drawing.Color.PeachPuff;
-            this.Payment_Panel.Controls.Add(this.btn_closePayment);
+            this.Payment_Panel.BackColor = System.Drawing.Color.Gainsboro;
+            this.Payment_Panel.Controls.Add(this.btn_PaymentAdd);
+            this.Payment_Panel.Controls.Add(this.btn_PaymentClose);
             this.Payment_Panel.Controls.Add(this.bunifuCustomLabel7);
             this.Payment_Panel.Controls.Add(this.txt_Amount);
             this.Payment_Panel.Controls.Add(this.bunifuCustomLabel6);
             this.Payment_Panel.Controls.Add(this.txt_BllingID);
             this.Payment_Panel.Controls.Add(this.bunifuCustomLabel1);
-            this.Payment_Panel.Controls.Add(this.btn_add);
             this.Payment_Panel.Location = new System.Drawing.Point(748, 59);
             this.Payment_Panel.Name = "Payment_Panel";
             this.Payment_Panel.Size = new System.Drawing.Size(193, 222);
             this.Payment_Panel.TabIndex = 55;
-            // 
-            // btn_closePayment
-            // 
-            this.btn_closePayment.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.btn_closePayment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_closePayment.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_closePayment.ForeColor = System.Drawing.Color.Black;
-            this.btn_closePayment.Location = new System.Drawing.Point(36, 166);
-            this.btn_closePayment.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_closePayment.Name = "btn_closePayment";
-            this.btn_closePayment.Size = new System.Drawing.Size(119, 36);
-            this.btn_closePayment.TabIndex = 84;
-            this.btn_closePayment.Text = "Close";
-            this.btn_closePayment.UseVisualStyleBackColor = false;
-            this.btn_closePayment.Click += new System.EventHandler(this.btn_closePayment_Click);
             // 
             // bunifuCustomLabel7
             // 
@@ -704,51 +672,36 @@
             this.bunifuCustomLabel1.TabIndex = 57;
             this.bunifuCustomLabel1.Text = "Billing ID  :";
             // 
-            // btn_add
-            // 
-            this.btn_add.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_add.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_add.ForeColor = System.Drawing.Color.Black;
-            this.btn_add.Location = new System.Drawing.Point(36, 128);
-            this.btn_add.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(119, 33);
-            this.btn_add.TabIndex = 57;
-            this.btn_add.Text = "ADD";
-            this.btn_add.UseVisualStyleBackColor = false;
-            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
-            // 
             // Billing_DataGrid
             // 
             this.Billing_DataGrid.AllowUserToAddRows = false;
             this.Billing_DataGrid.AllowUserToDeleteRows = false;
             this.Billing_DataGrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Billing_DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Billing_DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
             this.Billing_DataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Billing_DataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.Billing_DataGrid.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.Billing_DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Billing_DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Billing_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Billing_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.Billing_DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Billing_DataGrid.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Billing_DataGrid.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Billing_DataGrid.DefaultCellStyle = dataGridViewCellStyle21;
             this.Billing_DataGrid.DoubleBuffered = true;
             this.Billing_DataGrid.EnableHeadersVisualStyles = false;
             this.Billing_DataGrid.HeaderBgColor = System.Drawing.Color.LemonChiffon;
@@ -757,17 +710,17 @@
             this.Billing_DataGrid.Name = "Billing_DataGrid";
             this.Billing_DataGrid.ReadOnly = true;
             this.Billing_DataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Billing_DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.Black;
-            this.Billing_DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Billing_DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.Black;
+            this.Billing_DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle23;
             this.Billing_DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Billing_DataGrid.Size = new System.Drawing.Size(715, 224);
             this.Billing_DataGrid.TabIndex = 54;
@@ -809,11 +762,11 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.btn_Print2);
-            this.tabPage2.Controls.Add(this.btn_print);
+            this.tabPage2.Controls.Add(this.btn_ChartSave);
+            this.tabPage2.Controls.Add(this.btn_ChartRefresh);
+            this.tabPage2.Controls.Add(this.btn_PrintCert2);
+            this.tabPage2.Controls.Add(this.btn_PrintCert1);
             this.tabPage2.Controls.Add(this.panel6);
-            this.tabPage2.Controls.Add(this.btn_SaveChart);
-            this.tabPage2.Controls.Add(this.btn_RefreshChart);
             this.tabPage2.Controls.Add(this.panel3);
             this.tabPage2.Controls.Add(this.panel1);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
@@ -823,36 +776,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "CHARTING";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // btn_Print2
-            // 
-            this.btn_Print2.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.btn_Print2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Print2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Print2.ForeColor = System.Drawing.Color.Black;
-            this.btn_Print2.Location = new System.Drawing.Point(192, 551);
-            this.btn_Print2.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_Print2.Name = "btn_Print2";
-            this.btn_Print2.Size = new System.Drawing.Size(106, 38);
-            this.btn_Print2.TabIndex = 58;
-            this.btn_Print2.Text = "Print w/o Chart";
-            this.btn_Print2.UseVisualStyleBackColor = false;
-            this.btn_Print2.Click += new System.EventHandler(this.btn_Print2_Click);
-            // 
-            // btn_print
-            // 
-            this.btn_print.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.btn_print.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_print.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_print.ForeColor = System.Drawing.Color.Black;
-            this.btn_print.Location = new System.Drawing.Point(617, 549);
-            this.btn_print.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_print.Name = "btn_print";
-            this.btn_print.Size = new System.Drawing.Size(106, 38);
-            this.btn_print.TabIndex = 57;
-            this.btn_print.Text = "Print w/ Chart";
-            this.btn_print.UseVisualStyleBackColor = false;
-            this.btn_print.Click += new System.EventHandler(this.btn_print_Click);
             // 
             // panel6
             // 
@@ -1368,36 +1291,6 @@
             this.btn_Ok.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Ok.UseVisualStyleBackColor = true;
             this.btn_Ok.Click += new System.EventHandler(this.btn_Ok_Click);
-            // 
-            // btn_SaveChart
-            // 
-            this.btn_SaveChart.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.btn_SaveChart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_SaveChart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_SaveChart.ForeColor = System.Drawing.Color.Black;
-            this.btn_SaveChart.Location = new System.Drawing.Point(837, 550);
-            this.btn_SaveChart.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_SaveChart.Name = "btn_SaveChart";
-            this.btn_SaveChart.Size = new System.Drawing.Size(106, 38);
-            this.btn_SaveChart.TabIndex = 55;
-            this.btn_SaveChart.Text = "Save";
-            this.btn_SaveChart.UseVisualStyleBackColor = false;
-            this.btn_SaveChart.Click += new System.EventHandler(this.btn_SaveChart_Click);
-            // 
-            // btn_RefreshChart
-            // 
-            this.btn_RefreshChart.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.btn_RefreshChart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_RefreshChart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_RefreshChart.ForeColor = System.Drawing.Color.Black;
-            this.btn_RefreshChart.Location = new System.Drawing.Point(729, 550);
-            this.btn_RefreshChart.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_RefreshChart.Name = "btn_RefreshChart";
-            this.btn_RefreshChart.Size = new System.Drawing.Size(106, 38);
-            this.btn_RefreshChart.TabIndex = 54;
-            this.btn_RefreshChart.Text = "Refresh";
-            this.btn_RefreshChart.UseVisualStyleBackColor = false;
-            this.btn_RefreshChart.Click += new System.EventHandler(this.btn_RefreshChart_Click);
             // 
             // panel3
             // 
@@ -4042,31 +3935,31 @@
             this.TreatmentHistory_DG.AllowUserToAddRows = false;
             this.TreatmentHistory_DG.AllowUserToDeleteRows = false;
             this.TreatmentHistory_DG.AllowUserToResizeRows = false;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.TreatmentHistory_DG.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.TreatmentHistory_DG.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle24;
             this.TreatmentHistory_DG.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.TreatmentHistory_DG.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.TreatmentHistory_DG.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.TreatmentHistory_DG.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TreatmentHistory_DG.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.TreatmentHistory_DG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle25.BackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.TreatmentHistory_DG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
             this.TreatmentHistory_DG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.TreatmentHistory_DG.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.TreatmentHistory_DG.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.TreatmentHistory_DG.DefaultCellStyle = dataGridViewCellStyle26;
             this.TreatmentHistory_DG.DoubleBuffered = true;
             this.TreatmentHistory_DG.EnableHeadersVisualStyles = false;
             this.TreatmentHistory_DG.HeaderBgColor = System.Drawing.Color.LemonChiffon;
@@ -4075,17 +3968,17 @@
             this.TreatmentHistory_DG.Name = "TreatmentHistory_DG";
             this.TreatmentHistory_DG.ReadOnly = true;
             this.TreatmentHistory_DG.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.TreatmentHistory_DG.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.Black;
-            this.TreatmentHistory_DG.RowsDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.TreatmentHistory_DG.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.Color.Black;
+            this.TreatmentHistory_DG.RowsDefaultCellStyle = dataGridViewCellStyle28;
             this.TreatmentHistory_DG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.TreatmentHistory_DG.Size = new System.Drawing.Size(861, 442);
             this.TreatmentHistory_DG.TabIndex = 55;
@@ -4125,9 +4018,9 @@
             // 
             // Notes_TAB
             // 
+            this.Notes_TAB.Controls.Add(this.btn_NoteAdd);
             this.Notes_TAB.Controls.Add(this.NotesLayoutPanel);
             this.Notes_TAB.Controls.Add(this.panel5);
-            this.Notes_TAB.Controls.Add(this.btn_AddNotes);
             this.Notes_TAB.Location = new System.Drawing.Point(4, 25);
             this.Notes_TAB.Name = "Notes_TAB";
             this.Notes_TAB.Padding = new System.Windows.Forms.Padding(3);
@@ -4198,20 +4091,342 @@
             this.pictureBox4.TabIndex = 2;
             this.pictureBox4.TabStop = false;
             // 
-            // btn_AddNotes
+            // btn_PaymentClose
             // 
-            this.btn_AddNotes.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.btn_AddNotes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_AddNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_AddNotes.ForeColor = System.Drawing.Color.Black;
-            this.btn_AddNotes.Location = new System.Drawing.Point(783, 508);
-            this.btn_AddNotes.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_AddNotes.Name = "btn_AddNotes";
-            this.btn_AddNotes.Size = new System.Drawing.Size(144, 43);
-            this.btn_AddNotes.TabIndex = 60;
-            this.btn_AddNotes.Text = "Add Note";
-            this.btn_AddNotes.UseVisualStyleBackColor = false;
-            this.btn_AddNotes.Click += new System.EventHandler(this.btn_AddNotes_Click);
+            this.btn_PaymentClose.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            this.btn_PaymentClose.BackColor = System.Drawing.Color.DarkGray;
+            this.btn_PaymentClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_PaymentClose.BorderRadius = 0;
+            this.btn_PaymentClose.ButtonText = "  CLOSE";
+            this.btn_PaymentClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_PaymentClose.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_PaymentClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btn_PaymentClose.ForeColor = System.Drawing.Color.Black;
+            this.btn_PaymentClose.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_PaymentClose.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_PaymentClose.Iconimage")));
+            this.btn_PaymentClose.Iconimage_right = null;
+            this.btn_PaymentClose.Iconimage_right_Selected = null;
+            this.btn_PaymentClose.Iconimage_Selected = null;
+            this.btn_PaymentClose.IconMarginLeft = 0;
+            this.btn_PaymentClose.IconMarginRight = 0;
+            this.btn_PaymentClose.IconRightVisible = false;
+            this.btn_PaymentClose.IconRightZoom = 0D;
+            this.btn_PaymentClose.IconVisible = false;
+            this.btn_PaymentClose.IconZoom = 90D;
+            this.btn_PaymentClose.IsTab = false;
+            this.btn_PaymentClose.Location = new System.Drawing.Point(41, 176);
+            this.btn_PaymentClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_PaymentClose.Name = "btn_PaymentClose";
+            this.btn_PaymentClose.Normalcolor = System.Drawing.Color.DarkGray;
+            this.btn_PaymentClose.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            this.btn_PaymentClose.OnHoverTextColor = System.Drawing.Color.Black;
+            this.btn_PaymentClose.selected = false;
+            this.btn_PaymentClose.Size = new System.Drawing.Size(119, 33);
+            this.btn_PaymentClose.TabIndex = 95;
+            this.btn_PaymentClose.Text = "  CLOSE";
+            this.btn_PaymentClose.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_PaymentClose.Textcolor = System.Drawing.Color.Black;
+            this.btn_PaymentClose.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btn_PaymentClose.Click += new System.EventHandler(this.btn_PaymentClose_Click);
+            // 
+            // btn_PaymentAdd
+            // 
+            this.btn_PaymentAdd.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            this.btn_PaymentAdd.BackColor = System.Drawing.Color.DarkGray;
+            this.btn_PaymentAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_PaymentAdd.BorderRadius = 0;
+            this.btn_PaymentAdd.ButtonText = "  ADD";
+            this.btn_PaymentAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_PaymentAdd.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_PaymentAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btn_PaymentAdd.ForeColor = System.Drawing.Color.Black;
+            this.btn_PaymentAdd.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_PaymentAdd.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_PaymentAdd.Iconimage")));
+            this.btn_PaymentAdd.Iconimage_right = null;
+            this.btn_PaymentAdd.Iconimage_right_Selected = null;
+            this.btn_PaymentAdd.Iconimage_Selected = null;
+            this.btn_PaymentAdd.IconMarginLeft = 0;
+            this.btn_PaymentAdd.IconMarginRight = 0;
+            this.btn_PaymentAdd.IconRightVisible = false;
+            this.btn_PaymentAdd.IconRightZoom = 0D;
+            this.btn_PaymentAdd.IconVisible = false;
+            this.btn_PaymentAdd.IconZoom = 130D;
+            this.btn_PaymentAdd.IsTab = false;
+            this.btn_PaymentAdd.Location = new System.Drawing.Point(42, 133);
+            this.btn_PaymentAdd.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btn_PaymentAdd.Name = "btn_PaymentAdd";
+            this.btn_PaymentAdd.Normalcolor = System.Drawing.Color.DarkGray;
+            this.btn_PaymentAdd.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            this.btn_PaymentAdd.OnHoverTextColor = System.Drawing.Color.Black;
+            this.btn_PaymentAdd.selected = false;
+            this.btn_PaymentAdd.Size = new System.Drawing.Size(119, 33);
+            this.btn_PaymentAdd.TabIndex = 96;
+            this.btn_PaymentAdd.Text = "  ADD";
+            this.btn_PaymentAdd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_PaymentAdd.Textcolor = System.Drawing.Color.Black;
+            this.btn_PaymentAdd.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btn_PaymentAdd.Click += new System.EventHandler(this.btn_PaymentAdd_Click);
+            // 
+            // btn_AddPay
+            // 
+            this.btn_AddPay.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            this.btn_AddPay.BackColor = System.Drawing.Color.DarkGray;
+            this.btn_AddPay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_AddPay.BorderRadius = 0;
+            this.btn_AddPay.ButtonText = "       ADD PAYMENT";
+            this.btn_AddPay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_AddPay.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_AddPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btn_AddPay.ForeColor = System.Drawing.Color.Black;
+            this.btn_AddPay.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_AddPay.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_AddPay.Iconimage")));
+            this.btn_AddPay.Iconimage_right = null;
+            this.btn_AddPay.Iconimage_right_Selected = null;
+            this.btn_AddPay.Iconimage_Selected = null;
+            this.btn_AddPay.IconMarginLeft = 0;
+            this.btn_AddPay.IconMarginRight = 0;
+            this.btn_AddPay.IconRightVisible = false;
+            this.btn_AddPay.IconRightZoom = 0D;
+            this.btn_AddPay.IconVisible = false;
+            this.btn_AddPay.IconZoom = 90D;
+            this.btn_AddPay.IsTab = false;
+            this.btn_AddPay.Location = new System.Drawing.Point(748, 287);
+            this.btn_AddPay.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.btn_AddPay.Name = "btn_AddPay";
+            this.btn_AddPay.Normalcolor = System.Drawing.Color.DarkGray;
+            this.btn_AddPay.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            this.btn_AddPay.OnHoverTextColor = System.Drawing.Color.Black;
+            this.btn_AddPay.selected = false;
+            this.btn_AddPay.Size = new System.Drawing.Size(193, 39);
+            this.btn_AddPay.TabIndex = 97;
+            this.btn_AddPay.Text = "       ADD PAYMENT";
+            this.btn_AddPay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_AddPay.Textcolor = System.Drawing.Color.Black;
+            this.btn_AddPay.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btn_AddPay.Click += new System.EventHandler(this.btn_AddPay_Click);
+            // 
+            // btn_PrintCert1
+            // 
+            this.btn_PrintCert1.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            this.btn_PrintCert1.BackColor = System.Drawing.Color.DarkGray;
+            this.btn_PrintCert1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_PrintCert1.BorderRadius = 0;
+            this.btn_PrintCert1.ButtonText = "PRINT WITHOUT CHART";
+            this.btn_PrintCert1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_PrintCert1.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_PrintCert1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.btn_PrintCert1.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_PrintCert1.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_PrintCert1.Iconimage")));
+            this.btn_PrintCert1.Iconimage_right = null;
+            this.btn_PrintCert1.Iconimage_right_Selected = null;
+            this.btn_PrintCert1.Iconimage_Selected = null;
+            this.btn_PrintCert1.IconMarginLeft = 0;
+            this.btn_PrintCert1.IconMarginRight = 0;
+            this.btn_PrintCert1.IconRightVisible = false;
+            this.btn_PrintCert1.IconRightZoom = 0D;
+            this.btn_PrintCert1.IconVisible = false;
+            this.btn_PrintCert1.IconZoom = 120D;
+            this.btn_PrintCert1.IsTab = false;
+            this.btn_PrintCert1.Location = new System.Drawing.Point(365, 550);
+            this.btn_PrintCert1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.btn_PrintCert1.Name = "btn_PrintCert1";
+            this.btn_PrintCert1.Normalcolor = System.Drawing.Color.DarkGray;
+            this.btn_PrintCert1.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            this.btn_PrintCert1.OnHoverTextColor = System.Drawing.Color.Black;
+            this.btn_PrintCert1.selected = false;
+            this.btn_PrintCert1.Size = new System.Drawing.Size(157, 38);
+            this.btn_PrintCert1.TabIndex = 97;
+            this.btn_PrintCert1.Text = "PRINT WITHOUT CHART";
+            this.btn_PrintCert1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_PrintCert1.Textcolor = System.Drawing.Color.Black;
+            this.btn_PrintCert1.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.btn_PrintCert1.Click += new System.EventHandler(this.btn_PrintCert1_Click);
+            // 
+            // btn_PrintCert2
+            // 
+            this.btn_PrintCert2.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            this.btn_PrintCert2.BackColor = System.Drawing.Color.DarkGray;
+            this.btn_PrintCert2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_PrintCert2.BorderRadius = 0;
+            this.btn_PrintCert2.ButtonText = "PRINT WITH CHART";
+            this.btn_PrintCert2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_PrintCert2.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_PrintCert2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.btn_PrintCert2.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_PrintCert2.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_PrintCert2.Iconimage")));
+            this.btn_PrintCert2.Iconimage_right = null;
+            this.btn_PrintCert2.Iconimage_right_Selected = null;
+            this.btn_PrintCert2.Iconimage_Selected = null;
+            this.btn_PrintCert2.IconMarginLeft = 0;
+            this.btn_PrintCert2.IconMarginRight = 0;
+            this.btn_PrintCert2.IconRightVisible = true;
+            this.btn_PrintCert2.IconRightZoom = 0D;
+            this.btn_PrintCert2.IconVisible = false;
+            this.btn_PrintCert2.IconZoom = 120D;
+            this.btn_PrintCert2.IsTab = false;
+            this.btn_PrintCert2.Location = new System.Drawing.Point(528, 550);
+            this.btn_PrintCert2.Margin = new System.Windows.Forms.Padding(9, 7, 9, 7);
+            this.btn_PrintCert2.Name = "btn_PrintCert2";
+            this.btn_PrintCert2.Normalcolor = System.Drawing.Color.DarkGray;
+            this.btn_PrintCert2.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            this.btn_PrintCert2.OnHoverTextColor = System.Drawing.Color.Black;
+            this.btn_PrintCert2.selected = false;
+            this.btn_PrintCert2.Size = new System.Drawing.Size(133, 38);
+            this.btn_PrintCert2.TabIndex = 98;
+            this.btn_PrintCert2.Text = "PRINT WITH CHART";
+            this.btn_PrintCert2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_PrintCert2.Textcolor = System.Drawing.Color.Black;
+            this.btn_PrintCert2.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.btn_PrintCert2.Click += new System.EventHandler(this.btn_PrintCert2_Click);
+            // 
+            // btn_ChartRefresh
+            // 
+            this.btn_ChartRefresh.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            this.btn_ChartRefresh.BackColor = System.Drawing.Color.DarkGray;
+            this.btn_ChartRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_ChartRefresh.BorderRadius = 0;
+            this.btn_ChartRefresh.ButtonText = "REFRESH";
+            this.btn_ChartRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_ChartRefresh.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_ChartRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.btn_ChartRefresh.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_ChartRefresh.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_ChartRefresh.Iconimage")));
+            this.btn_ChartRefresh.Iconimage_right = null;
+            this.btn_ChartRefresh.Iconimage_right_Selected = null;
+            this.btn_ChartRefresh.Iconimage_Selected = null;
+            this.btn_ChartRefresh.IconMarginLeft = 0;
+            this.btn_ChartRefresh.IconMarginRight = 0;
+            this.btn_ChartRefresh.IconRightVisible = true;
+            this.btn_ChartRefresh.IconRightZoom = 0D;
+            this.btn_ChartRefresh.IconVisible = false;
+            this.btn_ChartRefresh.IconZoom = 120D;
+            this.btn_ChartRefresh.IsTab = false;
+            this.btn_ChartRefresh.Location = new System.Drawing.Point(667, 550);
+            this.btn_ChartRefresh.Margin = new System.Windows.Forms.Padding(12, 9, 12, 9);
+            this.btn_ChartRefresh.Name = "btn_ChartRefresh";
+            this.btn_ChartRefresh.Normalcolor = System.Drawing.Color.DarkGray;
+            this.btn_ChartRefresh.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            this.btn_ChartRefresh.OnHoverTextColor = System.Drawing.Color.Black;
+            this.btn_ChartRefresh.selected = false;
+            this.btn_ChartRefresh.Size = new System.Drawing.Size(137, 38);
+            this.btn_ChartRefresh.TabIndex = 99;
+            this.btn_ChartRefresh.Text = "REFRESH";
+            this.btn_ChartRefresh.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_ChartRefresh.Textcolor = System.Drawing.Color.Black;
+            this.btn_ChartRefresh.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.btn_ChartRefresh.Click += new System.EventHandler(this.btn_ChartRefresh_Click);
+            // 
+            // btn_ChartSave
+            // 
+            this.btn_ChartSave.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            this.btn_ChartSave.BackColor = System.Drawing.Color.DarkGray;
+            this.btn_ChartSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_ChartSave.BorderRadius = 0;
+            this.btn_ChartSave.ButtonText = "SAVE";
+            this.btn_ChartSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_ChartSave.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_ChartSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btn_ChartSave.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_ChartSave.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_ChartSave.Iconimage")));
+            this.btn_ChartSave.Iconimage_right = null;
+            this.btn_ChartSave.Iconimage_right_Selected = null;
+            this.btn_ChartSave.Iconimage_Selected = null;
+            this.btn_ChartSave.IconMarginLeft = 0;
+            this.btn_ChartSave.IconMarginRight = 0;
+            this.btn_ChartSave.IconRightVisible = true;
+            this.btn_ChartSave.IconRightZoom = 0D;
+            this.btn_ChartSave.IconVisible = false;
+            this.btn_ChartSave.IconZoom = 120D;
+            this.btn_ChartSave.IsTab = false;
+            this.btn_ChartSave.Location = new System.Drawing.Point(810, 550);
+            this.btn_ChartSave.Margin = new System.Windows.Forms.Padding(16, 11, 16, 11);
+            this.btn_ChartSave.Name = "btn_ChartSave";
+            this.btn_ChartSave.Normalcolor = System.Drawing.Color.DarkGray;
+            this.btn_ChartSave.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            this.btn_ChartSave.OnHoverTextColor = System.Drawing.Color.Black;
+            this.btn_ChartSave.selected = false;
+            this.btn_ChartSave.Size = new System.Drawing.Size(137, 38);
+            this.btn_ChartSave.TabIndex = 100;
+            this.btn_ChartSave.Text = "SAVE";
+            this.btn_ChartSave.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_ChartSave.Textcolor = System.Drawing.Color.Black;
+            this.btn_ChartSave.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btn_ChartSave.Click += new System.EventHandler(this.btn_ChartSave_Click);
+            // 
+            // btn_NoteAdd
+            // 
+            this.btn_NoteAdd.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            this.btn_NoteAdd.BackColor = System.Drawing.Color.DarkGray;
+            this.btn_NoteAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_NoteAdd.BorderRadius = 0;
+            this.btn_NoteAdd.ButtonText = "ADD NOTE";
+            this.btn_NoteAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_NoteAdd.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_NoteAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btn_NoteAdd.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_NoteAdd.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_NoteAdd.Iconimage")));
+            this.btn_NoteAdd.Iconimage_right = null;
+            this.btn_NoteAdd.Iconimage_right_Selected = null;
+            this.btn_NoteAdd.Iconimage_Selected = null;
+            this.btn_NoteAdd.IconMarginLeft = 0;
+            this.btn_NoteAdd.IconMarginRight = 0;
+            this.btn_NoteAdd.IconRightVisible = true;
+            this.btn_NoteAdd.IconRightZoom = 0D;
+            this.btn_NoteAdd.IconVisible = false;
+            this.btn_NoteAdd.IconZoom = 90D;
+            this.btn_NoteAdd.IsTab = false;
+            this.btn_NoteAdd.Location = new System.Drawing.Point(777, 510);
+            this.btn_NoteAdd.Margin = new System.Windows.Forms.Padding(21, 14, 21, 14);
+            this.btn_NoteAdd.Name = "btn_NoteAdd";
+            this.btn_NoteAdd.Normalcolor = System.Drawing.Color.DarkGray;
+            this.btn_NoteAdd.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            this.btn_NoteAdd.OnHoverTextColor = System.Drawing.Color.Black;
+            this.btn_NoteAdd.selected = false;
+            this.btn_NoteAdd.Size = new System.Drawing.Size(136, 47);
+            this.btn_NoteAdd.TabIndex = 101;
+            this.btn_NoteAdd.Text = "ADD NOTE";
+            this.btn_NoteAdd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_NoteAdd.Textcolor = System.Drawing.Color.Black;
+            this.btn_NoteAdd.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btn_NoteAdd.Click += new System.EventHandler(this.btn_NoteAdd_Click);
+            // 
+            // btn_PaymentCancel
+            // 
+            this.btn_PaymentCancel.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            this.btn_PaymentCancel.BackColor = System.Drawing.Color.DarkGray;
+            this.btn_PaymentCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_PaymentCancel.BorderRadius = 0;
+            this.btn_PaymentCancel.ButtonText = "CANCEL PAYMENT";
+            this.btn_PaymentCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_PaymentCancel.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_PaymentCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btn_PaymentCancel.ForeColor = System.Drawing.Color.Black;
+            this.btn_PaymentCancel.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_PaymentCancel.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_PaymentCancel.Iconimage")));
+            this.btn_PaymentCancel.Iconimage_right = null;
+            this.btn_PaymentCancel.Iconimage_right_Selected = null;
+            this.btn_PaymentCancel.Iconimage_Selected = null;
+            this.btn_PaymentCancel.IconMarginLeft = 0;
+            this.btn_PaymentCancel.IconMarginRight = 0;
+            this.btn_PaymentCancel.IconRightVisible = false;
+            this.btn_PaymentCancel.IconRightZoom = 0D;
+            this.btn_PaymentCancel.IconVisible = false;
+            this.btn_PaymentCancel.IconZoom = 130D;
+            this.btn_PaymentCancel.IsTab = false;
+            this.btn_PaymentCancel.Location = new System.Drawing.Point(748, 554);
+            this.btn_PaymentCancel.Margin = new System.Windows.Forms.Padding(5);
+            this.btn_PaymentCancel.Name = "btn_PaymentCancel";
+            this.btn_PaymentCancel.Normalcolor = System.Drawing.Color.DarkGray;
+            this.btn_PaymentCancel.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            this.btn_PaymentCancel.OnHoverTextColor = System.Drawing.Color.Black;
+            this.btn_PaymentCancel.selected = false;
+            this.btn_PaymentCancel.Size = new System.Drawing.Size(193, 31);
+            this.btn_PaymentCancel.TabIndex = 98;
+            this.btn_PaymentCancel.Text = "CANCEL PAYMENT";
+            this.btn_PaymentCancel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_PaymentCancel.Textcolor = System.Drawing.Color.Black;
+            this.btn_PaymentCancel.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btn_PaymentCancel.Click += new System.EventHandler(this.btn_PaymentCancel_Click);
             // 
             // ShowPatientInfo
             // 
@@ -4362,19 +4577,13 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private Bunifu.Framework.UI.BunifuCustomDataGrid Billing_DataGrid;
         private Bunifu.Framework.UI.BunifuFlatButton btn_closePatientInfo;
-        private System.Windows.Forms.Button btn_SaveChart;
-        private System.Windows.Forms.Button btn_RefreshChart;
-        private System.Windows.Forms.Button btn_AddPayment;
         private System.Windows.Forms.Panel Payment_Panel;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
-        private System.Windows.Forms.Button btn_add;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel7;
         private WindowsFormsControlLibrary1.BunifuCustomTextbox txt_Amount;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel6;
         private WindowsFormsControlLibrary1.BunifuCustomTextbox txt_BllingID;
-        private System.Windows.Forms.Button btn_closePayment;
         private System.Windows.Forms.TabPage Notes_TAB;
-        private System.Windows.Forms.Button btn_AddNotes;
         private Bunifu.Framework.UI.BunifuCustomDataGrid TreatmentHistory_DG;
         private System.Windows.Forms.Panel panel5;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel5;
@@ -4567,7 +4776,6 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel8;
         private System.Windows.Forms.PictureBox pictureBox77;
         private Bunifu.Framework.UI.BunifuCustomDataGrid PaymentHistory_DataGrid;
-        private System.Windows.Forms.Button btn_CancelPayment;
         private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton237;
         private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton238;
         private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton239;
@@ -4587,7 +4795,14 @@
         private System.Windows.Forms.FlowLayoutPanel NotesLayoutPanel;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Button btn_print;
-        private System.Windows.Forms.Button btn_Print2;
+        private Bunifu.Framework.UI.BunifuFlatButton btn_AddPay;
+        private Bunifu.Framework.UI.BunifuFlatButton btn_PaymentAdd;
+        private Bunifu.Framework.UI.BunifuFlatButton btn_PaymentClose;
+        private Bunifu.Framework.UI.BunifuFlatButton btn_PrintCert1;
+        private Bunifu.Framework.UI.BunifuFlatButton btn_PrintCert2;
+        private Bunifu.Framework.UI.BunifuFlatButton btn_ChartRefresh;
+        private Bunifu.Framework.UI.BunifuFlatButton btn_ChartSave;
+        private Bunifu.Framework.UI.BunifuFlatButton btn_NoteAdd;
+        private Bunifu.Framework.UI.BunifuFlatButton btn_PaymentCancel;
     }
 }

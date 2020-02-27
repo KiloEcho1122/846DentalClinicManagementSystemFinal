@@ -235,12 +235,6 @@ namespace _846DentalClinicManagementSystem
 
         }
 
-        private void btn_Back_Click(object sender, EventArgs e)
-        {
-            HidePanels();
-            SchedulerPanel.Visible = true;
-        }
-
 
         //App History Panel End
 
@@ -552,8 +546,8 @@ namespace _846DentalClinicManagementSystem
             appointment.FlowDirection = FlowDirection.LeftToRight;
             appointment.WrapContents = true;
             //  appointment.AutoScroll = true;
-            appointment.BackColor = Color.LightSeaGreen;
-            if (dentID % 2 == 0) { appointment.BackColor = Color.FromArgb(217, 102, 135); }
+            appointment.BackColor = Color.FromArgb(182, 214, 132);
+            if (dentID % 2 == 0) { appointment.BackColor = Color.OliveDrab; }
             appointment.MouseWheel += (sender, e) =>
             {
                 AppTimePanel.AutoScrollPosition = new Point(0, Appointment_Panel.VerticalScroll.Value);
@@ -563,7 +557,14 @@ namespace _846DentalClinicManagementSystem
             Label namee = new Label();
             new ToolTip().SetToolTip(namee, name);
             namee.Text = name;
-            namee.ForeColor = Color.White;
+            if (dentID % 2 == 0)
+            { 
+                   namee.ForeColor = Color.White;
+            }
+            else
+            {
+                namee.ForeColor = Color.Black;
+            }
             namee.Size = new Size(labelWidth, 20);
             namee.Font = new Font("Microsoft Sans Serif", nameTextSize, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             appointment.Controls.Add(namee);
@@ -596,7 +597,14 @@ namespace _846DentalClinicManagementSystem
             Label lblcontact = new Label();
             new ToolTip().SetToolTip(lblcontact, contact);
             lblcontact.Text = contact;
-            lblcontact.ForeColor = Color.White;
+            if (dentID % 2 == 0)
+            {
+                lblcontact.ForeColor = Color.White;
+            }
+            else
+            {
+                lblcontact.ForeColor = Color.Black;
+            }
             lblcontact.Size = new Size(labelWidth, 20);
             lblcontact.Font = new Font("Microsoft Sans Serif", nameTextSize, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             appointment.Controls.Add(lblcontact);
@@ -604,7 +612,14 @@ namespace _846DentalClinicManagementSystem
             Label name1 = new Label();
             name1.Text = treatment;
             new ToolTip().SetToolTip(name1, treatment);
-            name1.ForeColor = Color.White;
+            if (dentID % 2 == 0)
+            {
+                name1.ForeColor = Color.White;
+            }
+            else
+            {
+                name1.ForeColor = Color.Black;
+            }
             name1.Size = new Size(labelWidth + 50, 78);
             name1.Font = new Font("Microsoft Sans Serif", treatmentTextSize, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             appointment.Controls.Add(name1);
@@ -870,7 +885,7 @@ namespace _846DentalClinicManagementSystem
 
                 Panel panel = new Panel();
                 panel.Size = new Size(((DentistArray.Count * 150) * 7) + 10, 45);
-                panel.BackColor = Color.Salmon;
+                panel.BackColor = Color.FromArgb(20, 60, 90);
                 panel.Margin = new Padding(0);
                 panel.Location = new Point(0, 0);
                 this.AppointmentHeader_Panel.Controls.Add(panel);
@@ -896,6 +911,7 @@ namespace _846DentalClinicManagementSystem
                     label4.Font = new Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     label4.Location = new Point(vertx + 20, verticalY);
                     label4.Text = dateStart.ToString("ddd");
+                    label4.ForeColor = Color.White;
                     panel.Controls.Add(label4);
 
 
@@ -903,6 +919,7 @@ namespace _846DentalClinicManagementSystem
                     label.Font = new Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     label.Location = new Point(vertx + 20, verticalY + 20);
                     label.Text = dateStart.ToString("M/d");
+                    label.ForeColor = Color.White;
                     panel.Controls.Add(label);
 
                     vertx += (150 * DentistArray.Count);
@@ -919,11 +936,11 @@ namespace _846DentalClinicManagementSystem
 
                     if (i % 2 == 0)
                     {
-                        WeekDentistPanel.BackColor = Color.PaleTurquoise;
+                        WeekDentistPanel.BackColor = Color.FromArgb(182, 214, 132); 
                     }
                     else
                     {
-                        WeekDentistPanel.BackColor = Color.Pink;
+                        WeekDentistPanel.BackColor = Color.OliveDrab;
                     }
 
                     // pra magreset sa index 0 if ever na lumagpas na si i
@@ -967,6 +984,15 @@ namespace _846DentalClinicManagementSystem
                     WeekDentistPanel.Controls.Add(DentName);
 
                     temp += 1;
+
+                    if (i % 2 == 0)
+                    {
+                        DentName.ForeColor = Color.Black;
+                    }
+                    else
+                    {
+                        DentName.ForeColor = Color.White;
+                    }
                     //if (i % 2 == 0)
                     //{
                     //    esther.Text = "Dr. Aira";
@@ -1451,6 +1477,10 @@ namespace _846DentalClinicManagementSystem
                 {
                     lbl_AppointmentCountDashboard.Text = "APPOINTMENTS : " + count.ToString();
                 }
+                else
+                {
+                    lbl_AppointmentCountDashboard.Text = "APPOINTMENTS : 0";
+                }
 
             }
             catch (Exception ex)
@@ -1476,6 +1506,10 @@ namespace _846DentalClinicManagementSystem
                 if (count != null)
                 {
                     lbl_PatientCountDashboard.Text = "ACTIVE PATIENTS : " + count.ToString();
+                }
+                else
+                {
+                    lbl_PatientCountDashboard.Text = "ACTIVE PATIENTS : 0";
                 }
 
             }
@@ -1504,6 +1538,10 @@ namespace _846DentalClinicManagementSystem
                 {
                     lbl_DentistCountDashboard.Text = "ACTIVE DENTISTS : " + count.ToString();
                 }
+                else
+                {
+                    lbl_DentistCountDashboard.Text = "ACTIVE DENTISTS : 0";
+                }
 
             }
             catch (Exception ex)
@@ -1528,6 +1566,10 @@ namespace _846DentalClinicManagementSystem
                 if (count != null)
                 {
                     lbl_UnpaidBillsCountDashboard.Text = "UNPAID BILLS : " + count.ToString();
+                }
+                else
+                {
+                    lbl_UnpaidBillsCountDashboard.Text = "UNPAID BILLS : 0";
                 }
 
             }
@@ -1899,6 +1941,17 @@ namespace _846DentalClinicManagementSystem
         private void btn_RefreshAppView_Click(object sender, EventArgs e)
         {
             RefreshAppointmentView();
+        }
+
+        private void btn_BackHistory_Click(object sender, EventArgs e)
+        {
+            HidePanels();
+            SchedulerPanel.Visible = true;
+        }
+
+        private void SchedulerPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         private void btn_RestoreLogs_Click(object sender, EventArgs e)

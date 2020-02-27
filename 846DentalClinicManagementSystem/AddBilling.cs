@@ -35,7 +35,7 @@ namespace _846DentalClinicManagementSystem
             if (GlobalVariable.isBillingStatementExist == true)
             {
                 txt_formHeader.Text = "Update Billing Statement";
-                btn_AddBilling.Text = "Update";
+                btn_BillingAdd.Text = "UPDATE";
                 getAEditBillingID();
             }
             else
@@ -156,9 +156,9 @@ namespace _846DentalClinicManagementSystem
 
             lbl_TotalAmt.Top = yPositionLabel + 30;
             lbl_Total.Top = yPositionLabel + 30;
-            btn_AddBilling.Top = yPositionLabel + 62;
+            btn_BillingAdd.Top = yPositionLabel + 62;
             lbl_Total.TabIndex = dt.Rows.Count + 2;
-            btn_AddBilling.TabIndex = dt.Rows.Count + 4;
+            btn_BillingAdd.TabIndex = dt.Rows.Count + 4;
             TreatmentPrice = new float[dt.Rows.Count]; //initialize size of array
          //   this.Location = new Point(1976, 380);
         }
@@ -186,7 +186,6 @@ namespace _846DentalClinicManagementSystem
                 bool isPaymentValid = Regex.IsMatch(txt.Text, @"^(\(?\+?[0-9]*\)?)?[0-9\(\)]*$");
                 if (isPaymentValid == true && string.IsNullOrWhiteSpace(txt.Text) == false)
                 {
-                    txt.BackColor = System.Drawing.Color.Black;
                     TotalAmt += float.Parse(txt.Text);
 
                 }
@@ -218,10 +217,10 @@ namespace _846DentalClinicManagementSystem
         TextBox addTextBox(int i, int x, int y)
         {
             TextBox textbox = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
-            textbox.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            //textbox.BorderColor = System.Drawing.Color.SeaGreen;
+            textbox.BackColor = System.Drawing.Color.Gainsboro;
+          //  textbox.BorderColor = System.Drawing.Color.SeaGreen;
             textbox.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            textbox.ForeColor = System.Drawing.SystemColors.Menu;
+            textbox.ForeColor = System.Drawing.Color.Black;
             textbox.Location = new System.Drawing.Point(x, y);
             textbox.Multiline = true;
             textbox.Name = "txt_AmtCharge" + i.ToString();
@@ -231,10 +230,7 @@ namespace _846DentalClinicManagementSystem
         }
 
 
-        private void btn_AddBilling_Click(object sender, EventArgs e)
-        {
-            AddBillingFunction();
-        }
+ 
 
         private void AddBillingFunction()
         {
@@ -423,6 +419,11 @@ namespace _846DentalClinicManagementSystem
         }
 
         private void btn_AddBilling_KeyDown(object sender, KeyEventArgs e)
+        {
+            AddBillingFunction();
+        }
+
+        private void btn_BillingAdd_Click(object sender, EventArgs e)
         {
             AddBillingFunction();
         }

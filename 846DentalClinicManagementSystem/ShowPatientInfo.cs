@@ -875,64 +875,10 @@ namespace _846DentalClinicManagementSystem
             }
         }
 
-      
-        private void btn_SaveChart_Click(object sender, EventArgs e)
-        {
-            int teethID = 0;
-            foreach (int teeth in TeethArray)
-            {
-                teethID = CheckPatientTeethEntry(teeth);
-                if (teethID != 0)
-                {
-                    // means there is an existing status sa teethnumber ng patient
-                    //so imbis na insert update lang to prevent data replication
-
-                    UpdatePatientTeeth(teethID, teeth);
-                    GlobalVariable.InsertActivityLog("Edited Tooth Chart, Patient ID = " + GlobalVariable.PatientID, "Edit");
-                    //Console.WriteLine(Convert.ToInt32(cmd.ExecuteScalar()));
-                }
-                else
-                {
-                    // means wala pang existing  status sa teethnumber ng patient
-                    // so mag iinsert ng bago
-                    insertTeethStatus(teeth);
-                    GlobalVariable.InsertActivityLog("Edited Tooth Chart, Patient ID = " + GlobalVariable.PatientID, "Edit");
-
-                    //Console.WriteLine(Convert.ToInt32(cmd.ExecuteScalar()));
-                }
-            }
-            MessageBox.Show("Save Successfully");
-            TeethArray.Clear(); // empty arraylist
-        }
-
-        private void btn_RefreshChart_Click(object sender, EventArgs e)
-        {
-  
-            RefreshTeethPanel();
-            SetDefaultTeethColor();
-            RetrievePatientTeethStatus();
-            TeethArray.Clear();
-
-        }
-
-
+ 
         //----------------------------------------------------------------------------------------------------------------------------------
         // Notes
-        private void btn_AddNotes_Click(object sender, EventArgs e)
-        {
-            if (GlobalVariable.Permission == "Admin" || GlobalVariable.JobTitle == "Dentist")
-            {
-                LatestNoteID++;
-                string id = LatestNoteID.ToString();
-                DrawStickyNotes(id, "Enter your notes here ...", DateTime.Now.ToString("MMM. d yyyy hh:mm tt"));
-            }
-            else
-            {
-                MessageBox.Show("Permission Denied !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-           
-
-        }
+  
 
         private int getNextNoteID()
         {
@@ -1331,16 +1277,6 @@ namespace _846DentalClinicManagementSystem
 
         }
 
-        private void btn_AddPayment_Click(object sender, EventArgs e)
-        {
-            Billing_DataGrid.Width = 715;
-            Payment_Panel.Visible = true;
-            if (Billing_DataGrid.SelectedRows.Count > 0) // make sure user select at least 1 row 
-            {
-
-                txt_BllingID.Text = GlobalVariable.BillingID.ToString();
-            }
-        }
 
         private void add()
         {
@@ -1440,12 +1376,7 @@ namespace _846DentalClinicManagementSystem
             sqlcon.Close();
         }
 
-        private void btn_closePayment_Click(object sender, EventArgs e)
-        {
-            txt_Amount.Clear();
-            Payment_Panel.Visible = false;
-            Billing_DataGrid.Width = 922;
-        }
+
 
         private void Billing_DataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -1454,11 +1385,7 @@ namespace _846DentalClinicManagementSystem
             //ShowPaymentHistory();
         }
 
-        private void btn_add_Click(object sender, EventArgs e)
-        {
-            add();
-            ShowPaymentHistory();
-        }
+
 
         private void txt_Amount_KeyDown(object sender, KeyEventArgs e)
         {
@@ -1477,44 +1404,6 @@ namespace _846DentalClinicManagementSystem
  //--------------------------------------------------------------------------------------------------------------------------------
 //Payment History
         ArrayList paymentID = new ArrayList();
-
-        private void btn_CancelPayment_Click(object sender, EventArgs e)
-        {
-            if(GlobalVariable.Permission == "Admin")
-            {
-                if (PaymentHistory_DataGrid.SelectedRows.Count > 0)
-                {
-
-                    SqlCommand cmd = new SqlCommand(
-                    "UPDATE Payment SET Status = 'Canceled', EmployeeID_fk = @EmployeeID WHERE PaymentID = @PaymentID", sqlcon);
-
-                    cmd.Parameters.Clear();
-                    cmd.Parameters.AddWithValue("@EmployeeID", GlobalVariable.EmployeeID);
-                    cmd.Parameters.AddWithValue("@PaymentID", (int)(PaymentHistory_DataGrid.SelectedRows[0].Cells[0].Value));
-
-                    if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
-                    try
-                    {
-                        cmd.ExecuteNonQuery();
-                        UpdateBalanceAfterPayment();
-                        ShowPaymentHistory();
-                        GlobalVariable.InsertActivityLog("Cancelled Payment on Billing ID = " + GlobalVariable.BillingID + " Payment ID = " + PaymentHistory_DataGrid.SelectedRows[0].Cells[0].Value.ToString(), "Cancel");
-                        if (paymentID.Count > 0) { UpdateBillingAfterPayment(); }
-                        ShowBilling();
-                        paymentID.Clear();
-
-                    }
-                    catch (Exception ex) { Console.WriteLine(ex.Message); }
-                    sqlcon.Close();
-                }
-
-            }
-            else
-            {
-                MessageBox.Show("Permission Denied !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            
-        }
 
 
         private void ShowPaymentHistory()
@@ -1651,36 +1540,34 @@ namespace _846DentalClinicManagementSystem
         }
 
         //-------------------------------------- Experimental
-        private void btn_print_Click(object sender, EventArgs e)
+  
+
+
+        private void btn_AddPay_Click(object sender, EventArgs e)
         {
-            btn_SaveChart.Visible = false;
-            btn_RefreshChart.Visible = false;
-            btn_print.Visible = false;
-            btn_Print2.Visible = false;
+            Billing_DataGrid.Width = 715;
+            Payment_Panel.Visible = true;
+            if (Billing_DataGrid.SelectedRows.Count > 0) // make sure user select at least 1 row 
+            {
 
-            this.Show();
-            int left = this.DesktopLocation.X + panel6.Location.X + PatientInfoTAB.Location.X;
-            int top = this.DesktopLocation.Y + panel6.Location.Y + PatientInfoTAB.Location.Y + 25;
-            Rectangle rect = new Rectangle(left, top, panel6.Width + panel1.Width - 7, panel6.Size.Height + 2);
-            Bitmap bmp = new Bitmap(rect.Width, rect.Height, PixelFormat.Format32bppArgb);
-            Graphics g = Graphics.FromImage(bmp);
-            g.CopyFromScreen(rect.Left, rect.Top, 0, 0, bmp.Size, CopyPixelOperation.SourceCopy);
- 
-           
-            bmp.Save(GlobalVariable.chartImagePath, ImageFormat.Bmp);
-
-            btn_SaveChart.Visible = true;
-            btn_RefreshChart.Visible = true;
-            btn_print.Visible = true;
-            btn_Print2.Visible = true;
-
-
-            AddDiagnosis addDiagnosis = new AddDiagnosis();
-            addDiagnosis.Show();
-
+                txt_BllingID.Text = GlobalVariable.BillingID.ToString();
+            }
         }
 
-        private void btn_Print2_Click(object sender, EventArgs e)
+        private void btn_PaymentAdd_Click(object sender, EventArgs e)
+        {
+            add();
+            ShowPaymentHistory();
+        }
+
+        private void btn_PaymentClose_Click(object sender, EventArgs e)
+        {
+            txt_Amount.Clear();
+            Payment_Panel.Visible = false;
+            Billing_DataGrid.Width = 922;
+        }
+
+        private void btn_PrintCert1_Click(object sender, EventArgs e)
         {
             DataSet1.dtDataDataTable dt1 = new DataSet1.dtDataDataTable();
 
@@ -1694,7 +1581,7 @@ namespace _846DentalClinicManagementSystem
             PatientCmd.Parameters.AddWithValue("@PatientID", GlobalVariable.PatientID);
             SqlCommand DentistCmd = new SqlCommand(
                 "SELECT CONCAT(LastName,',',FirstName, ' ', MiddleName), LicenseNo," +
-                "CONCAT(FirstName, ' ', MiddleName, ' ', LastName) FROM Employee WHERE EmployeeID = @EmployeeID AND JobTitle ='Dentist' " , sqlcon);
+                "CONCAT(FirstName, ' ', MiddleName, ' ', LastName) FROM Employee WHERE EmployeeID = @EmployeeID AND JobTitle ='Dentist' ", sqlcon);
             DentistCmd.Parameters.Clear();
             DentistCmd.Parameters.AddWithValue("@EmployeeID", GlobalVariable.EmployeeID);
             PatientAdapter.SelectCommand = PatientCmd;
@@ -1734,7 +1621,124 @@ namespace _846DentalClinicManagementSystem
             GlobalVariable.InsertActivityLog("Printed Dental Certificate, Patient ID = " + GlobalVariable.PatientID, "Print");
         }
 
-       
+        private void btn_PrintCert2_Click(object sender, EventArgs e)
+        {
+            btn_ChartSave.Visible = false;
+            btn_ChartRefresh.Visible = false;
+            btn_PrintCert1.Visible = false;
+            btn_PrintCert2.Visible = false;
+
+            this.Show();
+            int left = this.DesktopLocation.X + panel6.Location.X + PatientInfoTAB.Location.X;
+            int top = this.DesktopLocation.Y + panel6.Location.Y + PatientInfoTAB.Location.Y + 25;
+            Rectangle rect = new Rectangle(left, top, panel6.Width + panel1.Width - 7, panel6.Size.Height + 2);
+            Bitmap bmp = new Bitmap(rect.Width, rect.Height, PixelFormat.Format32bppArgb);
+            Graphics g = Graphics.FromImage(bmp);
+            g.CopyFromScreen(rect.Left, rect.Top, 0, 0, bmp.Size, CopyPixelOperation.SourceCopy);
+
+
+            bmp.Save(GlobalVariable.chartImagePath, ImageFormat.Bmp);
+
+            btn_ChartSave.Visible = true;
+            btn_ChartRefresh.Visible = true;
+            btn_PrintCert1.Visible = true;
+            btn_PrintCert2.Visible = true;
+
+
+            AddDiagnosis addDiagnosis = new AddDiagnosis();
+            addDiagnosis.Show();
+        }
+
+        private void btn_ChartRefresh_Click(object sender, EventArgs e)
+        {
+            RefreshTeethPanel();
+            SetDefaultTeethColor();
+            RetrievePatientTeethStatus();
+            TeethArray.Clear();
+        }
+
+        private void btn_ChartSave_Click(object sender, EventArgs e)
+        {
+            int teethID = 0;
+            foreach (int teeth in TeethArray)
+            {
+                teethID = CheckPatientTeethEntry(teeth);
+                if (teethID != 0)
+                {
+                    // means there is an existing status sa teethnumber ng patient
+                    //so imbis na insert update lang to prevent data replication
+
+                    UpdatePatientTeeth(teethID, teeth);
+                    GlobalVariable.InsertActivityLog("Edited Tooth Chart, Patient ID = " + GlobalVariable.PatientID, "Edit");
+                    //Console.WriteLine(Convert.ToInt32(cmd.ExecuteScalar()));
+                }
+                else
+                {
+                    // means wala pang existing  status sa teethnumber ng patient
+                    // so mag iinsert ng bago
+                    insertTeethStatus(teeth);
+                    GlobalVariable.InsertActivityLog("Edited Tooth Chart, Patient ID = " + GlobalVariable.PatientID, "Edit");
+
+                    //Console.WriteLine(Convert.ToInt32(cmd.ExecuteScalar()));
+                }
+            }
+            MessageBox.Show("Save Successfully");
+            TeethArray.Clear(); // empty arraylist
+        }
+
+        private void btn_NoteAdd_Click(object sender, EventArgs e)
+        {
+            if (GlobalVariable.Permission == "Admin" || GlobalVariable.JobTitle == "Dentist")
+            {
+                LatestNoteID++;
+                string id = LatestNoteID.ToString();
+                DrawStickyNotes(id, "Enter your notes here ...", DateTime.Now.ToString("MMM. d yyyy hh:mm tt"));
+            }
+            else
+            {
+                MessageBox.Show("Permission Denied !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void btn_PaymentCancel_Click(object sender, EventArgs e)
+        {
+            if (GlobalVariable.Permission == "Admin")
+            {
+                if (PaymentHistory_DataGrid.SelectedRows.Count > 0)
+                {
+
+                    SqlCommand cmd = new SqlCommand(
+                    "UPDATE Payment SET Status = 'Canceled', EmployeeID_fk = @EmployeeID WHERE PaymentID = @PaymentID", sqlcon);
+
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@EmployeeID", GlobalVariable.EmployeeID);
+                    cmd.Parameters.AddWithValue("@PaymentID", (int)(PaymentHistory_DataGrid.SelectedRows[0].Cells[0].Value));
+
+                    if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                        UpdateBalanceAfterPayment();
+                        ShowPaymentHistory();
+                        GlobalVariable.InsertActivityLog("Cancelled Payment on Billing ID = " + GlobalVariable.BillingID + " Payment ID = " + PaymentHistory_DataGrid.SelectedRows[0].Cells[0].Value.ToString(), "Cancel");
+                        if (paymentID.Count > 0) { UpdateBillingAfterPayment(); }
+                        ShowBilling();
+                        paymentID.Clear();
+
+                    }
+                    catch (Exception ex) { Console.WriteLine(ex.Message); }
+                    sqlcon.Close();
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Permission Denied !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
         //-Experimental ------------------------------------
     }
 

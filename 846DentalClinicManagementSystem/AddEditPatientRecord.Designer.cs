@@ -65,10 +65,10 @@
             // 
             // txt_MName
             // 
-            this.txt_MName.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.txt_MName.BackColor = System.Drawing.Color.Gainsboro;
             this.txt_MName.BorderColor = System.Drawing.Color.SeaGreen;
             this.txt_MName.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_MName.ForeColor = System.Drawing.SystemColors.Menu;
+            this.txt_MName.ForeColor = System.Drawing.Color.Black;
             this.txt_MName.Location = new System.Drawing.Point(456, 206);
             this.txt_MName.Multiline = true;
             this.txt_MName.Name = "txt_MName";
@@ -77,10 +77,10 @@
             // 
             // txt_FName
             // 
-            this.txt_FName.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.txt_FName.BackColor = System.Drawing.Color.Gainsboro;
             this.txt_FName.BorderColor = System.Drawing.Color.SeaGreen;
             this.txt_FName.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_FName.ForeColor = System.Drawing.SystemColors.Menu;
+            this.txt_FName.ForeColor = System.Drawing.Color.Black;
             this.txt_FName.Location = new System.Drawing.Point(245, 206);
             this.txt_FName.Multiline = true;
             this.txt_FName.Name = "txt_FName";
@@ -89,10 +89,10 @@
             // 
             // txt_LName
             // 
-            this.txt_LName.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.txt_LName.BackColor = System.Drawing.Color.Gainsboro;
             this.txt_LName.BorderColor = System.Drawing.Color.SeaGreen;
             this.txt_LName.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_LName.ForeColor = System.Drawing.SystemColors.Menu;
+            this.txt_LName.ForeColor = System.Drawing.Color.Black;
             this.txt_LName.Location = new System.Drawing.Point(30, 206);
             this.txt_LName.Multiline = true;
             this.txt_LName.Name = "txt_LName";
@@ -166,7 +166,7 @@
             // 
             // txt_PatientNo
             // 
-            this.txt_PatientNo.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.txt_PatientNo.BackColor = System.Drawing.Color.Gainsboro;
             this.txt_PatientNo.BorderColor = System.Drawing.Color.SeaGreen;
             this.txt_PatientNo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_PatientNo.ForeColor = System.Drawing.Color.Black;
@@ -227,7 +227,7 @@
             // 
             // gender_DD
             // 
-            this.gender_DD.BackColor = System.Drawing.Color.Transparent;
+            this.gender_DD.BackColor = System.Drawing.Color.Gainsboro;
             this.gender_DD.BorderRadius = 3;
             this.gender_DD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gender_DD.ForeColor = System.Drawing.Color.White;
@@ -236,8 +236,8 @@
         "FEMALE"};
             this.gender_DD.Location = new System.Drawing.Point(32, 321);
             this.gender_DD.Name = "gender_DD";
-            this.gender_DD.NomalColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.gender_DD.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.gender_DD.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
+            this.gender_DD.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
             this.gender_DD.selectedIndex = -1;
             this.gender_DD.Size = new System.Drawing.Size(162, 36);
             this.gender_DD.TabIndex = 35;
@@ -245,10 +245,10 @@
             // 
             // txt_Age
             // 
-            this.txt_Age.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.txt_Age.BackColor = System.Drawing.Color.Gainsboro;
             this.txt_Age.BorderColor = System.Drawing.Color.SeaGreen;
             this.txt_Age.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Age.ForeColor = System.Drawing.SystemColors.Menu;
+            this.txt_Age.ForeColor = System.Drawing.Color.Black;
             this.txt_Age.Location = new System.Drawing.Point(395, 322);
             this.txt_Age.Multiline = true;
             this.txt_Age.Name = "txt_Age";
@@ -269,10 +269,10 @@
             // 
             // txt_address
             // 
-            this.txt_address.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.txt_address.BackColor = System.Drawing.Color.Gainsboro;
             this.txt_address.BorderColor = System.Drawing.Color.SeaGreen;
             this.txt_address.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_address.ForeColor = System.Drawing.SystemColors.Menu;
+            this.txt_address.ForeColor = System.Drawing.Color.Black;
             this.txt_address.Location = new System.Drawing.Point(512, 321);
             this.txt_address.Multiline = true;
             this.txt_address.Name = "txt_address";
@@ -292,8 +292,8 @@
             // 
             // btn_close
             // 
-            this.btn_close.Activecolor = System.Drawing.Color.Gold;
-            this.btn_close.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.btn_close.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            this.btn_close.BackColor = System.Drawing.Color.DarkGray;
             this.btn_close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_close.BorderRadius = 0;
             this.btn_close.ButtonText = "CLOSE";
@@ -311,10 +311,10 @@
             this.btn_close.IconVisible = true;
             this.btn_close.IconZoom = 90D;
             this.btn_close.IsTab = false;
-            this.btn_close.Location = new System.Drawing.Point(556, 404);
+            this.btn_close.Location = new System.Drawing.Point(565, 402);
             this.btn_close.Name = "btn_close";
-            this.btn_close.Normalcolor = System.Drawing.Color.LightGoldenrodYellow;
-            this.btn_close.OnHovercolor = System.Drawing.Color.Gold;
+            this.btn_close.Normalcolor = System.Drawing.Color.DarkGray;
+            this.btn_close.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
             this.btn_close.OnHoverTextColor = System.Drawing.Color.Black;
             this.btn_close.selected = false;
             this.btn_close.Size = new System.Drawing.Size(129, 48);
@@ -327,8 +327,8 @@
             // 
             // btn_add
             // 
-            this.btn_add.Activecolor = System.Drawing.Color.Gold;
-            this.btn_add.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.btn_add.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            this.btn_add.BackColor = System.Drawing.Color.DarkGray;
             this.btn_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_add.BorderRadius = 0;
             this.btn_add.ButtonText = "Add";
@@ -346,13 +346,13 @@
             this.btn_add.IconVisible = true;
             this.btn_add.IconZoom = 90D;
             this.btn_add.IsTab = false;
-            this.btn_add.Location = new System.Drawing.Point(703, 404);
+            this.btn_add.Location = new System.Drawing.Point(715, 402);
             this.btn_add.Name = "btn_add";
-            this.btn_add.Normalcolor = System.Drawing.Color.LightGoldenrodYellow;
-            this.btn_add.OnHovercolor = System.Drawing.Color.Gold;
+            this.btn_add.Normalcolor = System.Drawing.Color.DarkGray;
+            this.btn_add.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
             this.btn_add.OnHoverTextColor = System.Drawing.Color.Black;
             this.btn_add.selected = false;
-            this.btn_add.Size = new System.Drawing.Size(117, 48);
+            this.btn_add.Size = new System.Drawing.Size(129, 48);
             this.btn_add.TabIndex = 39;
             this.btn_add.Text = "Add";
             this.btn_add.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -362,10 +362,10 @@
             // 
             // txt_ContactNo
             // 
-            this.txt_ContactNo.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.txt_ContactNo.BackColor = System.Drawing.Color.Gainsboro;
             this.txt_ContactNo.BorderColor = System.Drawing.Color.SeaGreen;
             this.txt_ContactNo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ContactNo.ForeColor = System.Drawing.SystemColors.Menu;
+            this.txt_ContactNo.ForeColor = System.Drawing.Color.Black;
             this.txt_ContactNo.Location = new System.Drawing.Point(666, 206);
             this.txt_ContactNo.Multiline = true;
             this.txt_ContactNo.Name = "txt_ContactNo";
@@ -387,6 +387,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(870, 472);
             this.Controls.Add(this.txt_ContactNo);
             this.Controls.Add(this.bunifuCustomLabel5);
@@ -409,6 +410,7 @@
             this.Controls.Add(this.bunifuCustomLabel10);
             this.Controls.Add(this.bunifuCustomLabel9);
             this.Controls.Add(this.bunifuCustomLabel8);
+            this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddEditPatientRecord";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

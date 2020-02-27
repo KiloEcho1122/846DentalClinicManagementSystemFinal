@@ -39,7 +39,6 @@
             this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txt_Diagnosis = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.btn_print = new System.Windows.Forms.Button();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.TreatmentDropDownPanel = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -49,6 +48,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.Treatment_CB = new System.Windows.Forms.ComboBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btn_PrintCer = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.lbl_Close = new System.Windows.Forms.Label();
             this.TopPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.TreatmentDropDownPanel.SuspendLayout();
@@ -63,6 +64,7 @@
             // TopPanel2
             // 
             this.TopPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
+            this.TopPanel2.Controls.Add(this.lbl_Close);
             this.TopPanel2.Controls.Add(this.btn_closePatientInfo);
             this.TopPanel2.Controls.Add(this.txt_formHeader);
             this.TopPanel2.Controls.Add(this.pictureBox5);
@@ -131,10 +133,10 @@
             // 
             // txt_Findings
             // 
-            this.txt_Findings.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.txt_Findings.BackColor = System.Drawing.Color.Gainsboro;
             this.txt_Findings.BorderColor = System.Drawing.Color.SeaGreen;
             this.txt_Findings.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Findings.ForeColor = System.Drawing.SystemColors.Menu;
+            this.txt_Findings.ForeColor = System.Drawing.Color.Black;
             this.txt_Findings.Location = new System.Drawing.Point(135, 110);
             this.txt_Findings.Multiline = true;
             this.txt_Findings.Name = "txt_Findings";
@@ -154,10 +156,10 @@
             // 
             // txt_Diagnosis
             // 
-            this.txt_Diagnosis.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.txt_Diagnosis.BackColor = System.Drawing.Color.Gainsboro;
             this.txt_Diagnosis.BorderColor = System.Drawing.Color.SeaGreen;
             this.txt_Diagnosis.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Diagnosis.ForeColor = System.Drawing.SystemColors.Menu;
+            this.txt_Diagnosis.ForeColor = System.Drawing.Color.Black;
             this.txt_Diagnosis.Location = new System.Drawing.Point(135, 73);
             this.txt_Diagnosis.Multiline = true;
             this.txt_Diagnosis.Name = "txt_Diagnosis";
@@ -175,22 +177,6 @@
             this.bunifuCustomLabel1.TabIndex = 83;
             this.bunifuCustomLabel1.Text = "Diagnosis    :";
             // 
-            // btn_print
-            // 
-            this.btn_print.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.btn_print.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_print.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_print.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_print.ForeColor = System.Drawing.Color.Black;
-            this.btn_print.Location = new System.Drawing.Point(305, 201);
-            this.btn_print.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_print.Name = "btn_print";
-            this.btn_print.Size = new System.Drawing.Size(134, 33);
-            this.btn_print.TabIndex = 84;
-            this.btn_print.Text = "PRINT";
-            this.btn_print.UseVisualStyleBackColor = false;
-            this.btn_print.Click += new System.EventHandler(this.btn_print_Click);
-            // 
             // bunifuCustomLabel2
             // 
             this.bunifuCustomLabel2.AutoSize = true;
@@ -204,6 +190,7 @@
             // 
             // TreatmentDropDownPanel
             // 
+            this.TreatmentDropDownPanel.BackColor = System.Drawing.Color.Gainsboro;
             this.TreatmentDropDownPanel.Controls.Add(this.panel7);
             this.TreatmentDropDownPanel.Controls.Add(this.panel1);
             this.TreatmentDropDownPanel.Controls.Add(this.panel2);
@@ -225,7 +212,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.panel1.BackColor = System.Drawing.Color.Gainsboro;
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Location = new System.Drawing.Point(4, 22);
             this.panel1.Name = "panel1";
@@ -263,11 +250,11 @@
             // 
             this.Treatment_CB.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.Treatment_CB.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.Treatment_CB.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.Treatment_CB.BackColor = System.Drawing.Color.Gainsboro;
             this.Treatment_CB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Treatment_CB.DropDownHeight = 150;
             this.Treatment_CB.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Treatment_CB.ForeColor = System.Drawing.SystemColors.Window;
+            this.Treatment_CB.ForeColor = System.Drawing.Color.Black;
             this.Treatment_CB.FormattingEnabled = true;
             this.Treatment_CB.IntegralHeight = false;
             this.Treatment_CB.ItemHeight = 17;
@@ -287,18 +274,66 @@
             this.panel5.Size = new System.Drawing.Size(21, 11);
             this.panel5.TabIndex = 41;
             // 
+            // btn_PrintCer
+            // 
+            this.btn_PrintCer.Activecolor = System.Drawing.Color.DarkGray;
+            this.btn_PrintCer.BackColor = System.Drawing.Color.DarkGray;
+            this.btn_PrintCer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_PrintCer.BorderRadius = 0;
+            this.btn_PrintCer.ButtonText = "PRINT";
+            this.btn_PrintCer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_PrintCer.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_PrintCer.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_PrintCer.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_PrintCer.Iconimage")));
+            this.btn_PrintCer.Iconimage_right = null;
+            this.btn_PrintCer.Iconimage_right_Selected = null;
+            this.btn_PrintCer.Iconimage_Selected = null;
+            this.btn_PrintCer.IconMarginLeft = 0;
+            this.btn_PrintCer.IconMarginRight = 0;
+            this.btn_PrintCer.IconRightVisible = true;
+            this.btn_PrintCer.IconRightZoom = 0D;
+            this.btn_PrintCer.IconVisible = true;
+            this.btn_PrintCer.IconZoom = 90D;
+            this.btn_PrintCer.IsTab = false;
+            this.btn_PrintCer.Location = new System.Drawing.Point(305, 200);
+            this.btn_PrintCer.Name = "btn_PrintCer";
+            this.btn_PrintCer.Normalcolor = System.Drawing.Color.DarkGray;
+            this.btn_PrintCer.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            this.btn_PrintCer.OnHoverTextColor = System.Drawing.Color.Black;
+            this.btn_PrintCer.selected = false;
+            this.btn_PrintCer.Size = new System.Drawing.Size(134, 33);
+            this.btn_PrintCer.TabIndex = 95;
+            this.btn_PrintCer.Text = "PRINT";
+            this.btn_PrintCer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_PrintCer.Textcolor = System.Drawing.Color.Black;
+            this.btn_PrintCer.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btn_PrintCer.Click += new System.EventHandler(this.btn_PrintCer_Click);
+            // 
+            // lbl_Close
+            // 
+            this.lbl_Close.AutoSize = true;
+            this.lbl_Close.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_Close.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Close.ForeColor = System.Drawing.SystemColors.Control;
+            this.lbl_Close.Location = new System.Drawing.Point(445, 7);
+            this.lbl_Close.Name = "lbl_Close";
+            this.lbl_Close.Size = new System.Drawing.Size(16, 16);
+            this.lbl_Close.TabIndex = 63;
+            this.lbl_Close.Text = "X";
+            this.lbl_Close.Click += new System.EventHandler(this.lbl_Close_Click);
+            // 
             // AddDiagnosis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(473, 263);
+            this.Controls.Add(this.btn_PrintCer);
             this.Controls.Add(this.TreatmentDropDownPanel);
             this.Controls.Add(this.bunifuCustomLabel2);
             this.Controls.Add(this.txt_Findings);
             this.Controls.Add(this.bunifuCustomLabel6);
             this.Controls.Add(this.txt_Diagnosis);
             this.Controls.Add(this.bunifuCustomLabel1);
-            this.Controls.Add(this.btn_print);
             this.Controls.Add(this.TopPanel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddDiagnosis";
@@ -326,7 +361,6 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel6;
         private WindowsFormsControlLibrary1.BunifuCustomTextbox txt_Diagnosis;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
-        private System.Windows.Forms.Button btn_print;
         private System.Windows.Forms.Panel TreatmentDropDownPanel;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel1;
@@ -335,5 +369,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ComboBox Treatment_CB;
+        private Bunifu.Framework.UI.BunifuFlatButton btn_PrintCer;
+        private System.Windows.Forms.Label lbl_Close;
     }
 }

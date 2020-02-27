@@ -107,6 +107,9 @@ namespace _846DentalClinicManagementSystem
 
         private void label1_Click(object sender, EventArgs e)
         {
+            var main = Application.OpenForms.OfType<MainForm>().First();
+            main.LoadMonthlyExpenses();
+            main.LoadGrossProfit();
             GlobalVariable.isAddExpense = false;
             GlobalVariable.isEditExpense = false;
             this.Hide();
@@ -156,6 +159,7 @@ namespace _846DentalClinicManagementSystem
                     try
                     {
                         cmd.ExecuteNonQuery();
+                        MessageBox.Show("Expenses Added Successfully");
                         GlobalVariable.InsertActivityLog("Added Expense ", "Add");
                     }
                     catch (Exception ex)
@@ -192,6 +196,7 @@ namespace _846DentalClinicManagementSystem
                     try
                     {
                         cmd.ExecuteNonQuery();
+                        MessageBox.Show("Expenses Updated Successfully");
                         GlobalVariable.InsertActivityLog("Edited Expense, Expense ID =  "+ GlobalVariable.ExpenseId, "Edit");
                     }
                     catch (Exception ex)
@@ -212,20 +217,16 @@ namespace _846DentalClinicManagementSystem
             if (GlobalVariable.isAddExpense == true && GlobalVariable.isEditExpense == false)
             {
                 AddExpenseSave();
-                MessageBox.Show("Expenses Added Successfully");
+                
             }
             else if (GlobalVariable.isAddExpense == false && GlobalVariable.isEditExpense == true)
             {
                 EditExpenseSave();
-                MessageBox.Show("Expenses Updated Successfully");
+               
             }
 
-            var main = Application.OpenForms.OfType<MainForm>().First();
-            main.LoadMonthlyExpenses();
-            main.LoadGrossProfit();
-            GlobalVariable.isAddExpense = false;
-            GlobalVariable.isEditExpense = false;
-            this.Hide();
+            
+           // this.Hide();
             
         }
 

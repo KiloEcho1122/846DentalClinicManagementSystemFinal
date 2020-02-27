@@ -35,9 +35,9 @@
             this.btn_Close = new Bunifu.Framework.UI.BunifuImageButton();
             this.txt_formHeader = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.btn_AddBilling = new System.Windows.Forms.Button();
             this.lbl_TotalAmt = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lbl_Total = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.btn_BillingAdd = new Bunifu.Framework.UI.BunifuFlatButton();
             this.TopBillingPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Close)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -63,6 +63,7 @@
             // btn_Close
             // 
             this.btn_Close.BackColor = System.Drawing.Color.Red;
+            this.btn_Close.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Close.Image = ((System.Drawing.Image)(resources.GetObject("btn_Close.Image")));
             this.btn_Close.ImageActive = null;
             this.btn_Close.Location = new System.Drawing.Point(350, 0);
@@ -95,22 +96,6 @@
             this.pictureBox7.TabIndex = 60;
             this.pictureBox7.TabStop = false;
             // 
-            // btn_AddBilling
-            // 
-            this.btn_AddBilling.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.btn_AddBilling.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_AddBilling.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_AddBilling.ForeColor = System.Drawing.Color.Black;
-            this.btn_AddBilling.Location = new System.Drawing.Point(259, 143);
-            this.btn_AddBilling.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_AddBilling.Name = "btn_AddBilling";
-            this.btn_AddBilling.Size = new System.Drawing.Size(111, 42);
-            this.btn_AddBilling.TabIndex = 65;
-            this.btn_AddBilling.Text = "Add";
-            this.btn_AddBilling.UseVisualStyleBackColor = false;
-            this.btn_AddBilling.Click += new System.EventHandler(this.btn_AddBilling_Click);
-            this.btn_AddBilling.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btn_AddBilling_KeyDown);
-            // 
             // lbl_TotalAmt
             // 
             this.lbl_TotalAmt.AutoSize = true;
@@ -125,7 +110,7 @@
             // lbl_Total
             // 
             this.lbl_Total.AutoSize = true;
-            this.lbl_Total.BackColor = System.Drawing.Color.White;
+            this.lbl_Total.BackColor = System.Drawing.Color.Gainsboro;
             this.lbl_Total.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Total.ForeColor = System.Drawing.Color.Teal;
             this.lbl_Total.Location = new System.Drawing.Point(249, 88);
@@ -134,13 +119,48 @@
             this.lbl_Total.TabIndex = 80;
             this.lbl_Total.Text = "₱ 0";
             // 
+            // btn_BillingAdd
+            // 
+            this.btn_BillingAdd.Activecolor = System.Drawing.Color.DarkGray;
+            this.btn_BillingAdd.BackColor = System.Drawing.Color.DarkGray;
+            this.btn_BillingAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_BillingAdd.BorderRadius = 0;
+            this.btn_BillingAdd.ButtonText = "ADD";
+            this.btn_BillingAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_BillingAdd.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_BillingAdd.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_BillingAdd.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_BillingAdd.Iconimage")));
+            this.btn_BillingAdd.Iconimage_right = null;
+            this.btn_BillingAdd.Iconimage_right_Selected = null;
+            this.btn_BillingAdd.Iconimage_Selected = null;
+            this.btn_BillingAdd.IconMarginLeft = 0;
+            this.btn_BillingAdd.IconMarginRight = 0;
+            this.btn_BillingAdd.IconRightVisible = true;
+            this.btn_BillingAdd.IconRightZoom = 0D;
+            this.btn_BillingAdd.IconVisible = true;
+            this.btn_BillingAdd.IconZoom = 90D;
+            this.btn_BillingAdd.IsTab = false;
+            this.btn_BillingAdd.Location = new System.Drawing.Point(231, 147);
+            this.btn_BillingAdd.Name = "btn_BillingAdd";
+            this.btn_BillingAdd.Normalcolor = System.Drawing.Color.DarkGray;
+            this.btn_BillingAdd.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            this.btn_BillingAdd.OnHoverTextColor = System.Drawing.Color.Black;
+            this.btn_BillingAdd.selected = false;
+            this.btn_BillingAdd.Size = new System.Drawing.Size(136, 41);
+            this.btn_BillingAdd.TabIndex = 94;
+            this.btn_BillingAdd.Text = "ADD";
+            this.btn_BillingAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_BillingAdd.Textcolor = System.Drawing.Color.Black;
+            this.btn_BillingAdd.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_BillingAdd.Click += new System.EventHandler(this.btn_BillingAdd_Click);
+            // 
             // AddBilling
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(379, 210);
+            this.Controls.Add(this.btn_BillingAdd);
             this.Controls.Add(this.lbl_Total);
-            this.Controls.Add(this.btn_AddBilling);
             this.Controls.Add(this.lbl_TotalAmt);
             this.Controls.Add(this.TopBillingPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -163,9 +183,9 @@
         private System.Windows.Forms.Panel TopBillingPanel;
         private Bunifu.Framework.UI.BunifuCustomLabel txt_formHeader;
         private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.Button btn_AddBilling;
         private Bunifu.Framework.UI.BunifuCustomLabel lbl_TotalAmt;
         private Bunifu.Framework.UI.BunifuCustomLabel lbl_Total;
         private Bunifu.Framework.UI.BunifuImageButton btn_Close;
+        private Bunifu.Framework.UI.BunifuFlatButton btn_BillingAdd;
     }
 }

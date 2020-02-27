@@ -160,7 +160,7 @@
             this.AppSearch_DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.AppSearch_DataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.AppSearch_DataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.AppSearch_DataGrid.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.AppSearch_DataGrid.BackgroundColor = System.Drawing.Color.White;
             this.AppSearch_DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.AppSearch_DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -210,7 +210,7 @@
             this.DentistDD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.DentistDD.Name = "DentistDD";
             this.DentistDD.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
-            this.DentistDD.onHoverColor = System.Drawing.Color.Teal;
+            this.DentistDD.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
             this.DentistDD.selectedIndex = -1;
             this.DentistDD.Size = new System.Drawing.Size(162, 53);
             this.DentistDD.TabIndex = 6;
@@ -244,7 +244,7 @@
             this.TimeDD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TimeDD.Name = "TimeDD";
             this.TimeDD.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
-            this.TimeDD.onHoverColor = System.Drawing.Color.Teal;
+            this.TimeDD.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
             this.TimeDD.selectedIndex = -1;
             this.TimeDD.Size = new System.Drawing.Size(162, 53);
             this.TimeDD.TabIndex = 7;
@@ -326,7 +326,7 @@
             // 
             // txt_Note
             // 
-            this.txt_Note.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.txt_Note.BackColor = System.Drawing.Color.Gainsboro;
             this.txt_Note.BorderColor = System.Drawing.Color.Black;
             this.txt_Note.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Note.ForeColor = System.Drawing.Color.Black;
@@ -382,7 +382,7 @@
             // 
             // txt_LName
             // 
-            this.txt_LName.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.txt_LName.BackColor = System.Drawing.Color.Gainsboro;
             this.txt_LName.BorderColor = System.Drawing.Color.Black;
             this.txt_LName.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_LName.ForeColor = System.Drawing.Color.Black;
@@ -395,7 +395,7 @@
             // 
             // txt_FName
             // 
-            this.txt_FName.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.txt_FName.BackColor = System.Drawing.Color.Gainsboro;
             this.txt_FName.BorderColor = System.Drawing.Color.Black;
             this.txt_FName.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_FName.ForeColor = System.Drawing.Color.Black;
@@ -408,7 +408,7 @@
             // 
             // txt_MName
             // 
-            this.txt_MName.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.txt_MName.BackColor = System.Drawing.Color.Gainsboro;
             this.txt_MName.BorderColor = System.Drawing.Color.Black;
             this.txt_MName.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_MName.ForeColor = System.Drawing.Color.Black;
@@ -435,7 +435,7 @@
             // 
             this.Treatment_CB.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.Treatment_CB.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.Treatment_CB.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.Treatment_CB.BackColor = System.Drawing.Color.Gainsboro;
             this.Treatment_CB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Treatment_CB.DropDownHeight = 150;
             this.Treatment_CB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -454,13 +454,13 @@
             // 
             // TreatmentList
             // 
-            this.TreatmentList.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.TreatmentList.BackColor = System.Drawing.Color.Gainsboro;
             this.TreatmentList.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.TreatmentList.FormattingEnabled = true;
             this.TreatmentList.HorizontalScrollbar = true;
-            this.TreatmentList.Location = new System.Drawing.Point(596, 283);
+            this.TreatmentList.Location = new System.Drawing.Point(596, 286);
             this.TreatmentList.Name = "TreatmentList";
-            this.TreatmentList.Size = new System.Drawing.Size(172, 43);
+            this.TreatmentList.Size = new System.Drawing.Size(171, 43);
             this.TreatmentList.TabIndex = 31;
             this.TreatmentList.SelectedIndexChanged += new System.EventHandler(this.TreatmentList_SelectedIndexChanged);
             // 
@@ -490,7 +490,7 @@
             // 
             // txt_ContactNo
             // 
-            this.txt_ContactNo.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.txt_ContactNo.BackColor = System.Drawing.Color.Gainsboro;
             this.txt_ContactNo.BorderColor = System.Drawing.Color.Black;
             this.txt_ContactNo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_ContactNo.ForeColor = System.Drawing.Color.Black;
@@ -503,7 +503,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.panel1.BackColor = System.Drawing.Color.Gainsboro;
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Location = new System.Drawing.Point(3, 20);
             this.panel1.Name = "panel1";
@@ -591,8 +591,8 @@
             // 
             // btn_RemoveItem
             // 
-            this.btn_RemoveItem.Activecolor = System.Drawing.Color.Gold;
-            this.btn_RemoveItem.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.btn_RemoveItem.Activecolor = System.Drawing.Color.DarkGray;
+            this.btn_RemoveItem.BackColor = System.Drawing.Color.DarkGray;
             this.btn_RemoveItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_RemoveItem.BorderRadius = 0;
             this.btn_RemoveItem.ButtonText = "Remove";
@@ -610,10 +610,10 @@
             this.btn_RemoveItem.IconVisible = true;
             this.btn_RemoveItem.IconZoom = 90D;
             this.btn_RemoveItem.IsTab = false;
-            this.btn_RemoveItem.Location = new System.Drawing.Point(620, 347);
+            this.btn_RemoveItem.Location = new System.Drawing.Point(657, 347);
             this.btn_RemoveItem.Name = "btn_RemoveItem";
-            this.btn_RemoveItem.Normalcolor = System.Drawing.Color.LightGoldenrodYellow;
-            this.btn_RemoveItem.OnHovercolor = System.Drawing.Color.Gold;
+            this.btn_RemoveItem.Normalcolor = System.Drawing.Color.DarkGray;
+            this.btn_RemoveItem.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
             this.btn_RemoveItem.OnHoverTextColor = System.Drawing.Color.Black;
             this.btn_RemoveItem.selected = false;
             this.btn_RemoveItem.Size = new System.Drawing.Size(111, 30);
@@ -626,8 +626,8 @@
             // 
             // btn_CreateBilling
             // 
-            this.btn_CreateBilling.Activecolor = System.Drawing.Color.Gold;
-            this.btn_CreateBilling.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.btn_CreateBilling.Activecolor = System.Drawing.Color.DarkGray;
+            this.btn_CreateBilling.BackColor = System.Drawing.Color.DarkGray;
             this.btn_CreateBilling.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_CreateBilling.BorderRadius = 0;
             this.btn_CreateBilling.ButtonText = "Make Billing Statement";
@@ -645,10 +645,10 @@
             this.btn_CreateBilling.IconVisible = true;
             this.btn_CreateBilling.IconZoom = 90D;
             this.btn_CreateBilling.IsTab = false;
-            this.btn_CreateBilling.Location = new System.Drawing.Point(361, 468);
+            this.btn_CreateBilling.Location = new System.Drawing.Point(367, 466);
             this.btn_CreateBilling.Name = "btn_CreateBilling";
-            this.btn_CreateBilling.Normalcolor = System.Drawing.Color.LightGoldenrodYellow;
-            this.btn_CreateBilling.OnHovercolor = System.Drawing.Color.Gold;
+            this.btn_CreateBilling.Normalcolor = System.Drawing.Color.DarkGray;
+            this.btn_CreateBilling.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
             this.btn_CreateBilling.OnHoverTextColor = System.Drawing.Color.Black;
             this.btn_CreateBilling.selected = false;
             this.btn_CreateBilling.Size = new System.Drawing.Size(146, 38);
@@ -661,8 +661,8 @@
             // 
             // btn_CancelApp
             // 
-            this.btn_CancelApp.Activecolor = System.Drawing.Color.Gold;
-            this.btn_CancelApp.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.btn_CancelApp.Activecolor = System.Drawing.Color.DarkGray;
+            this.btn_CancelApp.BackColor = System.Drawing.Color.DarkGray;
             this.btn_CancelApp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_CancelApp.BorderRadius = 0;
             this.btn_CancelApp.ButtonText = "Cancel Appointment";
@@ -680,10 +680,10 @@
             this.btn_CancelApp.IconVisible = true;
             this.btn_CancelApp.IconZoom = 90D;
             this.btn_CancelApp.IsTab = false;
-            this.btn_CancelApp.Location = new System.Drawing.Point(513, 468);
+            this.btn_CancelApp.Location = new System.Drawing.Point(523, 466);
             this.btn_CancelApp.Name = "btn_CancelApp";
-            this.btn_CancelApp.Normalcolor = System.Drawing.Color.LightGoldenrodYellow;
-            this.btn_CancelApp.OnHovercolor = System.Drawing.Color.Gold;
+            this.btn_CancelApp.Normalcolor = System.Drawing.Color.DarkGray;
+            this.btn_CancelApp.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
             this.btn_CancelApp.OnHoverTextColor = System.Drawing.Color.Black;
             this.btn_CancelApp.selected = false;
             this.btn_CancelApp.Size = new System.Drawing.Size(137, 38);
@@ -697,8 +697,8 @@
             // 
             // btn_add
             // 
-            this.btn_add.Activecolor = System.Drawing.Color.Gold;
-            this.btn_add.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.btn_add.Activecolor = System.Drawing.Color.DarkGray;
+            this.btn_add.BackColor = System.Drawing.Color.DarkGray;
             this.btn_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_add.BorderRadius = 0;
             this.btn_add.ButtonText = "Add";
@@ -716,10 +716,10 @@
             this.btn_add.IconVisible = true;
             this.btn_add.IconZoom = 90D;
             this.btn_add.IsTab = false;
-            this.btn_add.Location = new System.Drawing.Point(665, 468);
+            this.btn_add.Location = new System.Drawing.Point(670, 466);
             this.btn_add.Name = "btn_add";
-            this.btn_add.Normalcolor = System.Drawing.Color.LightGoldenrodYellow;
-            this.btn_add.OnHovercolor = System.Drawing.Color.Gold;
+            this.btn_add.Normalcolor = System.Drawing.Color.DarkGray;
+            this.btn_add.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
             this.btn_add.OnHoverTextColor = System.Drawing.Color.Black;
             this.btn_add.selected = false;
             this.btn_add.Size = new System.Drawing.Size(97, 38);
@@ -737,17 +737,17 @@
             this.btn_PatientSearch.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
             this.btn_PatientSearch.ActiveForecolor = System.Drawing.Color.White;
             this.btn_PatientSearch.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
-            this.btn_PatientSearch.BackColor = System.Drawing.SystemColors.Control;
+            this.btn_PatientSearch.BackColor = System.Drawing.Color.White;
             this.btn_PatientSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_PatientSearch.BackgroundImage")));
             this.btn_PatientSearch.ButtonText = "Search";
             this.btn_PatientSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_PatientSearch.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_PatientSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
+            this.btn_PatientSearch.ForeColor = System.Drawing.Color.Black;
             this.btn_PatientSearch.IdleBorderThickness = 1;
             this.btn_PatientSearch.IdleCornerRadius = 20;
             this.btn_PatientSearch.IdleFillColor = System.Drawing.Color.White;
-            this.btn_PatientSearch.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.btn_PatientSearch.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btn_PatientSearch.IdleForecolor = System.Drawing.Color.DarkBlue;
+            this.btn_PatientSearch.IdleLineColor = System.Drawing.Color.RoyalBlue;
             this.btn_PatientSearch.Location = new System.Drawing.Point(309, 63);
             this.btn_PatientSearch.Margin = new System.Windows.Forms.Padding(5);
             this.btn_PatientSearch.Name = "btn_PatientSearch";
@@ -758,10 +758,10 @@
             // 
             // txt_PatientSearch
             // 
-            this.txt_PatientSearch.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.txt_PatientSearch.BackColor = System.Drawing.Color.Gainsboro;
             this.txt_PatientSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txt_PatientSearch.BackgroundImage")));
             this.txt_PatientSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.txt_PatientSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
+            this.txt_PatientSearch.ForeColor = System.Drawing.Color.Black;
             this.txt_PatientSearch.Icon = ((System.Drawing.Image)(resources.GetObject("txt_PatientSearch.Icon")));
             this.txt_PatientSearch.Location = new System.Drawing.Point(34, 68);
             this.txt_PatientSearch.Name = "txt_PatientSearch";
@@ -775,6 +775,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(790, 530);
             this.Controls.Add(this.TreatmentDropDownPanel);
             this.Controls.Add(this.txt_ContactNo);

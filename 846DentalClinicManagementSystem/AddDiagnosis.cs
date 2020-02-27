@@ -108,7 +108,9 @@ namespace _846DentalClinicManagementSystem
             certificate.Dispose();
         }
 
-        private void btn_print_Click(object sender, EventArgs e)
+ 
+
+        private void btn_PrintCer_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txt_Diagnosis.Text) == false)
             {
@@ -125,6 +127,11 @@ namespace _846DentalClinicManagementSystem
                 else { MessageBox.Show("Invalid Findings !"); }
             }
             else { MessageBox.Show("Invalid Diagnosis !"); }
+        }
+
+        private void lbl_Close_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }
