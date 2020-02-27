@@ -1866,52 +1866,6 @@ namespace _846DentalClinicManagementSystem
 
         }
 
-        private void btn_clear_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Clear All Activity Logs ?", "Activity Logs", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if(result == DialogResult.Yes)
-            {
-                DeleteActivityLogs();
-                ShowActivityLogs();
-                
-            }
-            
-        }
-
-        private void Appointment_Panel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void TopPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void SchedulerPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void AppTimePanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void MenuPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void pictureBox14_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel20_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void btn_Logout_Click_1(object sender, EventArgs e)
         {
@@ -1929,7 +1883,19 @@ namespace _846DentalClinicManagementSystem
 
         }
 
-        private void btn_restore_Click(object sender, EventArgs e)
+        private void btn_ClearLogs_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Clear All Activity Logs ?", "Activity Logs", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                DeleteActivityLogs();
+                ShowActivityLogs();
+
+            }
+        }
+
+
+        private void btn_RestoreLogs_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Restore All Activity Logs ?", "Activity Logs", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
@@ -1938,8 +1904,9 @@ namespace _846DentalClinicManagementSystem
                 ShowActivityLogs();
 
             }
-           
         }
+
+
 
         private void DeleteActivityLogs()
         {
