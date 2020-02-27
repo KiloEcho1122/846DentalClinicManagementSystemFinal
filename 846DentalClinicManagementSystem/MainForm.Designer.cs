@@ -30,38 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-<<<<<<< HEAD
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle61 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle62 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle63 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle64 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle65 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle66 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle67 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle68 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle69 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle70 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle71 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle72 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle73 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle74 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle75 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle76 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle77 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle78 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle79 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle80 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle81 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle82 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle83 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle84 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle85 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle86 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle87 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle88 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle89 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle90 = new System.Windows.Forms.DataGridViewCellStyle();
-=======
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle156 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle157 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle158 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -92,7 +60,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle178 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle179 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle180 = new System.Windows.Forms.DataGridViewCellStyle();
->>>>>>> 07c0023ae2016a45a2bb21c50996002e58336af2
             this.MenuPanel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_Home = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -603,60 +570,6 @@
             // 
             // panel6
             // 
-<<<<<<< HEAD
-            this.displayExpenseDG.AllowUserToAddRows = false;
-            this.displayExpenseDG.AllowUserToDeleteRows = false;
-            this.displayExpenseDG.AllowUserToResizeColumns = false;
-            this.displayExpenseDG.AllowUserToResizeRows = false;
-            dataGridViewCellStyle61.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.displayExpenseDG.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle61;
-            this.displayExpenseDG.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.displayExpenseDG.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.displayExpenseDG.BackgroundColor = System.Drawing.Color.White;
-            this.displayExpenseDG.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.displayExpenseDG.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle62.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle62.BackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle62.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle62.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle62.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle62.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle62.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.displayExpenseDG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle62;
-            this.displayExpenseDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.displayExpenseDG.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle63.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle63.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle63.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle63.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle63.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle63.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle63.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.displayExpenseDG.DefaultCellStyle = dataGridViewCellStyle63;
-            this.displayExpenseDG.DoubleBuffered = true;
-            this.displayExpenseDG.EnableHeadersVisualStyles = false;
-            this.displayExpenseDG.HeaderBgColor = System.Drawing.Color.LemonChiffon;
-            this.displayExpenseDG.HeaderForeColor = System.Drawing.Color.Black;
-            this.displayExpenseDG.Location = new System.Drawing.Point(824, 153);
-            this.displayExpenseDG.Name = "displayExpenseDG";
-            this.displayExpenseDG.ReadOnly = true;
-            this.displayExpenseDG.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle64.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle64.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle64.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle64.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle64.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
-            dataGridViewCellStyle64.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle64.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.displayExpenseDG.RowHeadersDefaultCellStyle = dataGridViewCellStyle64;
-            dataGridViewCellStyle65.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
-            dataGridViewCellStyle65.SelectionForeColor = System.Drawing.Color.Black;
-            this.displayExpenseDG.RowsDefaultCellStyle = dataGridViewCellStyle65;
-            this.displayExpenseDG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.displayExpenseDG.Size = new System.Drawing.Size(487, 362);
-            this.displayExpenseDG.TabIndex = 76;
-            this.displayExpenseDG.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.displayExpenseDG_CellDoubleClick);
-=======
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
             this.panel6.Controls.Add(this.lbl_PatientCountDashboard);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -665,7 +578,6 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(163, 46);
             this.panel6.TabIndex = 0;
->>>>>>> 07c0023ae2016a45a2bb21c50996002e58336af2
             // 
             // lbl_PatientCountDashboard
             // 
@@ -689,59 +601,6 @@
             // 
             // pictureBox3
             // 
-<<<<<<< HEAD
-            this.Profit_DG.AllowUserToAddRows = false;
-            this.Profit_DG.AllowUserToDeleteRows = false;
-            this.Profit_DG.AllowUserToResizeColumns = false;
-            this.Profit_DG.AllowUserToResizeRows = false;
-            dataGridViewCellStyle66.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Profit_DG.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle66;
-            this.Profit_DG.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.Profit_DG.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.Profit_DG.BackgroundColor = System.Drawing.Color.White;
-            this.Profit_DG.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Profit_DG.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle67.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle67.BackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle67.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle67.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle67.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle67.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle67.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Profit_DG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle67;
-            this.Profit_DG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Profit_DG.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle68.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle68.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle68.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle68.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle68.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle68.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle68.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Profit_DG.DefaultCellStyle = dataGridViewCellStyle68;
-            this.Profit_DG.DoubleBuffered = true;
-            this.Profit_DG.EnableHeadersVisualStyles = false;
-            this.Profit_DG.HeaderBgColor = System.Drawing.Color.LemonChiffon;
-            this.Profit_DG.HeaderForeColor = System.Drawing.Color.Black;
-            this.Profit_DG.Location = new System.Drawing.Point(318, 153);
-            this.Profit_DG.Name = "Profit_DG";
-            this.Profit_DG.ReadOnly = true;
-            this.Profit_DG.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle69.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle69.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle69.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle69.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle69.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
-            dataGridViewCellStyle69.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle69.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Profit_DG.RowHeadersDefaultCellStyle = dataGridViewCellStyle69;
-            dataGridViewCellStyle70.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
-            dataGridViewCellStyle70.SelectionForeColor = System.Drawing.Color.Black;
-            this.Profit_DG.RowsDefaultCellStyle = dataGridViewCellStyle70;
-            this.Profit_DG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Profit_DG.Size = new System.Drawing.Size(487, 362);
-            this.Profit_DG.TabIndex = 70;
-=======
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox3.Location = new System.Drawing.Point(39, 13);
@@ -749,7 +608,6 @@
             this.pictureBox3.Size = new System.Drawing.Size(85, 58);
             this.pictureBox3.TabIndex = 1;
             this.pictureBox3.TabStop = false;
->>>>>>> 07c0023ae2016a45a2bb21c50996002e58336af2
             // 
             // panel4
             // 
@@ -818,47 +676,6 @@
             // 
             // pictureBox2
             // 
-<<<<<<< HEAD
-            this.SchedulerPanel.BackColor = System.Drawing.Color.Gainsboro;
-            this.SchedulerPanel.Controls.Add(this.btn_RefreshApp);
-            this.SchedulerPanel.Controls.Add(this.btn_SendEmail);
-            this.SchedulerPanel.Controls.Add(this.btn_ViewAppointmentHistory);
-            this.SchedulerPanel.Controls.Add(this.bunifuCustomLabel10);
-            this.SchedulerPanel.Controls.Add(this.btn_AddException);
-            this.SchedulerPanel.Controls.Add(this.AppTimePanel);
-            this.SchedulerPanel.Controls.Add(this.TimePanel_Footer);
-            this.SchedulerPanel.Controls.Add(this.panel19);
-            this.SchedulerPanel.Controls.Add(this.panel9);
-            this.SchedulerPanel.Controls.Add(this.AppointmentHeader_Panel);
-            this.SchedulerPanel.Controls.Add(this.btn_AddPatient2);
-            this.SchedulerPanel.Controls.Add(this.btn_CreateAppointment);
-            this.SchedulerPanel.Controls.Add(this.lbl_TotalAmt);
-            this.SchedulerPanel.Controls.Add(this.WeekSwitch);
-            this.SchedulerPanel.Controls.Add(this.Appointment_Panel);
-            this.SchedulerPanel.Controls.Add(this.SearchAppByDate_DP);
-            this.SchedulerPanel.Controls.Add(this.panel7);
-            this.SchedulerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SchedulerPanel.Location = new System.Drawing.Point(0, 0);
-            this.SchedulerPanel.Name = "SchedulerPanel";
-            this.SchedulerPanel.Size = new System.Drawing.Size(1354, 670);
-            this.SchedulerPanel.TabIndex = 0;
-            // 
-            // btn_RefreshApp
-            // 
-            this.btn_RefreshApp.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.btn_RefreshApp.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_RefreshApp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_RefreshApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btn_RefreshApp.ForeColor = System.Drawing.Color.Black;
-            this.btn_RefreshApp.Location = new System.Drawing.Point(1203, 369);
-            this.btn_RefreshApp.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_RefreshApp.Name = "btn_RefreshApp";
-            this.btn_RefreshApp.Size = new System.Drawing.Size(142, 42);
-            this.btn_RefreshApp.TabIndex = 91;
-            this.btn_RefreshApp.Text = "REFRESH VIEW";
-            this.btn_RefreshApp.UseVisualStyleBackColor = false;
-            this.btn_RefreshApp.Click += new System.EventHandler(this.btn_RefreshApp_Click);
-=======
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.Location = new System.Drawing.Point(39, 13);
@@ -866,25 +683,9 @@
             this.pictureBox2.Size = new System.Drawing.Size(85, 58);
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
->>>>>>> 07c0023ae2016a45a2bb21c50996002e58336af2
             // 
             // panel2
             // 
-<<<<<<< HEAD
-            this.btn_SendEmail.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.btn_SendEmail.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_SendEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_SendEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btn_SendEmail.ForeColor = System.Drawing.Color.Black;
-            this.btn_SendEmail.Location = new System.Drawing.Point(1202, 317);
-            this.btn_SendEmail.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_SendEmail.Name = "btn_SendEmail";
-            this.btn_SendEmail.Size = new System.Drawing.Size(142, 42);
-            this.btn_SendEmail.TabIndex = 90;
-            this.btn_SendEmail.Text = "SEND E-MAIL";
-            this.btn_SendEmail.UseVisualStyleBackColor = false;
-            this.btn_SendEmail.Click += new System.EventHandler(this.btn_SendEmail_Click);
-=======
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
             this.panel2.Controls.Add(this.lbl_AppointmentCountDashboard);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -893,25 +694,9 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(163, 46);
             this.panel2.TabIndex = 0;
->>>>>>> 07c0023ae2016a45a2bb21c50996002e58336af2
             // 
             // lbl_AppointmentCountDashboard
             // 
-<<<<<<< HEAD
-            this.btn_ViewAppointmentHistory.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.btn_ViewAppointmentHistory.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_ViewAppointmentHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ViewAppointmentHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btn_ViewAppointmentHistory.ForeColor = System.Drawing.Color.Black;
-            this.btn_ViewAppointmentHistory.Location = new System.Drawing.Point(1202, 267);
-            this.btn_ViewAppointmentHistory.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_ViewAppointmentHistory.Name = "btn_ViewAppointmentHistory";
-            this.btn_ViewAppointmentHistory.Size = new System.Drawing.Size(142, 40);
-            this.btn_ViewAppointmentHistory.TabIndex = 89;
-            this.btn_ViewAppointmentHistory.Text = "VIEW HISTORY";
-            this.btn_ViewAppointmentHistory.UseVisualStyleBackColor = false;
-            this.btn_ViewAppointmentHistory.Click += new System.EventHandler(this.btn_ViewAppointmentHistory_Click);
-=======
             this.lbl_AppointmentCountDashboard.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_AppointmentCountDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.lbl_AppointmentCountDashboard.Location = new System.Drawing.Point(19, 15);
@@ -920,7 +705,6 @@
             this.lbl_AppointmentCountDashboard.TabIndex = 0;
             this.lbl_AppointmentCountDashboard.Text = "APPOINTMENTS :  8";
             this.lbl_AppointmentCountDashboard.Click += new System.EventHandler(this.lbl_AppointmentCountDashboard_Click);
->>>>>>> 07c0023ae2016a45a2bb21c50996002e58336af2
             // 
             // axWindowsMediaPlayer1
             // 
@@ -1410,16 +1194,6 @@
             // 
             // PatientsPanel
             // 
-<<<<<<< HEAD
-            this.lbl_UnpaidBillsCountDashboard.AutoSize = true;
-            this.lbl_UnpaidBillsCountDashboard.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbl_UnpaidBillsCountDashboard.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
-            this.lbl_UnpaidBillsCountDashboard.Location = new System.Drawing.Point(18, 14);
-            this.lbl_UnpaidBillsCountDashboard.Name = "lbl_UnpaidBillsCountDashboard";
-            this.lbl_UnpaidBillsCountDashboard.Size = new System.Drawing.Size(99, 15);
-            this.lbl_UnpaidBillsCountDashboard.TabIndex = 0;
-            this.lbl_UnpaidBillsCountDashboard.Text = "UNPAID BILLS : 2";
-=======
             this.PatientsPanel.BackColor = System.Drawing.Color.Gainsboro;
             this.PatientsPanel.Controls.Add(this.btn_ShowDetails);
             this.PatientsPanel.Controls.Add(this.btn_AddPatient);
@@ -1433,7 +1207,6 @@
             this.PatientsPanel.Name = "PatientsPanel";
             this.PatientsPanel.Size = new System.Drawing.Size(1354, 670);
             this.PatientsPanel.TabIndex = 2;
->>>>>>> 07c0023ae2016a45a2bb21c50996002e58336af2
             // 
             // btn_ShowDetails
             // 
@@ -1507,17 +1280,6 @@
             // 
             // btn_EditPatient
             // 
-<<<<<<< HEAD
-            this.panel6.AutoSize = true;
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
-            this.panel6.Controls.Add(this.lbl_PatientCountDashboard);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.ForeColor = System.Drawing.Color.White;
-            this.panel6.Location = new System.Drawing.Point(0, 96);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(163, 31);
-            this.panel6.TabIndex = 0;
-=======
             this.btn_EditPatient.Activecolor = System.Drawing.Color.Gold;
             this.btn_EditPatient.BackColor = System.Drawing.Color.LightYellow;
             this.btn_EditPatient.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -1550,7 +1312,6 @@
             this.btn_EditPatient.Textcolor = System.Drawing.Color.Black;
             this.btn_EditPatient.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_EditPatient.Click += new System.EventHandler(this.btn_EditPatient_Click);
->>>>>>> 07c0023ae2016a45a2bb21c50996002e58336af2
             // 
             // Patient_DataGrid
             // 
@@ -1743,17 +1504,6 @@
             // 
             // lbl_GrossProfit
             // 
-<<<<<<< HEAD
-            this.lbl_AppointmentCountDashboard.AutoSize = true;
-            this.lbl_AppointmentCountDashboard.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbl_AppointmentCountDashboard.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
-            this.lbl_AppointmentCountDashboard.Location = new System.Drawing.Point(19, 15);
-            this.lbl_AppointmentCountDashboard.Name = "lbl_AppointmentCountDashboard";
-            this.lbl_AppointmentCountDashboard.Size = new System.Drawing.Size(116, 15);
-            this.lbl_AppointmentCountDashboard.TabIndex = 0;
-            this.lbl_AppointmentCountDashboard.Text = "APPOINTMENTS :  8";
-            this.lbl_AppointmentCountDashboard.Click += new System.EventHandler(this.lbl_AppointmentCountDashboard_Click);
-=======
             this.lbl_GrossProfit.AutoSize = true;
             this.lbl_GrossProfit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_GrossProfit.Location = new System.Drawing.Point(1223, 568);
@@ -1761,7 +1511,6 @@
             this.lbl_GrossProfit.Size = new System.Drawing.Size(31, 15);
             this.lbl_GrossProfit.TabIndex = 82;
             this.lbl_GrossProfit.Text = "0.00";
->>>>>>> 07c0023ae2016a45a2bb21c50996002e58336af2
             // 
             // lbl_netExpense
             // 
@@ -1795,58 +1544,6 @@
             // 
             // label5
             // 
-<<<<<<< HEAD
-            this.AppHistory_DataGrid.AllowUserToAddRows = false;
-            this.AppHistory_DataGrid.AllowUserToDeleteRows = false;
-            this.AppHistory_DataGrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle71.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.AppHistory_DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle71;
-            this.AppHistory_DataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.AppHistory_DataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.AppHistory_DataGrid.BackgroundColor = System.Drawing.Color.White;
-            this.AppHistory_DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.AppHistory_DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle72.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle72.BackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle72.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle72.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle72.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle72.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle72.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AppHistory_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle72;
-            this.AppHistory_DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.AppHistory_DataGrid.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle73.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle73.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle73.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle73.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle73.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle73.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle73.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.AppHistory_DataGrid.DefaultCellStyle = dataGridViewCellStyle73;
-            this.AppHistory_DataGrid.DoubleBuffered = true;
-            this.AppHistory_DataGrid.EnableHeadersVisualStyles = false;
-            this.AppHistory_DataGrid.HeaderBgColor = System.Drawing.Color.LemonChiffon;
-            this.AppHistory_DataGrid.HeaderForeColor = System.Drawing.Color.Black;
-            this.AppHistory_DataGrid.Location = new System.Drawing.Point(287, 89);
-            this.AppHistory_DataGrid.Name = "AppHistory_DataGrid";
-            this.AppHistory_DataGrid.ReadOnly = true;
-            this.AppHistory_DataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle74.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle74.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle74.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle74.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle74.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
-            dataGridViewCellStyle74.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle74.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AppHistory_DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle74;
-            dataGridViewCellStyle75.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
-            dataGridViewCellStyle75.SelectionForeColor = System.Drawing.Color.Black;
-            this.AppHistory_DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle75;
-            this.AppHistory_DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.AppHistory_DataGrid.Size = new System.Drawing.Size(875, 466);
-            this.AppHistory_DataGrid.TabIndex = 7;
-=======
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(1172, 533);
@@ -1854,7 +1551,6 @@
             this.label5.Size = new System.Drawing.Size(43, 15);
             this.label5.TabIndex = 78;
             this.label5.Text = "Total : ";
->>>>>>> 07c0023ae2016a45a2bb21c50996002e58336af2
             // 
             // label2
             // 
@@ -2070,58 +1766,6 @@
             // 
             // txt_formHeader
             // 
-<<<<<<< HEAD
-            this.ActivityLogs_DataGrid.AllowUserToAddRows = false;
-            this.ActivityLogs_DataGrid.AllowUserToDeleteRows = false;
-            this.ActivityLogs_DataGrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle76.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ActivityLogs_DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle76;
-            this.ActivityLogs_DataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.ActivityLogs_DataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.ActivityLogs_DataGrid.BackgroundColor = System.Drawing.Color.White;
-            this.ActivityLogs_DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ActivityLogs_DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle77.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle77.BackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle77.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle77.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle77.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle77.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle77.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ActivityLogs_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle77;
-            this.ActivityLogs_DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ActivityLogs_DataGrid.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle78.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle78.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle78.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle78.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle78.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle78.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle78.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ActivityLogs_DataGrid.DefaultCellStyle = dataGridViewCellStyle78;
-            this.ActivityLogs_DataGrid.DoubleBuffered = true;
-            this.ActivityLogs_DataGrid.EnableHeadersVisualStyles = false;
-            this.ActivityLogs_DataGrid.HeaderBgColor = System.Drawing.Color.LemonChiffon;
-            this.ActivityLogs_DataGrid.HeaderForeColor = System.Drawing.Color.Black;
-            this.ActivityLogs_DataGrid.Location = new System.Drawing.Point(269, 149);
-            this.ActivityLogs_DataGrid.Name = "ActivityLogs_DataGrid";
-            this.ActivityLogs_DataGrid.ReadOnly = true;
-            this.ActivityLogs_DataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle79.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle79.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle79.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle79.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle79.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
-            dataGridViewCellStyle79.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle79.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ActivityLogs_DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle79;
-            dataGridViewCellStyle80.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
-            dataGridViewCellStyle80.SelectionForeColor = System.Drawing.Color.Black;
-            this.ActivityLogs_DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle80;
-            this.ActivityLogs_DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ActivityLogs_DataGrid.Size = new System.Drawing.Size(908, 458);
-            this.ActivityLogs_DataGrid.TabIndex = 7;
-=======
             this.txt_formHeader.AutoSize = true;
             this.txt_formHeader.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_formHeader.ForeColor = System.Drawing.Color.White;
@@ -2130,7 +1774,6 @@
             this.txt_formHeader.Size = new System.Drawing.Size(120, 22);
             this.txt_formHeader.TabIndex = 61;
             this.txt_formHeader.Text = "Accounting";
->>>>>>> 07c0023ae2016a45a2bb21c50996002e58336af2
             // 
             // pictureBox7
             // 
@@ -2230,59 +1873,6 @@
             // 
             // btn_AddException
             // 
-<<<<<<< HEAD
-            this.Employee_DataGrid.AllowUserToAddRows = false;
-            this.Employee_DataGrid.AllowUserToDeleteRows = false;
-            this.Employee_DataGrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle81.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Employee_DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle81;
-            this.Employee_DataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.Employee_DataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.Employee_DataGrid.BackgroundColor = System.Drawing.Color.White;
-            this.Employee_DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Employee_DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle82.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle82.BackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle82.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle82.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle82.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle82.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle82.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Employee_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle82;
-            this.Employee_DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Employee_DataGrid.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle83.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle83.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle83.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle83.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle83.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle83.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle83.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Employee_DataGrid.DefaultCellStyle = dataGridViewCellStyle83;
-            this.Employee_DataGrid.DoubleBuffered = true;
-            this.Employee_DataGrid.EnableHeadersVisualStyles = false;
-            this.Employee_DataGrid.HeaderBgColor = System.Drawing.Color.LemonChiffon;
-            this.Employee_DataGrid.HeaderForeColor = System.Drawing.Color.Black;
-            this.Employee_DataGrid.Location = new System.Drawing.Point(285, 127);
-            this.Employee_DataGrid.Name = "Employee_DataGrid";
-            this.Employee_DataGrid.ReadOnly = true;
-            this.Employee_DataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle84.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle84.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle84.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle84.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle84.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
-            dataGridViewCellStyle84.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle84.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Employee_DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle84;
-            dataGridViewCellStyle85.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
-            dataGridViewCellStyle85.SelectionForeColor = System.Drawing.Color.Black;
-            this.Employee_DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle85;
-            this.Employee_DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Employee_DataGrid.Size = new System.Drawing.Size(869, 449);
-            this.Employee_DataGrid.TabIndex = 7;
-            this.Employee_DataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Employee_DataGrid_CellClick);
-=======
             this.btn_AddException.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
             this.btn_AddException.BackColor = System.Drawing.Color.LightYellow;
             this.btn_AddException.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -2316,7 +1906,6 @@
             this.btn_AddException.Textcolor = System.Drawing.Color.Black;
             this.btn_AddException.TextFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_AddException.Click += new System.EventHandler(this.btn_AddException_Click);
->>>>>>> 07c0023ae2016a45a2bb21c50996002e58336af2
             // 
             // AppTimePanel
             // 
@@ -2508,63 +2097,6 @@
             // 
             // WeekSwitch
             // 
-<<<<<<< HEAD
-            this.Patient_DataGrid.AllowUserToAddRows = false;
-            this.Patient_DataGrid.AllowUserToDeleteRows = false;
-            this.Patient_DataGrid.AllowUserToResizeColumns = false;
-            this.Patient_DataGrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle86.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Patient_DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle86;
-            this.Patient_DataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.Patient_DataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.Patient_DataGrid.BackgroundColor = System.Drawing.Color.White;
-            this.Patient_DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Patient_DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle87.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle87.BackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle87.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle87.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle87.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle87.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle87.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Patient_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle87;
-            this.Patient_DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Patient_DataGrid.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle88.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle88.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle88.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle88.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle88.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle88.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle88.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Patient_DataGrid.DefaultCellStyle = dataGridViewCellStyle88;
-            this.Patient_DataGrid.DoubleBuffered = true;
-            this.Patient_DataGrid.EnableHeadersVisualStyles = false;
-            this.Patient_DataGrid.HeaderBgColor = System.Drawing.Color.LemonChiffon;
-            this.Patient_DataGrid.HeaderForeColor = System.Drawing.Color.Black;
-            this.Patient_DataGrid.Location = new System.Drawing.Point(287, 173);
-            this.Patient_DataGrid.Name = "Patient_DataGrid";
-            this.Patient_DataGrid.ReadOnly = true;
-            this.Patient_DataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle89.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle89.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle89.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle89.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle89.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
-            dataGridViewCellStyle89.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle89.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Patient_DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle89;
-            dataGridViewCellStyle90.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
-            dataGridViewCellStyle90.SelectionForeColor = System.Drawing.Color.Black;
-            this.Patient_DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle90;
-            this.Patient_DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Patient_DataGrid.Size = new System.Drawing.Size(890, 439);
-            this.Patient_DataGrid.TabIndex = 7;
-            this.Patient_DataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Patient_DataGrid_CellClick);
-            this.Patient_DataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Patient_DataGrid_CellContentClick);
-            this.Patient_DataGrid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Patient_DataGrid_CellContentDoubleClick);
-            this.Patient_DataGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Patient_DataGrid_CellDoubleClick);
-=======
             this.WeekSwitch.BackColor = System.Drawing.Color.Transparent;
             this.WeekSwitch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("WeekSwitch.BackgroundImage")));
             this.WeekSwitch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -2577,7 +2109,6 @@
             this.WeekSwitch.TabIndex = 19;
             this.WeekSwitch.Value = false;
             this.WeekSwitch.OnValueChange += new System.EventHandler(this.WeekSwitch_OnValueChange);
->>>>>>> 07c0023ae2016a45a2bb21c50996002e58336af2
             // 
             // Appointment_Panel
             // 
@@ -2822,9 +2353,7 @@
             this.panel11.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.panel12.ResumeLayout(false);
-            this.panel12.PerformLayout();
             this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -2837,7 +2366,6 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.AppointmentHistory_Panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.AppHistory_DataGrid)).EndInit();
