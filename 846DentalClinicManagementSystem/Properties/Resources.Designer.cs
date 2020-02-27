@@ -593,17 +593,6 @@ namespace _846DentalClinicManagementSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap user_icon_male_hipster_avatar_vector_flat_design_user_icon_male_with_beard_icon_hipster_flat_clipart_vector_csp51923152 {
-            get {
-                object obj = ResourceManager.GetObject("user-icon-male-hipster-avatar-vector-flat-design-user-icon-male-with-beard-icon-h" +
-                        "ipster-flat-clipart-vector_csp51923152", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap user1 {
             get {
                 object obj = ResourceManager.GetObject("user1", resourceCulture);
