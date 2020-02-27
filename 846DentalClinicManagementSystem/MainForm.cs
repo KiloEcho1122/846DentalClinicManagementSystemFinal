@@ -190,10 +190,7 @@ namespace _846DentalClinicManagementSystem
 
         private void btn_ViewAppointmentHistory_Click(object sender, EventArgs e)
         {
-            HidePanels();
-            AppointmentHistory_Panel.Visible = true;
-            LoadAppHistory();
-            GlobalVariable.InsertActivityLog("Viewed Appointment History", "View");
+            
         }
 
         private void btn_ActivityLogs_Click(object sender, EventArgs e)
@@ -1069,10 +1066,7 @@ namespace _846DentalClinicManagementSystem
 
         }
 
-        private void btn_RefreshApp_Click(object sender, EventArgs e)
-        {
-            RefreshAppointmentView();
-        }
+
 
 
         // Scheduler Panel End ---------------------------------------------------------------------------------------------------------
@@ -1740,7 +1734,7 @@ namespace _846DentalClinicManagementSystem
                 "e.EmailAdd FROM Employee e INNER JOIN Appointment a ON a.EmployeeID_fk = e.EmployeeId WHERE a.AppointmentDate =" +
                 " @date AND Status = 'PENDING' AND EmployeeID = @id ORDER BY RefTime ASC ", sqlcon);
             cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@date", System.DateTime.Today.ToShortDateString());
+            cmd.Parameters.AddWithValue("@date", System.DateTime.Today.AddDays(1).ToShortDateString());
             cmd.Parameters.AddWithValue("@id", id);
             adapter.SelectCommand = cmd;
             try
@@ -1757,11 +1751,6 @@ namespace _846DentalClinicManagementSystem
         }
 
 
-
-        private void btn_SendEmail_Click(object sender, EventArgs e)
-        {
-            SendEmailToDentist();
-        }
 
 
         private void Employee_DataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -1894,6 +1883,23 @@ namespace _846DentalClinicManagementSystem
             }
         }
 
+        private void btn_ViewAppHistory_Click(object sender, EventArgs e)
+        {
+            HidePanels();
+            AppointmentHistory_Panel.Visible = true;
+            LoadAppHistory();
+            GlobalVariable.InsertActivityLog("Viewed Appointment History", "View");
+        }
+
+        private void btn_SendMail_Click(object sender, EventArgs e)
+        {
+            SendEmailToDentist();
+        }
+
+        private void btn_RefreshAppView_Click(object sender, EventArgs e)
+        {
+            RefreshAppointmentView();
+        }
 
         private void btn_RestoreLogs_Click(object sender, EventArgs e)
         {

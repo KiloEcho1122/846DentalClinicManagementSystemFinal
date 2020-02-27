@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle89 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle90 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle91 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle92 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddAppointment));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.TopPanel2 = new System.Windows.Forms.Panel();
@@ -156,21 +156,21 @@
             this.AppSearch_DataGrid.AllowUserToDeleteRows = false;
             this.AppSearch_DataGrid.AllowUserToResizeColumns = false;
             this.AppSearch_DataGrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle89.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.AppSearch_DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle89;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.AppSearch_DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.AppSearch_DataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.AppSearch_DataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.AppSearch_DataGrid.BackgroundColor = System.Drawing.SystemColors.Control;
             this.AppSearch_DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.AppSearch_DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle90.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle90.BackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle90.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle90.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle90.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle90.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle90.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AppSearch_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle90;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AppSearch_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.AppSearch_DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AppSearch_DataGrid.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AppSearch_DataGrid.DoubleBuffered = true;
@@ -182,17 +182,17 @@
             this.AppSearch_DataGrid.Name = "AppSearch_DataGrid";
             this.AppSearch_DataGrid.ReadOnly = true;
             this.AppSearch_DataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle91.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle91.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle91.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle91.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle91.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
-            dataGridViewCellStyle91.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle91.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AppSearch_DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle91;
-            dataGridViewCellStyle92.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
-            dataGridViewCellStyle92.SelectionForeColor = System.Drawing.Color.Black;
-            this.AppSearch_DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle92;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AppSearch_DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.AppSearch_DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.AppSearch_DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.AppSearch_DataGrid.Size = new System.Drawing.Size(723, 65);
             this.AppSearch_DataGrid.TabIndex = 6;
@@ -438,7 +438,7 @@
             this.Treatment_CB.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.Treatment_CB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Treatment_CB.DropDownHeight = 150;
-            this.Treatment_CB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Treatment_CB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.Treatment_CB.ForeColor = System.Drawing.Color.Black;
             this.Treatment_CB.FormattingEnabled = true;
             this.Treatment_CB.IntegralHeight = false;
@@ -454,7 +454,8 @@
             // 
             // TreatmentList
             // 
-            this.TreatmentList.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TreatmentList.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.TreatmentList.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.TreatmentList.FormattingEnabled = true;
             this.TreatmentList.HorizontalScrollbar = true;
             this.TreatmentList.Location = new System.Drawing.Point(596, 283);
@@ -620,7 +621,7 @@
             this.btn_RemoveItem.Text = "Remove";
             this.btn_RemoveItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_RemoveItem.Textcolor = System.Drawing.Color.Black;
-            this.btn_RemoveItem.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_RemoveItem.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btn_RemoveItem.Click += new System.EventHandler(this.btn_RemoveItem_Click);
             // 
             // btn_CreateBilling
@@ -655,7 +656,7 @@
             this.btn_CreateBilling.Text = "Make Billing Statement";
             this.btn_CreateBilling.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_CreateBilling.Textcolor = System.Drawing.Color.Black;
-            this.btn_CreateBilling.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_CreateBilling.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btn_CreateBilling.Click += new System.EventHandler(this.btn_CreateBilling_Click);
             // 
             // btn_CancelApp
@@ -685,12 +686,12 @@
             this.btn_CancelApp.OnHovercolor = System.Drawing.Color.Gold;
             this.btn_CancelApp.OnHoverTextColor = System.Drawing.Color.Black;
             this.btn_CancelApp.selected = false;
-            this.btn_CancelApp.Size = new System.Drawing.Size(146, 38);
+            this.btn_CancelApp.Size = new System.Drawing.Size(137, 38);
             this.btn_CancelApp.TabIndex = 10;
             this.btn_CancelApp.Text = "Cancel Appointment";
             this.btn_CancelApp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_CancelApp.Textcolor = System.Drawing.Color.Black;
-            this.btn_CancelApp.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_CancelApp.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btn_CancelApp.Visible = false;
             this.btn_CancelApp.Click += new System.EventHandler(this.btn_CancelApp_Click_1);
             // 
@@ -726,7 +727,7 @@
             this.btn_add.Text = "Add";
             this.btn_add.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_add.Textcolor = System.Drawing.Color.Black;
-            this.btn_add.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_add.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // btn_PatientSearch
