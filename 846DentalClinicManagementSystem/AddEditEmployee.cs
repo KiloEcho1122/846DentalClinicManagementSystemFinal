@@ -104,18 +104,19 @@ namespace _846DentalClinicManagementSystem
             catch (Exception ex) { Console.WriteLine(ex.Message); }
         }
 
-        private void btn_close_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            GlobalVariable.isAddEmployee = false;
-            GlobalVariable.isEditEmployee = false;
-     
-        }
+  
         String Permission,LName, FName, MName, Gender,Birthday,Email,ContactNo,HomeAdd,Position,LicenseNo;
 
         private void GenderDD_onItemSelected(object sender, EventArgs e)
         {
             Gender = GenderDD.selectedValue;
+        }
+
+        private void lbl_Close_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            GlobalVariable.isAddEmployee = false;
+            GlobalVariable.isEditEmployee = false;
         }
 
         private void Permission_DD_onItemSelected(object sender, EventArgs e)

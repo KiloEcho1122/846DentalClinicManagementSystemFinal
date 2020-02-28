@@ -32,10 +32,6 @@ namespace _846DentalClinicManagementSystem
 
         }
 
-        private void btn_closePatientInfo_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-        }
 
         private void PatientInfoTAB_Deselected(object sender, TabControlEventArgs e)
         {
@@ -1736,6 +1732,11 @@ namespace _846DentalClinicManagementSystem
             {
                 MessageBox.Show("Permission Denied !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
 
 

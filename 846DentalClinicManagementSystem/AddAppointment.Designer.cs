@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddAppointment));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.TopPanel2 = new System.Windows.Forms.Panel();
@@ -100,17 +100,16 @@
             this.TopPanel2.Name = "TopPanel2";
             this.TopPanel2.Size = new System.Drawing.Size(790, 45);
             this.TopPanel2.TabIndex = 0;
-            this.TopPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.TopPanel2_Paint);
             // 
             // lbl_Close
             // 
             this.lbl_Close.AutoSize = true;
             this.lbl_Close.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbl_Close.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Close.Font = new System.Drawing.Font("Segoe MDL2 Assets", 18F);
             this.lbl_Close.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.lbl_Close.Location = new System.Drawing.Point(753, 7);
             this.lbl_Close.Name = "lbl_Close";
-            this.lbl_Close.Size = new System.Drawing.Size(16, 17);
+            this.lbl_Close.Size = new System.Drawing.Size(22, 24);
             this.lbl_Close.TabIndex = 43;
             this.lbl_Close.Text = "X";
             this.lbl_Close.Click += new System.EventHandler(this.lbl_Close_Click);
@@ -125,7 +124,6 @@
             this.txt_formHeader.Size = new System.Drawing.Size(233, 22);
             this.txt_formHeader.TabIndex = 3;
             this.txt_formHeader.Text = "Add New Appointments";
-            this.txt_formHeader.Click += new System.EventHandler(this.txt_formHeader_Click);
             // 
             // pictureBox5
             // 
@@ -136,7 +134,6 @@
             this.pictureBox5.Size = new System.Drawing.Size(32, 28);
             this.pictureBox5.TabIndex = 2;
             this.pictureBox5.TabStop = false;
-            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
             // 
             // bunifuCustomLabel1
             // 
@@ -148,7 +145,6 @@
             this.bunifuCustomLabel1.Size = new System.Drawing.Size(101, 17);
             this.bunifuCustomLabel1.TabIndex = 5;
             this.bunifuCustomLabel1.Text = "Search Patient";
-            this.bunifuCustomLabel1.Click += new System.EventHandler(this.bunifuCustomLabel1_Click);
             // 
             // AppSearch_DataGrid
             // 
@@ -156,21 +152,21 @@
             this.AppSearch_DataGrid.AllowUserToDeleteRows = false;
             this.AppSearch_DataGrid.AllowUserToResizeColumns = false;
             this.AppSearch_DataGrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.AppSearch_DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.AppSearch_DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.AppSearch_DataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.AppSearch_DataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.AppSearch_DataGrid.BackgroundColor = System.Drawing.Color.White;
             this.AppSearch_DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.AppSearch_DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AppSearch_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AppSearch_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.AppSearch_DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AppSearch_DataGrid.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AppSearch_DataGrid.DoubleBuffered = true;
@@ -182,17 +178,17 @@
             this.AppSearch_DataGrid.Name = "AppSearch_DataGrid";
             this.AppSearch_DataGrid.ReadOnly = true;
             this.AppSearch_DataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AppSearch_DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.AppSearch_DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AppSearch_DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            this.AppSearch_DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.AppSearch_DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.AppSearch_DataGrid.Size = new System.Drawing.Size(723, 65);
             this.AppSearch_DataGrid.TabIndex = 6;
@@ -274,7 +270,6 @@
             this.bunifuCustomLabel2.Size = new System.Drawing.Size(73, 17);
             this.bunifuCustomLabel2.TabIndex = 11;
             this.bunifuCustomLabel2.Text = "Treatment";
-            this.bunifuCustomLabel2.Click += new System.EventHandler(this.bunifuCustomLabel2_Click);
             // 
             // bunifuCustomLabel3
             // 
@@ -286,7 +281,6 @@
             this.bunifuCustomLabel3.Size = new System.Drawing.Size(52, 17);
             this.bunifuCustomLabel3.TabIndex = 12;
             this.bunifuCustomLabel3.Text = "Dentist";
-            this.bunifuCustomLabel3.Click += new System.EventHandler(this.bunifuCustomLabel3_Click);
             // 
             // bunifuCustomLabel4
             // 
@@ -298,7 +292,6 @@
             this.bunifuCustomLabel4.Size = new System.Drawing.Size(40, 17);
             this.bunifuCustomLabel4.TabIndex = 13;
             this.bunifuCustomLabel4.Text = "Date";
-            this.bunifuCustomLabel4.Click += new System.EventHandler(this.bunifuCustomLabel4_Click);
             // 
             // bunifuCustomLabel6
             // 
@@ -310,7 +303,6 @@
             this.bunifuCustomLabel6.Size = new System.Drawing.Size(37, 17);
             this.bunifuCustomLabel6.TabIndex = 14;
             this.bunifuCustomLabel6.Text = "Time";
-            this.bunifuCustomLabel6.Click += new System.EventHandler(this.bunifuCustomLabel6_Click);
             // 
             // bunifuCustomLabel7
             // 
@@ -322,7 +314,6 @@
             this.bunifuCustomLabel7.Size = new System.Drawing.Size(40, 17);
             this.bunifuCustomLabel7.TabIndex = 15;
             this.bunifuCustomLabel7.Text = "Note";
-            this.bunifuCustomLabel7.Click += new System.EventHandler(this.bunifuCustomLabel7_Click);
             // 
             // txt_Note
             // 
@@ -335,7 +326,6 @@
             this.txt_Note.Name = "txt_Note";
             this.txt_Note.Size = new System.Drawing.Size(551, 35);
             this.txt_Note.TabIndex = 9;
-            this.txt_Note.TextChanged += new System.EventHandler(this.txt_Note_TextChanged);
             // 
             // bunifuDragControl1
             // 
@@ -354,7 +344,6 @@
             this.bunifuCustomLabel8.Size = new System.Drawing.Size(77, 17);
             this.bunifuCustomLabel8.TabIndex = 21;
             this.bunifuCustomLabel8.Text = "Last Name";
-            this.bunifuCustomLabel8.Click += new System.EventHandler(this.bunifuCustomLabel8_Click);
             // 
             // bunifuCustomLabel9
             // 
@@ -366,7 +355,6 @@
             this.bunifuCustomLabel9.Size = new System.Drawing.Size(79, 17);
             this.bunifuCustomLabel9.TabIndex = 22;
             this.bunifuCustomLabel9.Text = "First  Name";
-            this.bunifuCustomLabel9.Click += new System.EventHandler(this.bunifuCustomLabel9_Click);
             // 
             // bunifuCustomLabel10
             // 
@@ -378,7 +366,6 @@
             this.bunifuCustomLabel10.Size = new System.Drawing.Size(95, 17);
             this.bunifuCustomLabel10.TabIndex = 23;
             this.bunifuCustomLabel10.Text = "Middle Name";
-            this.bunifuCustomLabel10.Click += new System.EventHandler(this.bunifuCustomLabel10_Click);
             // 
             // txt_LName
             // 
@@ -404,7 +391,6 @@
             this.txt_FName.Name = "txt_FName";
             this.txt_FName.Size = new System.Drawing.Size(159, 35);
             this.txt_FName.TabIndex = 3;
-            this.txt_FName.TextChanged += new System.EventHandler(this.txt_FName_TextChanged);
             // 
             // txt_MName
             // 
@@ -417,7 +403,6 @@
             this.txt_MName.Name = "txt_MName";
             this.txt_MName.Size = new System.Drawing.Size(182, 35);
             this.txt_MName.TabIndex = 4;
-            this.txt_MName.TextChanged += new System.EventHandler(this.txt_MName_TextChanged);
             // 
             // lbl_AppNo
             // 
@@ -429,7 +414,6 @@
             this.lbl_AppNo.Size = new System.Drawing.Size(121, 17);
             this.lbl_AppNo.TabIndex = 27;
             this.lbl_AppNo.Text = "Appointment No.";
-            this.lbl_AppNo.Click += new System.EventHandler(this.lbl_AppNo_Click);
             // 
             // Treatment_CB
             // 
@@ -462,7 +446,6 @@
             this.TreatmentList.Name = "TreatmentList";
             this.TreatmentList.Size = new System.Drawing.Size(171, 43);
             this.TreatmentList.TabIndex = 31;
-            this.TreatmentList.SelectedIndexChanged += new System.EventHandler(this.TreatmentList_SelectedIndexChanged);
             // 
             // bunifuCustomLabel5
             // 
@@ -474,7 +457,6 @@
             this.bunifuCustomLabel5.Size = new System.Drawing.Size(83, 17);
             this.bunifuCustomLabel5.TabIndex = 35;
             this.bunifuCustomLabel5.Text = "Completed";
-            this.bunifuCustomLabel5.Click += new System.EventHandler(this.bunifuCustomLabel5_Click);
             // 
             // lblContact
             // 
@@ -486,7 +468,6 @@
             this.lblContact.Size = new System.Drawing.Size(86, 17);
             this.lblContact.TabIndex = 37;
             this.lblContact.Text = "Contact No";
-            this.lblContact.Click += new System.EventHandler(this.lblContact_Click);
             // 
             // txt_ContactNo
             // 
@@ -499,7 +480,6 @@
             this.txt_ContactNo.Name = "txt_ContactNo";
             this.txt_ContactNo.Size = new System.Drawing.Size(164, 35);
             this.txt_ContactNo.TabIndex = 36;
-            this.txt_ContactNo.TextChanged += new System.EventHandler(this.txt_ContactNo_TextChanged);
             // 
             // panel1
             // 
@@ -509,7 +489,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(151, 13);
             this.panel1.TabIndex = 38;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel4
             // 
@@ -519,7 +498,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(173, 1);
             this.panel4.TabIndex = 41;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // panel2
             // 
@@ -529,7 +507,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(21, 11);
             this.panel2.TabIndex = 39;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // panel5
             // 
@@ -538,7 +515,6 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(19, 11);
             this.panel5.TabIndex = 41;
-            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // panel7
             // 
@@ -547,7 +523,6 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(2, 15);
             this.panel7.TabIndex = 42;
-            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
             // 
             // panel3
             // 
@@ -557,7 +532,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(4, 14);
             this.panel3.TabIndex = 40;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // TreatmentDropDownPanel
             // 
@@ -571,7 +545,6 @@
             this.TreatmentDropDownPanel.Name = "TreatmentDropDownPanel";
             this.TreatmentDropDownPanel.Size = new System.Drawing.Size(178, 35);
             this.TreatmentDropDownPanel.TabIndex = 42;
-            this.TreatmentDropDownPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.TreatmentDropDownPanel_Paint);
             // 
             // statusSwitch
             // 
@@ -586,7 +559,6 @@
             this.statusSwitch.Size = new System.Drawing.Size(43, 25);
             this.statusSwitch.TabIndex = 34;
             this.statusSwitch.Value = false;
-            this.statusSwitch.OnValueChange += new System.EventHandler(this.statusSwitch_OnValueChange);
             this.statusSwitch.Click += new System.EventHandler(this.statusSwitch_Click);
             // 
             // btn_RemoveItem

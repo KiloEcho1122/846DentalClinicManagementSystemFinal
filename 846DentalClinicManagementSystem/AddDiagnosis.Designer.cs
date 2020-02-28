@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddDiagnosis));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.TopPanel2 = new System.Windows.Forms.Panel();
+            this.lbl_Close = new System.Windows.Forms.Label();
             this.btn_closePatientInfo = new Bunifu.Framework.UI.BunifuFlatButton();
             this.txt_formHeader = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -49,7 +50,6 @@
             this.Treatment_CB = new System.Windows.Forms.ComboBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btn_PrintCer = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.lbl_Close = new System.Windows.Forms.Label();
             this.TopPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.TreatmentDropDownPanel.SuspendLayout();
@@ -73,6 +73,19 @@
             this.TopPanel2.Name = "TopPanel2";
             this.TopPanel2.Size = new System.Drawing.Size(473, 45);
             this.TopPanel2.TabIndex = 32;
+            // 
+            // lbl_Close
+            // 
+            this.lbl_Close.AutoSize = true;
+            this.lbl_Close.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_Close.Font = new System.Drawing.Font("Segoe MDL2 Assets", 18F);
+            this.lbl_Close.ForeColor = System.Drawing.SystemColors.Control;
+            this.lbl_Close.Location = new System.Drawing.Point(445, 3);
+            this.lbl_Close.Name = "lbl_Close";
+            this.lbl_Close.Size = new System.Drawing.Size(22, 24);
+            this.lbl_Close.TabIndex = 63;
+            this.lbl_Close.Text = "X";
+            this.lbl_Close.Click += new System.EventHandler(this.lbl_Close_Click);
             // 
             // btn_closePatientInfo
             // 
@@ -308,19 +321,6 @@
             this.btn_PrintCer.Textcolor = System.Drawing.Color.Black;
             this.btn_PrintCer.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btn_PrintCer.Click += new System.EventHandler(this.btn_PrintCer_Click);
-            // 
-            // lbl_Close
-            // 
-            this.lbl_Close.AutoSize = true;
-            this.lbl_Close.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbl_Close.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Close.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbl_Close.Location = new System.Drawing.Point(445, 7);
-            this.lbl_Close.Name = "lbl_Close";
-            this.lbl_Close.Size = new System.Drawing.Size(16, 16);
-            this.lbl_Close.TabIndex = 63;
-            this.lbl_Close.Text = "X";
-            this.lbl_Close.Click += new System.EventHandler(this.lbl_Close_Click);
             // 
             // AddDiagnosis
             // 

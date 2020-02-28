@@ -83,46 +83,55 @@ namespace _846DentalClinicManagementSystem
 
         private void ChangePassword()
         {
-            if (txtPassword.Text != "1234" && txt_PasswordConfirm.Text != "1234")
+
+            if(txtPassword.Text.Length >= 8)
             {
-                if (txtPassword.Text.Trim() == txt_PasswordConfirm.Text.Trim())
+                if (txtPassword.Text != "1234" && txt_PasswordConfirm.Text != "1234")
                 {
-                    SqlCommand cmd = new SqlCommand("UPDATE [Login] SET Password = @Password WHERE EmployeeID_fk = @EmployeeID", sqlcon);
-                    cmd.Parameters.Clear();
-                    cmd.Parameters.AddWithValue("@Password", txtPassword.Text.Trim());
-                    cmd.Parameters.AddWithValue("@EmployeeID", GlobalVariable.EmployeeID);
-
-                    if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
-
-                    try
+                    if (txtPassword.Text.Trim() == txt_PasswordConfirm.Text.Trim())
                     {
-                        cmd.ExecuteNonQuery();
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine(e.Message);
-                    }
-                    sqlcon.Close();
+                        SqlCommand cmd = new SqlCommand("UPDATE [Login] SET Password = @Password WHERE EmployeeID_fk = @EmployeeID", sqlcon);
+                        cmd.Parameters.Clear();
+                        cmd.Parameters.AddWithValue("@Password", txtPassword.Text.Trim());
+                        cmd.Parameters.AddWithValue("@EmployeeID", GlobalVariable.EmployeeID);
 
-                    MessageBox.Show("New Password Created!");
-                    isNewAccount = false;
-                    txt_PasswordConfirm.Visible = false;
-                    pictureBox4.Visible = false;
-                    btn_Login.Location = new Point(54, 366);
-                    
+                        if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+
+                        try
+                        {
+                            cmd.ExecuteNonQuery();
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                        }
+                        sqlcon.Close();
+
+                        MessageBox.Show("New Password Created!");
+                        isNewAccount = false;
+                        txt_PasswordConfirm.Visible = false;
+                        pictureBox4.Visible = false;
+                        btn_Login.Location = new Point(54, 366);
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Password not match!");
+                        txtPassword.Text = string.Empty;
+                        txt_PasswordConfirm.Text = string.Empty;
+
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Password not match!");
-                    txtPassword.Text = string.Empty;
-                    txt_PasswordConfirm.Text = string.Empty;
-
+                    MessageBox.Show("Invalid Password!");
                 }
             }
             else
             {
-                MessageBox.Show("Invalid Password!");
+                MessageBox.Show("Password must be atleast 8 characters!");
             }
+           
            
         }
 

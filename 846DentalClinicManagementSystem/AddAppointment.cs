@@ -863,9 +863,33 @@ namespace _846DentalClinicManagementSystem
             GlobalVariable.isAddAppointment = false;
         }
 
-        private void btn_CancelApp_Click(object sender, EventArgs e)
+
+        private bool IsPaymentMade()
         {
-            if (statusSwitch.Value == false ){
+            SqlCommand cmd = new SqlCommand("SELECT AmountPay FROM Billing WHERE AppointmentID_fk = @appID", sqlcon);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@appID",AppNo);
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+            try
+            {
+                object result = 0;
+                result=  cmd.ExecuteScalar();
+                if(Convert.ToInt32(result) > 0 )
+                {
+                    return true;
+                }
+
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+            sqlcon.Close();
+
+            return false;
+        }
+
+        private void btn_CancelApp_Click_1(object sender, EventArgs e)
+        {
+            if (statusSwitch.Value == false)
+            {
                 if (IsPaymentMade() == false)
                 {
                     DialogResult result = MessageBox.Show("Are you sure you want to cancel appointment?", "Cancel Appointment", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -891,6 +915,8 @@ namespace _846DentalClinicManagementSystem
                                 main.SearchAppByDate_DP.Value = DP_date.Value;
                             }
                             this.Hide();
+                            //do activity logs here
+                            GlobalVariable.InsertActivityLog("Cancelled Appointment, Appointment ID = " + AppNo, "Cancel");
 
                         }
                         catch (Exception ex)
@@ -901,176 +927,9 @@ namespace _846DentalClinicManagementSystem
                         sqlcon.Close();
                     }
                 }
-                else { MessageBox.Show("Payment Already Made!", "Error", MessageBoxButtons.OK,MessageBoxIcon.Error); }
+                else { MessageBox.Show("Payment Already Made!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             }
             else { MessageBox.Show("Appointment Already Completed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-
-        }
-
-        private bool IsPaymentMade()
-        {
-            SqlCommand cmd = new SqlCommand("SELECT AmountPay FROM Billing WHERE AppointmentID_fk = @appID", sqlcon);
-            cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@appID",AppNo);
-            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
-            try
-            {
-                object result = 0;
-                result=  cmd.ExecuteScalar();
-                if(Convert.ToInt32(result) > 0 )
-                {
-                    return true;
-                }
-
-            }
-            catch (Exception ex) { Console.WriteLine(ex.Message); }
-            sqlcon.Close();
-
-            return false;
-        }
-
-        private void TopPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void txt_formHeader_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bunifuCustomLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bunifuCustomLabel2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bunifuCustomLabel3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bunifuCustomLabel4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bunifuCustomLabel6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bunifuCustomLabel7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt_Note_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bunifuCustomLabel8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bunifuCustomLabel9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bunifuCustomLabel10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt_FName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt_MName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbl_AppNo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TreatmentList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bunifuCustomLabel5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblContact_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt_ContactNo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel7_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void TreatmentDropDownPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void statusSwitch_OnValueChange(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_CancelApp_Click_1(object sender, EventArgs e)
-        {
 
         }
 
@@ -1085,12 +944,14 @@ namespace _846DentalClinicManagementSystem
                     AppStatus = "COMPLETED";
                     changeStatus();
                     updatePatientTreatment_PatientID();
+                    GlobalVariable.InsertActivityLog("Changed Appointment to complete, Appointment ID = " + AppNo, "Edit");
                     MessageBox.Show("Appointment Status changed to COMPLETE !");
                 }
                 else
                 {
                     AppStatus = "PENDING";
                     changeStatus();
+                    GlobalVariable.InsertActivityLog("Changed Appointment to Pending, Appointment ID = " + AppNo, "Edit");
                     MessageBox.Show("Appointment Status changed to PENDING !");
                 }
             }

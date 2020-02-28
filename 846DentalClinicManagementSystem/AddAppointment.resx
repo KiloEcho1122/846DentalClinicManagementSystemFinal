@@ -391,17 +391,16 @@
   <data name="btn_PatientSearch.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAF4AAAApCAYAAAC89Z4XAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJCSURBVGhD7ZrNK0RRGMb9a1Y2VlY2bNjYiJISRVhYSJLS
-        xIhiYUFEYUGJFAqJBYrGmJk7H8yV789Xz5nrMs0d+Zhzz+b51VNqzCx+5/bec+9zimzbFsb/ULyhULyh
-        ULyhULyhULyhfCs+kUzL7EpCWgOW1HZHpbz5XIprQkyewA88NfXHZGopIREr7ekVySt+eTOpfqh9KClL
-        Wzeyc3gvsdSzkPzADzyt7t5K12hK+cMCePnNEY9V6gxa0tgXl4urF+cnyV+4vntVC9DQG5PT8GWW5yzx
-        kF7VEZH59Wvnq6QQbBzcSU1XVI5OP+VniceVTul6wAjC/M8Rj5mO8UL0MThty/BM/FM8di+4EXCm6+Xx
-        6U2qO6Oyf3SREY87L24CRD/jC7b0T8Qz4rHvxBaI6Oc4/Kg2MEp8Reu5hGJPzkdEJxg3JbVnGfGl9Wdq
-        z0n8AU+5Sjz+IP5B8YageENQvCEo3hAUbwiKNwTFG8IVjycpPFERf3DF480kaz3/cMWjmkJLQvSDd2J4
-        N6bEB6ct9ZKe6AcNH5o+JR5dYGVbhHPeB1oGErK4nsyIRwKTcRmZ41WvExyTwRkl+HbFo/5DGXtw8uD8
-        GykkqFUxVT4OObniEXSB6ARZihQWSK/rsWRtO+W6zhKPbOylVDU1Np92vkb+AypVXOlfpSM54hGMHRSy
-        WCXchXn64HegzcM8x/FH9NleZyg9xX8Eq4StT1ljWG36mZ8FVSpuojjw6+UV+VY8oy8UbygUbygUbygU
-        byS2vAOo9fZ7OrcTlwAAAABJRU5ErkJggg==
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH3SURBVGhD7Zo5S0NBFEb9a1ZWVlZWVhYiCNqk0ULEQhsL
+        G0EEEewtBG2sBEEstEkhghCjxiWBSDSauIycSeZhyILGTG7zHRgIL0tx7uR7M3fegBMmSLwREm+ExBsh
+        8UZIvBEdxVeqX+7g5NktbOTd9Mq9G529cYMTGY02Az94mlt7dHtHJVcqf9ZNNtNW/HG67H8I6cg/PX91
+        ufx7/V3RCvzg6fDsxS1tFbw/CtCKJvFUiS+lVh9c4emjflV0QyeXDeL54Phirm2VRHeQHpPLdw2J0SCe
+        6kh6HIgg8j+QiKcq/CVEPNZ3im57v+hfe/GsXrgRKNPjgmeiPJOr1sQTL8SMiA8znpnvxbPuZAkk4nOR
+        rfhZ78WPzd/66S/iQ9wMTV3VxA/PZDvuskRvYZfrxfNC9A+JN0LijZB4IyTeCIk3QuKNkHgjEvHspNhR
+        if6QiKczqWO9/pGIpw9PP17Eh54YvTEvPrQqRXxCC96LJ2aognI+PqEF78XD5m7RDxGP8IwSJOKZ7RzG
+        pi/f6ldEL+FYlVQJ7fdEPBD84UxQ9A6kM6l50iDQIB6Y8cgPp+Hif5DnzPSf0qFJPBA7rHKoEndhPX3w
+        N4iTkOfcTFud7rUUH6BKLH1GUtd+0a/xu8FRanjmtB0dxYt4SLwREm+ExBsh8SY49w3ed8OPUNHbAwAA
+        AABJRU5ErkJggg==
 </value>
   </data>
   <data name="txt_PatientSearch.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

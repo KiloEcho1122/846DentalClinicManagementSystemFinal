@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             this.Panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.txt_PasswordConfirm = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.label7 = new System.Windows.Forms.Label();
             this.PictureBox3 = new System.Windows.Forms.PictureBox();
             this.Label1 = new System.Windows.Forms.Label();
@@ -46,13 +48,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txt_PasswordConfirm = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // Panel1
@@ -73,6 +73,42 @@
             this.Panel1.Name = "Panel1";
             this.Panel1.Size = new System.Drawing.Size(293, 545);
             this.Panel1.TabIndex = 5;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox4.Image = global::_846DentalClinicManagementSystem.Properties.Resources.iconfinder_icon_118_lock_rounded_314696;
+            this.pictureBox4.Location = new System.Drawing.Point(233, 353);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(25, 29);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 15;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Visible = false;
+            // 
+            // txt_PasswordConfirm
+            // 
+            this.txt_PasswordConfirm.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txt_PasswordConfirm.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_PasswordConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_PasswordConfirm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txt_PasswordConfirm.HintForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.txt_PasswordConfirm.HintText = "Password";
+            this.txt_PasswordConfirm.isPassword = true;
+            this.txt_PasswordConfirm.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(23)))), ((int)(((byte)(17)))));
+            this.txt_PasswordConfirm.LineIdleColor = System.Drawing.Color.Gray;
+            this.txt_PasswordConfirm.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(23)))), ((int)(((byte)(17)))));
+            this.txt_PasswordConfirm.LineThickness = 1;
+            this.txt_PasswordConfirm.Location = new System.Drawing.Point(29, 354);
+            this.txt_PasswordConfirm.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_PasswordConfirm.Name = "txt_PasswordConfirm";
+            this.txt_PasswordConfirm.Size = new System.Drawing.Size(229, 31);
+            this.txt_PasswordConfirm.TabIndex = 14;
+            this.txt_PasswordConfirm.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txt_PasswordConfirm.Visible = false;
+            this.txt_PasswordConfirm.OnValueChanged += new System.EventHandler(this.txt_PasswordConfirm_OnValueChanged);
+            this.txt_PasswordConfirm.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_PasswordConfirm_KeyDown);
             // 
             // label7
             // 
@@ -173,7 +209,7 @@
             this.txtPassword.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(23)))), ((int)(((byte)(17)))));
             this.txtPassword.LineIdleColor = System.Drawing.Color.Gray;
             this.txtPassword.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(23)))), ((int)(((byte)(17)))));
-            this.txtPassword.LineThickness = 3;
+            this.txtPassword.LineThickness = 1;
             this.txtPassword.Location = new System.Drawing.Point(29, 314);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPassword.Name = "txtPassword";
@@ -286,42 +322,6 @@
             this.label6.TabIndex = 12;
             this.label6.Text = "About Us";
             // 
-            // txt_PasswordConfirm
-            // 
-            this.txt_PasswordConfirm.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txt_PasswordConfirm.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_PasswordConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_PasswordConfirm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_PasswordConfirm.HintForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.txt_PasswordConfirm.HintText = "Password";
-            this.txt_PasswordConfirm.isPassword = true;
-            this.txt_PasswordConfirm.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(23)))), ((int)(((byte)(17)))));
-            this.txt_PasswordConfirm.LineIdleColor = System.Drawing.Color.Gray;
-            this.txt_PasswordConfirm.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(23)))), ((int)(((byte)(17)))));
-            this.txt_PasswordConfirm.LineThickness = 3;
-            this.txt_PasswordConfirm.Location = new System.Drawing.Point(29, 354);
-            this.txt_PasswordConfirm.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_PasswordConfirm.Name = "txt_PasswordConfirm";
-            this.txt_PasswordConfirm.Size = new System.Drawing.Size(229, 31);
-            this.txt_PasswordConfirm.TabIndex = 14;
-            this.txt_PasswordConfirm.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txt_PasswordConfirm.Visible = false;
-            this.txt_PasswordConfirm.OnValueChanged += new System.EventHandler(this.txt_PasswordConfirm_OnValueChanged);
-            this.txt_PasswordConfirm.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_PasswordConfirm_KeyDown);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox4.Image = global::_846DentalClinicManagementSystem.Properties.Resources.iconfinder_icon_118_lock_rounded_314696;
-            this.pictureBox4.Location = new System.Drawing.Point(233, 353);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(25, 29);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 15;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Visible = false;
-            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -342,10 +342,10 @@
             this.Text = "FormLogin";
             this.Panel1.ResumeLayout(false);
             this.Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

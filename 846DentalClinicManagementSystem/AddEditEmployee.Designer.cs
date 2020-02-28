@@ -44,7 +44,6 @@
             this.bunifuCustomLabel9 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel8 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.btn_close = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_add = new Bunifu.Framework.UI.BunifuFlatButton();
             this.txt_HomeAddress = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -60,6 +59,7 @@
             this.EmployeeBirthday_DP = new Bunifu.Framework.UI.BunifuDatepicker();
             this.PositionDD = new Bunifu.Framework.UI.BunifuDropdown();
             this.Positiona = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.lbl_Close = new System.Windows.Forms.Label();
             this.TopPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
@@ -126,6 +126,7 @@
             // TopPanel2
             // 
             this.TopPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
+            this.TopPanel2.Controls.Add(this.lbl_Close);
             this.TopPanel2.Controls.Add(this.txt_formHeader);
             this.TopPanel2.Controls.Add(this.pictureBox5);
             this.TopPanel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -217,41 +218,6 @@
             // 
             this.bunifuElipse1.ElipseRadius = 5;
             this.bunifuElipse1.TargetControl = this;
-            // 
-            // btn_close
-            // 
-            this.btn_close.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
-            this.btn_close.BackColor = System.Drawing.Color.DarkGray;
-            this.btn_close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_close.BorderRadius = 0;
-            this.btn_close.ButtonText = " CLOSE";
-            this.btn_close.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_close.DisabledColor = System.Drawing.Color.Gray;
-            this.btn_close.Iconcolor = System.Drawing.Color.Transparent;
-            this.btn_close.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_close.Iconimage")));
-            this.btn_close.Iconimage_right = null;
-            this.btn_close.Iconimage_right_Selected = null;
-            this.btn_close.Iconimage_Selected = null;
-            this.btn_close.IconMarginLeft = 0;
-            this.btn_close.IconMarginRight = 0;
-            this.btn_close.IconRightVisible = true;
-            this.btn_close.IconRightZoom = 0D;
-            this.btn_close.IconVisible = true;
-            this.btn_close.IconZoom = 90D;
-            this.btn_close.IsTab = false;
-            this.btn_close.Location = new System.Drawing.Point(460, 414);
-            this.btn_close.Name = "btn_close";
-            this.btn_close.Normalcolor = System.Drawing.Color.DarkGray;
-            this.btn_close.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
-            this.btn_close.OnHoverTextColor = System.Drawing.Color.Black;
-            this.btn_close.selected = false;
-            this.btn_close.Size = new System.Drawing.Size(106, 35);
-            this.btn_close.TabIndex = 14;
-            this.btn_close.Text = " CLOSE";
-            this.btn_close.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_close.Textcolor = System.Drawing.Color.Black;
-            this.btn_close.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
             // btn_add
             // 
@@ -468,6 +434,19 @@
             this.Positiona.TabIndex = 80;
             this.Positiona.Text = "Position";
             // 
+            // lbl_Close
+            // 
+            this.lbl_Close.AutoSize = true;
+            this.lbl_Close.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_Close.Font = new System.Drawing.Font("Segoe MDL2 Assets", 18F);
+            this.lbl_Close.ForeColor = System.Drawing.SystemColors.Control;
+            this.lbl_Close.Location = new System.Drawing.Point(702, 3);
+            this.lbl_Close.Name = "lbl_Close";
+            this.lbl_Close.Size = new System.Drawing.Size(22, 24);
+            this.lbl_Close.TabIndex = 64;
+            this.lbl_Close.Text = "X";
+            this.lbl_Close.Click += new System.EventHandler(this.lbl_Close_Click);
+            // 
             // AddEditEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -490,7 +469,6 @@
             this.Controls.Add(this.bunifuCustomLabel6);
             this.Controls.Add(this.txt_LicenseNo);
             this.Controls.Add(this.bunifuCustomLabel5);
-            this.Controls.Add(this.btn_close);
             this.Controls.Add(this.btn_add);
             this.Controls.Add(this.txt_EmployeeNo);
             this.Controls.Add(this.bunifuCustomLabel11);
@@ -518,7 +496,6 @@
 
         private WindowsFormsControlLibrary1.BunifuCustomTextbox txt_LicenseNo;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel5;
-        private Bunifu.Framework.UI.BunifuFlatButton btn_close;
         private Bunifu.Framework.UI.BunifuFlatButton btn_add;
         private WindowsFormsControlLibrary1.BunifuCustomTextbox txt_EmployeeNo;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel11;
@@ -546,5 +523,6 @@
         private Bunifu.Framework.UI.BunifuDropdown GenderDD;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel7;
         private Bunifu.Framework.UI.BunifuDropdown Permission_DD;
+        private System.Windows.Forms.Label lbl_Close;
     }
 }

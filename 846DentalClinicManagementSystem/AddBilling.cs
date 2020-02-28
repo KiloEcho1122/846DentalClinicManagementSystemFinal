@@ -411,13 +411,6 @@ namespace _846DentalClinicManagementSystem
             sqlcon.Close();
         }
 
-
-        private void btn_Close_Click(object sender, EventArgs e)
-        {
-            GlobalVariable.isBillingStatementExist = false;
-            this.Hide();
-        }
-
         private void btn_AddBilling_KeyDown(object sender, KeyEventArgs e)
         {
             AddBillingFunction();
@@ -426,6 +419,12 @@ namespace _846DentalClinicManagementSystem
         private void btn_BillingAdd_Click(object sender, EventArgs e)
         {
             AddBillingFunction();
+        }
+
+        private void lbl_Close_Click(object sender, EventArgs e)
+        {
+            GlobalVariable.isBillingStatementExist = false;
+            this.Hide();
         }
     }
 }

@@ -141,7 +141,7 @@ namespace _846DentalClinicManagementSystem
         {
        
             Reason = txt_Note.Text.Trim();
-            if (SelectedDentistID > 0)
+            if (SelectedDentistID >  0)
             {
 
                 if ((StartTimeDD.selectedIndex == EndTimeDD.selectedIndex) == false && (string.IsNullOrEmpty(StartTime) == false || string.IsNullOrEmpty(EndTime) == false)){
@@ -288,6 +288,7 @@ namespace _846DentalClinicManagementSystem
                         main.SearchAppByDate_DP.Value = DP_date.Value;
                     }
                     this.Hide();
+                    GlobalVariable.InsertActivityLog("Cancelled Appointment Exception, Exception ID = " + AppExNo, "Cancel");
 
                 }
                 catch(Exception ex)
@@ -336,7 +337,7 @@ namespace _846DentalClinicManagementSystem
            
 
 
-
+                    if (SelectedDentistID > 0 )
                     if (CheckOverlapseTimeinDB(timeStartA, timeEndA) == false)
                     {
                         StartTime = SelectedStartTime;

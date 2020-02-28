@@ -32,14 +32,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddBilling));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.TopBillingPanel = new System.Windows.Forms.Panel();
-            this.btn_Close = new Bunifu.Framework.UI.BunifuImageButton();
             this.txt_formHeader = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.lbl_TotalAmt = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lbl_Total = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btn_BillingAdd = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.lbl_Close = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.TopBillingPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_Close)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,7 +50,7 @@
             // TopBillingPanel
             // 
             this.TopBillingPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
-            this.TopBillingPanel.Controls.Add(this.btn_Close);
+            this.TopBillingPanel.Controls.Add(this.lbl_Close);
             this.TopBillingPanel.Controls.Add(this.txt_formHeader);
             this.TopBillingPanel.Controls.Add(this.pictureBox7);
             this.TopBillingPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -59,21 +58,6 @@
             this.TopBillingPanel.Name = "TopBillingPanel";
             this.TopBillingPanel.Size = new System.Drawing.Size(379, 45);
             this.TopBillingPanel.TabIndex = 65;
-            // 
-            // btn_Close
-            // 
-            this.btn_Close.BackColor = System.Drawing.Color.Red;
-            this.btn_Close.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Close.Image = ((System.Drawing.Image)(resources.GetObject("btn_Close.Image")));
-            this.btn_Close.ImageActive = null;
-            this.btn_Close.Location = new System.Drawing.Point(350, 0);
-            this.btn_Close.Name = "btn_Close";
-            this.btn_Close.Size = new System.Drawing.Size(29, 28);
-            this.btn_Close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btn_Close.TabIndex = 79;
-            this.btn_Close.TabStop = false;
-            this.btn_Close.Zoom = 10;
-            this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
             // 
             // txt_formHeader
             // 
@@ -154,6 +138,19 @@
             this.btn_BillingAdd.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_BillingAdd.Click += new System.EventHandler(this.btn_BillingAdd_Click);
             // 
+            // lbl_Close
+            // 
+            this.lbl_Close.AutoSize = true;
+            this.lbl_Close.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_Close.Font = new System.Drawing.Font("Segoe MDL2 Assets", 18F);
+            this.lbl_Close.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lbl_Close.Location = new System.Drawing.Point(351, 3);
+            this.lbl_Close.Name = "lbl_Close";
+            this.lbl_Close.Size = new System.Drawing.Size(22, 24);
+            this.lbl_Close.TabIndex = 80;
+            this.lbl_Close.Text = "X";
+            this.lbl_Close.Click += new System.EventHandler(this.lbl_Close_Click);
+            // 
             // AddBilling
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,7 +167,6 @@
             this.Load += new System.EventHandler(this.AddBilling_Load);
             this.TopBillingPanel.ResumeLayout(false);
             this.TopBillingPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_Close)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -185,7 +181,7 @@
         private System.Windows.Forms.PictureBox pictureBox7;
         private Bunifu.Framework.UI.BunifuCustomLabel lbl_TotalAmt;
         private Bunifu.Framework.UI.BunifuCustomLabel lbl_Total;
-        private Bunifu.Framework.UI.BunifuImageButton btn_Close;
         private Bunifu.Framework.UI.BunifuFlatButton btn_BillingAdd;
+        private Bunifu.Framework.UI.BunifuCustomLabel lbl_Close;
     }
 }

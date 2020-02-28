@@ -34,10 +34,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddExpensescs));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddExpensescs));
             this.ExpenseDG = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.TopPanel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,9 +49,6 @@
             this.btn_SaveExpenses = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_DeleteExpense = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_AddRows = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ExpenseDG)).BeginInit();
             this.TopPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -114,6 +114,35 @@
             this.ExpenseDG.TabIndex = 72;
             this.ExpenseDG.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ExpenseDG_CellClick);
             // 
+            // Column1
+            // 
+            dataGridViewCellStyle3.Format = "d";
+            dataGridViewCellStyle3.NullValue = null;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column1.FillWeight = 35.7868F;
+            this.Column1.HeaderText = "Date";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 150;
+            // 
+            // Column2
+            // 
+            this.Column2.FillWeight = 228.4264F;
+            this.Column2.HeaderText = "Expenses";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 315;
+            // 
+            // Column3
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Format = "N2";
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column3.FillWeight = 35.7868F;
+            this.Column3.HeaderText = "Amount";
+            this.Column3.Name = "Column3";
+            this.Column3.ToolTipText = "Enter Amount";
+            this.Column3.Width = 120;
+            // 
             // bunifuElipse1
             // 
             this.bunifuElipse1.ElipseRadius = 5;
@@ -134,11 +163,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Segoe MDL2 Assets", 18F);
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(677, 9);
+            this.label1.Location = new System.Drawing.Point(680, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(16, 16);
+            this.label1.Size = new System.Drawing.Size(22, 24);
             this.label1.TabIndex = 62;
             this.label1.Text = "X";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -268,35 +297,6 @@
             this.btn_AddRows.Textcolor = System.Drawing.Color.Black;
             this.btn_AddRows.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btn_AddRows.Click += new System.EventHandler(this.btn_AddRows_Click);
-            // 
-            // Column1
-            // 
-            dataGridViewCellStyle3.Format = "d";
-            dataGridViewCellStyle3.NullValue = null;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column1.FillWeight = 35.7868F;
-            this.Column1.HeaderText = "Date";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 150;
-            // 
-            // Column2
-            // 
-            this.Column2.FillWeight = 228.4264F;
-            this.Column2.HeaderText = "Expenses";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 315;
-            // 
-            // Column3
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Format = "N2";
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Column3.FillWeight = 35.7868F;
-            this.Column3.HeaderText = "Amount";
-            this.Column3.Name = "Column3";
-            this.Column3.ToolTipText = "Enter Amount";
-            this.Column3.Width = 120;
             // 
             // AddExpensescs
             // 

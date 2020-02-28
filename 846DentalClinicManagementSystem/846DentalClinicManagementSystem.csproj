@@ -432,5 +432,8 @@
     <None Include="Resources\846.mp4" />
     <None Include="Resources\CERIO.PNG" />
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

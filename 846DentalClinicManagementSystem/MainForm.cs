@@ -11,6 +11,7 @@ using System.Globalization;
 using System.Web;
 using System.Net.Mail;
 
+
 namespace _846DentalClinicManagementSystem
 {
     public partial class MainForm : Form
@@ -140,7 +141,7 @@ namespace _846DentalClinicManagementSystem
             SearchAppByDate_DP.Value = DateTime.Now;
             HidePanels();
             SchedulerPanel.Visible = true;
-            GlobalVariable.InsertActivityLog("Viewed Appointment Tab", "View");
+          //  GlobalVariable.InsertActivityLog("Viewed Appointment Tab", "View");
 
 
         }
@@ -157,12 +158,13 @@ namespace _846DentalClinicManagementSystem
 
             if (GlobalVariable.Permission == "Admin")
             {
-                HidePanels();
-                AccountingPanel.Visible = true;
+                
                 Inventory_DatePicker.Value = System.DateTime.Today;
                 LoadMonthlyProfit();
                 LoadMonthlyExpenses();
                 LoadGrossProfit();
+                HidePanels();
+                AccountingPanel.Visible = true;
                 GlobalVariable.InsertActivityLog("Viewed Accounting Tab", "View");
 
             }
@@ -197,10 +199,11 @@ namespace _846DentalClinicManagementSystem
         {
             if (GlobalVariable.Permission == "Admin")
             {
+                LoadActivityLogsDD();
                 HidePanels();
                 ActivityLog_Panel.Visible = true;
-                GlobalVariable.InsertActivityLog("Viewed Activity logs Tab", "View");
-                LoadActivityLogsDD();
+             //   GlobalVariable.InsertActivityLog("Viewed Activity logs Tab", "View");
+                
             }
             else
             {
@@ -833,8 +836,8 @@ namespace _846DentalClinicManagementSystem
             int verticalX = 10;
             int verticalY = 0;
             int vertx = verticalX;
-            TimePanel_Footer.Visible = false;
-            AppTimePanel.Size = new Size(184, 463);
+          //  TimePanel_Footer.Visible = true;
+          //  AppTimePanel.Size = new Size(184, 497);
             AppointmentHeader_Panel.Controls.Clear();
             Appointment_Panel.Controls.Clear();
             AppointmentHeader_Panel.AutoScrollPosition = new Point(0, 0);
@@ -865,8 +868,8 @@ namespace _846DentalClinicManagementSystem
             else
             {
 
-                TimePanel_Footer.Visible = true;
-                AppTimePanel.Size = new Size(184, 450);
+             //   TimePanel_Footer.Visible = true;
+            //    AppTimePanel.Size = new Size(184, 497);
                 Appointment_Panel.Controls.Clear();
                 AppointmentHeader_Panel.Controls.Clear();
                 AppointmentHeader_Panel.AutoScrollPosition = new Point(0, 0);
@@ -1099,10 +1102,15 @@ namespace _846DentalClinicManagementSystem
 
         //Patient Panel Start ----------------------------------------------------------------------------------------------------------
 
-        private void txt_SearchPatient_OnTextChange(object sender, EventArgs e)
+
+        private void txt_SearchPatient_OnTextChange_1(object sender, EventArgs e)
         {
             String search = txt_SearchPatient.text.Trim();
             PatientPanelSearch(search);
+        }
+        private void txt_SearchPatient_OnTextChange(object sender, EventArgs e)
+        {
+           
         }
 
 
@@ -1258,12 +1266,15 @@ namespace _846DentalClinicManagementSystem
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable dt = new DataTable();
             SqlCommand cmd = new SqlCommand(
-                "SELECT b.BillingDate As Date, a.TreatmentType As Treatment, a.TreatmentPrice AS Amount " +
-                "FROM AppointmentTreatment a INNER JOIN Billing b ON a.AppointmentID_fk = b.AppointmentID_fk " +
-                "WHERE b.BillingDate BETWEEN @date AND @date2  AND b.BillingBalance = 0 ORDER BY b.BillingDate ASC ", sqlcon);
+            "SELECT p.PaymentDate As Date,a.Treatment As Treatment, p.PaymentAmount As Amount " +
+            "FROM Payment p INNER JOIN Billing b ON p.BillingID_fk = b.BillingID " +
+            "INNER JOIN PatientTreatment a ON a.AppointmentID_fk = b.AppointmentID_fk " +
+            "WHERE p.PaymentDate BETWEEN @date AND @date2 AND p.status = 'Completed' ORDER BY p.PaymentDate ASC", sqlcon);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@date", firstDayOfMonth.ToString());
             cmd.Parameters.AddWithValue("@date2", lastDayOfMonth.ToString());
+
+            
 
             adapter.SelectCommand = cmd;
             try
@@ -1373,6 +1384,7 @@ namespace _846DentalClinicManagementSystem
 
         private void btn_Export2Excel_Click(object sender, EventArgs e)
         {
+            int lastusedRow = 0;
             //Initiate Excel Variables
             Microsoft.Office.Interop.Excel.Range CR;
             Microsoft.Office.Interop.Excel.Application xlexcel;
@@ -1386,53 +1398,86 @@ namespace _846DentalClinicManagementSystem
             //Define variables
             object misValue = System.Reflection.Missing.Value;
             xlWorkBook = xlexcel.Workbooks.Add(misValue);
-            xlWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+            xlWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)xlWorkBook.Worksheets[1];
 
             // set row 1 height
-            xlWorkSheet.Rows["1:1"].RowHeight = 36;
+            
 
+            xlWorkSheet.Columns["A:H"].Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignLeft;
+
+            //copy profit table to excel
+            copyAllProfitToClipboard();
+            CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[2, 1];
+            CR.Select();
+            xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+            //copy expense table to excel
+            copyAllExpenseToClibboard();
+            CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[2, 5];
+            CR.Select();
+          //  xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+            xlWorkSheet.PasteSpecial(Microsoft.Office.Interop.Excel.XlPasteType.xlPasteAll);
+
+            xlWorkSheet.Rows["1:1"].RowHeight = 25;
             //format excel -- profit area
             xlWorkSheet.Cells[1, 1].Formula = "Profit";
             CR = xlWorkSheet.Range["A1:C1"];
             CR.Select();
             CR.MergeCells = true;
-            CR.Interior.ThemeColor = Microsoft.Office.Interop.Excel.XlThemeColor.xlThemeColorLight2;
-            CR.Font.Size = 16;
-            CR.Cells.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+            CR.Interior.Color = System.Drawing.Color.FromArgb(193, 224, 255);
+            CR.Font.Size = 14;
+            CR.Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 
             //format excel -- expense area
             xlWorkSheet.Cells[1, 6].Formula = "Expense";
             CR = xlWorkSheet.Range["F1:H1"];
             CR.Select();
             CR.MergeCells = true;
-            CR.Interior.ThemeColor = Microsoft.Office.Interop.Excel.XlThemeColor.xlThemeColorAccent2;
-            CR.Font.Size = 16;
-            CR.Cells.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+            CR.Interior.Color = System.Drawing.Color.FromArgb(255, 193, 193);
+            CR.Font.Size = 14;
+            CR.Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 
-            //copy profit table to excel
-            copyAllProfitToClipboard();
-            CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[3, 1];
-            CR.Select();
-            xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
-            //copy expense table to excel
-            copyAllExpenseToClibboard();
-            CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[3, 5];
-            CR.Select();
-            xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+            lastusedRow = xlWorkSheet.UsedRange.Rows.Count;
+
+            CR = xlWorkSheet.Range["A1:C" + lastusedRow];
+            CR.Borders.LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
+            CR.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
+
+            CR = xlWorkSheet.Range["F1:H" + lastusedRow];
+            CR.Borders.LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
+            CR.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
+
 
             //delete ID column of expense
             xlWorkSheet.Columns["E"].Delete();
 
+
+            CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[lastusedRow + 2, 2];
+            CR.Value = "Total :";
+            CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[lastusedRow + 2, 3];
+            CR.Formula = "=SUM(C3:C" + lastusedRow + ")";
+
+            CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[lastusedRow + 2, 6];
+            CR.Value = "Total :";
+            CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[lastusedRow + 2, 7];
+            CR.Formula = "=SUM(G3:G" + lastusedRow + ")";
+
+            CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[lastusedRow + 3, 6];
+            CR.Value = "Gross :";
+            CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[lastusedRow + 3, 7];
+            CR.Formula = "=C"+ (lastusedRow + 2) + " - G"+ (lastusedRow + 2);
+
+
+
             //Format Column width
             xlWorkSheet.Columns["A"].ColumnWidth = 11.71;
-            xlWorkSheet.Columns["B"].ColumnWidth = 26.57;
+            xlWorkSheet.Columns["B"].ColumnWidth = 50;
             xlWorkSheet.Columns["C"].ColumnWidth = 13.57;
             xlWorkSheet.Columns["E"].ColumnWidth = 11.71;
             xlWorkSheet.Columns["F"].ColumnWidth = 26.57;
             xlWorkSheet.Columns["G"].ColumnWidth = 13.57;
-
+            
             //align columns to center
-            xlWorkSheet.Columns["A:H"].Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+            
             GlobalVariable.InsertActivityLog("Exported Report to Excel", "Export");
         }
 
@@ -1953,6 +1998,7 @@ namespace _846DentalClinicManagementSystem
         {
 
         }
+
 
         private void btn_RestoreLogs_Click(object sender, EventArgs e)
         {

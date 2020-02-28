@@ -30,16 +30,6 @@ namespace _846DentalClinicManagementSystem
         int PatientID;
         ArrayList ExistingApp = new ArrayList();
 
-        private void btn_close_Click(object sender, EventArgs e)
-        {
-
-            this.Hide();
-            GlobalVariable.isAddPatient = false;
-            GlobalVariable.isEditPatient = false;
-            GlobalVariable.isAppointmentPatientExist = false;
-
-        }
-
         private void gender_DD_onItemSelected(object sender, EventArgs e)
         {
             Gender = gender_DD.selectedValue;
@@ -138,6 +128,16 @@ namespace _846DentalClinicManagementSystem
                 }
             }
             catch(Exception ex) { Console.WriteLine(ex.Message); }
+
+        }
+
+        private void lbl_Close_Click(object sender, EventArgs e)
+        {
+
+            this.Hide();
+            GlobalVariable.isAddPatient = false;
+            GlobalVariable.isEditPatient = false;
+            GlobalVariable.isAppointmentPatientExist = false;
 
         }
 
