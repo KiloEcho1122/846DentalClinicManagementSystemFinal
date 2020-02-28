@@ -320,7 +320,7 @@ namespace _846DentalClinicManagementSystem
 
             SqlCommand cmd = new SqlCommand(
                  "UPDATE [Employee] SET Permission = @Permission, LastName = @LastName, FirstName = @FirstName, MiddleName = @MiddleName, Gender = @Gender," +
-                 " Birthday = @Birthday, Age = @Age, EmailAdd = @EmailAdd, ContacNo = @ContactNo, HomeAddress = @HomeAddress, JobTitle = @JobTitle, LicenseNo = @LicenseNo " +
+                 " Birthday = @Birthday, Age = @Age, EmailAdd = @EmailAdd, ContactNo = @ContactNo, HomeAddress = @HomeAddress, JobTitle = @JobTitle, LicenseNo = @LicenseNo " +
                  "WHERE EmployeeID = @ID", sqlcon);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@Permission", Permission);

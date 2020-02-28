@@ -1591,17 +1591,25 @@ namespace _846DentalClinicManagementSystem
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
 
+            try
+            {
+                dt1.Rows.Add(
+               PatientTable.Rows[0][0].ToString(),
+               PatientTable.Rows[0][1].ToString(),
+               PatientTable.Rows[0][2].ToString(),
+               PatientTable.Rows[0][3].ToString(),
+               DentistTable.Rows[0][2].ToString(),
+               //DentistTable.Rows[0][0].ToString(),
+               DentistTable.Rows[0][1].ToString()
+               // DentistTable.Rows[0][2].ToString()
+               );
 
-            dt1.Rows.Add(
-                PatientTable.Rows[0][0].ToString(),
-                PatientTable.Rows[0][1].ToString(),
-                PatientTable.Rows[0][2].ToString(),
-                PatientTable.Rows[0][3].ToString(),
-                DentistTable.Rows[0][2].ToString(),
-                //DentistTable.Rows[0][0].ToString(),
-                DentistTable.Rows[0][1].ToString()
-                // DentistTable.Rows[0][2].ToString()
-                );
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);   
+            }
+           
 
             //dt1.Rows.Add("Michael Mendiola", "22", "M", "186 Dr. Pilapil St. San Miguel Pasig City",
             //"Maranan, Esperanza G.", "20776", "Gingivitis", "Removal of tissues", "Deep Scaling", GlobalVariable.chartImagePath);

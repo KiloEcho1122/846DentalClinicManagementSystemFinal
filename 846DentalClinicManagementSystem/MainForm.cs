@@ -148,6 +148,7 @@ namespace _846DentalClinicManagementSystem
 
         private void btn_Patients_Click(object sender, EventArgs e)
         {
+            PatientPanelSearch("");
             HidePanels();
             PatientsPanel.Visible = true;
             GlobalVariable.InsertActivityLog("Viewed Patients Tab", "View");
@@ -179,6 +180,7 @@ namespace _846DentalClinicManagementSystem
         {
             if (GlobalVariable.Permission == "Admin")
             {
+                DisplayEmployeeDataGrid("");
                 HidePanels();
                 Dentist_Panel.Visible = true;
                 GlobalVariable.InsertActivityLog("Viewed Dentist/Employee Tab", "View");
@@ -836,8 +838,8 @@ namespace _846DentalClinicManagementSystem
             int verticalX = 10;
             int verticalY = 0;
             int vertx = verticalX;
-          //  TimePanel_Footer.Visible = true;
-          //  AppTimePanel.Size = new Size(184, 497);
+            TimePanel_Footer.Visible = false;
+             AppTimePanel.Size = new Size(184, 511);
             AppointmentHeader_Panel.Controls.Clear();
             Appointment_Panel.Controls.Clear();
             AppointmentHeader_Panel.AutoScrollPosition = new Point(0, 0);
@@ -868,8 +870,8 @@ namespace _846DentalClinicManagementSystem
             else
             {
 
-             //   TimePanel_Footer.Visible = true;
-            //    AppTimePanel.Size = new Size(184, 497);
+                TimePanel_Footer.Visible = true;
+                AppTimePanel.Size = new Size(184, 498);
                 Appointment_Panel.Controls.Clear();
                 AppointmentHeader_Panel.Controls.Clear();
                 AppointmentHeader_Panel.AutoScrollPosition = new Point(0, 0);

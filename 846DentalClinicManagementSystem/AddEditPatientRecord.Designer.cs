@@ -39,7 +39,6 @@
             this.bunifuCustomLabel8 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.TopPanel2 = new System.Windows.Forms.Panel();
             this.txt_formHeader = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.txt_PatientNo = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.bunifuCustomLabel11 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -50,10 +49,11 @@
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txt_address = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.btn_add = new Bunifu.Framework.UI.BunifuFlatButton();
             this.txt_ContactNo = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lbl_Close = new System.Windows.Forms.Label();
+            this.btn_add = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.TopPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
@@ -73,7 +73,7 @@
             this.txt_MName.Multiline = true;
             this.txt_MName.Name = "txt_MName";
             this.txt_MName.Size = new System.Drawing.Size(188, 35);
-            this.txt_MName.TabIndex = 26;
+            this.txt_MName.TabIndex = 3;
             // 
             // txt_FName
             // 
@@ -85,7 +85,7 @@
             this.txt_FName.Multiline = true;
             this.txt_FName.Name = "txt_FName";
             this.txt_FName.Size = new System.Drawing.Size(191, 35);
-            this.txt_FName.TabIndex = 25;
+            this.txt_FName.TabIndex = 2;
             // 
             // txt_LName
             // 
@@ -97,7 +97,7 @@
             this.txt_LName.Multiline = true;
             this.txt_LName.Name = "txt_LName";
             this.txt_LName.Size = new System.Drawing.Size(191, 35);
-            this.txt_LName.TabIndex = 24;
+            this.txt_LName.TabIndex = 1;
             // 
             // bunifuCustomLabel10
             // 
@@ -155,16 +155,6 @@
             this.txt_formHeader.TabIndex = 3;
             this.txt_formHeader.Text = "Add New Patient";
             // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackgroundImage = global::_846DentalClinicManagementSystem.Properties.Resources.btnpatients;
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Location = new System.Drawing.Point(9, 7);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(32, 28);
-            this.pictureBox5.TabIndex = 2;
-            this.pictureBox5.TabStop = false;
-            // 
             // txt_PatientNo
             // 
             this.txt_PatientNo.BackColor = System.Drawing.Color.Gainsboro;
@@ -211,7 +201,7 @@
             this.birthday_DP.Location = new System.Drawing.Point(211, 321);
             this.birthday_DP.Name = "birthday_DP";
             this.birthday_DP.Size = new System.Drawing.Size(162, 36);
-            this.birthday_DP.TabIndex = 33;
+            this.birthday_DP.TabIndex = 6;
             this.birthday_DP.Value = new System.DateTime(2019, 10, 8, 0, 17, 0, 47);
             this.birthday_DP.onValueChanged += new System.EventHandler(this.birthday_DP_onValueChanged);
             // 
@@ -241,7 +231,7 @@
             this.gender_DD.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
             this.gender_DD.selectedIndex = -1;
             this.gender_DD.Size = new System.Drawing.Size(162, 36);
-            this.gender_DD.TabIndex = 35;
+            this.gender_DD.TabIndex = 5;
             this.gender_DD.onItemSelected += new System.EventHandler(this.gender_DD_onItemSelected);
             // 
             // txt_Age
@@ -255,7 +245,7 @@
             this.txt_Age.Name = "txt_Age";
             this.txt_Age.ReadOnly = true;
             this.txt_Age.Size = new System.Drawing.Size(93, 35);
-            this.txt_Age.TabIndex = 37;
+            this.txt_Age.TabIndex = 7;
             // 
             // bunifuCustomLabel1
             // 
@@ -278,7 +268,7 @@
             this.txt_address.Multiline = true;
             this.txt_address.Name = "txt_address";
             this.txt_address.Size = new System.Drawing.Size(320, 35);
-            this.txt_address.TabIndex = 41;
+            this.txt_address.TabIndex = 8;
             // 
             // bunifuCustomLabel3
             // 
@@ -290,6 +280,42 @@
             this.bunifuCustomLabel3.Size = new System.Drawing.Size(57, 17);
             this.bunifuCustomLabel3.TabIndex = 42;
             this.bunifuCustomLabel3.Text = "Address";
+            // 
+            // txt_ContactNo
+            // 
+            this.txt_ContactNo.BackColor = System.Drawing.Color.Gainsboro;
+            this.txt_ContactNo.BorderColor = System.Drawing.Color.SeaGreen;
+            this.txt_ContactNo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_ContactNo.ForeColor = System.Drawing.Color.Black;
+            this.txt_ContactNo.Location = new System.Drawing.Point(666, 206);
+            this.txt_ContactNo.Multiline = true;
+            this.txt_ContactNo.Name = "txt_ContactNo";
+            this.txt_ContactNo.Size = new System.Drawing.Size(166, 35);
+            this.txt_ContactNo.TabIndex = 4;
+            // 
+            // bunifuCustomLabel5
+            // 
+            this.bunifuCustomLabel5.AutoSize = true;
+            this.bunifuCustomLabel5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel5.ForeColor = System.Drawing.Color.Teal;
+            this.bunifuCustomLabel5.Location = new System.Drawing.Point(666, 187);
+            this.bunifuCustomLabel5.Name = "bunifuCustomLabel5";
+            this.bunifuCustomLabel5.Size = new System.Drawing.Size(86, 17);
+            this.bunifuCustomLabel5.TabIndex = 44;
+            this.bunifuCustomLabel5.Text = "Contact No";
+            // 
+            // lbl_Close
+            // 
+            this.lbl_Close.AutoSize = true;
+            this.lbl_Close.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_Close.Font = new System.Drawing.Font("Segoe MDL2 Assets", 18F);
+            this.lbl_Close.ForeColor = System.Drawing.SystemColors.Control;
+            this.lbl_Close.Location = new System.Drawing.Point(845, 2);
+            this.lbl_Close.Name = "lbl_Close";
+            this.lbl_Close.Size = new System.Drawing.Size(22, 24);
+            this.lbl_Close.TabIndex = 65;
+            this.lbl_Close.Text = "X";
+            this.lbl_Close.Click += new System.EventHandler(this.lbl_Close_Click);
             // 
             // btn_add
             // 
@@ -319,48 +345,22 @@
             this.btn_add.OnHoverTextColor = System.Drawing.Color.Black;
             this.btn_add.selected = false;
             this.btn_add.Size = new System.Drawing.Size(129, 48);
-            this.btn_add.TabIndex = 39;
+            this.btn_add.TabIndex = 9;
             this.btn_add.Text = "Add";
             this.btn_add.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_add.Textcolor = System.Drawing.Color.Black;
             this.btn_add.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
-            // txt_ContactNo
+            // pictureBox5
             // 
-            this.txt_ContactNo.BackColor = System.Drawing.Color.Gainsboro;
-            this.txt_ContactNo.BorderColor = System.Drawing.Color.SeaGreen;
-            this.txt_ContactNo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ContactNo.ForeColor = System.Drawing.Color.Black;
-            this.txt_ContactNo.Location = new System.Drawing.Point(666, 206);
-            this.txt_ContactNo.Multiline = true;
-            this.txt_ContactNo.Name = "txt_ContactNo";
-            this.txt_ContactNo.Size = new System.Drawing.Size(166, 35);
-            this.txt_ContactNo.TabIndex = 43;
-            // 
-            // bunifuCustomLabel5
-            // 
-            this.bunifuCustomLabel5.AutoSize = true;
-            this.bunifuCustomLabel5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel5.ForeColor = System.Drawing.Color.Teal;
-            this.bunifuCustomLabel5.Location = new System.Drawing.Point(666, 187);
-            this.bunifuCustomLabel5.Name = "bunifuCustomLabel5";
-            this.bunifuCustomLabel5.Size = new System.Drawing.Size(86, 17);
-            this.bunifuCustomLabel5.TabIndex = 44;
-            this.bunifuCustomLabel5.Text = "Contact No";
-            // 
-            // lbl_Close
-            // 
-            this.lbl_Close.AutoSize = true;
-            this.lbl_Close.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbl_Close.Font = new System.Drawing.Font("Segoe MDL2 Assets", 18F);
-            this.lbl_Close.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbl_Close.Location = new System.Drawing.Point(845, 2);
-            this.lbl_Close.Name = "lbl_Close";
-            this.lbl_Close.Size = new System.Drawing.Size(22, 24);
-            this.lbl_Close.TabIndex = 65;
-            this.lbl_Close.Text = "X";
-            this.lbl_Close.Click += new System.EventHandler(this.lbl_Close_Click);
+            this.pictureBox5.BackgroundImage = global::_846DentalClinicManagementSystem.Properties.Resources.btnpatients;
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox5.Location = new System.Drawing.Point(9, 7);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(32, 28);
+            this.pictureBox5.TabIndex = 2;
+            this.pictureBox5.TabStop = false;
             // 
             // AddEditPatientRecord
             // 
