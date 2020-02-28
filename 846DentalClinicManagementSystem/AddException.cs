@@ -152,7 +152,7 @@ namespace _846DentalClinicManagementSystem
                         if (GlobalVariable.isAddAppException == true && GlobalVariable.isEditAppException == false)
                         {
                             InsertAppException();
-                            GlobalVariable.isAddAppointment = false;
+                            GlobalVariable.isAddAppException = false;
                             if (main.SearchAppByDate_DP.Value == DP_date.Value)
                             {
                                 main.RefreshAppointmentView();
@@ -169,7 +169,7 @@ namespace _846DentalClinicManagementSystem
                         if (GlobalVariable.isEditAppException == true && GlobalVariable.isAddAppException == false)
                         {
                             UpdateAppException();
-                            GlobalVariable.isEditAppointment = false;
+                            GlobalVariable.isEditAppException = false;
                             if (main.SearchAppByDate_DP.Value == DP_date.Value)
                             {
                                 main.RefreshAppointmentView();
