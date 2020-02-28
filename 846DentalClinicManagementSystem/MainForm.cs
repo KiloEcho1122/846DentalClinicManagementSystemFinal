@@ -1999,6 +1999,20 @@ namespace _846DentalClinicManagementSystem
 
         }
 
+        private void btn_ChangePass_Click(object sender, EventArgs e)
+        {
+            int EmpID = Convert.ToInt32(Employee_DataGrid.SelectedRows[0].Cells[0].Value);
+            if (EmpID > 0)
+            {
+                GlobalVariable.changePassID = EmpID;
+                GlobalVariable.changePassName = Employee_DataGrid.SelectedRows[0].Cells[3].Value.ToString() + " ";
+                GlobalVariable.changePassName += Employee_DataGrid.SelectedRows[0].Cells[4].Value.ToString() + " ";
+                GlobalVariable.changePassName += Employee_DataGrid.SelectedRows[0].Cells[2].Value.ToString();
+
+                ChangePass changePass = new ChangePass();
+                changePass.ShowDialog();
+            }
+        }
 
         private void btn_RestoreLogs_Click(object sender, EventArgs e)
         {
