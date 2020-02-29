@@ -617,7 +617,7 @@ namespace _846DentalClinicManagementSystem
             SqlCommand cmd = new SqlCommand(
                    "SELECT TreatmentType FROM Treatment ORDER BY TreatmentID ASC", sqlcon);
             SqlCommand cmd2 = new SqlCommand(
-                  "SELECT EmployeeId,CONCAT(FirstName, ' ', LastName) FROM Employee Where JobTitle = 'Dentist' ORDER BY EmployeeID ASC", sqlcon);
+                  "SELECT EmployeeId,CONCAT(FirstName, ' ', LastName) FROM Employee Where JobTitle = 'Dentist' AND Status = 'Active' ORDER BY EmployeeID ASC", sqlcon);
             SqlCommand cmd3 = new SqlCommand(
                   "SELECT AppointmentID FROM Appointment ORDER BY AppointmentID DESC", sqlcon);
 
@@ -740,13 +740,23 @@ namespace _846DentalClinicManagementSystem
                     {
 
                         RemovedTreatment.Add(TreatmentList.SelectedItem);
-                        
+                        TreatmentList.Items.RemoveAt(TreatmentList.SelectedIndex);
+
+                    }
+                }else if (GlobalVariable.isEditAppointment == false && GlobalVariable.isAddAppointment == true)
+                {
+                    DialogResult result = MessageBox.Show("Remove " + TreatmentList.SelectedItem + " ?", "Remove Treatment", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+
+                        TreatmentList.Items.RemoveAt(TreatmentList.SelectedIndex);
+
                     }
                 }
-               
+
                 //Remove item anyway
-                    TreatmentList.Items.RemoveAt(TreatmentList.SelectedIndex);
-             
+
+
             }
         }
 

@@ -116,7 +116,7 @@ namespace _846DentalClinicManagementSystem
             SqlDataAdapter adapter1 = new SqlDataAdapter();
             DataTable dt1 = new DataTable();
             SqlCommand cmd1 = new SqlCommand(
-                 "SELECT EmployeeId,CONCAT(FirstName, ' ', LastName) FROM Employee Where JobTitle = 'Dentist' ORDER BY EmployeeID ASC", sqlcon);
+                 "SELECT EmployeeId,CONCAT(FirstName, ' ', LastName) FROM Employee Where JobTitle = 'Dentist' AND Status = 'Active' ORDER BY EmployeeID ASC", sqlcon);
             adapter1.SelectCommand = cmd1;
             if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
             try

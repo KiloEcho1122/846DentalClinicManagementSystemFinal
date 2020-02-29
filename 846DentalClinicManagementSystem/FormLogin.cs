@@ -30,8 +30,9 @@ namespace _846DentalClinicManagementSystem
         {
 
             SqlCommand cmd = new SqlCommand(
-                "Select EmployeeID_fk from Login Where Username = @username COLLATE SQL_Latin1_General_CP1_CS_AS" +
-                " and Password = @pass COLLATE SQL_Latin1_General_CP1_CS_AS", sqlcon);
+                "Select EmployeeID_fk from Login l INNER JOIN Employee e ON l.EmployeeID_fk = e.EmployeeId "+
+                "WHERE Status = 'Active' AND Username = @username COLLATE SQL_Latin1_General_CP1_CS_AS" +
+                " AND Password = @pass COLLATE SQL_Latin1_General_CP1_CS_AS", sqlcon);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@username", txtUsername.Text.Trim());
             cmd.Parameters.AddWithValue("@pass", txtPassword.Text.Trim());

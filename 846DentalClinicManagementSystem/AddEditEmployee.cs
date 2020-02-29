@@ -21,7 +21,7 @@ namespace _846DentalClinicManagementSystem
         }
 
         SqlConnection sqlcon = new SqlConnection(GlobalVariable.connString);
-
+        String Permission, LName, FName, MName, Gender, Birthday, Email, ContactNo, HomeAdd, Position, LicenseNo,Status;
         private void AddEditDentist_Load(object sender, EventArgs e)
         {
             if (GlobalVariable.isAddEmployee == true && GlobalVariable.isEditEmployee == false)
@@ -100,16 +100,33 @@ namespace _846DentalClinicManagementSystem
                 }
 
                 txt_LicenseNo.Text = dt.Rows[0][12].ToString();
+
+                if (dt.Rows[0][13].ToString() == "Active")
+                {
+                    StatusDD.selectedIndex = 0;
+                }
+                else
+                {
+                    StatusDD.selectedIndex = 1;
+                }
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
         }
 
   
-        String Permission,LName, FName, MName, Gender,Birthday,Email,ContactNo,HomeAdd,Position,LicenseNo;
+       
 
         private void GenderDD_onItemSelected(object sender, EventArgs e)
         {
-            Gender = GenderDD.selectedValue;
+ 
+                Gender = GenderDD.selectedValue;
+        }
+
+        private void StatusDD_onItemSelected(object sender, EventArgs e)
+        {
+   
+                Status = StatusDD.selectedValue;
+   
         }
 
         private void lbl_Close_Click(object sender, EventArgs e)
@@ -199,25 +216,32 @@ namespace _846DentalClinicManagementSystem
                                                 {
                                                     if (((string.IsNullOrEmpty(LicenseNo) == false) && isLicenseNoValid) || Position == "Staff")
                                                     {
-
-                                                        var main = Application.OpenForms.OfType<MainForm>().First();
-                                                        if (GlobalVariable.isAddEmployee == true && GlobalVariable.isEditEmployee == false)
+                                                        if (string.IsNullOrEmpty(Status) == false)
                                                         {
-                                                            InsertEmployeeRecordToDB();
-                                                            main.DisplayEmployeeDataGrid("");
-                                                            GlobalVariable.isAddEmployee = false;
-                                                            GlobalVariable.isAppointmentPatientExist = false;
-                                                            this.Hide();
+                                                            var main = Application.OpenForms.OfType<MainForm>().First();
+                                                            if (GlobalVariable.isAddEmployee == true && GlobalVariable.isEditEmployee == false)
+                                                            {
+                                                                InsertEmployeeRecordToDB();
+                                                                main.DisplayEmployeeDataGrid("");
+                                                                GlobalVariable.isAddEmployee = false;
+                                                                GlobalVariable.isAppointmentPatientExist = false;
+                                                                this.Hide();
+                                                            }
+                                                            if (GlobalVariable.isEditEmployee == true && GlobalVariable.isAddEmployee == false)
+                                                            {
+                                                                UpdateEmployeeRecordToDB();
+                                                                MessageBox.Show("Record Updated Successfully");
+                                                                main.DisplayEmployeeDataGrid("");
+                                                                GlobalVariable.isEditEmployee = false;
+                                                                this.Hide();
+                                                            }
                                                         }
-                                                        if (GlobalVariable.isEditEmployee == true && GlobalVariable.isAddEmployee == false)
+                                                        else
                                                         {
-                                                            UpdateEmployeeRecordToDB();
-                                                            MessageBox.Show("Record Updated Successfully");
-                                                            main.DisplayEmployeeDataGrid("");
-                                                            GlobalVariable.isEditEmployee = false;
-                                                            this.Hide();
-
+                                                            MessageBox.Show("Invalid Status");
                                                         }
+                                                    
+                                                     
                                                     }
                                                     else { MessageBox.Show("Invalid License Number"); }
                                                 }
@@ -248,8 +272,8 @@ namespace _846DentalClinicManagementSystem
         private void InsertEmployeeRecordToDB()
         {
             SqlCommand cmd = new SqlCommand(
-                "INSERT INTO [Employee] (Permission,LastName,FirstName,MiddleName,Gender,Birthday,Age,EmailAdd,ContactNo,HomeAddress,JobTitle,LicenseNo) " +
-                "VALUES(@Permission,@LastName,@FirstName,@MiddleName,@Gender,@Birthday,@Age,@EmailAdd,@ContactNo,@HomeAddress,@JobTitle,@LicenseNo)", sqlcon);
+                "INSERT INTO [Employee] (Permission,LastName,FirstName,MiddleName,Gender,Birthday,Age,EmailAdd,ContactNo,HomeAddress,JobTitle,LicenseNo,Status) " +
+                "VALUES(@Permission,@LastName,@FirstName,@MiddleName,@Gender,@Birthday,@Age,@EmailAdd,@ContactNo,@HomeAddress,@JobTitle,@LicenseNo,@Status)", sqlcon);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@Permission", Permission);
             cmd.Parameters.AddWithValue("@LastName", LName);
@@ -263,7 +287,8 @@ namespace _846DentalClinicManagementSystem
             cmd.Parameters.AddWithValue("@HomeAddress", HomeAdd);
             cmd.Parameters.AddWithValue("@JobTitle", Position);
             cmd.Parameters.AddWithValue("@LicenseNo", LicenseNo);
-            
+            cmd.Parameters.AddWithValue("@Status", Status);
+
 
             if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
             try
@@ -320,8 +345,8 @@ namespace _846DentalClinicManagementSystem
 
             SqlCommand cmd = new SqlCommand(
                  "UPDATE [Employee] SET Permission = @Permission, LastName = @LastName, FirstName = @FirstName, MiddleName = @MiddleName, Gender = @Gender," +
-                 " Birthday = @Birthday, Age = @Age, EmailAdd = @EmailAdd, ContactNo = @ContactNo, HomeAddress = @HomeAddress, JobTitle = @JobTitle, LicenseNo = @LicenseNo " +
-                 "WHERE EmployeeID = @ID", sqlcon);
+                 " Birthday = @Birthday, Age = @Age, EmailAdd = @EmailAdd, ContactNo = @ContactNo, HomeAddress = @HomeAddress, JobTitle = @JobTitle, LicenseNo = @LicenseNo, " +
+                 "Status = @Status WHERE EmployeeID = @ID", sqlcon);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@Permission", Permission);
             cmd.Parameters.AddWithValue("@LastName", LName);
@@ -335,6 +360,7 @@ namespace _846DentalClinicManagementSystem
             cmd.Parameters.AddWithValue("@HomeAddress", HomeAdd);
             cmd.Parameters.AddWithValue("@JobTitle", Position);
             cmd.Parameters.AddWithValue("@LicenseNo", LicenseNo);
+            cmd.Parameters.AddWithValue("@Status", Status);
             cmd.Parameters.AddWithValue("@ID", GlobalVariable.EmpID);
 
 

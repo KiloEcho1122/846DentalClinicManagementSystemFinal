@@ -85,7 +85,7 @@ namespace _846DentalClinicManagementSystem
             SqlDataAdapter adapter = new SqlDataAdapter();
             SqlCommand cmd = new SqlCommand(
                 "SELECT CONCAT(FirstName, ' ', LastName),Permission,JobTitle FROM Employee e INNER JOIN [Login] l ON " +
-                "e.EmployeeID = l.EmployeeID_fk WHERE l.EmployeeId_fk = @EmployeeID", sqlcon);
+                "e.EmployeeID = l.EmployeeID_fk WHERE l.EmployeeId_fk = @EmployeeID AND e.Status = 'Active'", sqlcon);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@EmployeeID", GlobalVariable.EmployeeID);
             adapter.SelectCommand = cmd;
@@ -275,7 +275,7 @@ namespace _846DentalClinicManagementSystem
                 Appquery = "SELECT a.AppointmentID AS No, CONCAT(a.Appointment_LName, ', ', a.Appointment_FName, ' ', a.Appointment_MName) AS Patient_Name, " +
                 "a.EmployeeID_fk,p.Treatment,a.Status, a.StartTime, a.AppointmentDate,a.Appointment_Contact FROM Appointment a INNER JOIN[PatientTreatment] p " +
                 "ON AppointmentID = AppointmentID_fk INNER JOIN[Employee] e ON e.EmployeeId = a.EmployeeID_fk " +
-                "WHERE AppointmentDate = @date AND e.JobTitle = 'Dentist' AND NOT Status ='CANCELLED' ORDER BY RefTime ASC";
+                "WHERE AppointmentDate = @date AND e.JobTitle = 'Dentist' AND NOT a.Status ='CANCELLED' AND e.Status = 'Active' ORDER BY RefTime ASC";
                 cmd = new SqlCommand(Appquery, sqlcon);
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@date", date);
@@ -303,7 +303,7 @@ namespace _846DentalClinicManagementSystem
                 Appquery = "SELECT a.AppointmentID AS No, CONCAT(a.Appointment_LName, ', ', a.Appointment_FName, ' ', a.Appointment_MName) AS Patient_Name, " +
                "a.EmployeeID_fk,p.Treatment,a.Status, a.StartTime, a.AppointmentDate,a.Appointment_Contact FROM Appointment a INNER JOIN[PatientTreatment] p " +
                "ON AppointmentID = AppointmentID_fk INNER JOIN[Employee] e ON e.EmployeeId = a.EmployeeID_fk " +
-               "WHERE e.JobTitle = 'Dentist' AND NOT Status ='CANCELLED' AND AppointmentDate BETWEEN @date AND @date2 ORDER BY RefTime ASC";
+               "WHERE e.JobTitle = 'Dentist' AND NOT a.Status ='CANCELLED' AND AppointmentDate BETWEEN @date AND @date2 AND e.Status = 'Active' ORDER BY RefTime ASC";
                 cmd = new SqlCommand(Appquery, sqlcon);
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@date", date);
@@ -640,7 +640,7 @@ namespace _846DentalClinicManagementSystem
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable dt = new DataTable();
             SqlCommand cmd = new SqlCommand(
-                "SELECT EmployeeID,CONCAT(FirstName , ' ', Lastname)  FROM Employee Where JobTitle = 'Dentist' ORDER BY EmployeeID ASC", sqlcon);
+                "SELECT EmployeeID,CONCAT(FirstName , ' ', Lastname)  FROM Employee Where JobTitle = 'Dentist' AND Status = 'Active' ORDER BY EmployeeID ASC", sqlcon);
 
             adapter.SelectCommand = cmd;
             if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
@@ -1416,8 +1416,8 @@ namespace _846DentalClinicManagementSystem
             copyAllExpenseToClibboard();
             CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[2, 5];
             CR.Select();
-          //  xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
-            xlWorkSheet.PasteSpecial(Microsoft.Office.Interop.Excel.XlPasteType.xlPasteAll);
+            xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+          //  xlWorkSheet.PasteSpecial(Microsoft.Office.Interop.Excel.XlPasteType.xlPasteAll);
 
             xlWorkSheet.Rows["1:1"].RowHeight = 25;
             //format excel -- profit area
@@ -1430,7 +1430,7 @@ namespace _846DentalClinicManagementSystem
             CR.Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 
             //format excel -- expense area
-            xlWorkSheet.Cells[1, 6].Formula = "Expense";
+            xlWorkSheet.Cells[1, 6].Formula = "Expenses";
             CR = xlWorkSheet.Range["F1:H1"];
             CR.Select();
             CR.MergeCells = true;
@@ -1572,7 +1572,7 @@ namespace _846DentalClinicManagementSystem
         {
 
             SqlCommand cmd = new SqlCommand(
-                 "SELECT COUNT(*) FROM Employee Where JobTitle = 'Dentist' ", sqlcon);
+                 "SELECT COUNT(*) FROM Employee Where JobTitle = 'Dentist' AND Status = 'Active'", sqlcon);
 
 
             if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
@@ -1659,6 +1659,7 @@ namespace _846DentalClinicManagementSystem
                 Employee_DataGrid.Columns[10].HeaderText = "Address";
                 Employee_DataGrid.Columns[11].HeaderText = "Position";
                 Employee_DataGrid.Columns[12].HeaderText = "License No";
+                Employee_DataGrid.Columns[13].HeaderText = "Status";
 
 
             }
@@ -1821,7 +1822,7 @@ namespace _846DentalClinicManagementSystem
             SqlDataAdapter adapter = new SqlDataAdapter();
             SqlCommand cmd = new SqlCommand("SELECT CONCAT(a.Appointment_FName, ' ', a.Appointment_LName), CONCAT(a.StartTime,' - ',a.EndTime)," +
                 "e.EmailAdd FROM Employee e INNER JOIN Appointment a ON a.EmployeeID_fk = e.EmployeeId WHERE a.AppointmentDate =" +
-                " @date AND Status = 'PENDING' AND EmployeeID = @id ORDER BY RefTime ASC ", sqlcon);
+                " @date AND Status = 'PENDING' AND EmployeeID = @id AND e.Status = 'Active' ORDER BY RefTime ASC ", sqlcon);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@date", System.DateTime.Today.AddDays(1).ToShortDateString());
             cmd.Parameters.AddWithValue("@id", id);
@@ -1958,7 +1959,10 @@ namespace _846DentalClinicManagementSystem
 
         private void lbl_AppointmentCountDashboard_Click(object sender, EventArgs e)
         {
-
+            DrawAppointmentTable();
+            SearchAppByDate_DP.Value = DateTime.Now;
+            HidePanels();
+            SchedulerPanel.Visible = true;
         }
 
         private void btn_ClearLogs_Click(object sender, EventArgs e)
@@ -2014,6 +2018,29 @@ namespace _846DentalClinicManagementSystem
                 ChangePass changePass = new ChangePass();
                 changePass.ShowDialog();
             }
+        }
+
+        private void lbl_DentistCountDashboard_Click(object sender, EventArgs e)
+        {
+            if (GlobalVariable.Permission == "Admin")
+            {
+                DisplayEmployeeDataGrid("");
+                HidePanels();
+                Dentist_Panel.Visible = true;
+                GlobalVariable.InsertActivityLog("Viewed Dentist/Employee Tab", "View");
+            }
+            else
+            {
+                MessageBox.Show("Permission Denied !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void lbl_PatientCountDashboard_Click(object sender, EventArgs e)
+        {
+            PatientPanelSearch("");
+            HidePanels();
+            PatientsPanel.Visible = true;
+            GlobalVariable.InsertActivityLog("Viewed Patients Tab", "View");
         }
 
         private void btn_RestoreLogs_Click(object sender, EventArgs e)
