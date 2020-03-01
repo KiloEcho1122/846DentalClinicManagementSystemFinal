@@ -1307,6 +1307,7 @@ namespace _846DentalClinicManagementSystem
                                     UpdateBillingAfterPayment();
                                     MessageBox.Show("Payment added succesfully");
                                     ShowBilling();
+                                    PrintInvoice();
                                     txt_Amount.Clear();
                                    
                                     return;
@@ -1324,6 +1325,45 @@ namespace _846DentalClinicManagementSystem
 
 
             }
+
+        }
+
+        private void PrintInvoice()
+        {
+            DataTable PaymentTable = new DataTable();
+            DataTable TreatmentPriceTable = new DataTable();
+            SqlDataAdapter adapter1 = new SqlDataAdapter();
+            SqlDataAdapter adapter2 = new SqlDataAdapter();
+            SqlCommand cmd1 = new SqlCommand(
+                "SELECT TOP 1 b.BillingID,p.PaymentID,p.PaymentAmount,p.PaymentBalance,b.AmountCharged,b.AmountPay,k.PatientFullName FROM Payment p INNER JOIN Billing b ON " +
+                "b.BillingID = p.BillingID_fk INNER JOIN Patient k ON b.PatientID_fk = k.PatientID WHERE b.BillingID = @BillingId ORDER BY p.PaymentDate DESC", sqlcon);
+            cmd1.Parameters.Clear();
+            cmd1.Parameters.AddWithValue("@BillingID", GlobalVariable.BillingID);
+            adapter1.SelectCommand = cmd1;
+            SqlCommand cmd2 = new SqlCommand(
+                "SELECT a.TreatmentType AS Treatment, a.TreatmentPrice AS Price FROM AppointmentTreatment a WHERE " +
+                "AppointmentID_fk = (SELECT b.AppointmentID_fk FROM Billing b WHERE b.BillingID = @BillingId)",sqlcon);
+            cmd2.Parameters.Clear();
+            cmd2.Parameters.AddWithValue("@BillingID",GlobalVariable.BillingID);
+            adapter2.SelectCommand = cmd2;
+            try
+            {
+                adapter1.Fill(PaymentTable);
+                adapter2.Fill(TreatmentPriceTable);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            CrystalDecisions.CrystalReports.Engine.ReportDocument report = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
+            report = new CrystalReport5();
+            report.Database.Tables["dtPayment"].SetDataSource(PaymentTable);
+            report.Database.Tables["dtTreatmentPrice"].SetDataSource(TreatmentPriceTable);
+            AccountingReportForm accounting = new AccountingReportForm();
+            accounting.crystalReportViewer1.ReportSource = report;
+            accounting.ShowDialog();
+            accounting.Dispose();
+
 
         }
 
@@ -1408,8 +1448,8 @@ namespace _846DentalClinicManagementSystem
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable dt = new DataTable();
             SqlCommand cmd = new SqlCommand(
-                "SELECT PaymentID,PaymentDate,PaymentAmount,PaymentBalance,CONCAT(e.FirstName, ' ', e.LastName) AS UpdatedBy,Status " +
-                "FROM Payment p INNER JOIN Employee e ON p.EmployeeID_fk = e.EmployeeID WHERE BillingID_fk = @BillingID", sqlcon);
+                "SELECT PaymentID,PaymentDate,PaymentAmount,PaymentBalance,CONCAT(e.FirstName, ' ', e.LastName) AS UpdatedBy,p.Status " +
+                "FROM Payment p INNER JOIN Employee e ON p.EmployeeID_fk = e.EmployeeID WHERE BillingID_fk = @BillingID ORDER BY PaymentDate DESC", sqlcon);
 
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@BillingID", GlobalVariable.BillingID);

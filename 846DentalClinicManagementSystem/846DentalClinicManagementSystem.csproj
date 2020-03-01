@@ -121,6 +121,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountingReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccountingReport.Designer.cs">
+      <DependentUpon>AccountingReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,6 +169,12 @@
     <Compile Include="AddExpensescs.Designer.cs">
       <DependentUpon>AddExpensescs.cs</DependentUpon>
     </Compile>
+    <Compile Include="AppointmentPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppointmentPrint.Designer.cs">
+      <DependentUpon>AppointmentPrint.cs</DependentUpon>
+    </Compile>
     <Compile Include="Certificate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,6 +203,24 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CrystalReport2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReport3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport3.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReport4.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport4.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReport5.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport5.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DataSet1.cs">
@@ -233,6 +263,9 @@
     <Compile Include="ShowPatientInfo.Designer.cs">
       <DependentUpon>ShowPatientInfo.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AccountingReport.resx">
+      <DependentUpon>AccountingReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddAppointment.resx">
       <DependentUpon>AddAppointment.cs</DependentUpon>
     </EmbeddedResource>
@@ -254,6 +287,9 @@
     <EmbeddedResource Include="AddExpensescs.resx">
       <DependentUpon>AddExpensescs.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AppointmentPrint.resx">
+      <DependentUpon>AppointmentPrint.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Certificate.resx">
       <DependentUpon>Certificate.cs</DependentUpon>
     </EmbeddedResource>
@@ -270,6 +306,18 @@
     <EmbeddedResource Include="CrystalReport2.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport3.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport4.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport4.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport5.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport5.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>

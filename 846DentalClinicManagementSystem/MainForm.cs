@@ -10,6 +10,8 @@ using Tulpep.NotificationWindow;
 using System.Globalization;
 using System.Web;
 using System.Net.Mail;
+using System.Runtime.InteropServices;
+using Microsoft.Office.Core;
 
 
 namespace _846DentalClinicManagementSystem
@@ -29,6 +31,7 @@ namespace _846DentalClinicManagementSystem
         ArrayList DentistIDArray = new ArrayList();
         string[,] timeArray = new string[19, 2];
 
+
         private void HidePanels()
         {
             HomePanel.Visible = false;
@@ -38,6 +41,7 @@ namespace _846DentalClinicManagementSystem
             Dentist_Panel.Visible = false;
             AppointmentHistory_Panel.Visible = false;
             ActivityLog_Panel.Visible = false;
+            PrintApp_Panel.Visible = false;
 
         }
 
@@ -141,6 +145,17 @@ namespace _846DentalClinicManagementSystem
             SearchAppByDate_DP.Value = DateTime.Now;
             HidePanels();
             SchedulerPanel.Visible = true;
+            //if(GlobalVariable.JobTitle == "Dentist")
+            //{
+            //    lbl_ViewAll.Visible = true;
+            //    ViewAllSwitch.Visible = true;
+            //}
+            //else
+            //{
+            //    lbl_ViewAll.Visible = false;
+            //    ViewAllSwitch.Visible = false;
+            //  //  ViewAllSwitch.Value = true;
+            //}
           //  GlobalVariable.InsertActivityLog("Viewed Appointment Tab", "View");
 
 
@@ -161,9 +176,8 @@ namespace _846DentalClinicManagementSystem
             {
                 
                 Inventory_DatePicker.Value = System.DateTime.Today;
-                LoadMonthlyProfit();
-                LoadMonthlyExpenses();
-                LoadGrossProfit();
+                Inventory_DatePicker2.Value = System.DateTime.Today;
+                Report();
                 HidePanels();
                 AccountingPanel.Visible = true;
                 GlobalVariable.InsertActivityLog("Viewed Accounting Tab", "View");
@@ -192,10 +206,6 @@ namespace _846DentalClinicManagementSystem
 
         }
 
-        private void btn_ViewAppointmentHistory_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         private void btn_ActivityLogs_Click(object sender, EventArgs e)
         {
@@ -213,10 +223,168 @@ namespace _846DentalClinicManagementSystem
             }
         }
 
+        private void btn_ViewAppHistory_Click(object sender, EventArgs e)
+        {
+            HidePanels();
+            AppointmentHistory_Panel.Visible = true;
+            LoadAppHistory();
+            GlobalVariable.InsertActivityLog("Viewed Appointment History", "View");
+        }
 
+       
+        private void btn_ViewList_Click_1(object sender, EventArgs e)
+        {
+            ViewListApp();
+            HidePanels();
+            PrintApp_Panel.Visible = true;
+        }
+
+        private void btn_Back_Click(object sender, EventArgs e)
+        {
+            DrawAppointmentTable();
+            SearchAppByDate_DP.Value = DateTime.Now;
+            HidePanels();
+            SchedulerPanel.Visible = true;
+        }
         // Main Panel End -----------------------------------------------------------------------------------------------------------
 
         //App Historu Panel Start
+
+
+        private void btn_PrintApp_Click(object sender, EventArgs e)
+        {
+            DataTable AppTable = new DataTable();
+            AppTable.Columns.Add("Date", typeof(string));
+            AppTable.Columns.Add("Name", typeof(string));
+            AppTable.Columns.Add("Dentist", typeof(string));
+            AppTable.Columns.Add("Treatment", typeof(string));
+            AppTable.Columns.Add("Start Time", typeof(string));
+            AppTable.Columns.Add("Contact", typeof(string));
+            AppTable.Columns.Add("Status", typeof(string));
+
+            foreach (DataGridViewRow Row in App_DG.Rows)
+            {
+                AppTable.Rows.Add(
+                    Row.Cells[0].Value,
+                    Row.Cells[1].Value,
+                    Row.Cells[2].Value,
+                    Row.Cells[3].Value,
+                    Row.Cells[4].Value,
+                    Row.Cells[5].Value,
+                    Row.Cells[6].Value
+                    );
+
+            }
+            CrystalDecisions.CrystalReports.Engine.ReportDocument report = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
+            //report = new CrystalReport3();
+            report = new CrystalReport4();
+            report.Database.Tables["dtAppointments"].SetDataSource(AppTable);
+            AppointmentPrint appointmentPrint = new AppointmentPrint();
+            appointmentPrint.crystalReportViewer1.ReportSource = report;
+            appointmentPrint.ShowDialog();
+            appointmentPrint.Dispose();
+
+
+
+        }
+
+        private void ViewListApp()
+        {
+           DateTime AppDateStart = System.DateTime.Today;
+             DateTime AppDateEnd = System.DateTime.Today;
+            if (AppDD.selectedIndex > -1)
+            {
+                if (AppDD.selectedIndex == 0)
+                {
+                    AppDateStart = System.DateTime.Today;
+                    AppDateEnd = System.DateTime.Today.AddDays(1).AddSeconds(-1);
+
+                }
+                else if (AppDD.selectedIndex == 1)
+                {
+                    AppDateStart = System.DateTime.Today;
+
+                    int b = (int)AppDateStart.DayOfWeek;
+
+                    if (b != 0)
+                    {
+                        AppDateStart = AppDateStart.AddDays(-(b));
+
+                    }
+                    AppDateEnd = AppDateStart.AddDays(7).AddSeconds(-1);
+
+
+                }
+                else if (AppDD.selectedIndex == 2)
+                {
+                    DateTime date = System.DateTime.Today;
+                    AppDateStart = new DateTime(date.Year, date.Month, 1);
+                    AppDateEnd = AppDateStart.AddMonths(1).AddSeconds(-1);
+
+
+                }
+                else if (AppDD.selectedIndex == 3)
+                {
+                    DateTime date = System.DateTime.Today;
+                    AppDateStart = new DateTime(date.Year, 1, 1);
+                    AppDateEnd = AppDateStart.AddYears(1).AddSeconds(-1);
+
+                }
+                else if (AppDD.selectedIndex == 4)
+                {
+                    AppDateStart = Inventory_DatePicker.Value;
+                    AppDateEnd = Inventory_DatePicker2.Value.AddDays(1).AddSeconds(-1);
+
+                }
+
+                //exclude custom date
+                if (ReportDD.selectedIndex != 4)
+                {
+                    FromDP.Value = AppDateStart;
+                    ToDP.Value = AppDateEnd;
+                }
+
+                DataTable dt = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                SqlCommand cmd = new SqlCommand(
+                   "SELECT a.AppointmentDate As Date,CONCAT(a.Appointment_LName, ', ', a.Appointment_FName, ' ', a.Appointment_MName) AS Name," +
+                "CONCAT(e.FirstName,' ',e.LastName) As Dentist, p.Treatment, a.StartTime,a.Appointment_Contact As Contact,a.Status FROM Appointment a INNER JOIN[PatientTreatment] p " +
+                "ON AppointmentID = AppointmentID_fk INNER JOIN[Employee] e ON e.EmployeeId = a.EmployeeID_fk " +
+                "WHERE e.JobTitle = 'Dentist'  AND AppointmentDate BETWEEN @date AND @date2 AND e.Status = 'Active' ORDER BY Dentist ASC", sqlcon);
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@date", AppDateStart);
+                cmd.Parameters.AddWithValue("@date2", AppDateEnd);
+
+                adapter.SelectCommand = cmd;
+                try
+                {
+                    adapter.Fill(dt);
+                    App_DG.DataSource = dt;
+
+                }catch(Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+
+            }
+        }
+
+            private void AppDD_onItemSelected(object sender, EventArgs e)
+        {
+            ViewListApp();
+        }
+
+        private void FromDP_onValueChanged(object sender, EventArgs e)
+        {
+            ViewListApp();
+        }
+
+        private void ToDP_onValueChanged(object sender, EventArgs e)
+        {
+            ViewListApp();
+        }
 
         private void LoadAppHistory()
         {
@@ -260,7 +428,7 @@ namespace _846DentalClinicManagementSystem
 
         public void ShowAppointment(string date)
         {
-            string Appquery, ApExceptquery;
+            string Appquery = string.Empty, ApExceptquery = string.Empty;
             string date2 = "";
             int ControlsCount = 0;
             SqlDataAdapter adapter = new SqlDataAdapter();
@@ -271,19 +439,44 @@ namespace _846DentalClinicManagementSystem
 
             if (WeekSwitch.Value == false)
             {
+                //if (ViewAllSwitch.Value == true)
+                //{
+                    Appquery = "SELECT a.AppointmentID AS No, CONCAT(a.Appointment_LName, ', ', a.Appointment_FName, ' ', a.Appointment_MName) AS Patient_Name, " +
+                     "a.EmployeeID_fk,p.Treatment,a.Status, a.StartTime, a.AppointmentDate,a.Appointment_Contact FROM Appointment a INNER JOIN[PatientTreatment] p " +
+                     "ON AppointmentID = AppointmentID_fk INNER JOIN[Employee] e ON e.EmployeeId = a.EmployeeID_fk " +
+                      "WHERE AppointmentDate = @date AND e.JobTitle = 'Dentist' AND NOT a.Status ='CANCELLED' AND e.Status = 'Active' ORDER BY RefTime ASC";
+                    cmd = new SqlCommand(Appquery, sqlcon);
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@date", date);
 
-                Appquery = "SELECT a.AppointmentID AS No, CONCAT(a.Appointment_LName, ', ', a.Appointment_FName, ' ', a.Appointment_MName) AS Patient_Name, " +
-                "a.EmployeeID_fk,p.Treatment,a.Status, a.StartTime, a.AppointmentDate,a.Appointment_Contact FROM Appointment a INNER JOIN[PatientTreatment] p " +
-                "ON AppointmentID = AppointmentID_fk INNER JOIN[Employee] e ON e.EmployeeId = a.EmployeeID_fk " +
-                "WHERE AppointmentDate = @date AND e.JobTitle = 'Dentist' AND NOT a.Status ='CANCELLED' AND e.Status = 'Active' ORDER BY RefTime ASC";
-                cmd = new SqlCommand(Appquery, sqlcon);
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@date", date);
 
-                ApExceptquery = "SELECT * FROM [AppointmentException] WHERE Date = @date AND NOT Status ='CANCELLED' ORDER BY RefTime ASC";
-                cmd2 = new SqlCommand(ApExceptquery, sqlcon);
-                cmd2.Parameters.Clear();
-                cmd2.Parameters.AddWithValue("@date", date);
+                    ApExceptquery = "SELECT * FROM [AppointmentException] WHERE Date = @date AND NOT Status ='CANCELLED' ORDER BY RefTime ASC";
+                    cmd2 = new SqlCommand(ApExceptquery, sqlcon);
+                    cmd2.Parameters.Clear();
+                    cmd2.Parameters.AddWithValue("@date", date);
+                //}
+                //else
+                //{
+                    
+
+                //    Appquery = "SELECT a.AppointmentID AS No, CONCAT(a.Appointment_LName, ', ', a.Appointment_FName, ' ', a.Appointment_MName) AS Patient_Name, " +
+                //   "a.EmployeeID_fk,p.Treatment,a.Status, a.StartTime, a.AppointmentDate,a.Appointment_Contact FROM Appointment a INNER JOIN[PatientTreatment] p " +
+                //   "ON AppointmentID = AppointmentID_fk INNER JOIN[Employee] e ON e.EmployeeId = a.EmployeeID_fk " +
+                //   "WHERE AppointmentDate = @date AND NOT a.Status ='CANCELLED' AND a.EmployeeID_fk = @empID ORDER BY RefTime ASC";
+                //    cmd = new SqlCommand(Appquery, sqlcon);
+                //    cmd.Parameters.Clear();
+                //    cmd.Parameters.AddWithValue("@date", date);
+                //    cmd.Parameters.AddWithValue("@empID", GlobalVariable.EmployeeID);
+
+
+                //    ApExceptquery = "SELECT * FROM [AppointmentException] WHERE Date = @date AND NOT Status ='CANCELLED' AND EmployeeId_fk = @empID ORDER BY RefTime ASC";
+                //    cmd2 = new SqlCommand(ApExceptquery, sqlcon);
+                //    cmd2.Parameters.Clear();
+                //    cmd2.Parameters.AddWithValue("@date", date);
+                //    cmd2.Parameters.AddWithValue("@empID", GlobalVariable.EmployeeID);
+                //}
+
+
 
                 ControlsCount = DentistArray.Count + 1;
 
@@ -300,20 +493,47 @@ namespace _846DentalClinicManagementSystem
                 betweenDate = betweenDate.AddDays(6);
                 date2 = betweenDate.ToShortDateString();
 
-                Appquery = "SELECT a.AppointmentID AS No, CONCAT(a.Appointment_LName, ', ', a.Appointment_FName, ' ', a.Appointment_MName) AS Patient_Name, " +
-               "a.EmployeeID_fk,p.Treatment,a.Status, a.StartTime, a.AppointmentDate,a.Appointment_Contact FROM Appointment a INNER JOIN[PatientTreatment] p " +
-               "ON AppointmentID = AppointmentID_fk INNER JOIN[Employee] e ON e.EmployeeId = a.EmployeeID_fk " +
-               "WHERE e.JobTitle = 'Dentist' AND NOT a.Status ='CANCELLED' AND AppointmentDate BETWEEN @date AND @date2 AND e.Status = 'Active' ORDER BY RefTime ASC";
-                cmd = new SqlCommand(Appquery, sqlcon);
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@date", date);
-                cmd.Parameters.AddWithValue("@date2", date2);
+                //if(ViewAllSwitch.Value == true)
+                //{
+                    Appquery = "SELECT a.AppointmentID AS No, CONCAT(a.Appointment_LName, ', ', a.Appointment_FName, ' ', a.Appointment_MName) AS Patient_Name, " +
+                    "a.EmployeeID_fk,p.Treatment,a.Status, a.StartTime, a.AppointmentDate,a.Appointment_Contact FROM Appointment a INNER JOIN[PatientTreatment] p " +
+                    "ON AppointmentID = AppointmentID_fk INNER JOIN[Employee] e ON e.EmployeeId = a.EmployeeID_fk " +
+                    "WHERE e.JobTitle = 'Dentist' AND NOT a.Status ='CANCELLED' AND AppointmentDate BETWEEN @date AND @date2 AND e.Status = 'Active' ORDER BY RefTime ASC";
+                    cmd = new SqlCommand(Appquery, sqlcon);
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@date", date);
+                    cmd.Parameters.AddWithValue("@date2", date2);
 
-                ApExceptquery = "SELECT * FROM [AppointmentException] WHERE Date BETWEEN @date AND @date2 AND NOT Status ='CANCELLED' ORDER BY RefTime ASC";
-                cmd2 = new SqlCommand(ApExceptquery, sqlcon);
-                cmd2.Parameters.Clear();
-                cmd2.Parameters.AddWithValue("@date", date);
-                cmd2.Parameters.AddWithValue("@date2", date2);
+                    ApExceptquery = "SELECT * FROM [AppointmentException] WHERE Date BETWEEN @date AND @date2 AND NOT Status ='CANCELLED' ORDER BY RefTime ASC";
+                    cmd2 = new SqlCommand(ApExceptquery, sqlcon);
+                    cmd2.Parameters.Clear();
+                    cmd2.Parameters.AddWithValue("@date", date);
+                    cmd2.Parameters.AddWithValue("@date2", date2);
+                    
+                //}
+                //else
+                //{
+
+
+                //    Appquery = "SELECT a.AppointmentID AS No, CONCAT(a.Appointment_LName, ', ', a.Appointment_FName, ' ', a.Appointment_MName) AS Patient_Name, " +
+                //    "a.EmployeeID_fk,p.Treatment,a.Status, a.StartTime, a.AppointmentDate,a.Appointment_Contact FROM Appointment a INNER JOIN[PatientTreatment] p " +
+                //    "ON AppointmentID = AppointmentID_fk INNER JOIN[Employee] e ON e.EmployeeId = a.EmployeeID_fk " +
+                //    "WHERE e.JobTitle = 'Dentist' AND NOT a.Status ='CANCELLED' AND AppointmentDate BETWEEN @date AND @date2 AND a.EmployeeID_fk = @empID ORDER BY RefTime ASC";
+                //    cmd = new SqlCommand(Appquery, sqlcon);
+                //    cmd.Parameters.Clear();
+                //    cmd.Parameters.AddWithValue("@date", date);
+                //    cmd.Parameters.AddWithValue("@date2", date2);
+                //    cmd.Parameters.AddWithValue("@empID", GlobalVariable.EmployeeID);
+
+                //    ApExceptquery = "SELECT * FROM [AppointmentException] WHERE Date BETWEEN @date AND @date2 AND NOT Status ='CANCELLED' AND EmployeeId_fk = @empID ORDER BY RefTime ASC";
+                //    cmd2 = new SqlCommand(ApExceptquery, sqlcon);
+                //    cmd2.Parameters.Clear();
+                //    cmd2.Parameters.AddWithValue("@date", date);
+                //    cmd2.Parameters.AddWithValue("@date2", date2);
+                //    cmd2.Parameters.AddWithValue("@empID", GlobalVariable.EmployeeID);
+                //}
+
+               
 
                 ControlsCount = 8;
             }
@@ -637,10 +857,24 @@ namespace _846DentalClinicManagementSystem
         {
             DentistArray.Clear();
             DentistIDArray.Clear();
+            string query = string.Empty;
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable dt = new DataTable();
-            SqlCommand cmd = new SqlCommand(
-                "SELECT EmployeeID,CONCAT(FirstName , ' ', Lastname)  FROM Employee Where JobTitle = 'Dentist' AND Status = 'Active' ORDER BY EmployeeID ASC", sqlcon);
+            SqlCommand cmd = new SqlCommand();
+
+            //if (ViewAllSwitch.Value == true)
+            //{
+                query = "SELECT EmployeeID,CONCAT(FirstName , ' ', Lastname)  FROM Employee Where JobTitle = 'Dentist' AND Status = 'Active' ORDER BY EmployeeID ASC";
+                cmd = new SqlCommand(query, sqlcon);
+            //}
+            //else
+            //{
+
+            //    query = "SELECT EmployeeID,CONCAT(FirstName , ' ', Lastname)  FROM Employee Where JobTitle = 'Dentist' AND EmployeeId = @employeeID ORDER BY EmployeeID ASC";
+            //    cmd = new SqlCommand(query, sqlcon);
+            //    cmd.Parameters.AddWithValue("@employeeID", GlobalVariable.EmployeeID);
+            //}
+           
 
             adapter.SelectCommand = cmd;
             if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
@@ -1078,17 +1312,25 @@ namespace _846DentalClinicManagementSystem
             DrawAppointmentTable();
             ShowAppointment(SearchAppByDate_DP.Value.ToString("M/d/yyyy"));
             AppointmentHeader_Panel.AutoScroll = false;
+            //  AppointmentHeader_Panel.AutoScroll = false;
 
 
         }
+        private void ViewAllSwitch_OnValueChange(object sender, EventArgs e)
+        {
+            //DrawAppointmentTable();
+            //ShowAppointment(SearchAppByDate_DP.Value.ToString("M/d/yyyy"));
+          // AppointmentHeader_Panel.AutoScroll = false;
+        }
+
 
         private void Appointment_Panel_Scroll(object sender, ScrollEventArgs e)
         {
 
             AppTimePanel.AutoScrollPosition = new Point(0, Appointment_Panel.VerticalScroll.Value);
             AppointmentHeader_Panel.AutoScrollPosition = new Point(Appointment_Panel.HorizontalScroll.Value, 0);
-
-            // Console.WriteLine("Horizontal = " + Appointment_Panel.HorizontalScroll.Value);
+          //  Console.WriteLine("Appointment = " + Appointment_Panel.HorizontalScroll.Value + "  Header = " + AppointmentHeader_Panel.HorizontalScroll.Value);
+            
             // Console.WriteLine("Vertical = " + Appointment_Panel.VerticalScroll.Value);
         }
         private void Appointment_Panel_MouseMove(object sender, MouseEventArgs e)
@@ -1241,6 +1483,140 @@ namespace _846DentalClinicManagementSystem
 
         // Accounting Panel Start -------------------------------------------------------------------------------------------------
 
+        private void btn_PrintReport_Click(object sender, EventArgs e)
+        {
+
+            DataTable ProfitTable = new DataTable();
+            ProfitTable.Columns.Add("PaymentDate", typeof(string));
+            ProfitTable.Columns.Add("Treatment", typeof(string));
+            ProfitTable.Columns.Add("PaymentAmount", typeof(string));
+
+            DataTable ExpenseTable = new DataTable();
+            ExpenseTable.Columns.Add("ExpenseDate", typeof(string));
+            ExpenseTable.Columns.Add("ExpenseName", typeof(string));
+            ExpenseTable.Columns.Add("ExpenseAmt", typeof(string));
+
+
+            foreach (DataGridViewRow Row in Profit_DG.Rows)
+            {
+                ProfitTable.Rows.Add(
+                    Row.Cells[0].Value,
+                    Row.Cells[1].Value,
+                    Row.Cells[2].Value
+                 
+                    );
+
+            }
+            foreach (DataGridViewRow Row in displayExpenseDG.Rows)
+            {
+                ExpenseTable.Rows.Add(
+                    Row.Cells[1].Value,
+                    Row.Cells[2].Value,
+                    Row.Cells[3].Value
+
+                    );
+
+            }
+            
+            DataTable summaryDT = new DataTable();
+            summaryDT.Columns.Add("ProfitSum", typeof(string));
+            summaryDT.Columns.Add("ExpenseSum", typeof(string));
+            summaryDT.Columns.Add("Gross", typeof(string));
+            summaryDT.Rows.Add(
+                lbl_netProfit.Text,
+                lbl_netExpense.Text,
+                lbl_GrossProfit.Text
+
+                );
+          
+
+            CrystalDecisions.CrystalReports.Engine.ReportDocument report = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
+            //report = new CrystalReport3();
+            report = new CrystalReport3();
+            report.Database.Tables["dtProfit"].SetDataSource(ProfitTable);
+
+            report.Database.Tables["dtExpense"].SetDataSource(ExpenseTable);
+            report.Database.Tables["dtSummary"].SetDataSource(summaryDT);
+          //  report.Database.Tables[1].SetDataSource(expenseDT);
+            AccountingReportForm accounting = new AccountingReportForm();
+            accounting.crystalReportViewer1.ReportSource = report;
+            accounting.ShowDialog();
+            accounting.Dispose();
+            //GlobalVariable.InsertActivityLog("Printed Accounting Details", "Print");
+        }
+
+        private void ReportDD_onItemSelected(object sender, EventArgs e)
+        {
+            Report();
+        }
+      
+        public void Report()
+        {
+           DateTime DateStart = System.DateTime.Today;
+           DateTime DateEnd = System.DateTime.Today;
+
+            if (ReportDD.selectedIndex > -1)
+            {
+                if(ReportDD.selectedIndex == 0)
+                {
+                    DateStart = System.DateTime.Today;
+                    DateEnd = System.DateTime.Today.AddDays(1).AddSeconds(-1);
+
+                }
+                else if(ReportDD.selectedIndex == 1)
+                {
+                    DateStart = System.DateTime.Today;
+                   
+                    int b = (int)DateStart.DayOfWeek;
+
+                    if (b != 0)
+                    {
+                        DateStart = DateStart.AddDays(-(b));
+                      
+                    }
+                    DateEnd = DateStart.AddDays(7).AddSeconds(-1); ;
+
+
+                }
+                else if(ReportDD.selectedIndex == 2)
+                {
+                    DateTime date = System.DateTime.Today;
+                    DateStart = new DateTime(date.Year, date.Month, 1);
+                    DateEnd = DateStart.AddMonths(1).AddSeconds(-1);
+
+
+                }
+                else if(ReportDD.selectedIndex == 3)
+                {
+                    DateTime date = System.DateTime.Today;
+                    DateStart = new DateTime(date.Year, 1 , 1);
+                    DateEnd = DateStart.AddYears(1).AddSeconds(-1);
+
+                }
+                else if(ReportDD.selectedIndex == 4)
+                {
+                    DateStart = Inventory_DatePicker.Value;
+                    DateEnd = Inventory_DatePicker2.Value.AddDays(1).AddSeconds(-1);
+
+                }
+
+                //exclude custom date
+                if(ReportDD.selectedIndex != 4)
+                {
+                    Inventory_DatePicker.Value = DateStart;
+                    Inventory_DatePicker2.Value = DateEnd;
+                }
+               
+
+                float netProfit = LoadProfit(DateStart, DateEnd);
+                float netExpense = LoadExpenses(DateStart, DateEnd);
+                float grossProfit = netProfit - netExpense;
+
+                lbl_netProfit.Text = "₱ " + netProfit.ToString("N2", CultureInfo.CurrentCulture);
+                lbl_netExpense.Text = "₱ " + netExpense.ToString("N2", CultureInfo.CurrentCulture);
+                lbl_GrossProfit.Text = "₱ " + grossProfit.ToString("N2", CultureInfo.CurrentCulture);
+            }
+        }
 
 
         private void btn_AddExpenses_Click(object sender, EventArgs e)
@@ -1253,17 +1629,19 @@ namespace _846DentalClinicManagementSystem
             }
 
         }
+
+        private void Inventory_DatePicker2_onValueChanged(object sender, EventArgs e)
+        {
+            Report();
+        }
         private void bunifuDatepicker1_onValueChanged(object sender, EventArgs e)
         {
-            LoadGrossProfit();
+            Report();
+           // LoadGrossProfit();
         }
 
-        private float LoadMonthlyProfit()
+        private float LoadProfit(DateTime DateStart,DateTime DateEnd)
         {
-
-            DateTime date = Inventory_DatePicker.Value;
-            var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
-            var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddSeconds(-1);
 
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable dt = new DataTable();
@@ -1273,10 +1651,8 @@ namespace _846DentalClinicManagementSystem
             "INNER JOIN PatientTreatment a ON a.AppointmentID_fk = b.AppointmentID_fk " +
             "WHERE p.PaymentDate BETWEEN @date AND @date2 AND p.status = 'Completed' ORDER BY p.PaymentDate ASC", sqlcon);
             cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@date", firstDayOfMonth.ToString());
-            cmd.Parameters.AddWithValue("@date2", lastDayOfMonth.ToString());
-
-            
+            cmd.Parameters.AddWithValue("@date", DateStart.ToString());
+            cmd.Parameters.AddWithValue("@date2", DateEnd.ToString());
 
             adapter.SelectCommand = cmd;
             try
@@ -1306,36 +1682,32 @@ namespace _846DentalClinicManagementSystem
         }
 
 
-        public void LoadGrossProfit()
+        //public void LoadGrossProfit()
+        //{
+        //    DateTime date = Inventory_DatePicker.Value;
+        //    var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
+        //    var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddSeconds(-1);
+        //    float netProfit = LoadProfit();
+        //    float netExpense = LoadMonthlyExpenses();
+        //    float grossProfit = netProfit - netExpense;
+
+        //    lbl_netProfit.Text = "₱ " + netProfit.ToString("N2", CultureInfo.CurrentCulture);
+        //    lbl_netExpense.Text = "₱ " + netExpense.ToString("N2", CultureInfo.CurrentCulture);
+        //    lbl_GrossProfit.Text = "₱ " + grossProfit.ToString("N2", CultureInfo.CurrentCulture);
+
+        //}
+
+
+        private float LoadExpenses(DateTime DateStart,DateTime DateEnd)
         {
-            DateTime date = Inventory_DatePicker.Value;
-            var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
-            var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddSeconds(-1);
-            float netProfit = LoadMonthlyProfit();
-            float netExpense = LoadMonthlyExpenses();
-            float grossProfit = netProfit - netExpense;
-
-            lbl_netProfit.Text = "₱ " + netProfit.ToString("N2", CultureInfo.CurrentCulture);
-            lbl_netExpense.Text = "₱ " + netExpense.ToString("N2", CultureInfo.CurrentCulture);
-            lbl_GrossProfit.Text = "₱ " + grossProfit.ToString("N2", CultureInfo.CurrentCulture);
-
-        }
-
-
-        public float LoadMonthlyExpenses()
-        {
-            DateTime date = Inventory_DatePicker.Value;
-            var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
-            var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddSeconds(-1);
-
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable dt = new DataTable();
             SqlCommand cmd = new SqlCommand(
                 "SELECT ExpenseID As Id, ExpenseDate As Date, ExpenseName As Expense,ExpenseAmt AS Amount" +
                 " FROM Expense WHERE ExpenseDate BETWEEN @date AND @date2 ORDER BY ExpenseDate ASC ", sqlcon);
             cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@date", firstDayOfMonth.ToString());
-            cmd.Parameters.AddWithValue("@date2", lastDayOfMonth.ToString());
+            cmd.Parameters.AddWithValue("@date", DateStart.ToString());
+            cmd.Parameters.AddWithValue("@date2", DateEnd.ToString());
 
             adapter.SelectCommand = cmd;
             try
@@ -1387,8 +1759,15 @@ namespace _846DentalClinicManagementSystem
         private void btn_Export2Excel_Click(object sender, EventArgs e)
         {
             int lastusedRow = 0;
-            //Initiate Excel Variables
-            Microsoft.Office.Interop.Excel.Range CR;
+
+            string workingDirectory = Environment.CurrentDirectory;
+
+            string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
+
+            string image = projectDirectory + @"\Resources\download-removebg-preview.png";
+
+        //Initiate Excel Variables
+        Microsoft.Office.Interop.Excel.Range CR;
             Microsoft.Office.Interop.Excel.Application xlexcel;
             Microsoft.Office.Interop.Excel.Workbook xlWorkBook;
             Microsoft.Office.Interop.Excel.Worksheet xlWorkSheet;
@@ -1403,26 +1782,26 @@ namespace _846DentalClinicManagementSystem
             xlWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)xlWorkBook.Worksheets[1];
 
             // set row 1 height
-            
 
+            
             xlWorkSheet.Columns["A:H"].Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignLeft;
 
             //copy profit table to excel
             copyAllProfitToClipboard();
-            CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[2, 1];
+            CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[7, 1];
             CR.Select();
             xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
             //copy expense table to excel
             copyAllExpenseToClibboard();
-            CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[2, 5];
+            CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[7, 5];
             CR.Select();
             xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
           //  xlWorkSheet.PasteSpecial(Microsoft.Office.Interop.Excel.XlPasteType.xlPasteAll);
 
-            xlWorkSheet.Rows["1:1"].RowHeight = 25;
+            xlWorkSheet.Rows["6:6"].RowHeight = 25;
             //format excel -- profit area
-            xlWorkSheet.Cells[1, 1].Formula = "Profit";
-            CR = xlWorkSheet.Range["A1:C1"];
+            xlWorkSheet.Cells[6, 1].Formula = "Profit";
+            CR = xlWorkSheet.Range["A6:C6"];
             CR.Select();
             CR.MergeCells = true;
             CR.Interior.Color = System.Drawing.Color.FromArgb(193, 224, 255);
@@ -1430,44 +1809,17 @@ namespace _846DentalClinicManagementSystem
             CR.Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 
             //format excel -- expense area
-            xlWorkSheet.Cells[1, 6].Formula = "Expenses";
-            CR = xlWorkSheet.Range["F1:H1"];
+            xlWorkSheet.Cells[6, 6].Formula = "Expenses";
+            CR = xlWorkSheet.Range["F6:H6"];
             CR.Select();
             CR.MergeCells = true;
             CR.Interior.Color = System.Drawing.Color.FromArgb(255, 193, 193);
             CR.Font.Size = 14;
             CR.Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
 
-            lastusedRow = xlWorkSheet.UsedRange.Rows.Count;
-
-            CR = xlWorkSheet.Range["A1:C" + lastusedRow];
-            CR.Borders.LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
-            CR.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
-
-            CR = xlWorkSheet.Range["F1:H" + lastusedRow];
-            CR.Borders.LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
-            CR.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
-
 
             //delete ID column of expense
             xlWorkSheet.Columns["E"].Delete();
-
-
-            CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[lastusedRow + 2, 2];
-            CR.Value = "Total :";
-            CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[lastusedRow + 2, 3];
-            CR.Formula = "=SUM(C3:C" + lastusedRow + ")";
-
-            CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[lastusedRow + 2, 6];
-            CR.Value = "Total :";
-            CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[lastusedRow + 2, 7];
-            CR.Formula = "=SUM(G3:G" + lastusedRow + ")";
-
-            CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[lastusedRow + 3, 6];
-            CR.Value = "Gross :";
-            CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[lastusedRow + 3, 7];
-            CR.Formula = "=C"+ (lastusedRow + 2) + " - G"+ (lastusedRow + 2);
-
 
 
             //Format Column width
@@ -1477,9 +1829,50 @@ namespace _846DentalClinicManagementSystem
             xlWorkSheet.Columns["E"].ColumnWidth = 11.71;
             xlWorkSheet.Columns["F"].ColumnWidth = 26.57;
             xlWorkSheet.Columns["G"].ColumnWidth = 13.57;
-            
+
             //align columns to center
-            
+          
+            xlWorkSheet.Cells[1, 1].Formula = "846 Dental Clinic";
+            CR = xlWorkSheet.Range["A1:G1"];
+            CR.Select();
+            CR.MergeCells = true;
+            CR.Font.Size = 16;
+            CR.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+            xlWorkSheet.Cells[2, 1].Formula = "Accounting Report";
+            CR = xlWorkSheet.Range["A2:G2"];
+            CR.Select();
+            CR.MergeCells = true;
+            CR.Font.Size = 14;
+            CR.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+            xlWorkSheet.Cells[3, 7].Formula = System.DateTime.Today.ToShortDateString();
+
+            xlWorkSheet.Shapes.AddPicture(image, MsoTriState.msoFalse, MsoTriState.msoCTrue, 230, 0, 100, 50);
+
+
+            lastusedRow = xlWorkSheet.UsedRange.Rows.Count;
+
+            CR = xlWorkSheet.Range["A6:C" + lastusedRow];
+            CR.Borders.LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
+            CR.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
+
+            CR = xlWorkSheet.Range["E6:G" + lastusedRow];
+            CR.Borders.LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
+            CR.Borders.Weight = Microsoft.Office.Interop.Excel.XlBorderWeight.xlThin;
+
+            CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[lastusedRow + 2, 2];
+            CR.Value = "Total :";
+            CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[lastusedRow + 2, 3];
+            CR.Formula = "=SUM(C7:C" + lastusedRow + ")";
+
+            CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[lastusedRow + 2, 6];
+            CR.Value = "Total :";
+            CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[lastusedRow + 2, 7];
+            CR.Formula = "=SUM(G7:G" + lastusedRow + ")";
+
+            CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[lastusedRow + 3, 6];
+            CR.Value = "Gross :";
+            CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[lastusedRow + 3, 7];
+            CR.Formula = "=C" + (lastusedRow + 2) + " - G" + (lastusedRow + 2);
             GlobalVariable.InsertActivityLog("Exported Report to Excel", "Export");
         }
 
@@ -1976,13 +2369,7 @@ namespace _846DentalClinicManagementSystem
             }
         }
 
-        private void btn_ViewAppHistory_Click(object sender, EventArgs e)
-        {
-            HidePanels();
-            AppointmentHistory_Panel.Visible = true;
-            LoadAppHistory();
-            GlobalVariable.InsertActivityLog("Viewed Appointment History", "View");
-        }
+
 
         private void btn_SendMail_Click(object sender, EventArgs e)
         {
@@ -2020,6 +2407,8 @@ namespace _846DentalClinicManagementSystem
             }
         }
 
+       
+
         private void lbl_DentistCountDashboard_Click(object sender, EventArgs e)
         {
             if (GlobalVariable.Permission == "Admin")
@@ -2042,6 +2431,15 @@ namespace _846DentalClinicManagementSystem
             PatientsPanel.Visible = true;
             GlobalVariable.InsertActivityLog("Viewed Patients Tab", "View");
         }
+
+       
+
+        private void btn_RefreshEmployee_Click(object sender, EventArgs e)
+        {
+            DisplayEmployeeDataGrid("");
+        }
+
+       
 
         private void btn_RestoreLogs_Click(object sender, EventArgs e)
         {

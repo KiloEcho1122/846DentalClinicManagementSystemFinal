@@ -108,8 +108,8 @@ namespace _846DentalClinicManagementSystem
         private void label1_Click(object sender, EventArgs e)
         {
             var main = Application.OpenForms.OfType<MainForm>().First();
-            main.LoadMonthlyExpenses();
-            main.LoadGrossProfit();
+            main.Report();
+
             GlobalVariable.isAddExpense = false;
             GlobalVariable.isEditExpense = false;
             this.Hide();
