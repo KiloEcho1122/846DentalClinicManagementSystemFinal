@@ -42,7 +42,6 @@ namespace _846DentalClinicManagementSystem
         {
             LoadDropDownList();
             DP_date.Value = DateTime.Now;
-           
 
             // if add appointmen increment ID
 
@@ -54,6 +53,13 @@ namespace _846DentalClinicManagementSystem
                 statusSwitch.Visible = false;
                 this.Text = "Add Appointment";
                 btn_CreateBilling.Location = new Point(513, 468);
+
+                if(GlobalVariable.dentApp >= 0 && GlobalVariable.timeApp >= 0)
+                {
+                    DP_date.Value = GlobalVariable.DateApp;
+                    DentistDD.selectedIndex = GlobalVariable.dentApp;
+                    TimeDD.selectedIndex = GlobalVariable.timeApp;
+                }
 
             }
             if (GlobalVariable.isEditAppointment == true && GlobalVariable.isAddAppointment ==false)

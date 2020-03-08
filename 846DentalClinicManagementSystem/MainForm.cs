@@ -1,17 +1,15 @@
-﻿using System;
+﻿using Microsoft.Office.Core;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
-using System.Drawing;
-using System.Windows.Forms;
-using System.IO;
 using System.Data.SqlClient;
-using System.Collections;
-using Tulpep.NotificationWindow;
+using System.Drawing;
 using System.Globalization;
-using System.Web;
+using System.IO;
 using System.Net.Mail;
-using System.Runtime.InteropServices;
-using Microsoft.Office.Core;
+using System.Windows.Forms;
+using Tulpep.NotificationWindow;
 
 
 namespace _846DentalClinicManagementSystem
@@ -145,18 +143,18 @@ namespace _846DentalClinicManagementSystem
             SearchAppByDate_DP.Value = DateTime.Now;
             HidePanels();
             SchedulerPanel.Visible = true;
-            //if(GlobalVariable.JobTitle == "Dentist")
-            //{
-            //    lbl_ViewAll.Visible = true;
-            //    ViewAllSwitch.Visible = true;
-            //}
-            //else
-            //{
-            //    lbl_ViewAll.Visible = false;
-            //    ViewAllSwitch.Visible = false;
-            //  //  ViewAllSwitch.Value = true;
-            //}
-          //  GlobalVariable.InsertActivityLog("Viewed Appointment Tab", "View");
+            if (GlobalVariable.JobTitle == "Dentist")
+            {
+                lbl_ViewAll.Visible = true;
+                ViewAllSwitch.Visible = true;
+            }
+            else
+            {
+                lbl_ViewAll.Visible = false;
+                ViewAllSwitch.Visible = false;
+                //  ViewAllSwitch.Value = true;
+            }
+            GlobalVariable.InsertActivityLog("Viewed Appointment Tab", "View");
 
 
         }
@@ -426,6 +424,168 @@ namespace _846DentalClinicManagementSystem
             }
         }
 
+        private int getDentist(int x)
+        {
+           
+            int xLocStart = 0, xLocEnd = 0, temp = 0;
+            if (WeekSwitch.Value == false)
+            {
+                for (int i = 0; i < DentistIDArray.Count; i++)
+                {
+                    xLocStart = (300 * i) + 11;
+                    xLocEnd = xLocStart + 300;
+                    if (x >= xLocStart && x <= xLocEnd)
+                    {
+                        return i; //return the name of dentist
+                    }
+                }
+            }
+            else
+            {
+
+                for (int i = 0; i < DentistIDArray.Count * 7; i++)
+                {
+                    if (i % DentistArray.Count == 0)
+                    {
+                        temp = 0;
+                    }
+                    xLocStart = (150 * i) + 11;
+                    xLocEnd = xLocStart + 150;
+
+                    if (x >= xLocStart && x <= xLocEnd)
+                    {
+
+                        return temp; //return the name of dentist
+                    }
+
+                    temp += 1;
+                }
+            }
+
+              
+            //return null if there no location
+            return -1;
+        }
+
+        private DateTime getDate(int x)
+        {
+            DateTime dateStart = SearchAppByDate_DP.Value;
+            DateTime DateApp = SearchAppByDate_DP.Value;
+            int xLocStart = 0, xLocEnd = 0;
+
+            if (WeekSwitch.Value == false)
+            {
+
+                return DateApp;
+            }
+            else
+            {
+                int b = (int)dateStart.DayOfWeek;
+                if (b != 0)
+                {
+                    dateStart = dateStart.AddDays(-(b));
+
+                }
+                for (int i = 0; i < DentistIDArray.Count * 7; i++)
+                {
+
+                    xLocStart = (150 * i) + 11;
+                    xLocEnd = xLocStart + 150;
+
+                    if (x >= xLocStart && x <= xLocEnd)
+                    {
+                        if (ViewAllSwitch.Value == false)
+                        {
+                            DateApp = dateStart.AddDays(i % 7);
+                        }
+                        else
+                        {
+                            DateApp = dateStart.AddDays((i / DentistIDArray.Count) % 7);
+                        }
+
+                        return DateApp; 
+                    }
+                }
+            }
+
+            return DateApp;
+        }
+
+        private int getTime(int y)
+        {
+
+            for(int i = 0; i < 19; i++)
+            {
+                int yLocStart = (50 * (i + 1)) + 11;
+                int yLocEnd = yLocStart + 50;
+
+                if (y >= yLocStart && y <= yLocEnd)
+                {
+                    //foreach (Control control in Appointment_Panel.Controls)
+                    //{
+                    //    if (yLocStart < control.Location.Y + 99 && control.Location.Y < yLocEnd + 50)
+                    //    {
+                    //        MessageBox.Show("Overlapse");
+                    //        return null; // return null if theres an overlapping appointment
+                    //    }
+                    //    else
+                    //    {
+                    
+                    return i;
+                        //}
+                       
+                    //}
+                }
+            }
+
+            return -1;
+        }
+
+        private void Appointment_Panel_MouseClick(object sender, MouseEventArgs e)
+        {
+
+                GlobalVariable.dentApp = getDentist(e.X - Appointment_Panel.AutoScrollPosition.X);
+                GlobalVariable.timeApp = getTime(e.Y - Appointment_Panel.AutoScrollPosition.Y);
+                GlobalVariable.DateApp = getDate(e.X - Appointment_Panel.AutoScrollPosition.X);
+            if (GlobalVariable.timeApp > 16) GlobalVariable.timeApp = 16; // do not allow 5:30pm app because it will be arr out of bounds
+
+            if (GlobalVariable.dentApp >= 0 && GlobalVariable.timeApp >= 0)
+            {
+                //  MessageBox.Show(timeApp);
+                switch (e.Button)
+                {
+                    case MouseButtons.Left:
+                        DialogResult appResult = MessageBox.Show("Create Appointment ?", "Appointment", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (appResult == DialogResult.Yes)
+                        {
+                            if (GlobalVariable.isAddAppointment == false)
+                            {
+                                AddAppointment addAppointment = new AddAppointment();
+                                GlobalVariable.isAddAppointment = true;
+                                addAppointment.ShowDialog();
+                            }
+                        }
+
+                        break;
+
+                    case MouseButtons.Right:
+                        DialogResult exceptionResult = MessageBox.Show("Create Exception Appointment?", "Appointment Exception", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (exceptionResult == DialogResult.Yes)
+                        {
+                            if (GlobalVariable.isAddAppException == false)
+                            {
+                                AddException addException = new AddException();
+                                GlobalVariable.isAddAppException = true;
+                                addException.ShowDialog();
+                            }
+                        }
+                            break;
+                }
+
+            }
+
+        }
+
         public void ShowAppointment(string date)
         {
             string Appquery = string.Empty, ApExceptquery = string.Empty;
@@ -439,8 +599,8 @@ namespace _846DentalClinicManagementSystem
 
             if (WeekSwitch.Value == false)
             {
-                //if (ViewAllSwitch.Value == true)
-                //{
+                if (ViewAllSwitch.Value == true)
+                {
                     Appquery = "SELECT a.AppointmentID AS No, CONCAT(a.Appointment_LName, ', ', a.Appointment_FName, ' ', a.Appointment_MName) AS Patient_Name, " +
                      "a.EmployeeID_fk,p.Treatment,a.Status, a.StartTime, a.AppointmentDate,a.Appointment_Contact FROM Appointment a INNER JOIN[PatientTreatment] p " +
                      "ON AppointmentID = AppointmentID_fk INNER JOIN[Employee] e ON e.EmployeeId = a.EmployeeID_fk " +
@@ -454,27 +614,27 @@ namespace _846DentalClinicManagementSystem
                     cmd2 = new SqlCommand(ApExceptquery, sqlcon);
                     cmd2.Parameters.Clear();
                     cmd2.Parameters.AddWithValue("@date", date);
-                //}
-                //else
-                //{
-                    
-
-                //    Appquery = "SELECT a.AppointmentID AS No, CONCAT(a.Appointment_LName, ', ', a.Appointment_FName, ' ', a.Appointment_MName) AS Patient_Name, " +
-                //   "a.EmployeeID_fk,p.Treatment,a.Status, a.StartTime, a.AppointmentDate,a.Appointment_Contact FROM Appointment a INNER JOIN[PatientTreatment] p " +
-                //   "ON AppointmentID = AppointmentID_fk INNER JOIN[Employee] e ON e.EmployeeId = a.EmployeeID_fk " +
-                //   "WHERE AppointmentDate = @date AND NOT a.Status ='CANCELLED' AND a.EmployeeID_fk = @empID ORDER BY RefTime ASC";
-                //    cmd = new SqlCommand(Appquery, sqlcon);
-                //    cmd.Parameters.Clear();
-                //    cmd.Parameters.AddWithValue("@date", date);
-                //    cmd.Parameters.AddWithValue("@empID", GlobalVariable.EmployeeID);
+                }
+                else
+                {
 
 
-                //    ApExceptquery = "SELECT * FROM [AppointmentException] WHERE Date = @date AND NOT Status ='CANCELLED' AND EmployeeId_fk = @empID ORDER BY RefTime ASC";
-                //    cmd2 = new SqlCommand(ApExceptquery, sqlcon);
-                //    cmd2.Parameters.Clear();
-                //    cmd2.Parameters.AddWithValue("@date", date);
-                //    cmd2.Parameters.AddWithValue("@empID", GlobalVariable.EmployeeID);
-                //}
+                    Appquery = "SELECT a.AppointmentID AS No, CONCAT(a.Appointment_LName, ', ', a.Appointment_FName, ' ', a.Appointment_MName) AS Patient_Name, " +
+                   "a.EmployeeID_fk,p.Treatment,a.Status, a.StartTime, a.AppointmentDate,a.Appointment_Contact FROM Appointment a INNER JOIN[PatientTreatment] p " +
+                   "ON AppointmentID = AppointmentID_fk INNER JOIN[Employee] e ON e.EmployeeId = a.EmployeeID_fk " +
+                   "WHERE AppointmentDate = @date AND NOT a.Status ='CANCELLED' AND a.EmployeeID_fk = @empID ORDER BY RefTime ASC";
+                    cmd = new SqlCommand(Appquery, sqlcon);
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@date", date);
+                    cmd.Parameters.AddWithValue("@empID", GlobalVariable.EmployeeID);
+
+
+                    ApExceptquery = "SELECT * FROM [AppointmentException] WHERE Date = @date AND NOT Status ='CANCELLED' AND EmployeeId_fk = @empID ORDER BY RefTime ASC";
+                    cmd2 = new SqlCommand(ApExceptquery, sqlcon);
+                    cmd2.Parameters.Clear();
+                    cmd2.Parameters.AddWithValue("@date", date);
+                    cmd2.Parameters.AddWithValue("@empID", GlobalVariable.EmployeeID);
+                }
 
 
 
@@ -493,8 +653,8 @@ namespace _846DentalClinicManagementSystem
                 betweenDate = betweenDate.AddDays(6);
                 date2 = betweenDate.ToShortDateString();
 
-                //if(ViewAllSwitch.Value == true)
-                //{
+                if (ViewAllSwitch.Value == true)
+                {
                     Appquery = "SELECT a.AppointmentID AS No, CONCAT(a.Appointment_LName, ', ', a.Appointment_FName, ' ', a.Appointment_MName) AS Patient_Name, " +
                     "a.EmployeeID_fk,p.Treatment,a.Status, a.StartTime, a.AppointmentDate,a.Appointment_Contact FROM Appointment a INNER JOIN[PatientTreatment] p " +
                     "ON AppointmentID = AppointmentID_fk INNER JOIN[Employee] e ON e.EmployeeId = a.EmployeeID_fk " +
@@ -509,31 +669,31 @@ namespace _846DentalClinicManagementSystem
                     cmd2.Parameters.Clear();
                     cmd2.Parameters.AddWithValue("@date", date);
                     cmd2.Parameters.AddWithValue("@date2", date2);
-                    
-                //}
-                //else
-                //{
+
+                }
+                else
+                {
 
 
-                //    Appquery = "SELECT a.AppointmentID AS No, CONCAT(a.Appointment_LName, ', ', a.Appointment_FName, ' ', a.Appointment_MName) AS Patient_Name, " +
-                //    "a.EmployeeID_fk,p.Treatment,a.Status, a.StartTime, a.AppointmentDate,a.Appointment_Contact FROM Appointment a INNER JOIN[PatientTreatment] p " +
-                //    "ON AppointmentID = AppointmentID_fk INNER JOIN[Employee] e ON e.EmployeeId = a.EmployeeID_fk " +
-                //    "WHERE e.JobTitle = 'Dentist' AND NOT a.Status ='CANCELLED' AND AppointmentDate BETWEEN @date AND @date2 AND a.EmployeeID_fk = @empID ORDER BY RefTime ASC";
-                //    cmd = new SqlCommand(Appquery, sqlcon);
-                //    cmd.Parameters.Clear();
-                //    cmd.Parameters.AddWithValue("@date", date);
-                //    cmd.Parameters.AddWithValue("@date2", date2);
-                //    cmd.Parameters.AddWithValue("@empID", GlobalVariable.EmployeeID);
+                    Appquery = "SELECT a.AppointmentID AS No, CONCAT(a.Appointment_LName, ', ', a.Appointment_FName, ' ', a.Appointment_MName) AS Patient_Name, " +
+                    "a.EmployeeID_fk,p.Treatment,a.Status, a.StartTime, a.AppointmentDate,a.Appointment_Contact FROM Appointment a INNER JOIN[PatientTreatment] p " +
+                    "ON AppointmentID = AppointmentID_fk INNER JOIN[Employee] e ON e.EmployeeId = a.EmployeeID_fk " +
+                    "WHERE e.JobTitle = 'Dentist' AND NOT a.Status ='CANCELLED' AND AppointmentDate BETWEEN @date AND @date2 AND a.EmployeeID_fk = @empID ORDER BY RefTime ASC";
+                    cmd = new SqlCommand(Appquery, sqlcon);
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@date", date);
+                    cmd.Parameters.AddWithValue("@date2", date2);
+                    cmd.Parameters.AddWithValue("@empID", GlobalVariable.EmployeeID);
 
-                //    ApExceptquery = "SELECT * FROM [AppointmentException] WHERE Date BETWEEN @date AND @date2 AND NOT Status ='CANCELLED' AND EmployeeId_fk = @empID ORDER BY RefTime ASC";
-                //    cmd2 = new SqlCommand(ApExceptquery, sqlcon);
-                //    cmd2.Parameters.Clear();
-                //    cmd2.Parameters.AddWithValue("@date", date);
-                //    cmd2.Parameters.AddWithValue("@date2", date2);
-                //    cmd2.Parameters.AddWithValue("@empID", GlobalVariable.EmployeeID);
-                //}
+                    ApExceptquery = "SELECT * FROM [AppointmentException] WHERE Date BETWEEN @date AND @date2 AND NOT Status ='CANCELLED' AND EmployeeId_fk = @empID ORDER BY RefTime ASC";
+                    cmd2 = new SqlCommand(ApExceptquery, sqlcon);
+                    cmd2.Parameters.Clear();
+                    cmd2.Parameters.AddWithValue("@date", date);
+                    cmd2.Parameters.AddWithValue("@date2", date2);
+                    cmd2.Parameters.AddWithValue("@empID", GlobalVariable.EmployeeID);
+                }
 
-               
+
 
                 ControlsCount = 8;
             }
@@ -660,9 +820,9 @@ namespace _846DentalClinicManagementSystem
             this.Appointment_Panel.Controls.Add(appointment);
 
             Label namee = new Label();
-            namee.Text = "Not Available";
+            namee.Text = "Not Available" + Environment.NewLine + reason;
             namee.ForeColor = Color.White;
-            namee.Size = new Size(labelWidth, 20);
+            namee.Size = new Size(labelWidth, 50);
             namee.Font = new Font("Microsoft Sans Serif", nameTextSize, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             appointment.Controls.Add(namee);
 
@@ -862,19 +1022,19 @@ namespace _846DentalClinicManagementSystem
             DataTable dt = new DataTable();
             SqlCommand cmd = new SqlCommand();
 
-            //if (ViewAllSwitch.Value == true)
-            //{
+            if (ViewAllSwitch.Value == true)
+            {
                 query = "SELECT EmployeeID,CONCAT(FirstName , ' ', Lastname)  FROM Employee Where JobTitle = 'Dentist' AND Status = 'Active' ORDER BY EmployeeID ASC";
                 cmd = new SqlCommand(query, sqlcon);
-            //}
-            //else
-            //{
+            }
+            else
+            {
 
-            //    query = "SELECT EmployeeID,CONCAT(FirstName , ' ', Lastname)  FROM Employee Where JobTitle = 'Dentist' AND EmployeeId = @employeeID ORDER BY EmployeeID ASC";
-            //    cmd = new SqlCommand(query, sqlcon);
-            //    cmd.Parameters.AddWithValue("@employeeID", GlobalVariable.EmployeeID);
-            //}
-           
+                query = "SELECT EmployeeID,CONCAT(FirstName , ' ', Lastname)  FROM Employee Where JobTitle = 'Dentist' AND EmployeeId = @employeeID ORDER BY EmployeeID ASC";
+                cmd = new SqlCommand(query, sqlcon);
+                cmd.Parameters.AddWithValue("@employeeID", GlobalVariable.EmployeeID);
+            }
+
 
             adapter.SelectCommand = cmd;
             if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
@@ -1262,8 +1422,9 @@ namespace _846DentalClinicManagementSystem
             AppointmentHeader_Panel.HorizontalScroll.Maximum = Appointment_Panel.HorizontalScroll.Maximum;
             AppointmentHeader_Panel.HorizontalScroll.Minimum = Appointment_Panel.HorizontalScroll.Minimum;
             AppTimePanel.AutoScroll = false;
-            WeekSwitch.Value = true;
-            WeekSwitch.Value = false;
+            AppointmentHeader_Panel.AutoScroll = false;
+            //WeekSwitch.Value = true;
+            //WeekSwitch.Value = false;
 
         }
 
@@ -1308,9 +1469,11 @@ namespace _846DentalClinicManagementSystem
 
         private void WeekSwitch_OnValueChange(object sender, EventArgs e)
         {
-
+            
             DrawAppointmentTable();
             ShowAppointment(SearchAppByDate_DP.Value.ToString("M/d/yyyy"));
+            AppointmentHeader_Panel.AutoScroll = true;
+
             AppointmentHeader_Panel.AutoScroll = false;
             //  AppointmentHeader_Panel.AutoScroll = false;
 
@@ -1318,9 +1481,10 @@ namespace _846DentalClinicManagementSystem
         }
         private void ViewAllSwitch_OnValueChange(object sender, EventArgs e)
         {
-            //DrawAppointmentTable();
-            //ShowAppointment(SearchAppByDate_DP.Value.ToString("M/d/yyyy"));
-          // AppointmentHeader_Panel.AutoScroll = false;
+            DrawAppointmentTable();
+            ShowAppointment(SearchAppByDate_DP.Value.ToString("M/d/yyyy"));
+            AppointmentHeader_Panel.AutoScroll = true;
+            AppointmentHeader_Panel.AutoScroll = false;
         }
 
 
@@ -1333,10 +1497,12 @@ namespace _846DentalClinicManagementSystem
             
             // Console.WriteLine("Vertical = " + Appointment_Panel.VerticalScroll.Value);
         }
+
+
         private void Appointment_Panel_MouseMove(object sender, MouseEventArgs e)
         {
             AppTimePanel.AutoScrollPosition = new Point(0, Appointment_Panel.VerticalScroll.Value);
-
+            AppointmentHeader_Panel.AutoScrollPosition = new Point(Appointment_Panel.HorizontalScroll.Value, 0);
         }
 
 
@@ -2439,7 +2605,7 @@ namespace _846DentalClinicManagementSystem
             DisplayEmployeeDataGrid("");
         }
 
-       
+     
 
         private void btn_RestoreLogs_Click(object sender, EventArgs e)
         {

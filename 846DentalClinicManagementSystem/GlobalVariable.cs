@@ -14,7 +14,7 @@ namespace _846DentalClinicManagementSystem
 {
     class GlobalVariable
     {
-       // public static string connString => ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        public static string connString => ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
        // public static SqlConnection sqlcon = new SqlConnection(connString);
 
@@ -26,7 +26,7 @@ namespace _846DentalClinicManagementSystem
 
         private static string chart = projectDirectory + @"\Data\ISADDATABASEFINAL.mdf";
 
-      public static string connString = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=" + chart + ";Integrated Security = True";
+        // public static string connString = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=" + chart + ";Integrated Security = True";
 
         public static string chartImagePath = projectDirectory + @"\Resources\DentalChart2.bmp";
 
@@ -86,9 +86,17 @@ namespace _846DentalClinicManagementSystem
 
         public static string changePassName { get; set; }
 
+        //for click appointment variables
+        public static  DateTime DateApp { get; set; }
+
+        public static int timeApp { get; set; }
+
+        public static int dentApp  { get; set; }
+        //-------------------------------------
 
 
-        public static void InsertActivityLog(string Description, string method)
+
+    public static void InsertActivityLog(string Description, string method)
         {
             SqlConnection sqlcon = new SqlConnection(connString);
             string ip = GetLocalIP();

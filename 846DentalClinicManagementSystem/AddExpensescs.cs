@@ -109,7 +109,6 @@ namespace _846DentalClinicManagementSystem
         {
             var main = Application.OpenForms.OfType<MainForm>().First();
             main.Report();
-
             GlobalVariable.isAddExpense = false;
             GlobalVariable.isEditExpense = false;
             this.Hide();
