@@ -50,6 +50,7 @@ namespace _846DentalClinicManagementSystem
                     initializeTeethOperation();
                     TeethArray.Clear();
                     RetrievePatientTeethStatus();
+                    declareToolTip();
                     GlobalVariable.InsertActivityLog("Viewed Tooth Chart, Patient ID = " + GlobalVariable.PatientID, "View");
 
                 }
@@ -92,6 +93,14 @@ namespace _846DentalClinicManagementSystem
                     GlobalVariable.InsertActivityLog("Viewed Dentist Notes, Patient ID = " + GlobalVariable.PatientID, "View");
                 }
             }
+
+        }
+
+        private void declareToolTip()
+        {
+            ToolTip ToolTip1 = new ToolTip();
+            ToolTip1.SetToolTip(this.TeethPanel1, "Hello");
+            ToolTip1.SetToolTip(this.TeethPanel2, "Hellodasda");
 
         }
 
@@ -1786,6 +1795,14 @@ namespace _846DentalClinicManagementSystem
         {
             this.Hide();
         }
+
+        private void btn_PrintPrescription_Click(object sender, EventArgs e)
+        {
+            AddPrescription addPrescription = new AddPrescription();
+            addPrescription.ShowDialog();
+        }
+
+
 
 
         //-Experimental ------------------------------------
