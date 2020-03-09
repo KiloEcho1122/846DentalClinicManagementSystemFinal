@@ -96,7 +96,7 @@ namespace _846DentalClinicManagementSystem
         }
 
         SqlConnection sqlcon = new SqlConnection(GlobalVariable.connString);
-        Boolean NoteIsEdit;
+      //  Boolean NoteIsEdit;
        
         // Inside each polygon - it determines the clickable part of the shape to change its fill color 
         Rectangle TopRectangle = new Rectangle(10, 0, 10, 10);
@@ -900,7 +900,7 @@ namespace _846DentalClinicManagementSystem
 
         private void Savenotes(string id)
         {
-            string txt ="", date = "";
+            string txt ="";
 
             if (GlobalVariable.Permission == "Admin" || GlobalVariable.JobTitle == "Dentist")
             {

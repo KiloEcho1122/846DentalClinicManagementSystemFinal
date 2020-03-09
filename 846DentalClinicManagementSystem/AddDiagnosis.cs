@@ -80,6 +80,13 @@ namespace _846DentalClinicManagementSystem
 
             }catch(Exception ex) { Console.WriteLine(ex.Message); }
 
+            string treatment = string.Empty;
+            foreach(string item in TreatmentList.Items)
+            {
+                treatment += item + " , "; //concatenate treatment list to string
+            }
+
+            treatment = treatment.Remove(treatment.Length - 3); //remove spaces and comma
 
             dt1.Rows.Add(
                 PatientTable.Rows[0][0].ToString(),
@@ -90,7 +97,7 @@ namespace _846DentalClinicManagementSystem
                 DentistTable.Rows[0][1].ToString(),
                 txt_Diagnosis.Text.Trim(),
                 txt_Findings.Text.Trim(),
-                Treatment_CB.Text.Trim(),
+                treatment,
                 GlobalVariable.chartImagePath
                 // DentistTable.Rows[0][2].ToString()
                 );
@@ -116,7 +123,7 @@ namespace _846DentalClinicManagementSystem
             {
                 if (string.IsNullOrWhiteSpace(txt_Findings.Text) == false)
                 {
-                    if (Treatment_CB.Text != "Select Treatment")
+                    if (TreatmentList.Items.Count > 0)
                     {
                         InsertToDataTable();
                         GlobalVariable.InsertActivityLog("Printed Dental Certificate, Patient ID = " + GlobalVariable.PatientID, "Print");
@@ -132,6 +139,33 @@ namespace _846DentalClinicManagementSystem
         private void lbl_Close_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void Treatment_CB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (TreatmentList.Items.Contains(Treatment_CB.SelectedItem) == false)
+            {
+                TreatmentList.Items.Add(Treatment_CB.SelectedItem.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Treatment is already selected !");
+            }
+        }
+
+        private void btn_Remove_Click(object sender, EventArgs e)
+        {
+            if (TreatmentList.SelectedIndex > -1)
+            {
+                DialogResult result = MessageBox.Show("Remove " + TreatmentList.SelectedItem + " ?", "Remove Treatment", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+
+                    TreatmentList.Items.RemoveAt(TreatmentList.SelectedIndex);
+
+                }
+            }
         }
     }
 }

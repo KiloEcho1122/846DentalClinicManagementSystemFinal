@@ -773,7 +773,7 @@ namespace _846DentalClinicManagementSystem
             int labelWidth = 260;
             int FlowPanelWidth = 298;
             int FlowPanelHeight = AppExceptionHeight(StartTime, EndTime);
-            Single nameTextSize = 12.25F, treatmentTextSize = 11.25F;
+            Single nameTextSize = 12.25F;
 
             if (WeekSwitch.Value == false)
             {
@@ -794,7 +794,7 @@ namespace _846DentalClinicManagementSystem
                 labelWidth = 110;
                 FlowPanelWidth = 148;
                 nameTextSize = 10.25F;
-                treatmentTextSize = 9.25F;
+             
 
             }
 

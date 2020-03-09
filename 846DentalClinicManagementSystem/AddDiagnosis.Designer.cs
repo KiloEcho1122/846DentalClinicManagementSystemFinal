@@ -50,6 +50,8 @@
             this.Treatment_CB = new System.Windows.Forms.ComboBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btn_PrintCer = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.TreatmentList = new System.Windows.Forms.ListBox();
+            this.btn_Remove = new Bunifu.Framework.UI.BunifuFlatButton();
             this.TopPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.TreatmentDropDownPanel.SuspendLayout();
@@ -277,6 +279,7 @@
             this.Treatment_CB.Size = new System.Drawing.Size(303, 25);
             this.Treatment_CB.TabIndex = 30;
             this.Treatment_CB.Text = "Select Treatment";
+            this.Treatment_CB.SelectedIndexChanged += new System.EventHandler(this.Treatment_CB_SelectedIndexChanged);
             // 
             // panel5
             // 
@@ -308,7 +311,7 @@
             this.btn_PrintCer.IconVisible = true;
             this.btn_PrintCer.IconZoom = 90D;
             this.btn_PrintCer.IsTab = false;
-            this.btn_PrintCer.Location = new System.Drawing.Point(305, 200);
+            this.btn_PrintCer.Location = new System.Drawing.Point(305, 264);
             this.btn_PrintCer.Name = "btn_PrintCer";
             this.btn_PrintCer.Normalcolor = System.Drawing.Color.DarkGray;
             this.btn_PrintCer.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
@@ -322,11 +325,59 @@
             this.btn_PrintCer.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btn_PrintCer.Click += new System.EventHandler(this.btn_PrintCer_Click);
             // 
+            // TreatmentList
+            // 
+            this.TreatmentList.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TreatmentList.FormattingEnabled = true;
+            this.TreatmentList.ItemHeight = 17;
+            this.TreatmentList.Location = new System.Drawing.Point(134, 187);
+            this.TreatmentList.Name = "TreatmentList";
+            this.TreatmentList.Size = new System.Drawing.Size(304, 72);
+            this.TreatmentList.TabIndex = 96;
+            // 
+            // btn_Remove
+            // 
+            this.btn_Remove.Activecolor = System.Drawing.Color.DarkGray;
+            this.btn_Remove.BackColor = System.Drawing.Color.DarkGray;
+            this.btn_Remove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Remove.BorderRadius = 0;
+            this.btn_Remove.ButtonText = "REMOVE";
+            this.btn_Remove.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Remove.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_Remove.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Remove.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_Remove.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_Remove.Iconimage")));
+            this.btn_Remove.Iconimage_right = null;
+            this.btn_Remove.Iconimage_right_Selected = null;
+            this.btn_Remove.Iconimage_Selected = null;
+            this.btn_Remove.IconMarginLeft = 0;
+            this.btn_Remove.IconMarginRight = 0;
+            this.btn_Remove.IconRightVisible = true;
+            this.btn_Remove.IconRightZoom = 0D;
+            this.btn_Remove.IconVisible = true;
+            this.btn_Remove.IconZoom = 90D;
+            this.btn_Remove.IsTab = false;
+            this.btn_Remove.Location = new System.Drawing.Point(143, 264);
+            this.btn_Remove.Name = "btn_Remove";
+            this.btn_Remove.Normalcolor = System.Drawing.Color.DarkGray;
+            this.btn_Remove.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            this.btn_Remove.OnHoverTextColor = System.Drawing.Color.Black;
+            this.btn_Remove.selected = false;
+            this.btn_Remove.Size = new System.Drawing.Size(156, 33);
+            this.btn_Remove.TabIndex = 97;
+            this.btn_Remove.Text = "REMOVE";
+            this.btn_Remove.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Remove.Textcolor = System.Drawing.Color.Black;
+            this.btn_Remove.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Remove.Click += new System.EventHandler(this.btn_Remove_Click);
+            // 
             // AddDiagnosis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(473, 263);
+            this.ClientSize = new System.Drawing.Size(473, 320);
+            this.Controls.Add(this.btn_Remove);
+            this.Controls.Add(this.TreatmentList);
             this.Controls.Add(this.btn_PrintCer);
             this.Controls.Add(this.TreatmentDropDownPanel);
             this.Controls.Add(this.bunifuCustomLabel2);
@@ -371,5 +422,7 @@
         private System.Windows.Forms.ComboBox Treatment_CB;
         private Bunifu.Framework.UI.BunifuFlatButton btn_PrintCer;
         private System.Windows.Forms.Label lbl_Close;
+        private Bunifu.Framework.UI.BunifuFlatButton btn_Remove;
+        private System.Windows.Forms.ListBox TreatmentList;
     }
 }
