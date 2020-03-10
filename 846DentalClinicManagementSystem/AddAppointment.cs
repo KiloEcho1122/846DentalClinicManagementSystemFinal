@@ -172,7 +172,9 @@ namespace _846DentalClinicManagementSystem
                                             {
                                                 insertAppointmentToDB();
                                                 GlobalVariable.isAddAppointment = false;
-                                                if(main.SearchAppByDate_DP.Value == DP_date.Value)
+                                                GlobalVariable.dentApp = -1;
+                                                GlobalVariable.timeApp = -1;
+                                                if (main.SearchAppByDate_DP.Value == DP_date.Value)
                                                 {
                                                     main.RefreshAppointmentView();
                                                 }
@@ -877,6 +879,8 @@ namespace _846DentalClinicManagementSystem
             this.Hide();
             GlobalVariable.isEditAppointment = false;
             GlobalVariable.isAddAppointment = false;
+            GlobalVariable.dentApp = -1;
+            GlobalVariable.timeApp = -1;
         }
 
 
