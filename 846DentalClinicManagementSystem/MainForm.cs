@@ -1966,7 +1966,7 @@ namespace _846DentalClinicManagementSystem
 
             xlWorkSheet.Rows["6:6"].RowHeight = 25;
             //format excel -- profit area
-            xlWorkSheet.Cells[6, 1].Formula = "Profit";
+            xlWorkSheet.Cells[6, 1].Formula = "Revenue";
             CR = xlWorkSheet.Range["A6:C6"];
             CR.Select();
             CR.MergeCells = true;
@@ -2036,7 +2036,7 @@ namespace _846DentalClinicManagementSystem
             CR.Formula = "=SUM(G7:G" + lastusedRow + ")";
 
             CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[lastusedRow + 3, 6];
-            CR.Value = "Gross :";
+            CR.Value = "Profit :";
             CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[lastusedRow + 3, 7];
             CR.Formula = "=C" + (lastusedRow + 2) + " - G" + (lastusedRow + 2);
             GlobalVariable.InsertActivityLog("Exported Report to Excel", "Export");
