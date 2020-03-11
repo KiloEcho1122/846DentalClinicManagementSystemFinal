@@ -402,6 +402,16 @@ namespace _846DentalClinicManagementSystem
 
         private void btn_Print_Click(object sender, EventArgs e)
         {
+  
+            PrintPrescription();
+            addPrescriptionToDatabase();
+            var ShowPatientInfo = Application.OpenForms.OfType<ShowPatientInfo>().First();
+            ShowPatientInfo.LoadTreatmentHistory();
+            this.Hide();
+        }
+
+        private void PrintPrescription()
+        {
             DataSet1.dtDataDataTable dt1 = new DataSet1.dtDataDataTable();
 
             DataTable PatientTable = new DataTable();
@@ -460,12 +470,12 @@ namespace _846DentalClinicManagementSystem
             PrescriptionTable.Columns.Add("Description", typeof(string));
 
 
-            for(int i = 0; i < PrevList.Items.Count;i++)
+            for (int i = 0; i < PrevList.Items.Count; i++)
             {
                 string str = PrevList.Items[i].ToString();
                 string[] tokens = str.Split(new[] { " - " }, StringSplitOptions.None);
 
-                if(tokens.Length == 3)
+                if (tokens.Length == 3)
                 {
                     PrescriptionTable.Rows.Add(
                    i + 1 + ")   " + tokens[1],
@@ -476,11 +486,11 @@ namespace _846DentalClinicManagementSystem
                 else
                 {
                     PrescriptionTable.Rows.Add(
-                  i + ")   " + tokens[1],
+                  i + 1 + ")   " + tokens[1],
                   "#" + tokens[0]
                   );
                 }
-               
+
 
             }
 
@@ -495,6 +505,31 @@ namespace _846DentalClinicManagementSystem
             accounting.Dispose();
         }
 
-        
+        private void addPrescriptionToDatabase()
+        {
+            string FullPrescription = String.Empty;
+            foreach(var items in PrevList.Items)
+            {
+                FullPrescription += items.ToString() + ",";
+            }
+            FullPrescription = FullPrescription.Remove(FullPrescription.Length - 1);
+
+            SqlCommand cmd = new SqlCommand(
+                "UPDATE PatientTreatment SET Prescription = @Prescription WHERE PatientTreatmentID = " +
+                "(SELECT TOP 1 PatientTreatmentID FROM PatientTreatment WHERE PatientID_fk = @PatientID ORDER BY PatientTreatmentID DESC)", sqlcon); // update the recent patient treatment
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@Prescription", FullPrescription);
+            cmd.Parameters.AddWithValue("@PatientID", GlobalVariable.PatientID);
+            try
+            {
+                if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+                cmd.ExecuteNonQuery();
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                sqlcon.Close();
+            }
+            sqlcon.Close();
+        }
     }
 }

@@ -1193,13 +1193,13 @@ namespace _846DentalClinicManagementSystem
         //-------------------------------------------------------------------------------------------------------------------------------
         //Treatment History
 
-        private void LoadTreatmentHistory()
+        public void LoadTreatmentHistory()
         {
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable dt = new DataTable();
             SqlCommand cmd = new SqlCommand(
-                "SELECT a.AppointmentID,a.AppointmentDate As Date,CONCAT(a.StartTime, ' - ', a.EndTime) AS Time, " +
-                "p.Treatment,CONCAT(e.FirstName, ' ', e.LastName) AS Dentist, a.Status " +
+                "SELECT a.AppointmentID As ID,a.AppointmentDate As Date,CONCAT(a.StartTime, ' - ', a.EndTime) AS Time, " +
+                "p.Treatment,CONCAT(e.FirstName, ' ', e.LastName) AS Dentist, a.Status, p.Prescription " +
                 "FROM Appointment a INNER JOIN PatientTreatment p ON a.AppointmentID = p.AppointmentID_fk " +
                 "INNER JOIN Employee e ON a.EmployeeID_fk = e.EmployeeId WHERE p.PatientID_fk = @PatientID AND a.Status = 'COMPLETED'", sqlcon);
             cmd.Parameters.Clear();
@@ -1212,10 +1212,21 @@ namespace _846DentalClinicManagementSystem
                 if (dt.Rows.Count > 0)
                 {
                     //replace comma "," with line break
-                    dt.Rows[0][3] = dt.Rows[0][3].ToString().Replace(",", Environment.NewLine);
+                    for(int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        dt.Rows[i][3] = dt.Rows[i][3].ToString().Replace(",", Environment.NewLine);
+                        dt.Rows[i][6] = dt.Rows[i][6].ToString().Replace(",", Environment.NewLine);
+                    }
+                   
                 }
                 TreatmentHistory_DG.DataSource = dt;
-
+                TreatmentHistory_DG.Columns[0].Width = 40;
+                TreatmentHistory_DG.Columns[1].Width = 100;
+                TreatmentHistory_DG.Columns[2].Width = 210;
+                TreatmentHistory_DG.Columns[3].Width = 300;
+                TreatmentHistory_DG.Columns[4].Width = 150;
+                TreatmentHistory_DG.Columns[5].Width = 100;
+                TreatmentHistory_DG.Columns[6].Width = 500;
                 TreatmentHistory_DG.Columns[1].DefaultCellStyle.Format = "M/d/yyyy";
 
 
@@ -1760,28 +1771,35 @@ namespace _846DentalClinicManagementSystem
             {
                 if (PaymentHistory_DataGrid.SelectedRows.Count > 0)
                 {
+                    DialogResult result = MessageBox.Show("Are you sure you want to cancel this payment ?"
+                                 , "Payment ID : " + PaymentHistory_DataGrid.SelectedRows[0].Cells[0].Value, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
 
-                    SqlCommand cmd = new SqlCommand(
-                    "UPDATE Payment SET Status = 'Canceled', EmployeeID_fk = @EmployeeID WHERE PaymentID = @PaymentID", sqlcon);
-
-                    cmd.Parameters.Clear();
-                    cmd.Parameters.AddWithValue("@EmployeeID", GlobalVariable.EmployeeID);
-                    cmd.Parameters.AddWithValue("@PaymentID", (int)(PaymentHistory_DataGrid.SelectedRows[0].Cells[0].Value));
-
-                    if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
-                    try
+                    if (result == DialogResult.Yes)
                     {
-                        cmd.ExecuteNonQuery();
-                        UpdateBalanceAfterPayment();
-                        ShowPaymentHistory();
-                        GlobalVariable.InsertActivityLog("Cancelled Payment on Billing ID = " + GlobalVariable.BillingID + " Payment ID = " + PaymentHistory_DataGrid.SelectedRows[0].Cells[0].Value.ToString(), "Cancel");
-                        if (paymentID.Count > 0) { UpdateBillingAfterPayment(); }
-                        ShowBilling();
-                        paymentID.Clear();
+                        SqlCommand cmd = new SqlCommand(
+                        "UPDATE Payment SET Status = 'Canceled', EmployeeID_fk = @EmployeeID WHERE PaymentID = @PaymentID", sqlcon);
+
+                        cmd.Parameters.Clear();
+                        cmd.Parameters.AddWithValue("@EmployeeID", GlobalVariable.EmployeeID);
+                        cmd.Parameters.AddWithValue("@PaymentID", (int)(PaymentHistory_DataGrid.SelectedRows[0].Cells[0].Value));
+
+                        if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+                        try
+                        {
+                            cmd.ExecuteNonQuery();
+                            UpdateBalanceAfterPayment();
+                            ShowPaymentHistory();
+                            GlobalVariable.InsertActivityLog("Cancelled Payment on Billing ID = " + GlobalVariable.BillingID + " Payment ID = " + PaymentHistory_DataGrid.SelectedRows[0].Cells[0].Value.ToString(), "Cancel");
+                            if (paymentID.Count > 0) { UpdateBillingAfterPayment(); }
+                            ShowBilling();
+                            paymentID.Clear();
+
+                        }
+                        catch (Exception ex) { Console.WriteLine(ex.Message); }
+                        sqlcon.Close();
 
                     }
-                    catch (Exception ex) { Console.WriteLine(ex.Message); }
-                    sqlcon.Close();
+                     
                 }
 
             }
@@ -1798,9 +1816,17 @@ namespace _846DentalClinicManagementSystem
 
         private void btn_PrintPrescription_Click(object sender, EventArgs e)
         {
-            AddPrescription addPrescription = new AddPrescription();
-            addPrescription.ShowDialog();
+            if(TreatmentHistory_DG.Rows.Count > 0)
+            {
+                AddPrescription addPrescription = new AddPrescription();
+                addPrescription.ShowDialog();
+            }
+            
         }
+
+
+
+
 
 
 
