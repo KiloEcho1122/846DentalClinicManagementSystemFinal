@@ -50,7 +50,6 @@ namespace _846DentalClinicManagementSystem
                     initializeTeethOperation();
                     TeethArray.Clear();
                     RetrievePatientTeethStatus();
-                    declareToolTip();
                     GlobalVariable.InsertActivityLog("Viewed Tooth Chart, Patient ID = " + GlobalVariable.PatientID, "View");
 
                 }
@@ -96,13 +95,6 @@ namespace _846DentalClinicManagementSystem
 
         }
 
-        private void declareToolTip()
-        {
-            ToolTip ToolTip1 = new ToolTip();
-            ToolTip1.SetToolTip(this.TeethPanel1, "Hello");
-            ToolTip1.SetToolTip(this.TeethPanel2, "Hellodasda");
-
-        }
 
         SqlConnection sqlcon = new SqlConnection(GlobalVariable.connString);
       //  Boolean NoteIsEdit;
@@ -678,11 +670,12 @@ namespace _846DentalClinicManagementSystem
         {
            
             SqlCommand cmd = new SqlCommand(
-                "Insert Into [PatientTeeth] (PatientID_fk,TeethID_fk) " +
-                "Values(@PatientID_fk,@TeethID_fk) ", sqlcon);
+                "Insert Into [PatientTeeth] (PatientID_fk,TeethID_fk,EmployeeID_fk) " +
+                "Values(@PatientID_fk,@TeethID_fk,@EmployeeID_fk) ", sqlcon);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@PatientID_fk", PatientID);
             cmd.Parameters.AddWithValue("@TeethID_fk", TeethID_fk);
+            cmd.Parameters.AddWithValue("@EmployeeID_fk", GlobalVariable.EmployeeID);
 
             if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
             try
@@ -754,9 +747,29 @@ namespace _846DentalClinicManagementSystem
             }
 
             sqlcon.Close();
+            UpdatePatientTeeth(TeethID);
         }
 
- 
+        private void UpdatePatientTeeth(int TeethID)
+        {
+            SqlCommand cmd = new SqlCommand(
+                "UPDATE [PatientTeeth] SET EmployeeID_fk = @EmployeeID_fk", sqlcon);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@EmployeeID_fk", GlobalVariable.EmployeeID);
+
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            sqlcon.Close();
+        }
+
         private void RetrievePatientTeethStatus()
         {
             int teethNumber = 0;
@@ -766,8 +779,8 @@ namespace _846DentalClinicManagementSystem
             DataTable dt = new DataTable();
             SqlCommand cmd = new SqlCommand(
                     "SELECT TeethNumber, TeethTop, TeethBottom, TeethRight," +
-                    "TeethLeft,TeethCenter FROM Teeth INNER JOIN [PatientTeeth] " +
-                    "ON TeethID = TeethID_fk WHERE PatientID_fk = @PatientID", sqlcon);
+                    "TeethLeft,TeethCenter,EditDate, CONCAT(e.FirstName, ' ',e.LastName) FROM Teeth INNER JOIN PatientTeeth p " +
+                    "ON TeethID = TeethID_fk INNER JOIN Employee e ON p.EmployeeID_fk = e.EmployeeId WHERE PatientID_fk = @PatientID", sqlcon);
 
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@PatientID", PatientID);
@@ -792,6 +805,9 @@ namespace _846DentalClinicManagementSystem
                 Panel teethNumberPanel = new Panel();
                 PictureBox icon = new PictureBox();
                 teethNumberPanel = PanelNumber(teethNumber);
+                ToolTip ToolTip1 = new ToolTip();
+                string ToolTipText = "Last Edited : " + dt.Rows[i][6].ToString() + "\n" + "By : Dr. " + dt.Rows[i][7].ToString();
+                ToolTip1.SetToolTip(teethNumberPanel, ToolTipText);
                 icon = IconNumber(teethNumber);
                 Graphics gs = teethNumberPanel.CreateGraphics();
 
@@ -1234,8 +1250,20 @@ namespace _846DentalClinicManagementSystem
             catch (Exception ex) { Console.WriteLine(ex.Message); }
         }
 
- // -------------------------------------------------------------------------------------------------------------------------------
- // Billing
+        private void btn_PrintPrescription_Click(object sender, EventArgs e)
+        {
+            if (TreatmentHistory_DG.Rows.Count > 0)
+            {
+                AddPrescription addPrescription = new AddPrescription();
+                addPrescription.ShowDialog();
+            }
+
+        }
+
+
+
+        // -------------------------------------------------------------------------------------------------------------------------------
+        // Billing
 
         public void ShowBilling()
         { 
@@ -1814,15 +1842,6 @@ namespace _846DentalClinicManagementSystem
             this.Hide();
         }
 
-        private void btn_PrintPrescription_Click(object sender, EventArgs e)
-        {
-            if(TreatmentHistory_DG.Rows.Count > 0)
-            {
-                AddPrescription addPrescription = new AddPrescription();
-                addPrescription.ShowDialog();
-            }
-            
-        }
 
 
 
