@@ -454,9 +454,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Bunifu_UI_v1.52\Bunifu_UI_v1.52.dll" />
-    <Content Include="Data\ISADDATABASEFINAL.mdf">
+    <None Include="Data\ISADDATABASEFINAL.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </None>
     <Content Include="Data\ISADDATABASEFINAL_log.ldf">
       <DependentUpon>ISADDATABASEFINAL.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
