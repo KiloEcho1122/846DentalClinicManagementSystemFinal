@@ -34,6 +34,13 @@ namespace _846DentalClinicManagementSystem
                 StartTimeDD.selectedIndex = 0;
                 EndTimeDD.selectedIndex = EndTimeDD.Items.Length - 1;
 
+                if(GlobalVariable.IsAppAddExceptionPanelClick == true)
+                {
+                    DP_date.Value = GlobalVariable.DateApp;
+                    DentistDD.selectedIndex = GlobalVariable.dentApp;
+                    StartTimeDD.selectedIndex = GlobalVariable.timeApp;
+                }
+
 
             }
             if (GlobalVariable.isEditAppException == true && GlobalVariable.isAddAppException == false)
@@ -153,6 +160,7 @@ namespace _846DentalClinicManagementSystem
                         {
                             InsertAppException();
                             GlobalVariable.isAddAppException = false;
+                            GlobalVariable.IsAppAddExceptionPanelClick = false;
                             if (main.SearchAppByDate_DP.Value == DP_date.Value)
                             {
                                 main.RefreshAppointmentView();

@@ -88,11 +88,16 @@ namespace _846DentalClinicManagementSystem
         public static int timeApp { get; set; }
 
         public static int dentApp  { get; set; }
+
+        public static Boolean IsAppAddPanelClick { get; set; }
+
+        public static Boolean IsAppAddExceptionPanelClick { get; set; }
+
         //-------------------------------------
 
 
 
-    public static void InsertActivityLog(string Description, string method)
+        public static void InsertActivityLog(string Description, string method)
         {
             SqlConnection sqlcon = new SqlConnection(connString);
             string ip = GetLocalIP();

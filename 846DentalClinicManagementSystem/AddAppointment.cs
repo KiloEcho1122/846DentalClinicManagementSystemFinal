@@ -54,7 +54,7 @@ namespace _846DentalClinicManagementSystem
                 this.Text = "Add Appointment";
                 btn_CreateBilling.Location = new Point(513, 468);
 
-                if(GlobalVariable.dentApp >= 0 && GlobalVariable.timeApp >= 0)
+                if(GlobalVariable.IsAppAddPanelClick == true)
                 {
                     DP_date.Value = GlobalVariable.DateApp;
                     DentistDD.selectedIndex = GlobalVariable.dentApp;
@@ -172,8 +172,8 @@ namespace _846DentalClinicManagementSystem
                                             {
                                                 insertAppointmentToDB();
                                                 GlobalVariable.isAddAppointment = false;
-                                                GlobalVariable.dentApp = -1;
-                                                GlobalVariable.timeApp = -1;
+                                                GlobalVariable.IsAppAddPanelClick = false;
+
                                                 if (main.SearchAppByDate_DP.Value == DP_date.Value)
                                                 {
                                                     main.RefreshAppointmentView();
