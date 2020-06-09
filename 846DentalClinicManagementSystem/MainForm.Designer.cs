@@ -205,6 +205,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.NotificationTimer = new System.Windows.Forms.Timer(this.components);
+            this.btn_BrowseVideo = new System.Windows.Forms.Button();
             this.MenuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.CenterPanel.SuspendLayout();
@@ -506,7 +507,6 @@
             // CenterPanel
             // 
             this.CenterPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.CenterPanel.Controls.Add(this.SchedulerPanel);
             this.CenterPanel.Controls.Add(this.HomePanel);
             this.CenterPanel.Controls.Add(this.PrintApp_Panel);
             this.CenterPanel.Controls.Add(this.AppointmentHistory_Panel);
@@ -514,6 +514,7 @@
             this.CenterPanel.Controls.Add(this.Dentist_Panel);
             this.CenterPanel.Controls.Add(this.PatientsPanel);
             this.CenterPanel.Controls.Add(this.AccountingPanel);
+            this.CenterPanel.Controls.Add(this.SchedulerPanel);
             this.CenterPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CenterPanel.Location = new System.Drawing.Point(0, 63);
             this.CenterPanel.Name = "CenterPanel";
@@ -1031,6 +1032,7 @@
             // HomePanel
             // 
             this.HomePanel.BackColor = System.Drawing.Color.Gainsboro;
+            this.HomePanel.Controls.Add(this.btn_BrowseVideo);
             this.HomePanel.Controls.Add(this.panel11);
             this.HomePanel.Controls.Add(this.panel5);
             this.HomePanel.Controls.Add(this.panel3);
@@ -2908,6 +2910,16 @@
             this.NotificationTimer.Interval = 180000;
             this.NotificationTimer.Tick += new System.EventHandler(this.NotificationTimer_Tick);
             // 
+            // btn_BrowseVideo
+            // 
+            this.btn_BrowseVideo.Location = new System.Drawing.Point(1275, 674);
+            this.btn_BrowseVideo.Name = "btn_BrowseVideo";
+            this.btn_BrowseVideo.Size = new System.Drawing.Size(75, 23);
+            this.btn_BrowseVideo.TabIndex = 6;
+            this.btn_BrowseVideo.Text = "Browse";
+            this.btn_BrowseVideo.UseVisualStyleBackColor = true;
+            this.btn_BrowseVideo.Click += new System.EventHandler(this.btn_BrowseVideo_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3136,5 +3148,6 @@
         private System.Windows.Forms.PictureBox pictureBox13;
         private Bunifu.Framework.UI.BunifuCustomLabel lbl_ViewAll;
         private Bunifu.Framework.UI.BunifuiOSSwitch ViewAllSwitch;
+        private System.Windows.Forms.Button btn_BrowseVideo;
     }
 }

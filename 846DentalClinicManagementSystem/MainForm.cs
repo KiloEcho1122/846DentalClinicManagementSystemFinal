@@ -43,16 +43,16 @@ namespace _846DentalClinicManagementSystem
 
         }
 
-        private void playVideo()
+        private void playVideo(string videoPath)
         {
 
-            String workingDirectory = Environment.CurrentDirectory;
-            String projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
-            String videopath = projectDirectory + @"\Resources\846.mp4";
+            //String workingDirectory = Environment.CurrentDirectory;
+            //String projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
+            //String videopath = projectDirectory + @"\Resources\846.mp4";
             this.axWindowsMediaPlayer1.uiMode = "none";
             this.axWindowsMediaPlayer1.settings.setMode("loop", true);
             this.axWindowsMediaPlayer1.Ctlenabled = false;
-            this.axWindowsMediaPlayer1.URL = videopath;
+            this.axWindowsMediaPlayer1.URL = videoPath;
             this.axWindowsMediaPlayer1.stretchToFit = true;
             this.axWindowsMediaPlayer1.Ctlcontrols.play();
 
@@ -66,7 +66,7 @@ namespace _846DentalClinicManagementSystem
             Loadusername();
             HidePanels();
             HomePanel.Visible = true;
-            playVideo();
+          //  playVideo();
             AppointmentCountDashBoard();
             DentistCountDashBoard();
             PatientCountDashBoard();
@@ -136,6 +136,35 @@ namespace _846DentalClinicManagementSystem
             UnpaidBillsCountDashBoard();
 
         }
+
+        private void btn_BrowseVideo_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog
+            {
+                InitialDirectory = @"C:\",
+                Title = "Browse Video Files",
+
+                CheckFileExists = true,
+                CheckPathExists = true,
+
+                DefaultExt = "txt",
+                Filter = "All Media Files|*.wav;*.aac;*.wma;*.wmv;*.avi;*.mpg;*.mpeg;*.m1v;*.mp2;*.mp3;*.mpa;*.mpe;*.m3u;*.mp4;*.mov;*.3g2;*.3gp2;*.3gp;*.3gpp;*.m4a;*.cda;*.aif;*.aifc;*.aiff;*.mid;*.midi;*.rmi;*.mkv;*.WAV;*.AAC;*.WMA;*.WMV;*.AVI;*.MPG;*.MPEG;*.M1V;*.MP2;*.MP3;*.MPA;*.MPE;*.M3U;*.MP4;*.MOV;*.3G2;*.3GP2;*.3GP;*.3GPP;*.M4A;*.CDA;*.AIF;*.AIFC;*.AIFF;*.MID;*.MIDI;*.RMI;*.MKV",
+
+                FilterIndex = 2,
+                RestoreDirectory = true,
+
+                ReadOnlyChecked = true,
+                ShowReadOnly = true
+            };
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Console.WriteLine(openFileDialog1.FileName);
+                playVideo(openFileDialog1.FileName);
+            }
+
+        }
+
 
         private void btn_Scheduler_Click(object sender, EventArgs e)
         {
@@ -2633,7 +2662,7 @@ namespace _846DentalClinicManagementSystem
             DisplayEmployeeDataGrid("");
         }
 
-     
+      
 
         private void btn_RestoreLogs_Click(object sender, EventArgs e)
         {
