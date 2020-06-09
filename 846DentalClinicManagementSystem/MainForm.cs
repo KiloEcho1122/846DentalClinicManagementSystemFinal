@@ -2260,7 +2260,7 @@ namespace _846DentalClinicManagementSystem
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable dt = new DataTable();
             SqlCommand cmd = new SqlCommand("SELECT a.AppointmentID, CONCAT(a.Appointment_LName,',',a.Appointment_FName, ' ',a.Appointment_MName ), " +
-                                            "a.Appointment_Contact ,CONCAT(a.StartTime,' - ', a.EndTime), CONCAT(e.FirstName,' ' ,e.LastName) " +
+                                            "a.Appointment_Contact ,CONCAT(a.StartTime,' - ', a.EndTime), CONCAT(e.FirstName,' ' ,e.LastName)" +
                                             "FROM Appointment a INNER JOIN Employee e ON a.EmployeeID_fk = e.EmployeeId WHERE a.Status ='PENDING' AND " +
                                             "a.AppointmentDate = @date AND  RefTime BETWEEN @time1 AND @time2 ORDER BY a.RefTime ASC", sqlcon);
             cmd.Parameters.Clear();
@@ -2287,6 +2287,7 @@ namespace _846DentalClinicManagementSystem
             DateTime Apptime1 = System.DateTime.Now;
             DateTime Apptime2 = Apptime1.AddMinutes(30);
             DataTable dt = NotifDataTable(Apptime1, Apptime2);
+            
 
             if (dt.Rows.Count > 0)
             {
@@ -2313,6 +2314,29 @@ namespace _846DentalClinicManagementSystem
                             popup.Delay = 120000;
                             popup.AnimationInterval = 20;
                             popup.Popup();
+
+                            try
+                            {
+                                string message = "Hi " + row[1].ToString() + ", Dr. Aira from 846 Dental Clinic. This is just a friendly reminder of your" +
+                                " appointment today at " + row[3].ToString();
+                                string PatientContact = row[2].ToString() + "@sms.clicksend.com";
+                                MailMessage mail = new MailMessage("zachfrancisfadriquela@gmail.com", PatientContact, "Appointment", message);
+                                SmtpClient client = new SmtpClient("smtp.gmail.com")
+                                {
+                                    Port = 587,
+                                    UseDefaultCredentials = false,
+                                    Credentials = new System.Net.NetworkCredential("zachfrancisfadriquela@gmail.com", "January221997"),
+                                    EnableSsl = true,
+                                    DeliveryMethod = SmtpDeliveryMethod.Network,
+
+                                };
+                                client.Send(mail);
+                            }
+                            catch(Exception ex)
+                            {
+                                Console.WriteLine(ex.Message);
+                            }
+
                         });
                     }
 
@@ -2329,8 +2353,10 @@ namespace _846DentalClinicManagementSystem
         {
 
             string EmailSubject = "846 Dental Appointment for Tommorrow " + System.DateTime.Today.AddDays(1).ToShortDateString();
-            string DentalEmailAdd = "846dentalclinic@gmail.com";
-            string DentalEmailPass = "System2020";
+            //string DentalEmailAdd = "846dentalclinic@gmail.com";
+            //string DentalEmailPass = "System2020";
+            string DentalEmailAdd = "zachfrancisfadriquela@gmail.com"; // test
+            string DentalEmailPass = "January221997";
             string SmtpServer = "smtp.gmail.com";
 
 
@@ -2348,7 +2374,7 @@ namespace _846DentalClinicManagementSystem
                         foreach (DataRow row in dt.Rows)
                         {
                             EmailBody += row[1].ToString() + " - " + row[0].ToString() + Environment.NewLine;
-                            DentistEmailAdd = row[2].ToString();
+                            DentistEmailAdd = row[2].ToString() + "@sms.clicksend.com";
                         }
 
                         MailMessage mail = new MailMessage(DentalEmailAdd, DentistEmailAdd, EmailSubject, EmailBody);
@@ -2382,8 +2408,8 @@ namespace _846DentalClinicManagementSystem
             DataTable dt = new DataTable();
             SqlDataAdapter adapter = new SqlDataAdapter();
             SqlCommand cmd = new SqlCommand("SELECT CONCAT(a.Appointment_FName, ' ', a.Appointment_LName), CONCAT(a.StartTime,' - ',a.EndTime)," +
-                "e.EmailAdd FROM Employee e INNER JOIN Appointment a ON a.EmployeeID_fk = e.EmployeeId WHERE a.AppointmentDate =" +
-                " @date AND Status = 'PENDING' AND EmployeeID = @id AND e.Status = 'Active' ORDER BY RefTime ASC ", sqlcon);
+                "e.ContactNo FROM Employee e INNER JOIN Appointment a ON a.EmployeeID_fk = e.EmployeeId WHERE a.AppointmentDate =" +
+                " @date AND a.Status = 'PENDING' AND EmployeeID = @id AND e.Status = 'Active' ORDER BY RefTime ASC ", sqlcon);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@date", System.DateTime.Today.AddDays(1).ToShortDateString());
             cmd.Parameters.AddWithValue("@id", id);
