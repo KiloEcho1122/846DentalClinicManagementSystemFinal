@@ -43,12 +43,42 @@ namespace _846DentalClinicManagementSystem
 
         }
 
+        private void CheckVideoPath()
+        {
+            string videoPath = "";
+            SqlCommand cmd = new SqlCommand(
+               "SELECT VideoPath FROM VideoPath WHERE Id = 1" , sqlcon);
+
+            if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+
+            try
+            {
+                //object obj = .ToString();
+                if (cmd.ExecuteScalar().ToString() != "none")
+                {
+                    videoPath = cmd.ExecuteScalar().ToString();
+                    
+                }
+                else
+                {
+                    string workingDirectory = Environment.CurrentDirectory;
+                    string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
+                    videoPath = projectDirectory + @"\Resources\846.mp4";
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            sqlcon.Close();
+            playVideo(videoPath);
+        }
+
         private void playVideo(string videoPath)
         {
 
-            //String workingDirectory = Environment.CurrentDirectory;
-            //String projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
-            //String videopath = projectDirectory + @"\Resources\846.mp4";
             this.axWindowsMediaPlayer1.uiMode = "none";
             this.axWindowsMediaPlayer1.settings.setMode("loop", true);
             this.axWindowsMediaPlayer1.Ctlenabled = false;
@@ -66,7 +96,7 @@ namespace _846DentalClinicManagementSystem
             Loadusername();
             HidePanels();
             HomePanel.Visible = true;
-          //  playVideo();
+            CheckVideoPath();
             AppointmentCountDashBoard();
             DentistCountDashBoard();
             PatientCountDashBoard();
@@ -159,7 +189,23 @@ namespace _846DentalClinicManagementSystem
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                Console.WriteLine(openFileDialog1.FileName);
+                SqlCommand cmd = new SqlCommand(
+               "UPDATE [VideoPath] SET VideoPath = @Path " +
+               "WHERE id= 1 ", sqlcon);
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Path", openFileDialog1.FileName);
+
+                if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+                try
+                {
+                    cmd.ExecuteNonQuery();
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                sqlcon.Close();
                 playVideo(openFileDialog1.FileName);
             }
 
