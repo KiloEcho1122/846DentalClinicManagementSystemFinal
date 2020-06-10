@@ -229,7 +229,7 @@ namespace _846DentalClinicManagementSystem
                 ViewAllSwitch.Visible = false;
                 //  ViewAllSwitch.Value = true;
             }
-            GlobalVariable.InsertActivityLog("Viewed Appointment Tab", "View");
+         //   GlobalVariable.InsertActivityLog("Viewed Appointment Tab", "View");
 
 
         }
@@ -239,7 +239,7 @@ namespace _846DentalClinicManagementSystem
             PatientPanelSearch("");
             HidePanels();
             PatientsPanel.Visible = true;
-            GlobalVariable.InsertActivityLog("Viewed Patients Tab", "View");
+         //   GlobalVariable.InsertActivityLog("Viewed Patients Tab", "View");
         }
 
         private void btn_Accounting_Click(object sender, EventArgs e)
@@ -253,7 +253,7 @@ namespace _846DentalClinicManagementSystem
                 Report();
                 HidePanels();
                 AccountingPanel.Visible = true;
-                GlobalVariable.InsertActivityLog("Viewed Accounting Tab", "View");
+            //    GlobalVariable.InsertActivityLog("Viewed Accounting Tab", "View");
 
             }
             else
@@ -270,7 +270,7 @@ namespace _846DentalClinicManagementSystem
                 DisplayEmployeeDataGrid("");
                 HidePanels();
                 Dentist_Panel.Visible = true;
-                GlobalVariable.InsertActivityLog("Viewed Dentist/Employee Tab", "View");
+             //   GlobalVariable.InsertActivityLog("Viewed Dentist/Employee Tab", "View");
             }
             else
             {
@@ -301,7 +301,7 @@ namespace _846DentalClinicManagementSystem
             HidePanels();
             AppointmentHistory_Panel.Visible = true;
             LoadAppHistory();
-            GlobalVariable.InsertActivityLog("Viewed Appointment History", "View");
+       //     GlobalVariable.InsertActivityLog("Viewed Appointment History", "View");
         }
 
        
