@@ -330,16 +330,19 @@ namespace _846DentalClinicManagementSystem
                             CompletePrescription = QuantityDD.selectedValue;
                             CompletePrescription += " -  " + MedicineDD.selectedValue;
                             CompletePrescription += " " + DosageDD.selectedValue;
-                            CompletePrescription += "  -  " + NoteDD.selectedValue; ;
+                            CompletePrescription += "  -  " + NoteDD.selectedValue;
                         }
 
-                        PrevList.Items.Add(CompletePrescription);
+                      
 
                         if (!string.IsNullOrEmpty(txt_AddNote.Text))
                         {
-                            PrevList.Items.Add(txt_AddNote.Text);
+                            // PrevList.Items.Add(txt_AddNote.Text);
+                            CompletePrescription += "  -  " + txt_AddNote.Text;
                             txt_AddNote.Clear();
                         }
+
+                        PrevList.Items.Add(CompletePrescription);
 
                         MedicineDD.Clear();
                         DosageDD.Clear();
@@ -475,12 +478,12 @@ namespace _846DentalClinicManagementSystem
                 string str = PrevList.Items[i].ToString();
                 string[] tokens = str.Split(new[] { " - " }, StringSplitOptions.None);
 
-                if (tokens.Length == 3)
+                if (tokens.Length == 4)
                 {
                     PrescriptionTable.Rows.Add(
                    i + 1 + ")   " + tokens[1],
                    "#" + tokens[0],
-                   tokens[2]
+                   tokens[2] + ", " + tokens[3]
                    );
                 }
                 else
