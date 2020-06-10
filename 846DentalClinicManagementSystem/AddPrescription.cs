@@ -405,12 +405,19 @@ namespace _846DentalClinicManagementSystem
 
         private void btn_Print_Click(object sender, EventArgs e)
         {
-  
-            PrintPrescription();
-            addPrescriptionToDatabase();
-            var ShowPatientInfo = Application.OpenForms.OfType<ShowPatientInfo>().First();
-            ShowPatientInfo.LoadTreatmentHistory();
-            this.Hide();
+            if (PrevList.Items.Count > 0)
+            {
+                PrintPrescription();
+                addPrescriptionToDatabase();
+                var ShowPatientInfo = Application.OpenForms.OfType<ShowPatientInfo>().First();
+                ShowPatientInfo.LoadTreatmentHistory();
+                this.Hide();
+            }
+            else{
+                MessageBox.Show("Add Prescription First!");
+
+            }
+           
         }
 
         private void PrintPrescription()
@@ -485,6 +492,14 @@ namespace _846DentalClinicManagementSystem
                    "#" + tokens[0],
                    tokens[2] + ", " + tokens[3]
                    );
+                }
+                else if (tokens.Length == 3)
+                {
+                    PrescriptionTable.Rows.Add(
+                 i + 1 + ")   " + tokens[1],
+                 "#" + tokens[0],
+                 tokens[2]
+                 );
                 }
                 else
                 {
