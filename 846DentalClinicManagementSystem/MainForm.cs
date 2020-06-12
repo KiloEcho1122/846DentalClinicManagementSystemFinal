@@ -28,6 +28,9 @@ namespace _846DentalClinicManagementSystem
         ArrayList DentistArray = new ArrayList();
         ArrayList DentistIDArray = new ArrayList();
         string[,] timeArray = new string[19, 2];
+        static string DentalEmailAdd = "zachfrancisfadriquela@gmail.com"; // Test Account 
+        static string DentalEmailPass = "January221997";
+        static string SmtpServer = "smtp.gmail.com";
 
 
         private void HidePanels()
@@ -2395,12 +2398,12 @@ namespace _846DentalClinicManagementSystem
                                 string message = "Hi " + row[1].ToString() + ", Dr. Aira from 846 Dental Clinic. This is just a friendly reminder of your" +
                                 " appointment today at " + row[3].ToString();
                                 string PatientContact = row[2].ToString() + "@sms.clicksend.com";
-                                MailMessage mail = new MailMessage("zachfrancisfadriquela@gmail.com", PatientContact, "Appointment", message);
-                                SmtpClient client = new SmtpClient("smtp.gmail.com")
+                                MailMessage mail = new MailMessage(DentalEmailAdd, PatientContact, "Appointment", message);
+                                SmtpClient client = new SmtpClient(SmtpServer)
                                 {
                                     Port = 587,
                                     UseDefaultCredentials = false,
-                                    Credentials = new System.Net.NetworkCredential("zachfrancisfadriquela@gmail.com", "January221997"),
+                                    Credentials = new System.Net.NetworkCredential(DentalEmailAdd, DentalEmailPass),
                                     EnableSsl = true,
                                     DeliveryMethod = SmtpDeliveryMethod.Network,
 
@@ -2420,7 +2423,7 @@ namespace _846DentalClinicManagementSystem
             }
 
         }
-
+       
 
 
 
@@ -2430,9 +2433,7 @@ namespace _846DentalClinicManagementSystem
             string EmailSubject = "846 Dental Appointment for Tommorrow " + System.DateTime.Today.AddDays(1).ToShortDateString();
             //string DentalEmailAdd = "846dentalclinic@gmail.com";
             //string DentalEmailPass = "System2020";
-            string DentalEmailAdd = "zachfrancisfadriquela@gmail.com"; // test
-            string DentalEmailPass = "January221997";
-            string SmtpServer = "smtp.gmail.com";
+           
 
 
             try
