@@ -10,6 +10,8 @@ using System.IO;
 using System.Net.Mail;
 using System.Windows.Forms;
 using Tulpep.NotificationWindow;
+using WMPLib;
+using AxWMPLib;
 
 
 namespace _846DentalClinicManagementSystem

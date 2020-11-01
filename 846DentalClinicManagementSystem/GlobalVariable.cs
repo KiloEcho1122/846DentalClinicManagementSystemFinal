@@ -20,7 +20,9 @@ namespace _846DentalClinicManagementSystem
 
         private static string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
 
-        private static string chart = projectDirectory + @"\Data\ISADDATABASEFINAL.mdf";
+        static string path = Path.GetFullPath(Environment.CurrentDirectory);
+
+        private static string chart = path + @"\ISADDATABASEFINAL.mdf";
 
         public static string connString = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=" + chart + ";Integrated Security = True";
 
