@@ -30,20 +30,31 @@ namespace _846DentalClinicManagementSystem
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Random random = new Random();
-            int incre = random.Next(1, 5);
-
-            this.progressBar1.Increment(incre + 3);
-            lbl_percent.Text = (progressBar1.Value + "%");
-            if (progressBar1.Value == 100)
+            try
             {
-                
+                Random random = new Random();
+                int incre = random.Next(1, 5);
+
+                this.progressBar1.Increment(incre + 3);
+                lbl_percent.Text = (progressBar1.Value + "%");
+                if (progressBar1.Value == 100)
+                {
+
+                    label1.Text = "Loading Complete....";
+                    timer1.Stop();
+                    MainForm objFrmMain = new MainForm();
+                    objFrmMain.Show();
+                    this.Hide();
+
+                }
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
                 label1.Text = "Loading Complete....";
                 timer1.Stop();
                 MainForm objFrmMain = new MainForm();
                 objFrmMain.Show();
                 this.Hide();
-                
             }
         }
 
