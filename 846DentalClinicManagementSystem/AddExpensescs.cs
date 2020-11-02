@@ -41,6 +41,7 @@ namespace _846DentalClinicManagementSystem
         {
             btn_AddRows.Visible = false;
             btn_DeleteExpense.Visible = false;
+            btn_DeleteFromDatabase.Visible = true;
             txt_formHeader.Text = "Edit Expense";
 
             SqlDataAdapter adapter = new SqlDataAdapter();
@@ -290,6 +291,35 @@ namespace _846DentalClinicManagementSystem
         private void btn_AddRows_Click(object sender, EventArgs e)
         {
             ExpenseDG.Rows.Add();
+        }
+
+        private void btn_DeleteFromDatabase_Click(object sender, EventArgs e)
+        {
+            //delete selected expense from database
+            DialogResult result = MessageBox.Show("Delete Expense ?", "Expenses", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                SqlCommand cmd = new SqlCommand(
+               "DELETE FROM Expense WHERE ExpenseID = @ExpenseID", sqlcon);
+                cmd.Parameters.AddWithValue("@ExpenseID", GlobalVariable.ExpenseId);
+
+                if (sqlcon.State != ConnectionState.Open) { sqlcon.Open(); }
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    GlobalVariable.InsertActivityLog("Deleted Expense Expense ID = " + GlobalVariable.ExpenseId.ToString(), "Deleted");
+                    ExpenseDG.Rows.RemoveAt(0);
+                    dtp.Visible = false;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+                sqlcon.Close();
+
+            }
+
         }
     }
 }

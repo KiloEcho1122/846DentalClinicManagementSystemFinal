@@ -38,9 +38,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddExpensescs));
             this.ExpenseDG = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.TopPanel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,6 +46,10 @@
             this.btn_SaveExpenses = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_DeleteExpense = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_AddRows = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_DeleteFromDatabase = new Bunifu.Framework.UI.BunifuFlatButton();
             ((System.ComponentModel.ISupportInitialize)(this.ExpenseDG)).BeginInit();
             this.TopPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -93,7 +94,7 @@
             this.ExpenseDG.EnableHeadersVisualStyles = false;
             this.ExpenseDG.HeaderBgColor = System.Drawing.Color.LightGoldenrodYellow;
             this.ExpenseDG.HeaderForeColor = System.Drawing.Color.Black;
-            this.ExpenseDG.Location = new System.Drawing.Point(40, 75);
+            this.ExpenseDG.Location = new System.Drawing.Point(42, 75);
             this.ExpenseDG.Name = "ExpenseDG";
             this.ExpenseDG.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ExpenseDG.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -110,38 +111,9 @@
             this.ExpenseDG.RowsDefaultCellStyle = dataGridViewCellStyle7;
             this.ExpenseDG.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.ExpenseDG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ExpenseDG.Size = new System.Drawing.Size(623, 285);
+            this.ExpenseDG.Size = new System.Drawing.Size(626, 285);
             this.ExpenseDG.TabIndex = 72;
             this.ExpenseDG.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ExpenseDG_CellClick);
-            // 
-            // Column1
-            // 
-            dataGridViewCellStyle3.Format = "d";
-            dataGridViewCellStyle3.NullValue = null;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column1.FillWeight = 35.7868F;
-            this.Column1.HeaderText = "Date";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 150;
-            // 
-            // Column2
-            // 
-            this.Column2.FillWeight = 228.4264F;
-            this.Column2.HeaderText = "Expenses";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 315;
-            // 
-            // Column3
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Format = "N2";
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Column3.FillWeight = 35.7868F;
-            this.Column3.HeaderText = "Amount";
-            this.Column3.Name = "Column3";
-            this.Column3.ToolTipText = "Enter Amount";
-            this.Column3.Width = 120;
             // 
             // bunifuElipse1
             // 
@@ -298,11 +270,77 @@
             this.btn_AddRows.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btn_AddRows.Click += new System.EventHandler(this.btn_AddRows_Click);
             // 
+            // Column1
+            // 
+            dataGridViewCellStyle3.Format = "d";
+            dataGridViewCellStyle3.NullValue = null;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column1.FillWeight = 35.7868F;
+            this.Column1.HeaderText = "Date";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 145;
+            // 
+            // Column2
+            // 
+            this.Column2.FillWeight = 228.4264F;
+            this.Column2.HeaderText = "Expenses";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 300;
+            // 
+            // Column3
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Format = "N2";
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column3.FillWeight = 35.7868F;
+            this.Column3.HeaderText = "Amount";
+            this.Column3.Name = "Column3";
+            this.Column3.ToolTipText = "Enter Amount";
+            this.Column3.Width = 140;
+            // 
+            // btn_DeleteFromDatabase
+            // 
+            this.btn_DeleteFromDatabase.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            this.btn_DeleteFromDatabase.BackColor = System.Drawing.Color.DarkGray;
+            this.btn_DeleteFromDatabase.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_DeleteFromDatabase.BorderRadius = 0;
+            this.btn_DeleteFromDatabase.ButtonText = "DELETE";
+            this.btn_DeleteFromDatabase.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_DeleteFromDatabase.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_DeleteFromDatabase.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_DeleteFromDatabase.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_DeleteFromDatabase.Iconimage")));
+            this.btn_DeleteFromDatabase.Iconimage_right = null;
+            this.btn_DeleteFromDatabase.Iconimage_right_Selected = null;
+            this.btn_DeleteFromDatabase.Iconimage_Selected = null;
+            this.btn_DeleteFromDatabase.IconMarginLeft = 0;
+            this.btn_DeleteFromDatabase.IconMarginRight = 0;
+            this.btn_DeleteFromDatabase.IconRightVisible = true;
+            this.btn_DeleteFromDatabase.IconRightZoom = 0D;
+            this.btn_DeleteFromDatabase.IconVisible = true;
+            this.btn_DeleteFromDatabase.IconZoom = 90D;
+            this.btn_DeleteFromDatabase.IsTab = false;
+            this.btn_DeleteFromDatabase.Location = new System.Drawing.Point(390, 383);
+            this.btn_DeleteFromDatabase.Name = "btn_DeleteFromDatabase";
+            this.btn_DeleteFromDatabase.Normalcolor = System.Drawing.Color.DarkGray;
+            this.btn_DeleteFromDatabase.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(214)))), ((int)(((byte)(132)))));
+            this.btn_DeleteFromDatabase.OnHoverTextColor = System.Drawing.Color.Black;
+            this.btn_DeleteFromDatabase.selected = false;
+            this.btn_DeleteFromDatabase.Size = new System.Drawing.Size(136, 41);
+            this.btn_DeleteFromDatabase.TabIndex = 78;
+            this.btn_DeleteFromDatabase.Text = "DELETE";
+            this.btn_DeleteFromDatabase.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_DeleteFromDatabase.Textcolor = System.Drawing.Color.Black;
+            this.btn_DeleteFromDatabase.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btn_DeleteFromDatabase.Visible = false;
+            this.btn_DeleteFromDatabase.Click += new System.EventHandler(this.btn_DeleteFromDatabase_Click);
+            // 
             // AddExpensescs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(705, 450);
+            this.Controls.Add(this.btn_DeleteFromDatabase);
             this.Controls.Add(this.btn_AddRows);
             this.Controls.Add(this.btn_DeleteExpense);
             this.Controls.Add(this.btn_SaveExpenses);
@@ -335,5 +373,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private Bunifu.Framework.UI.BunifuFlatButton btn_DeleteFromDatabase;
     }
 }
