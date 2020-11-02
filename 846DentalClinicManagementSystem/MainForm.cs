@@ -28,8 +28,10 @@ namespace _846DentalClinicManagementSystem
         ArrayList DentistArray = new ArrayList();
         ArrayList DentistIDArray = new ArrayList();
         string[,] timeArray = new string[19, 2];
-        static string DentalEmailAdd = "zachfrancisfadriquela@gmail.com"; // Test Account 
-        static string DentalEmailPass = "January221997";
+        //static string DentalEmailAdd = "zachfrancisfadriquela@gmail.com"; 
+        //static string DentalEmailPass = "January221997";
+        static string DentalEmailAdd = "846dentalclinic@gmail.com";
+        static string DentalEmailPass = "System2020";
         static string SmtpServer = "smtp.gmail.com";
 
 
@@ -2361,7 +2363,7 @@ namespace _846DentalClinicManagementSystem
         List<int> NotifID = new List<int>();
 
         private void NotificationTimer_Tick(object sender, EventArgs e)
-        {
+       {
             DateTime Apptime1 = System.DateTime.Now;
             DateTime Apptime2 = Apptime1.AddMinutes(30);
             DataTable dt = NotifDataTable(Apptime1, Apptime2);
@@ -2442,6 +2444,7 @@ namespace _846DentalClinicManagementSystem
                 {
                     string EmailBody = string.Empty;
                     string DentistEmailAdd = string.Empty;
+                    string DentistEmailAdd2 = string.Empty;
                     DataTable dt = new DataTable();
                     dt = getAppointmentForEmail(Convert.ToInt32(DentistIDArray[i]));
 
@@ -2451,7 +2454,9 @@ namespace _846DentalClinicManagementSystem
                         {
                             EmailBody += row[1].ToString() + " - " + row[0].ToString() + Environment.NewLine;
                             DentistEmailAdd = row[2].ToString() + "@sms.clicksend.com";
+                            DentistEmailAdd2 = row[3].ToString();
                         }
+                        // Will send SMS and Email at the same time incase SMS is not possible the patient will still receive notif from EMAIL
 
                         MailMessage mail = new MailMessage(DentalEmailAdd, DentistEmailAdd, EmailSubject, EmailBody);
                         SmtpClient client = new SmtpClient(SmtpServer);
@@ -2460,6 +2465,15 @@ namespace _846DentalClinicManagementSystem
                         client.Credentials = new System.Net.NetworkCredential(DentalEmailAdd, DentalEmailPass);
                         client.EnableSsl = true;
                         client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                        try
+                        {
+                            client.Send(mail);
+                        }
+                        catch(Exception ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
+                        mail = new MailMessage(DentalEmailAdd, DentistEmailAdd2, EmailSubject, EmailBody);
                         client.Send(mail);
                     }
                     //Prompt Success MEssage on last email sent
@@ -2484,7 +2498,7 @@ namespace _846DentalClinicManagementSystem
             DataTable dt = new DataTable();
             SqlDataAdapter adapter = new SqlDataAdapter();
             SqlCommand cmd = new SqlCommand("SELECT CONCAT(a.Appointment_FName, ' ', a.Appointment_LName), CONCAT(a.StartTime,' - ',a.EndTime)," +
-                "e.ContactNo FROM Employee e INNER JOIN Appointment a ON a.EmployeeID_fk = e.EmployeeId WHERE a.AppointmentDate =" +
+                "e.ContactNo, e.EmailAdd FROM Employee e INNER JOIN Appointment a ON a.EmployeeID_fk = e.EmployeeId WHERE a.AppointmentDate =" +
                 " @date AND a.Status = 'PENDING' AND EmployeeID = @id AND e.Status = 'Active' ORDER BY RefTime ASC ", sqlcon);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@date", System.DateTime.Today.AddDays(1).ToShortDateString());

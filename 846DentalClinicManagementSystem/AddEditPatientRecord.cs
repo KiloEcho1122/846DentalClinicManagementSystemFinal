@@ -154,7 +154,7 @@ namespace _846DentalClinicManagementSystem
             sqlcon.Close();
         }
 
-
+        
         private void btn_add_Click(object sender, EventArgs e)
         {
             TextInfo myTI = new CultureInfo("en-US", false).TextInfo;
