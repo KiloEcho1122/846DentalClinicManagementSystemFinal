@@ -49,6 +49,7 @@ namespace _846DentalClinicManagementSystem
             SqlCommand cmd = new SqlCommand(
                 "SELECT ExpenseDate,ExpenseName,ExpenseAmt" +
                 " FROM Expense WHERE ExpenseID = @ExpenseID", sqlcon);
+
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@ExpenseID", GlobalVariable.ExpenseId);
             adapter.SelectCommand = cmd;
