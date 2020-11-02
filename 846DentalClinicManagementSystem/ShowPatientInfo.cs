@@ -1728,8 +1728,16 @@ namespace _846DentalClinicManagementSystem
             Graphics g = Graphics.FromImage(bmp);
             g.CopyFromScreen(rect.Left, rect.Top, 0, 0, bmp.Size, CopyPixelOperation.SourceCopy);
 
-
-            bmp.Save(GlobalVariable.chartImagePath, ImageFormat.Bmp);
+            try
+            {
+                System.IO.Directory.CreateDirectory(@"C:\846 Dental Mangement System");
+                bmp.Save(GlobalVariable.chartImagePath, ImageFormat.Bmp);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+           
 
             btn_ChartSave.Visible = true;
             btn_ChartRefresh.Visible = true;

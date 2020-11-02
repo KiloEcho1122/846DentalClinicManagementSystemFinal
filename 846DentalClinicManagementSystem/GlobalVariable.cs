@@ -26,7 +26,9 @@ namespace _846DentalClinicManagementSystem
 
         public static string connString = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=" + chart + ";Integrated Security = True";
 
-        public static string chartImagePath = projectDirectory + @"\Resources\DentalChart2.bmp";
+        //public static string chartImagePath = projectDirectory + @"\Resources\DentalChart2.bmp";
+
+        public static string chartImagePath = @"C:\846 Dental Mangement System\DentalChart2.bmp";
 
         public static int AppointmentID { get; set; }
         
