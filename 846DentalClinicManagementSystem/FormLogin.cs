@@ -201,5 +201,10 @@ namespace _846DentalClinicManagementSystem
 
             }
         }
+
+        private void Label4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -41,13 +41,10 @@
             this.btn_Login = new Bunifu.Framework.UI.BunifuThinButton2();
             this.txtPassword = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.txtUsername = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.Label4 = new System.Windows.Forms.Label();
             this.Label3 = new System.Windows.Forms.Label();
             this.Label2 = new System.Windows.Forms.Label();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox3)).BeginInit();
@@ -240,39 +237,27 @@
             this.txtUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsername_KeyDown);
             // 
-            // Label4
-            // 
-            this.Label4.AutoSize = true;
-            this.Label4.BackColor = System.Drawing.Color.Transparent;
-            this.Label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label4.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.Label4.Location = new System.Drawing.Point(606, 503);
-            this.Label4.Name = "Label4";
-            this.Label4.Size = new System.Drawing.Size(169, 31);
-            this.Label4.TabIndex = 8;
-            this.Label4.Text = "Orthodontics";
-            // 
             // Label3
             // 
             this.Label3.AutoSize = true;
             this.Label3.BackColor = System.Drawing.Color.Transparent;
-            this.Label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label3.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.Label3.Location = new System.Drawing.Point(488, 475);
+            this.Label3.Location = new System.Drawing.Point(366, 253);
             this.Label3.Name = "Label3";
-            this.Label3.Size = new System.Drawing.Size(219, 31);
+            this.Label3.Size = new System.Drawing.Size(524, 42);
             this.Label3.TabIndex = 7;
-            this.Label3.Text = "Oral Surgery and";
+            this.Label3.Text = "Oral Surgery and Orthodontics";
             // 
             // Label2
             // 
             this.Label2.AutoSize = true;
             this.Label2.BackColor = System.Drawing.Color.Transparent;
-            this.Label2.Font = new System.Drawing.Font("Rockwell", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label2.Font = new System.Drawing.Font("Rockwell", 42F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label2.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.Label2.Location = new System.Drawing.Point(429, 442);
+            this.Label2.Location = new System.Drawing.Point(317, 201);
             this.Label2.Name = "Label2";
-            this.Label2.Size = new System.Drawing.Size(346, 39);
+            this.Label2.Size = new System.Drawing.Size(552, 63);
             this.Label2.TabIndex = 6;
             this.Label2.Text = "846 DENTAL CLINIC";
             // 
@@ -288,39 +273,12 @@
             this.label5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label5.Font = new System.Drawing.Font("Segoe MDL2 Assets", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label5.Location = new System.Drawing.Point(871, 1);
+            this.label5.Location = new System.Drawing.Point(891, 1);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(22, 24);
             this.label5.TabIndex = 10;
             this.label5.Text = "X";
             this.label5.Click += new System.EventHandler(this.label5_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(40)))), ((int)(((byte)(70)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox1.Location = new System.Drawing.Point(330, 48);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(560, 375);
-            this.textBox1.TabIndex = 11;
-            this.textBox1.Text = resources.GetString("textBox1.Text");
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label6.Location = new System.Drawing.Point(326, 13);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(76, 20);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "About Us";
             // 
             // FormLogin
             // 
@@ -329,11 +287,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(40)))), ((int)(((byte)(70)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(917, 545);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.Panel1);
-            this.Controls.Add(this.Label4);
             this.Controls.Add(this.Label3);
             this.Controls.Add(this.Label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -361,13 +316,10 @@
         internal Bunifu.Framework.UI.BunifuThinButton2 btn_Login;
         internal Bunifu.Framework.UI.BunifuMaterialTextbox txtPassword;
         internal Bunifu.Framework.UI.BunifuMaterialTextbox txtUsername;
-        internal System.Windows.Forms.Label Label4;
         internal System.Windows.Forms.Label Label3;
         internal System.Windows.Forms.Label Label2;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         internal System.Windows.Forms.Label label5;
-        internal System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
         internal System.Windows.Forms.Label label7;
         internal Bunifu.Framework.UI.BunifuMaterialTextbox txt_PasswordConfirm;
         internal System.Windows.Forms.PictureBox pictureBox4;
