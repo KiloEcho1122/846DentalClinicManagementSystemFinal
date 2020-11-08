@@ -1730,7 +1730,7 @@ namespace _846DentalClinicManagementSystem
 
             try
             {
-                System.IO.Directory.CreateDirectory(@"C:\846 Dental Mangement System");
+                System.IO.Directory.CreateDirectory(@"C:\846 Dental Management System");
                 bmp.Save(GlobalVariable.chartImagePath, ImageFormat.Bmp);
             }
             catch(Exception ex)

@@ -28,12 +28,11 @@ namespace _846DentalClinicManagementSystem
         ArrayList DentistArray = new ArrayList();
         ArrayList DentistIDArray = new ArrayList();
         string[,] timeArray = new string[19, 2];
-        //static string DentalEmailAdd = "zachfrancisfadriquela@gmail.com"; 
+       // static string DentalEmailAdd = "zachfrancisfadriquela@gmail.com"; 
         //static string DentalEmailPass = "January221997";
-        static string DentalEmailAdd = "846dentalclinic@gmail.com";
-        static string DentalEmailPass = "System2020";
+         static string DentalEmailAdd = "dentalmanagement846@gmail.com";
+        static string DentalEmailPass = "System@2020";
         static string SmtpServer = "smtp.gmail.com";
-
 
         private void HidePanels()
         {
@@ -2397,10 +2396,10 @@ namespace _846DentalClinicManagementSystem
 
                             try
                             {
-                                string message = "Hi " + row[1].ToString() + ", Dr. Aira from 846 Dental Clinic. This is just a friendly reminder of your" +
-                                " appointment today at " + row[3].ToString();
+                                string message = "Hi " + row[1].ToString() + ". This is Dr. Aira of 846 Dental Clinic. This is just a friendly reminder of your" +
+                                " appointment today at " + row[3].ToString() + "\n" + "This is an automated message, please do not reply.";
                                 string PatientContact = row[2].ToString() + "@sms.clicksend.com";
-                                MailMessage mail = new MailMessage(DentalEmailAdd, PatientContact, "Appointment", message);
+                                MailMessage mail = new MailMessage(DentalEmailAdd, PatientContact, "", message);
                                 SmtpClient client = new SmtpClient(SmtpServer)
                                 {
                                     Port = 587,
@@ -2622,16 +2621,11 @@ namespace _846DentalClinicManagementSystem
 
         }
 
-
+        
         private void btn_Logout_Click_1(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to Logout ?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                FormLogin formLogin = new FormLogin();
-                formLogin.Show();
-                this.Hide();
-            }
+            FormLogout formlogout = new FormLogout();
+            formlogout.ShowDialog();
         }
 
         private void lbl_AppointmentCountDashboard_Click(object sender, EventArgs e)

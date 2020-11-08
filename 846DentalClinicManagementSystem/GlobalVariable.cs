@@ -20,15 +20,17 @@ namespace _846DentalClinicManagementSystem
 
         private static string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
 
-        static string path = Path.GetFullPath(Environment.CurrentDirectory);
+        public static string path = Path.GetFullPath(Environment.CurrentDirectory);
 
         private static string chart = path + @"\ISADDATABASEFINAL.mdf";
+        //testing
+        //private static string chart = projectDirectory + @"\Data\ISADDATABASEFINAL.mdf";
 
         public static string connString = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=" + chart + ";Integrated Security = True";
 
         //public static string chartImagePath = projectDirectory + @"\Resources\DentalChart2.bmp";
 
-        public static string chartImagePath = @"C:\846 Dental Mangement System\DentalChart2.bmp";
+        public static string chartImagePath = @"C:\846 Dental Management System\DentalChart2.bmp";
 
         public static int AppointmentID { get; set; }
         
@@ -96,6 +98,7 @@ namespace _846DentalClinicManagementSystem
         public static Boolean IsAppAddPanelClick { get; set; }
 
         public static Boolean IsAppAddExceptionPanelClick { get; set; }
+
 
         //-------------------------------------
 
