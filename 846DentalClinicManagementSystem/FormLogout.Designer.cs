@@ -37,7 +37,6 @@
             this.txt_formHeader = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.btn_logout = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.btn_backup = new Bunifu.Framework.UI.BunifuThinButton2();
             this.TopPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
@@ -116,7 +115,7 @@
             this.btn_logout.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(23)))), ((int)(((byte)(17)))));
             this.btn_logout.IdleForecolor = System.Drawing.SystemColors.Control;
             this.btn_logout.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(23)))), ((int)(((byte)(17)))));
-            this.btn_logout.Location = new System.Drawing.Point(70, 196);
+            this.btn_logout.Location = new System.Drawing.Point(67, 119);
             this.btn_logout.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.btn_logout.Name = "btn_logout";
             this.btn_logout.Size = new System.Drawing.Size(175, 65);
@@ -125,46 +124,19 @@
             this.btn_logout.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_logout.Click += new System.EventHandler(this.btn_logout_Click);
             // 
-            // btn_backup
-            // 
-            this.btn_backup.ActiveBorderThickness = 1;
-            this.btn_backup.ActiveCornerRadius = 35;
-            this.btn_backup.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.btn_backup.ActiveForecolor = System.Drawing.Color.White;
-            this.btn_backup.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.btn_backup.BackColor = System.Drawing.SystemColors.Control;
-            this.btn_backup.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_backup.BackgroundImage")));
-            this.btn_backup.ButtonText = "BACKUP DATABASE";
-            this.btn_backup.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_backup.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_backup.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btn_backup.IdleBorderThickness = 1;
-            this.btn_backup.IdleCornerRadius = 35;
-            this.btn_backup.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(23)))), ((int)(((byte)(17)))));
-            this.btn_backup.IdleForecolor = System.Drawing.SystemColors.Control;
-            this.btn_backup.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(23)))), ((int)(((byte)(17)))));
-            this.btn_backup.Location = new System.Drawing.Point(70, 121);
-            this.btn_backup.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.btn_backup.Name = "btn_backup";
-            this.btn_backup.Size = new System.Drawing.Size(175, 65);
-            this.btn_backup.TabIndex = 6;
-            this.btn_backup.TabStop = false;
-            this.btn_backup.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btn_backup.Click += new System.EventHandler(this.btn_backup_Click);
-            // 
             // FormLogout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.ClientSize = new System.Drawing.Size(311, 357);
+            this.ClientSize = new System.Drawing.Size(311, 274);
             this.Controls.Add(this.TopPanel2);
             this.Controls.Add(this.btn_logout);
-            this.Controls.Add(this.btn_backup);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormLogout";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormLogout";
+            this.Load += new System.EventHandler(this.FormLogout_Load);
             this.TopPanel2.ResumeLayout(false);
             this.TopPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -180,7 +152,6 @@
         private Bunifu.Framework.UI.BunifuCustomLabel txt_formHeader;
         private System.Windows.Forms.PictureBox pictureBox5;
         internal Bunifu.Framework.UI.BunifuThinButton2 btn_logout;
-        internal Bunifu.Framework.UI.BunifuThinButton2 btn_backup;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
     }
 }

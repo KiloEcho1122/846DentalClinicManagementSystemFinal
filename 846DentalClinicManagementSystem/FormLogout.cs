@@ -79,5 +79,10 @@ namespace _846DentalClinicManagementSystem
         {
             this.Hide();
         }
+
+        private void FormLogout_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

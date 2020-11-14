@@ -1665,14 +1665,24 @@ namespace _846DentalClinicManagementSystem
 
         private void ShowPatientDetails()
         {
-            GlobalVariable.PatientID = Convert.ToInt32(Patient_DataGrid.SelectedRows[0].Cells[0].Value);
-            GlobalVariable.PatientName = Patient_DataGrid.SelectedRows[0].Cells[1].Value.ToString();
-            if (GlobalVariable.PatientID > 0)
+            try
             {
-                ShowPatientInfo showPatientInfo = new ShowPatientInfo();
-                GlobalVariable.InsertActivityLog("Viewed Patient Details, Patient ID = " + GlobalVariable.PatientID, "View");
-                showPatientInfo.ShowDialog();
+                GlobalVariable.PatientID = Convert.ToInt32(Patient_DataGrid.SelectedRows[0].Cells[0].Value);
+                GlobalVariable.PatientName = Patient_DataGrid.SelectedRows[0].Cells[1].Value.ToString();
+                if (GlobalVariable.PatientID > 0)
+                {
+                    ShowPatientInfo showPatientInfo = new ShowPatientInfo();
+                    GlobalVariable.InsertActivityLog("Viewed Patient Details, Patient ID = " + GlobalVariable.PatientID, "View");
+                    showPatientInfo.ShowDialog();
+                }
             }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("Please Select Patient !", "Patient Details", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+
+            }
+            
         }
         private void btn_ShowDetails_Click(object sender, EventArgs e)
         {
@@ -1746,8 +1756,11 @@ namespace _846DentalClinicManagementSystem
 
             foreach (DataGridViewRow Row in Profit_DG.Rows)
             {
+               
+                DateTime dateProfit = Convert.ToDateTime(Row.Cells[0].Value);
+             
                 ProfitTable.Rows.Add(
-                    Row.Cells[0].Value,
+                    dateProfit.ToShortDateString(),
                     Row.Cells[1].Value,
                     Row.Cells[2].Value
                  
@@ -1756,8 +1769,9 @@ namespace _846DentalClinicManagementSystem
             }
             foreach (DataGridViewRow Row in displayExpenseDG.Rows)
             {
+                DateTime dateExpense = Convert.ToDateTime(Row.Cells[1].Value);
                 ExpenseTable.Rows.Add(
-                    Row.Cells[1].Value,
+                    dateExpense.ToShortDateString(),
                     Row.Cells[2].Value,
                     Row.Cells[3].Value
 

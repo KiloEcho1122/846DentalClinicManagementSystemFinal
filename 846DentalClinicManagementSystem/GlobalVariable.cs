@@ -24,7 +24,7 @@ namespace _846DentalClinicManagementSystem
 
         private static string chart = path + @"\ISADDATABASEFINAL.mdf";
         //testing
-        //private static string chart = projectDirectory + @"\Data\ISADDATABASEFINAL.mdf";
+       //private static string chart = projectDirectory + @"\Data\ISADDATABASEFINAL.mdf";
 
         public static string connString = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=" + chart + ";Integrated Security = True";
 
